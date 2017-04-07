@@ -20,6 +20,7 @@ public class ReadFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println(text);
 		return text;
 	}
 }
