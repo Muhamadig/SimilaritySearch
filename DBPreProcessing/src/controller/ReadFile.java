@@ -21,6 +21,7 @@ public class ReadFile {
 			e.printStackTrace();
 		}
 		System.out.println(text);
+		System.out.println();
 		return text;
 	}
 }
