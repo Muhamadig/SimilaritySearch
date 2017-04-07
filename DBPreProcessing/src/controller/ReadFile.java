@@ -12,6 +12,7 @@ public class ReadFile {
 	public static String pdfRead(String fileDest){
 		File file = new File(fileDest); 
 		String text=null;
+		int flag=1;
 		try {
 			PDDocument document = PDDocument.load(file);
 			PDFTextStripper pdfStripper = new PDFTextStripper();
