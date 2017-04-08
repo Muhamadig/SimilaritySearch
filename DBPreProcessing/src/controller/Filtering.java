@@ -32,7 +32,7 @@ public class Filtering {
 		int sum=0;
 		for(String str :SW)
 		{
-			if(words.containsKey(str))
+			if(words.containsKey(str) )
 			{
 				sum++;
 				words.remove(str);

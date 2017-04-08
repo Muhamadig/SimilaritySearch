@@ -13,7 +13,7 @@ public class Util {
 	    while (it.hasNext()) {
 	        Map.Entry pair = (Map.Entry)it.next();
 	        sum=sum.sum(sum, (int) pair.getValue());
-	        it.remove(); // avoids a ConcurrentModificationException
+	        //it.remove(); // avoids a ConcurrentModificationException
 	    }
 	    
 	    return sum; 

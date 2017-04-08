@@ -23,6 +23,7 @@ public class main {
 		System.out.println("init size:"+Util.freqSum(init_words));
 		
 		System.out.println("after filtering:\n"+swf_words.toString()+"\n");
+		System.out.println(swf_words.size());
 		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
 		
 		

@@ -90,7 +90,6 @@ public class ReadFile {
 		HashMap<String, Integer> freq=new HashMap<>();
 
 		String [] words=text.trim().split(" ");
-		//		String [] words=filter(textWords);
 		System.out.println("words in string array=" + words.length);
 		for(String str:words){
 
@@ -116,12 +115,5 @@ public class ReadFile {
 	}
 
 
-	public static String[] filter (String [] words) {
-		int len= words.length;
-		for(int i=0;i<len;i++)
-			words[i]=words[i].replaceAll("[^a-zA-Z0-9']","");
-		return words;
-	}
-
-
+	
 }
