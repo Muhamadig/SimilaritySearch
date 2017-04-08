@@ -38,62 +38,69 @@ public class ReadFile {
 	 * @param fileDest: destination word(doc,docx) file url 
 	 * @return word file text
 	 */
-	
-	public static String docxRead(String fileDest) throws IOException{
+
+	public static String docxRead(String fileDest) {
 		String text =null;
 		File file = new File(fileDest); 
-		  FileInputStream fis;
-		   XWPFWordExtractor ex = null;
-		   XWPFDocument DOC;
-		  try{
-			  fis = new FileInputStream(file.getAbsolutePath());
-			  DOC = new XWPFDocument(fis);
-			  ex = new XWPFWordExtractor(DOC);
-			  text = ex.getText();
-		  }catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		return text;
-	}
-	
-	public static String docRead (String fileDest) throws IOException
-	{
-		String text = null;
-        FileInputStream fis;
-        File file = new File(fileDest); 
-     		try {
+		FileInputStream fis;
+		XWPFWordExtractor ex = null;
+		XWPFDocument DOC;
+		try{
 			fis = new FileInputStream(file.getAbsolutePath());
-			 HWPFDocument document = new HWPFDocument(fis);
-			 text = new WordExtractor(document).getText();
-		} catch (FileNotFoundException e) {
+			DOC = new XWPFDocument(fis);
+			ex = new XWPFWordExtractor(DOC);
+			text = ex.getText();
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return text;
 	}
-	
+
+	public static String docRead (String fileDest) {
+		String text = null;
+		FileInputStream fis;
+		File file = new File(fileDest); 
+		try {
+			fis = new FileInputStream(file.getAbsolutePath());
+			HWPFDocument document = new HWPFDocument(fis);
+			text = new WordExtractor(document).getText();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return text;
+	}
+
 	/**
 	 * 
 	 * @param text : full text
 	 * @return hashmap<word,frequency> frequency vector 
 	 */
 	public static HashMap<String, Integer> textToFrequency (String text){
-		
+
 		HashMap<String, Integer> freq=new HashMap<>();
-		
+
 		String [] words=text.trim().split(" ");
-//		String [] words=filter(textWords);
+		//		String [] words=filter(textWords);
 		System.out.println("words in string array=" + words.length);
 		for(String str:words){
-			
+
 			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
 			else freq.put(str.toLowerCase(), 1);
 		}
 		if(freq.containsKey(""))freq.remove("");
 		return freq;
 	}
-	
+
 	/**
 	 * 
 	 * @param dest: the file name and url
@@ -103,18 +110,18 @@ public class ReadFile {
 	public static HashMap<String, Integer> ReadFile(String dest,String type){
 		String text = null;
 		if(type.equals("pdf")) text=pdfRead(dest);
-		if(type.equals("dox")||type.equals("docx")) text=docxRead(dest);
+		if(type.equals("doc")) text=docRead(dest);
+		if(type.equals("docx")) text=docxRead(dest);
 		return textToFrequency(text);
 	}
-	
-	
-	public static String[] filter (String [] words)
-	{
+
+
+	public static String[] filter (String [] words) {
 		int len= words.length;
 		for(int i=0;i<len;i++)
 			words[i]=words[i].replaceAll("[^a-zA-Z0-9']","");
 		return words;
 	}
-	
-	
+
+
 }
