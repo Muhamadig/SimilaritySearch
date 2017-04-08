@@ -14,7 +14,7 @@ public class main {
 		String text=ReadFile.pdfRead("PDFs/file1_EN.pdf");
 		HashMap<String, Integer> vector=ReadFile.textToFrequency(text);
 		
-		System.out.println(vector.toString());
+		// System.out.println(vector.toString());
 		//System.out.println(text.trim().length());
 		System.out.println(vector.size());
 		
@@ -26,6 +26,7 @@ public class main {
 		{
 			str=it.next();
 			sum=sum+vector.get(str);
+			System.out.println(str+"="+vector.get(str));
 		}
 		
 		System.out.println(sum);
