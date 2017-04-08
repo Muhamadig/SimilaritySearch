@@ -1,11 +1,17 @@
 package controller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class ReadFile {
 
@@ -24,8 +30,38 @@ public class ReadFile {
 		return text;
 	}
 	
-	public static String docxRead(String fileDest){
-		return null;
+	public static String docxRead(String fileDest) throws IOException{
+		String text =null;
+		File file = new File(fileDest); 
+		  FileInputStream fis;
+		   XWPFWordExtractor ex = null;
+		   XWPFDocument DOC;
+		  try{
+			  fis = new FileInputStream(file.getAbsolutePath());
+			  DOC = new XWPFDocument(fis);
+			  ex = new XWPFWordExtractor(DOC);
+			  text = ex.getText();
+		  }catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return text;
+	}
+	
+	public static String docRead (String fileDest) throws IOException
+	{
+		String text = null;
+        FileInputStream fis;
+        File file = new File(fileDest); 
+     		try {
+			fis = new FileInputStream(file.getAbsolutePath());
+			 HWPFDocument document = new HWPFDocument(fis);
+			 text = new WordExtractor(document).getText();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return text;
 	}
 	
 	public static HashMap<String, Integer> textToFrequency (String text){

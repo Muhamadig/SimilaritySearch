@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -8,10 +9,10 @@ import controller.ReadFile;
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		String text=ReadFile.pdfRead("PDFs/file1_EN.pdf");
+		String text=ReadFile.docxRead("DOCs/file1_EN.docx");
 		HashMap<String, Integer> vector=ReadFile.textToFrequency(text);
 		
 		System.out.println(vector.toString());
