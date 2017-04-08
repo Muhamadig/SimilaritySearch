@@ -90,12 +90,9 @@ public class ReadFile {
 		HashMap<String, Integer> freq=new HashMap<>();
 
 		String [] words=text.trim().split(" ");
-<<<<<<< HEAD
 		//		String [] words=filter(textWords);
 		
-=======
 		System.out.println("words in string array=" + words.length);
->>>>>>> 949c0a560761be373a5005a578aef83e3ba48516
 		for(String str:words){
 
 			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
