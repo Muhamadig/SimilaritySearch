@@ -14,7 +14,7 @@ public class main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		String text=ReadFile.docxRead("DOCs/file1_EN.docx");
+		String text=ReadFile.pdfRead("PDFs/file1_SP.pdf");
 		HashMap<String, Integer> vector=ReadFile.textToFrequency(text);
 		
 		System.out.println(vector.toString());
@@ -33,7 +33,7 @@ public class main {
 		
 		//System.out.println(sum);
 		
-		ArrayList<String> StopWords = Filtering.getSW("english");
+		ArrayList<String> StopWords = Filtering.getSW("Spanish");
 		//System.out.println(StopWords.size());
 		vector = Filtering.RemoveSW(vector, StopWords);
 		System.out.println(vector.size());
