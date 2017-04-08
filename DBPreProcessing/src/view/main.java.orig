@@ -23,10 +23,19 @@ public class main {
 		System.out.println("after filtering size:"+ swf_words.size());
 		System.out.println(swf_words.size());
 		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 6eb0b7bf8fc297e971987b3563a6b5c0c714d2f8
 		System.out.println("after filtering size:"+ swf_words.size());
 
 		System.out.println(swf_words.size());
 		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6eb0b7bf8fc297e971987b3563a6b5c0c714d2f8
 		
 		
 		
