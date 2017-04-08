@@ -27,18 +27,19 @@ public class Filtering {
 		}
 	}
 
-	public static HashMap <String,Integer> RemoveSW (HashMap <String,Integer> words , ArrayList<String> SW)
+	public static HashMap <String,Integer> RemoveSW(HashMap <String,Integer> words , ArrayList<String> SW)
 	{
 		int sum=0;
-		for(String str :SW)
+		HashMap<String,Integer> temp = (HashMap <String,Integer>) words.clone();
+		for(String str:SW)
 		{
-			if(words.containsKey(str))
+			if(temp.containsKey(str))
 			{
 				sum++;
-				words.remove(str);
+				temp.remove(str);
 			}
 		}
 		System.out.println(sum);
-		return words;
+		return temp;
 	}
 }

@@ -91,13 +91,14 @@ public class ReadFile {
 
 		String [] words=text.trim().split(" ");
 		//		String [] words=filter(textWords);
-		System.out.println("words in string array=" + words.length);
+		
 		for(String str:words){
 
 			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
 			else freq.put(str.toLowerCase(), 1);
 		}
 		if(freq.containsKey(""))freq.remove("");
+		System.out.println("words in string array=" + freq.size());
 		return freq;
 	}
 
