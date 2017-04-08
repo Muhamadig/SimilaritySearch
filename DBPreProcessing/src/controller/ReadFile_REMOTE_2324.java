@@ -15,11 +15,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class ReadFile {
 
-	/**
-	 * 
-	 * @param fileDest destination pdf file url 
-	 * @return pdf file text
-	 */
+	
 	public static String pdfRead(String fileDest){
 		File file = new File(fileDest); 
 		String text=null;
@@ -33,15 +29,6 @@ public class ReadFile {
 		}
 		return text;
 	}
-<<<<<<< HEAD
-	/**
-	 * 
-	 * @param fileDest: destination word(doc,docx) file url 
-	 * @return word file text
-	 */
-	public static String docxRead(String fileDest){
-		return null;
-=======
 	
 	public static String docxRead(String fileDest) throws IOException{
 		String text =null;
@@ -75,43 +62,23 @@ public class ReadFile {
 			e.printStackTrace();
 		}
 		return text;
->>>>>>> 0684d14306004021b891d9e0c68b9fa99e4b47f1
 	}
 	
-	/**
-	 * 
-	 * @param text : full text
-	 * @return hashmap<word,frequency> frequency vector 
-	 */
 	public static HashMap<String, Integer> textToFrequency (String text){
 		
 		HashMap<String, Integer> freq=new HashMap<>();
 		
-		String [] words=text.trim().split(" ");
-//		String [] words=filter(textWords);
+		String [] textWords=text.trim().split(" ");
+		String [] words=filter(textWords);
 		System.out.println("words in string array=" + words.length);
 		for(String str:words){
 			
 			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
 			else freq.put(str.toLowerCase(), 1);
 		}
-		if(freq.containsKey(""))freq.remove("");
+		freq.remove("");
 		return freq;
 	}
-	
-	/**
-	 * 
-	 * @param dest: the file name and url
-	 * @param type: file type (pdf,doc,docx...)
-	 * @return file words frequency vector.
-	 */
-	public static HashMap<String, Integer> ReadFile(String dest,String type){
-		String text = null;
-		if(type.equals("pdf")) text=pdfRead(dest);
-		if(type.equals("dox")||type.equals("docx")) text=docxRead(dest);
-		return textToFrequency(text);
-	}
-	
 	
 	public static String[] filter (String [] words)
 	{
@@ -120,6 +87,4 @@ public class ReadFile {
 			words[i]=words[i].replaceAll("[^a-zA-Z0-9']","");
 		return words;
 	}
-	
-	
 }

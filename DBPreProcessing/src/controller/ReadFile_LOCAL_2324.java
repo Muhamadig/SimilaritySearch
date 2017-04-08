@@ -1,17 +1,11 @@
 package controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 public class ReadFile {
 
@@ -33,7 +27,6 @@ public class ReadFile {
 		}
 		return text;
 	}
-<<<<<<< HEAD
 	/**
 	 * 
 	 * @param fileDest: destination word(doc,docx) file url 
@@ -41,41 +34,6 @@ public class ReadFile {
 	 */
 	public static String docxRead(String fileDest){
 		return null;
-=======
-	
-	public static String docxRead(String fileDest) throws IOException{
-		String text =null;
-		File file = new File(fileDest); 
-		  FileInputStream fis;
-		   XWPFWordExtractor ex = null;
-		   XWPFDocument DOC;
-		  try{
-			  fis = new FileInputStream(file.getAbsolutePath());
-			  DOC = new XWPFDocument(fis);
-			  ex = new XWPFWordExtractor(DOC);
-			  text = ex.getText();
-		  }catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		return text;
-	}
-	
-	public static String docRead (String fileDest) throws IOException
-	{
-		String text = null;
-        FileInputStream fis;
-        File file = new File(fileDest); 
-     		try {
-			fis = new FileInputStream(file.getAbsolutePath());
-			 HWPFDocument document = new HWPFDocument(fis);
-			 text = new WordExtractor(document).getText();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return text;
->>>>>>> 0684d14306004021b891d9e0c68b9fa99e4b47f1
 	}
 	
 	/**
@@ -92,8 +50,8 @@ public class ReadFile {
 		System.out.println("words in string array=" + words.length);
 		for(String str:words){
 			
-			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
-			else freq.put(str.toLowerCase(), 1);
+			if(freq.containsKey(str)) freq.replace(str, freq.get(str),freq.get(str)+1 );
+			else freq.put(str, 1);
 		}
 		if(freq.containsKey(""))freq.remove("");
 		return freq;
@@ -120,6 +78,4 @@ public class ReadFile {
 			words[i]=words[i].replaceAll("[^a-zA-Z0-9']","");
 		return words;
 	}
-	
-	
 }

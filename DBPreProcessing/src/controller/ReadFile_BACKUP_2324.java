@@ -120,6 +120,4 @@ public class ReadFile {
 			words[i]=words[i].replaceAll("[^a-zA-Z0-9']","");
 		return words;
 	}
-	
-	
 }
