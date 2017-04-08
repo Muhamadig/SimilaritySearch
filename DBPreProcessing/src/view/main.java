@@ -20,18 +20,13 @@ public class main {
 		System.out.println("init size:"+init_words.size());
 		
 		System.out.println("after filtering:\n"+swf_words.toString()+"\n");
-<<<<<<< HEAD
 		System.out.println("after filtering size:"+ swf_words.size());
 		System.out.println(swf_words.size());
 		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
-=======
-
 		System.out.println("after filtering size:"+ swf_words.size());
 
 		System.out.println(swf_words.size());
 		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
-
->>>>>>> ace30c9d6550a6b96905b4cce6eec47fac8cd6a6
 		
 		
 		
