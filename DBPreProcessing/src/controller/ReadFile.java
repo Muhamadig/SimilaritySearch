@@ -73,8 +73,8 @@ public class ReadFile {
 		System.out.println("words in string array=" + words.length);
 		for(String str:words){
 			
-			if(freq.containsKey(str)) freq.replace(str, freq.get(str),freq.get(str)+1 );
-			else freq.put(str, 1);
+			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
+			else freq.put(str.toLowerCase(), 1);
 		}
 		freq.remove("");
 		return freq;

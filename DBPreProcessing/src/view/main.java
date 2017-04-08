@@ -1,10 +1,12 @@
 package view;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import controller.Filtering;
 import controller.ReadFile;
 
 public class main {
@@ -29,7 +31,13 @@ public class main {
 			sum=sum+vector.get(str);
 		}
 		
-		System.out.println(sum);
+		//System.out.println(sum);
+		
+		ArrayList<String> StopWords = Filtering.getSW("english");
+		//System.out.println(StopWords.size());
+		vector = Filtering.RemoveSW(vector, StopWords);
+		System.out.println(vector.size());
+		//System.out.println(vector.toString());
 	}
 
 }
