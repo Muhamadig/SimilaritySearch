@@ -33,15 +33,11 @@ public class ReadFile {
 		}
 		return text;
 	}
-<<<<<<< HEAD
 	/**
 	 * 
 	 * @param fileDest: destination word(doc,docx) file url 
 	 * @return word file text
 	 */
-	public static String docxRead(String fileDest){
-		return null;
-=======
 	
 	public static String docxRead(String fileDest) throws IOException{
 		String text =null;
@@ -75,7 +71,6 @@ public class ReadFile {
 			e.printStackTrace();
 		}
 		return text;
->>>>>>> 0684d14306004021b891d9e0c68b9fa99e4b47f1
 	}
 	
 	/**
