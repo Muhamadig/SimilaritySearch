@@ -1,6 +1,7 @@
 package view;
 
 import java.io.IOException;
+import java.nio.file.DirectoryStream.Filter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,37 +9,24 @@ import java.util.Set;
 
 import controller.Filtering;
 import controller.ReadFile;
+import controller.Util;
 
 public class main {
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) {
+		HashMap<String, Integer> init_words= ReadFile.ReadFile("PDFs/test.pdf", "pdf");
+		ArrayList<String>sw_eng= Filtering.getSW("english");
+		HashMap<String, Integer> swf_words=Filtering.RemoveSW(init_words, sw_eng);
 		
-		String text=ReadFile.pdfRead("PDFs/file1_SP.pdf");
-		HashMap<String, Integer> vector=ReadFile.textToFrequency(text);
+		System.out.println("Test :");
+		System.out.println("initial:\n"+init_words.toString()+"\n");
+		System.out.println("init size:"+Util.freqSum(init_words));
 		
-		// System.out.println(vector.toString());
-		//System.out.println(text.trim().length());
-		System.out.println(vector.size());
+		System.out.println("after filtering:\n"+swf_words.toString()+"\n");
+		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
 		
-		Set <String> keys = vector.keySet();
-		Iterator<String> it = keys.iterator();
-		String str = null;
-		int sum=0;
-		while (it.hasNext())
-		{
-			str=it.next();
-			sum=sum+vector.get(str);
-			System.out.println(str+"="+vector.get(str));
-		}
 		
-		//System.out.println(sum);
 		
-		ArrayList<String> StopWords = Filtering.getSW("Spanish");
-		//System.out.println(StopWords.size());
-		vector = Filtering.RemoveSW(vector, StopWords);
-		System.out.println(vector.size());
-		//System.out.println(vector.toString());
 	}
 
 }
