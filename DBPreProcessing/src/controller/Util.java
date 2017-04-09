@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import model.FrequencyVector;
+
 public class Util {
 	
 	
@@ -27,14 +29,14 @@ public class Util {
 	}
 
 
-	public static <K extends Comparable,V extends Comparable> HashMap<K,V> sortByKeys(HashMap<K,V> map){
-		ArrayList <K> keys = new ArrayList<K>(map.keySet());
+	public static  FrequencyVector sortByKeys(FrequencyVector map){
+		ArrayList <String> keys = new ArrayList<String>(map.keySet());
         Collections.sort(keys);
       
         //LinkedHashMap will keep the keys in the order they are inserted
         //which is currently sorted on natural ordering
-        HashMap<K,V> sortedMap = new LinkedHashMap<K,V>();
-        for(K key: keys){
+        FrequencyVector sortedMap = new FrequencyVector();
+        for(String key: keys){
             sortedMap.put(key, map.get(key));
         }
       

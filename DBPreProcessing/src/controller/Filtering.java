@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import model.FrequencyVector;
 public class Filtering {
 
 
@@ -27,10 +29,10 @@ public class Filtering {
 		}
 	}
 
-	public static HashMap <String,Integer> RemoveSW(HashMap <String,Integer> words , ArrayList<String> SW)
+	public static FrequencyVector RemoveSW(FrequencyVector words , ArrayList<String> SW)
 	{
 		int sum=0;
-		HashMap<String,Integer> temp = (HashMap <String,Integer>) words.clone();
+		FrequencyVector temp = (FrequencyVector) words.clone();
 		for(String str:SW)
 		{
 			if(temp.containsKey(str))

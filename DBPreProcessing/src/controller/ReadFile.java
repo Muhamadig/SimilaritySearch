@@ -13,6 +13,8 @@ import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
+import model.FrequencyVector;
+
 public class ReadFile {
 
 	/**
@@ -85,9 +87,9 @@ public class ReadFile {
 	 * @param text : full text
 	 * @return hashmap<word,frequency> frequency vector 
 	 */
-	public static HashMap<String, Integer> textToFrequency (String text){
+	public static FrequencyVector textToFrequency (String text){
 
-		HashMap<String, Integer> freq=new HashMap<>();
+		FrequencyVector freq=new FrequencyVector();
 
 		String [] words=text.trim().split(" ");
 		//		String [] words=filter(textWords);
@@ -113,7 +115,7 @@ public class ReadFile {
 	 * @param type: file type (pdf,doc,docx...)
 	 * @return file words frequency vector.
 	 */
-	public static HashMap<String, Integer> ReadFile(String dest,String type){
+	public static FrequencyVector ReadFile(String dest,String type){
 		String text = null;
 		if(type.equals("pdf")) text=pdfRead(dest);
 		if(type.equals("doc")) text=docRead(dest);
