@@ -91,7 +91,11 @@ public class ReadFile {
 
 		String [] words=text.trim().split(" ");
 		//		String [] words=filter(textWords);
-		
+		for (int i=0;i<words.length;i++)
+		{
+			words[i] = words[i].replace("\r", "");
+			words[i] = words[i].replace("\n", "");
+		}
 		System.out.println("words in string array=" + words.length);
 		for(String str:words){
 

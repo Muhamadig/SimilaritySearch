@@ -2,7 +2,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.Map;
 
 import controller.Filtering;
 import controller.ReadFile;
@@ -21,15 +21,8 @@ public class main {
 		
 		System.out.println("after filtering:\n"+swf_words.toString()+"\n");
 		System.out.println("after filtering size:"+ swf_words.size());
-		System.out.println(swf_words.size());
-		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
-		System.out.println("after filtering size:"+ swf_words.size());
-
-		System.out.println(swf_words.size());
-		System.out.println("after filtering size:"+ Util.freqSum(swf_words));
-		
-		
-		
+		HashMap <String,Integer> sortedWords = Util.sortByKeys(swf_words);
+		System.out.println(sortedWords.toString());
 	}
 
 }
