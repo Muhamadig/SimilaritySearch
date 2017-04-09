@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class FrequencyVector extends HashMap<String, Integer>{
 	private int Sum;
+	
+	
 	public FrequencyVector(){
 		super();
 		Sum=0;
