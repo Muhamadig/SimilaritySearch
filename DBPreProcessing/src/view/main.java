@@ -6,6 +6,7 @@ import java.util.Map;
 
 import controller.StopWordsFiltering;
 import controller.ReadFile;
+import controller.Stemmer;
 import controller.Util;
 import model.FrequencyVector;
 
