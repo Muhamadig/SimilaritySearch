@@ -25,6 +25,7 @@ public class main {
 		System.out.println(stm.stem("explosion"));
 		SnowballStemmer sns=new SnowballStemmer(ALGORITHM.ENGLISH);
 		System.out.println(sns.stem("working"));
+		System.err.println();
 		
 
 	}
