@@ -16,7 +16,6 @@
  */
 
 package controller.stemmer.snowball;
-
 import controller.stemmer.Stemmer;
 
 public class SnowballStemmer implements Stemmer {
