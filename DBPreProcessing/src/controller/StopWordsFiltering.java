@@ -9,7 +9,12 @@ import model.FrequencyVector;
 public class StopWordsFiltering {
 
 
-	public static ArrayList <String> getSW(String language)
+	/**
+	 * 
+	 * @param language the language of the stop words.
+	 * @return array list of the stop words
+	 */
+	private static ArrayList <String> getSW(String language)
 	{
 		ArrayList<String> SW =new ArrayList<String>(); 
 		try
@@ -29,6 +34,13 @@ public class StopWordsFiltering {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * @param words Frequency vector 
+	 * @param language The language of the text(english,spanish...)
+	 * @return Frequency vector of words without stop wods.
+	 */
 	public static FrequencyVector RemoveSW(FrequencyVector words , String language)
 	{
 		int sum=0;

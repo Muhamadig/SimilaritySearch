@@ -113,9 +113,9 @@ public class ReadFile {
 
 	/**
 	 * 
-	 * @param dest: the file name and url
-	 * @param type: file type (pdf,doc,docx...)
-	 * @return file words frequency vector.
+	 * @param dest The file destination and name for example (file1_EN.pdf).
+	 * @param type the file type (pdf,doc,docx).
+	 * @return the text as String in lower case.
 	 */
 	public static String ReadFile(String dest,String type){
 		String text = null;
