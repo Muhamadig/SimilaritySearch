@@ -11,26 +11,21 @@ import org.apache.lucene.analysis.en.*;
 public class main {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		
-		String str= ReadFile.ReadFile("PDFs/file1_EN.pdf","pdf");
-		System.out.println(str);
-		FrequencyVector str_freq=ReadFile.textToFrequency(str);
-		System.out.println(str_freq);
-		FrequencyVector SWF=StopWordsFiltering.RemoveSW(str_freq, "english");
-		System.out.println(SWF);
-		
-		
-
-=======
 		FrequencyVector init_words= ReadFile.ReadFile("PDFs/file1_EN.pdf", "pdf");
 		FrequencyVector swf_words=StopWordsFiltering.RemoveSW(init_words, "english");
 		PorterStemmer ss= new PorterStemmer();
-		ss.reset();
-		System.out.println(ss.stem("libraries"));
+	
+		//System.out.println(ss.stem("libraries"));
 		SnowballStemmer sns=new SnowballStemmer(ALGORITHM.ENGLISH);
-		System.out.println(sns.stem("libraries"));
->>>>>>> b5c0ff2447b51e7491d9199461b5ed4784d2360b
+		//System.out.println(sns.stem("libraries"));
+		
+		String words[] = {"libraries" , "banking" , "banks", "banker", "banked" , "bankart"};
+		for(String str : words)
+		{
+			ss.reset();
+			String stem = ss.stem(str);
+			System.out.println("Word: "+str+" Stem: "+stem);
+		}
 	}
 
 }
