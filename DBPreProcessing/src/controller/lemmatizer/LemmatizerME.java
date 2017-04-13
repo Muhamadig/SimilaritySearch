@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,11 +33,11 @@ import opennlp.tools.ml.TrainerFactory.TrainerType;
 import opennlp.tools.ml.model.Event;
 import opennlp.tools.ml.model.MaxentModel;
 import opennlp.tools.ml.model.SequenceClassificationModel;
-import opennlp.tools.util.ObjectStream;
-import opennlp.tools.util.Sequence;
-import opennlp.tools.util.SequenceValidator;
-import opennlp.tools.util.StringUtil;
-import opennlp.tools.util.TrainingParameters;
+import controller.util.ObjectStream;
+import controller.util.Sequence;
+import controller.util.SequenceValidator;
+import controller.util.StringUtil;
+import controller.util.TrainingParameters;
 
 /**
  * A probabilistic lemmatizer.  Tries to predict the induced permutation class

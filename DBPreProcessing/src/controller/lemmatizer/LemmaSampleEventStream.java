@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,8 +23,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import opennlp.tools.ml.model.Event;
-import opennlp.tools.util.AbstractEventStream;
-import opennlp.tools.util.ObjectStream;
+import controller.util.AbstractEventStream;
+import controller.util.ObjectStream;
 
 /**
  * Class for creating an event stream out of data files for training a probabilistic lemmatizer.

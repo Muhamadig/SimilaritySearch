@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
-import opennlp.tools.util.BaseToolFactory;
-import opennlp.tools.util.InvalidFormatException;
-import opennlp.tools.util.SequenceValidator;
-import opennlp.tools.util.ext.ExtensionLoader;
+import controller.util.BaseToolFactory;
+import controller.util.InvalidFormatException;
+import controller.util.SequenceValidator;
+import controller.util.ext.ExtensionLoader;
 
 public class LemmatizerFactory extends BaseToolFactory {
 

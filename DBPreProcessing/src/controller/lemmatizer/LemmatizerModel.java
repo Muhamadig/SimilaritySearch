@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,9 +28,9 @@ import opennlp.tools.ml.BeamSearch;
 import opennlp.tools.ml.model.AbstractModel;
 import opennlp.tools.ml.model.MaxentModel;
 import opennlp.tools.ml.model.SequenceClassificationModel;
-import opennlp.tools.util.BaseToolFactory;
-import opennlp.tools.util.InvalidFormatException;
-import opennlp.tools.util.model.BaseModel;
+import controller.util.BaseToolFactory;
+import controller.util.InvalidFormatException;
+import controller.util.model.BaseModel;
 
 /**
  * The {@link LemmatizerModel} is the model used

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ import opennlp.tools.ml.model.AbstractModel;
 import opennlp.tools.ml.model.Event;
 import opennlp.tools.ml.model.Sequence;
 import opennlp.tools.ml.model.SequenceStream;
-import opennlp.tools.util.ObjectStream;
+import controller.util.ObjectStream;
 
 public class LemmaSampleSequenceStream implements SequenceStream {
 

@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
-import opennlp.tools.util.eval.EvaluationMonitor;
+import controller.util.eval.EvaluationMonitor;
 
 /**
  * Interface for the lemmatizer evaluator.

@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
-import opennlp.tools.util.eval.Evaluator;
-import opennlp.tools.util.eval.Mean;
+import controller.util.eval.Evaluator;
+import controller.util.eval.Mean;
 
 /**
  * The {@link LemmatizerEvaluator} measures the performance of

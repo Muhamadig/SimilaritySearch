@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import opennlp.tools.util.FilterObjectStream;
-import opennlp.tools.util.ObjectStream;
+import controller.util.FilterObjectStream;
+import controller.util.ObjectStream;
 
 
 /**

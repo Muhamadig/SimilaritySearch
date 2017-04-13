@@ -18,4 +18,4 @@
 /**
  * Package related with the lemmatizer tool
  */
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;

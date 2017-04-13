@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
-import opennlp.tools.util.BeamSearchContextGenerator;
+import controller.util.BeamSearchContextGenerator;
 
 /**
  * Interface for the context generator used for probabilistic lemmatizer.

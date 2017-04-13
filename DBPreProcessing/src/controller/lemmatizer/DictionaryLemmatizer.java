@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.lemmatizer;
+package controller.lemmatizer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
