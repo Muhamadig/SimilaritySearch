@@ -14,9 +14,10 @@ public class main {
 		FrequencyVector init_words= ReadFile.ReadFile("PDFs/file1_EN.pdf", "pdf");
 		FrequencyVector swf_words=StopWordsFiltering.RemoveSW(init_words, "english");
 		PorterStemmer ss= new PorterStemmer();
-		System.out.println(ss.stem("funniest"));
+		ss.reset();
+		System.out.println(ss.stem("libraries"));
 		SnowballStemmer sns=new SnowballStemmer(ALGORITHM.ENGLISH);
-		System.out.println(sns.stem("funniest"));
+		System.out.println(sns.stem("libraries"));
 	}
 
 }
