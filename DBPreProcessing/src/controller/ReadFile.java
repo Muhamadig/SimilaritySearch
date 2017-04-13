@@ -22,7 +22,7 @@ public class ReadFile {
 	 * @param fileDest destination pdf file url 
 	 * @return pdf file text
 	 */
-	public static String pdfRead(String fileDest){
+	private static String pdfRead(String fileDest){
 		File file = new File(fileDest); 
 		String text=null;
 		try {
@@ -33,7 +33,7 @@ public class ReadFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return text;
+		return text.toLowerCase();
 	}
 	/**
 	 * 
@@ -41,7 +41,7 @@ public class ReadFile {
 	 * @return word file text
 	 */
 
-	public static String docxRead(String fileDest) {
+	private static String docxRead(String fileDest) {
 		String text =null;
 		File file = new File(fileDest); 
 		FileInputStream fis;
@@ -60,10 +60,10 @@ public class ReadFile {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return text;
+		return text.toLowerCase();
 	}
 
-	public static String docRead (String fileDest) {
+	private static String docRead (String fileDest) {
 		String text = null;
 		FileInputStream fis;
 		File file = new File(fileDest); 
@@ -79,7 +79,8 @@ public class ReadFile {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return text;
+		return text.toLowerCase();
+		
 	}
 
 	/**
@@ -92,6 +93,7 @@ public class ReadFile {
 		FrequencyVector freq=new FrequencyVector();
 
 		String [] words=text.trim().split(" ");
+		
 		//		String [] words=filter(textWords);
 		for (int i=0;i<words.length;i++)
 		{
@@ -115,12 +117,12 @@ public class ReadFile {
 	 * @param type: file type (pdf,doc,docx...)
 	 * @return file words frequency vector.
 	 */
-	public static FrequencyVector ReadFile(String dest,String type){
+	public static String ReadFile(String dest,String type){
 		String text = null;
 		if(type.equals("pdf")) text=pdfRead(dest);
 		if(type.equals("doc")) text=docRead(dest);
 		if(type.equals("docx")) text=docxRead(dest);
-		return textToFrequency(text);
+		return text;
 	}
 
 
