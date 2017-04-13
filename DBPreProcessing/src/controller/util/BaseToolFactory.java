@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util;
+package controller.util;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import opennlp.tools.util.ext.ExtensionLoader;
-import opennlp.tools.util.model.ArtifactProvider;
-import opennlp.tools.util.model.ArtifactSerializer;
+import controller.util.ext.ExtensionLoader;
+import controller.util.model.ArtifactProvider;
+import controller.util.model.ArtifactSerializer;
 
 /**
  * Base class for all tool factories.

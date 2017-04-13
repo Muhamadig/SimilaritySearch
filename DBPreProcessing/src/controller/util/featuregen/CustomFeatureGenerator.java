@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.Map;
 
-import opennlp.tools.util.InvalidFormatException;
+import controller.util.InvalidFormatException;
 
 public abstract class CustomFeatureGenerator implements AdaptiveFeatureGenerator {
 

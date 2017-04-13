@@ -18,4 +18,4 @@
 /**
  * Package containing utility data structures and algorithms used by multiple other packages.
  */
-package opennlp.tools.util;
+package controller.util;

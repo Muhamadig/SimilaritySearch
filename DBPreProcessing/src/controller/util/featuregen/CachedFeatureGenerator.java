@@ -16,12 +16,12 @@
  */
 
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import opennlp.tools.util.Cache;
+import controller.util.Cache;
 
 /**
  * Caches features of the aggregated {@link AdaptiveFeatureGenerator}s.

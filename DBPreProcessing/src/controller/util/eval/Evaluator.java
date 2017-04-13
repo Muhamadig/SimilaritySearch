@@ -16,14 +16,14 @@
  */
 
 
-package opennlp.tools.util.eval;
+package controller.util.eval;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import opennlp.tools.util.ObjectStream;
+import controller.util.ObjectStream;
 
 /**
  * The {@link Evaluator} is an abstract base class for evaluators.

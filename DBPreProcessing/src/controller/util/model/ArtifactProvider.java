@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.model;
+package controller.util.model;
 
 /**
  * Provides access to model persisted artifacts.

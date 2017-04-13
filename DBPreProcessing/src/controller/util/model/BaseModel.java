@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.model;
+package controller.util.model;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -36,10 +36,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import opennlp.tools.util.BaseToolFactory;
-import opennlp.tools.util.InvalidFormatException;
-import opennlp.tools.util.Version;
-import opennlp.tools.util.ext.ExtensionLoader;
+import controller.util.BaseToolFactory;
+import controller.util.InvalidFormatException;
+import controller.util.Version;
+import controller.util.ext.ExtensionLoader;
 
 /**
  * This model is a common based which can be used by the components

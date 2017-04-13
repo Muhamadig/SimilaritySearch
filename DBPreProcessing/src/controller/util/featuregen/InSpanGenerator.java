@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.List;
 import java.util.Objects;
 
 import opennlp.tools.namefind.TokenNameFinder;
-import opennlp.tools.util.Span;
+import controller.util.Span;
 
 /**
  * Generates features if the tokens are recognized by the provided

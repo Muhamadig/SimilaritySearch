@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,9 +43,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import opennlp.tools.dictionary.Dictionary;
-import opennlp.tools.util.InvalidFormatException;
-import opennlp.tools.util.ext.ExtensionLoader;
-import opennlp.tools.util.model.ArtifactSerializer;
+import controller.util.InvalidFormatException;
+import controller.util.ext.ExtensionLoader;
+import controller.util.model.ArtifactSerializer;
 
 /**
  * Creates a set of feature generators based on a provided XML descriptor.

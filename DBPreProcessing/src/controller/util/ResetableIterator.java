@@ -16,7 +16,7 @@
  */
 
 
-package opennlp.tools.util;
+package controller.util;
 
 import java.util.Iterator;
 

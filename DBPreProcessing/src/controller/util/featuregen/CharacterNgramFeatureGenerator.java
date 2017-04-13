@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.List;
 
 import opennlp.tools.ngram.NGramModel;
-import opennlp.tools.util.StringList;
-import opennlp.tools.util.StringUtil;
+import controller.util.StringList;
+import controller.util.StringUtil;
 
 /**
  * The {@link CharacterNgramFeatureGenerator} uses character ngrams to

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.ext;
+package controller.util.ext;
 
 /**
  * Exception indicates that an OpenNLP extension could not be loaded.

@@ -16,7 +16,7 @@
  */
 
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.ArrayList;
 import java.util.List;

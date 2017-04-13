@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.Map;
 
-import opennlp.tools.util.model.ArtifactSerializer;
+import controller.util.model.ArtifactSerializer;
 
 public interface ArtifactToSerializerMapper {
   Map<String, ArtifactSerializer<?>> getArtifactSerializerMapping();

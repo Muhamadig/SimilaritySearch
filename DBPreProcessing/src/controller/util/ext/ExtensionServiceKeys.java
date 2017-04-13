@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.ext;
+package controller.util.ext;
 
 public class ExtensionServiceKeys {
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.ext;
+package controller.util.ext;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

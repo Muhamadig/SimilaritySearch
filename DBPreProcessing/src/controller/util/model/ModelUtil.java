@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.model;
+package controller.util.model;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -32,7 +32,7 @@ import opennlp.tools.ml.maxent.GISTrainer;
 import opennlp.tools.ml.model.AbstractModel;
 import opennlp.tools.ml.model.GenericModelWriter;
 import opennlp.tools.ml.model.MaxentModel;
-import opennlp.tools.util.TrainingParameters;
+import controller.util.TrainingParameters;
 
 /**
  * Utility class for handling of {@link MaxentModel}s.

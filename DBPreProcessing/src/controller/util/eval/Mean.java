@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.eval;
+package controller.util.eval;
 
 /**
  * Calculates the arithmetic mean of values

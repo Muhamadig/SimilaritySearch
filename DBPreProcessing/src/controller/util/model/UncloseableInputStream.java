@@ -16,7 +16,7 @@
  */
 
 
-package opennlp.tools.util.model;
+package controller.util.model;
 
 import java.io.FilterInputStream;
 import java.io.IOException;

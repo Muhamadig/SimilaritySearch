@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.HashMap;
 import java.util.List;

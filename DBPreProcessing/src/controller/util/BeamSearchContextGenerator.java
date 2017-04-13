@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util;
+package controller.util;
 
 /**
  * Interface for context generators used with a sequence beam search.

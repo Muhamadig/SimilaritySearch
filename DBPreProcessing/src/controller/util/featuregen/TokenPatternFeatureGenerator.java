@@ -16,14 +16,14 @@
  */
 
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
 import opennlp.tools.tokenize.SimpleTokenizer;
 import opennlp.tools.tokenize.Tokenizer;
-import opennlp.tools.util.StringUtil;
+import controller.util.StringUtil;
 
 /**
  * Partitions tokens into sub-tokens based on character classes and generates

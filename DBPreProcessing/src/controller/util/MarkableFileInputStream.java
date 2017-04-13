@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util;
+package controller.util;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -18,4 +18,4 @@
 /**
  * This package contains classes for generating sequence features.
  */
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;

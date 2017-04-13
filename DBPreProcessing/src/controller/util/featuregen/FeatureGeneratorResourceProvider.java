@@ -16,7 +16,7 @@
  */
 
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 /**
  * The {@link FeatureGeneratorResourceProvider} provides access to the resources

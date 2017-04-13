@@ -16,11 +16,11 @@
  */
 
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.util.List;
 
-import opennlp.tools.util.StringUtil;
+import controller.util.StringUtil;
 
 /**
  * Generates a feature which contains the token itself.

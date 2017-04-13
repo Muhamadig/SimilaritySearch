@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util;
+package controller.util;
 
 import java.util.Arrays;
 import java.util.Iterator;

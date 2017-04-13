@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package opennlp.tools.util.featuregen;
+package controller.util.featuregen;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,8 +29,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-import opennlp.tools.util.model.ArtifactSerializer;
-import opennlp.tools.util.model.SerializableArtifact;
+import controller.util.model.ArtifactSerializer;
+import controller.util.model.SerializableArtifact;
 
 public class WordClusterDictionary implements SerializableArtifact {
 
