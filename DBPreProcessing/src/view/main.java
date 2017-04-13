@@ -11,6 +11,7 @@ import org.apache.lucene.analysis.en.*;
 public class main {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		
 		String str= ReadFile.ReadFile("PDFs/file1_EN.pdf","pdf");
 		System.out.println(str);
@@ -21,6 +22,15 @@ public class main {
 		
 		
 
+=======
+		FrequencyVector init_words= ReadFile.ReadFile("PDFs/file1_EN.pdf", "pdf");
+		FrequencyVector swf_words=StopWordsFiltering.RemoveSW(init_words, "english");
+		PorterStemmer ss= new PorterStemmer();
+		ss.reset();
+		System.out.println(ss.stem("libraries"));
+		SnowballStemmer sns=new SnowballStemmer(ALGORITHM.ENGLISH);
+		System.out.println(sns.stem("libraries"));
+>>>>>>> b5c0ff2447b51e7491d9199461b5ed4784d2360b
 	}
 
 }
