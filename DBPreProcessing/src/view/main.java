@@ -14,10 +14,18 @@ public class main {
 		FrequencyVector init_words= ReadFile.ReadFile("PDFs/file1_EN.pdf", "pdf");
 		FrequencyVector swf_words=StopWordsFiltering.RemoveSW(init_words, "english");
 		PorterStemmer ss= new PorterStemmer();
-		ss.reset();
-		System.out.println(ss.stem("libraries"));
+	
+		//System.out.println(ss.stem("libraries"));
 		SnowballStemmer sns=new SnowballStemmer(ALGORITHM.ENGLISH);
-		System.out.println(sns.stem("libraries"));
+		//System.out.println(sns.stem("libraries"));
+		
+		String words[] = {"libraries" , "banking" , "banks", "banker", "banked" , "bankart"};
+		for(String str : words)
+		{
+			ss.reset();
+			String stem = ss.stem(str);
+			System.out.println("Word: "+str+" Stem: "+stem);
+		}
 	}
 
 }
