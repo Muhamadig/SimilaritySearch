@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -50,7 +49,7 @@ public class ReadFile {
 		try{
 			fis = new FileInputStream(file.getAbsolutePath());
 			DOC = new XWPFDocument(fis);
-			ex = new XWPFWordExtractor(DOC);
+			 ex = new XWPFWordExtractor(DOC);
 			text = ex.getText();
 		}catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
