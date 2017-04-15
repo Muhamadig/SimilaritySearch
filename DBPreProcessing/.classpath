@@ -47,5 +47,6 @@
 	<classpathentry kind="lib" path="libraries/opennlp/opennlp-uima-1.7.2.jar"/>
 	<classpathentry kind="lib" path="libraries/opennlp/osgi-resource-locator-1.0.1.jar"/>
 	<classpathentry kind="lib" path="libraries/opennlp/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="libraries/stanford-corenlp-3.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
