@@ -12,9 +12,11 @@ import model.FrequencyVector;
 public class SynonymsAndStemming {
 
 	private List<String> AllWords;	
+	private List<String> Cwords;
 	
 	public SynonymsAndStemming() {
 		AllWords = new LinkedList<String>();
+		Cwords = new LinkedList<String>();
 	}
 	
 	public void CollectWords (FrequencyVector [] Vectors)
@@ -62,11 +64,10 @@ public class SynonymsAndStemming {
 		return AllFrequinces;
 	}
 	
-	public FrequencyVector GetCommonWords (FrequencyVector words)
+	public List<String> getCommonWords (FrequencyVector words)
 	{
 		int diff = -1;
 		String threshold = null,tmpthresh=null;
-		FrequencyVector Cwords = new FrequencyVector();
 		Set <String> keys = words.keySet();
 		Iterator<String> keyit = keys.iterator();
 		if(keyit.hasNext())
@@ -88,8 +89,25 @@ public class SynonymsAndStemming {
 			String str = keyit.next();
 			if(str.equals(threshold))
 				break;
-			Cwords.put(str, words.get(str));
+			Cwords.add(str);
 		}
 		return Cwords;
 	}
+	
+	public List <String> getCommonWords(){return this.Cwords;}
+
+	public List<String> getAllWords(){return this.AllWords;}
+	
+	public FrequencyVector RemoveCWords(FrequencyVector vector)
+	{
+		Iterator<String> it = Cwords.iterator();
+		while(it.hasNext())
+		{
+			String cword = it.next();
+			if(vector.containsKey(cword))
+				vector.remove(cword);
+		}
+		return vector;
+	}
+	
 }
