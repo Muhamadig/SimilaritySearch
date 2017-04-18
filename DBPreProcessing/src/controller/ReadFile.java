@@ -87,7 +87,7 @@ public class ReadFile {
 	 * @param text : full text
 	 * @return hashmap<word,frequency> frequency vector 
 	 */
-	public static FrequencyVector textToFrequency (String text){
+	/*public static FrequencyVector textToFrequency (String text){
 
 		FrequencyVector freq=new FrequencyVector();
 
@@ -108,7 +108,7 @@ public class ReadFile {
 		if(freq.containsKey(""))freq.remove("");
 		System.out.println("words in string array=" + freq.size());
 		return freq;
-	}
+	}*/
 
 	/**
 	 * 
@@ -121,9 +121,14 @@ public class ReadFile {
 		if(type.equals("pdf")) text=pdfRead(dest);
 		if(type.equals("doc")) text=docRead(dest);
 		if(type.equals("docx")) text=docxRead(dest);
-		return text;
+		return clean(text);
+//		return text;
 	}
 
+	
+	private static String clean(String str){
+		return str.replaceAll("[^0-9a-zA-Z\\s]", "");
+	}
 
 	
 }

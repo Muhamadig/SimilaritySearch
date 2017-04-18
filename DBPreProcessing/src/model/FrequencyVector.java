@@ -15,6 +15,12 @@ public class FrequencyVector extends HashMap<String, Integer>{
 		Sum=0;
 	}
 	
+	public FrequencyVector(String text){
+		super();
+		Sum=0;
+		textToFrequency(text);
+	}
+	
 	public int sum(){
 		int sum=0;
 		for(Integer value: this.values()) sum+=value;
@@ -45,6 +51,32 @@ public class FrequencyVector extends HashMap<String, Integer>{
 	}
 	
 	
+	public void textToFrequency (String text){
+
+
+		String [] words=text.trim().split("\\s");
+		
+		for(String str:words){
+
+			if(this.containsKey(str)) this.replace(str, this.get(str),this.get(str)+1 );
+			else this.put(str, 1);
+		}
+		if(this.containsKey(""))this.remove("");
+	}
 	
+	public void merge(FrequencyVector FV){
+		
+		for (String str: FV.keySet()) {
+			if(this.containsKey(str)) this.replace(str, this.get(str),this.get(str)+FV.get(str) );
+			else this.put(str,FV.get(str));
+		}
+	}
+	
+	public String toString(){
+		String str="";
+		for(String key : this.keySet()) str+=key+"="+this.get(key)+"\n";
+		return str;
+		
+	}
 
 }
