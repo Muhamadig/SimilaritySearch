@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-stempel-6.5.0.jar"/>
 	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-uima-6.5.0.jar"/>
 	<classpathentry kind="lib" path="libraries/apache-lucene.jar"/>
+	<classpathentry kind="lib" path="libraries/lucene-core-6.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
