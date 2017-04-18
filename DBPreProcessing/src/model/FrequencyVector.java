@@ -3,6 +3,10 @@ package model;
 import java.util.HashMap;
 
 public class FrequencyVector extends HashMap<String, Integer>{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int Sum;
 	
 	
@@ -17,8 +21,8 @@ public class FrequencyVector extends HashMap<String, Integer>{
 		return sum;
 	}
 	
-	public  Integer put(String key,Integer value){
-		Integer val=super.put(key, value);
+	public  Integer put(String object,Integer value){
+		Integer val=super.put(object, value);
 		if(val != null) Sum+=(value-val);
 		else
 			Sum+=value;
