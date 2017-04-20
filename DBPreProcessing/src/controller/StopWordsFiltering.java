@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-import model.FrequencyVector;
+import model.FVHashMap;
 public class StopWordsFiltering {
 
 
@@ -40,10 +40,10 @@ public class StopWordsFiltering {
 	 * @param language The language of the text(english,spanish...)
 	 * @return Frequency vector of words without stop wods.
 	 */
-	public static FrequencyVector RemoveSW(FrequencyVector words , String language)
+	public static FVHashMap RemoveSW(FVHashMap words , String language)
 	{
 		int sum=0;
-		FrequencyVector temp = (FrequencyVector) words.clone();
+		FVHashMap temp = (FVHashMap) words.clone();
 		ArrayList<String> SW=getSW(language);
 		for(String str:SW)
 		{

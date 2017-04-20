@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import model.FrequencyVector;
+import model.FVHashMap;
 
 
 public class SynonymsAndStemming {
@@ -19,9 +19,9 @@ public class SynonymsAndStemming {
 		Cwords = new LinkedList<String>();
 	}
 	
-	public void CollectWords (FrequencyVector [] Vectors)
+	public void CollectWords (FVHashMap [] Vectors)
 	{
-		for(FrequencyVector vec : Vectors)
+		for(FVHashMap vec : Vectors)
 		{
 			for(String word : vec.keySet())
 				if(!AllWords.contains(word))
@@ -30,12 +30,12 @@ public class SynonymsAndStemming {
 		Collections.sort(AllWords);
 	}
 	
-	public void ExpandedVectors (FrequencyVector [] Vectors)
+	public void ExpandedVectors (FVHashMap [] Vectors)
 	{
 		Iterator<String> it = AllWords.iterator();
 		while(it.hasNext())
 		{
-			for(FrequencyVector vec : Vectors)
+			for(FVHashMap vec : Vectors)
 			{
 				String word =(String) it.next();
 				if(!vec.containsKey(word))
@@ -43,28 +43,28 @@ public class SynonymsAndStemming {
 			}
 		}
 		
-		for (FrequencyVector vec :Vectors)
-			vec = Util.sortByValues(vec);
+//		for (FrequencyVector vec :Vectors)
+			//vec = Util.sortByValues(vec);
 	}
 	
-	public FrequencyVector AllWordsFrequencies(FrequencyVector [] vectors)
+	public FVHashMap AllWordsFrequencies(FVHashMap [] vectors)
 	{
 		int sum;
-		FrequencyVector AllFrequinces = new FrequencyVector();
+		FVHashMap AllFrequinces = new FVHashMap();
 		Iterator <String> words = AllWords.iterator();
 		while(words.hasNext())
 		{
 			sum=0;
 			String word = words.next();
-			for(FrequencyVector vec : vectors)
+			for(FVHashMap vec : vectors)
 				sum+=vec.get(word);
 			AllFrequinces.put(word, sum);
 		}
-		AllFrequinces = Util.sortByValues(AllFrequinces);
+		//AllFrequinces = Util.sortByValues(AllFrequinces);
 		return AllFrequinces;
 	}
 	
-	public List<String> getCommonWords (FrequencyVector words)
+	public List<String> getCommonWords (FVHashMap words)
 	{
 		int diff = -1;
 		String threshold = null,tmpthresh=null;
@@ -98,7 +98,7 @@ public class SynonymsAndStemming {
 
 	public List<String> getAllWords(){return this.AllWords;}
 	
-	public FrequencyVector RemoveCWords(FrequencyVector vector)
+	public FVHashMap RemoveCWords(FVHashMap vector)
 	{
 		Iterator<String> it = Cwords.iterator();
 		while(it.hasNext())

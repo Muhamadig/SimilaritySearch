@@ -12,8 +12,6 @@ import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
-import model.FrequencyVector;
-
 public class ReadFile {
 
 	/**
