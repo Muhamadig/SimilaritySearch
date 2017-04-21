@@ -3,6 +3,7 @@ package controller;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Set;
 
 import model.FVHashMap;
 public class StopWordsFiltering {
@@ -55,5 +56,17 @@ public class StopWordsFiltering {
 		}
 		System.out.println(sum);
 		return temp;
+	}
+	
+	public static String toString(FVHashMap vec)
+	{
+		String words="";
+		Set<String> keys = vec.keySet();
+		java.util.Iterator<String> it = keys.iterator();
+		while(it.hasNext())
+		{
+			words+=" " + it.next();
+		}
+		return words;
 	}
 }
