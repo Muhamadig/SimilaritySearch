@@ -119,7 +119,9 @@ public class ReadFile {
 		if(type.equals("pdf")) text=pdfRead(dest);
 		if(type.equals("doc")) text=docRead(dest);
 		if(type.equals("docx")) text=docxRead(dest);
-		return clean(text);
+//		return clean(text);
+		return text;
+
 	}
 
 	

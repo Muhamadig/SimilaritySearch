@@ -21,24 +21,24 @@ public class Maintest {
 		Date dateobj = new Date();
 		System.out.println(df.format(dateobj));
 		
-		FVHashMap vector = new FVHashMap();
-		vector.textToFrequency(pdf);
-		vector = StopWordsFiltering.RemoveSW(vector, new Language(Langs.ENGLISH));
-		pdf = Util.toString(vector);
+//		FVHashMap vector = new FVHashMap();
+//		vector.textToFrequency(pdf);
+//		vector = StopWordsFiltering.RemoveSW(vector, new Language(Langs.ENGLISH));
+//		pdf = Util.toString(vector);
 		//System.out.println(pdf);
 		
 //		for(String str: vector.keySet()){
 //			System.out.println(str+"-->"+ stm.lemmatize(str));
 //		}
 		List <String> stemms =stm.lemmatize(pdf);
-		FVHashMap stemmsHM=new FVHashMap();
-		for(String str:stemms){
-			stemmsHM.put(str, 1);
-		}
-		System.out.println(stemmsHM.toString());
+//		FVHashMap stemmsHM=new FVHashMap();
+//		for(String str:stemms){
+//			stemmsHM.put(str, 1);
+//		}
+//		System.out.println(stemmsHM.toString());
 //		
-//		for (int i =0;i<stemms.size();i++)
-//			System.out.println(stemms.get(i));
+		for (int i =0;i<stemms.size();i++)
+			System.out.println(stemms.get(i));
 //		DateFormat df1 = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
 //		Date dateobj1 = new Date();
 //		System.out.println(df1.format(dateobj1));
