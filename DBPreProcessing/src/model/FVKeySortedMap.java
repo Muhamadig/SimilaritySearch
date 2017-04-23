@@ -5,28 +5,28 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class FVSortedMap extends TreeMap<String, Integer> {
+public class FVKeySortedMap extends TreeMap<String, Integer> {
 	private int Sum;
 
 
 
-	public FVSortedMap(){
+	public FVKeySortedMap(){
 		super();
 		Sum=0;
 	}
 
-	public FVSortedMap(Comparator<? super String> comparator){
+	public FVKeySortedMap(Comparator<? super String> comparator){
 		super(comparator);
 		Sum=0;
 	}
 	
 	
-	public FVSortedMap(Map<?extends String,? extends Integer > m){
+	public FVKeySortedMap(Map<?extends String,? extends Integer > m){
 		super(m);
 		Sum=sum(m);
 	}
 
-	public FVSortedMap(SortedMap<String, ? extends Integer> m){
+	public FVKeySortedMap(SortedMap<String, ? extends Integer> m){
 		super(m);
 		Sum=sum(m);
 	}
@@ -66,7 +66,7 @@ public class FVSortedMap extends TreeMap<String, Integer> {
 
 
 
-	public void merge(FVSortedMap FV){
+	public void merge(FVKeySortedMap FV){
 
 		for (String str: FV.keySet()) put(str,FV.get(str));
 	}

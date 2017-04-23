@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="libraries/apache-lucene.jar"/>
 	<classpathentry kind="lib" path="libraries/lucene-core-6.5.0.jar"/>
 	<classpathentry kind="lib" path="libraries/stanford-corenlp-3.7.0.jar"/>
+	<classpathentry kind="lib" path="libraries/stanford-english-corenlp-2016-10-31-models.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

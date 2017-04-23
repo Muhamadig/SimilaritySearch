@@ -30,8 +30,18 @@ public class StanfordStemmer {
 
     public List<String> lemmatize(String documentText)
     {
+    	
+    	/*
+    	 lematize(FVHAshMap fv){
+    	 	for(String key:fv.keyset){
+    	 		curr value= fvf.v.getvalue();
+    	 		give me the stem of key;
+    	 		newFV.put(newStem,curr value);
+    	 	}
+    	 }
+    	 */
         List<String> lemmas = new LinkedList<String>();
-
+        
         // create an empty Annotation just with the given text
         Annotation document = new Annotation(documentText);
 

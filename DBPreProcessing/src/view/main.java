@@ -5,35 +5,40 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import controller.ReadFile;
-import controller.Util;
+import controller.StopWordsFiltering;
 import model.FVHashMap;
-import model.FVSortedMap;
+import model.FVKeySortedMap;
+import model.Language;
+import model.Language.Langs;
+import utils.Util;
 public class main {
 
 	public static void main(String[] args) {
 		
+		//Step1: read files
 		String en_pdf=ReadFile.ReadFile("PDFs/file1_EN.pdf", "pdf");
 		String sp_pdf=ReadFile.ReadFile("PDFs/file1_SP.pdf", "pdf");
 		String en_docx=ReadFile.ReadFile("DOCs/file1_EN.docx", "docx");
+		//new language
+		Language lang= new Language(Langs.ENGLISH);
 		
-		FVHashMap f1,f2,f3;
-		ArrayList<FVHashMap> fv_arr= new ArrayList<>();
-		fv_arr.add(f1=new FVHashMap(en_pdf));
-		fv_arr.add(f2=new FVHashMap(sp_pdf));
-		fv_arr.add(f3=new FVHashMap(en_docx));
+		//string to hash map
+		FVHashMap f1= new FVHashMap(en_pdf);
 		
+		System.out.println(f1.toString());
+		System.out.println("number of words:"+ f1.size() + " the sum of all words :"+f1.sum());
 		
+		//Step 2:remove stop words
 		
-		FVHashMap all= new FVHashMap();
-		for (FVHashMap fv:fv_arr){
-			all.merge(fv);
-		}
+		f1=StopWordsFiltering.RemoveSW(f1, lang);
+		System.out.println("After remove the stop words");
+		System.out.println(f1.toString());
+		System.out.println("number of words:"+ f1.size() + " the sum of all words :"+f1.sum());
 		
-//		String test="hello world im muhamad  muhamadigbaria , how how how how how are you, thank how how you.";
-//		FVHashMap t1=new FVHashMap(all/);
-		FVSortedMap t2=new FVSortedMap(all);
-		ArrayList<Entry<String, Integer>> sorted=Util.sortByValues(t2);
-		System.out.println(sorted.toString());
+		//Step 3: stemming and synonyms
+		
+		//step 4:merge all frequency vectors
+		
 	}
 }
 

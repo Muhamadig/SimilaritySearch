@@ -1,15 +1,15 @@
-package controller;
+package utils;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 
 import model.FVHashMap;
-import model.FVSortedMap;
-import utils.FVComparatorByValue;
+import model.FVKeySortedMap;
+import model.FVValueSorted;
 
 public class Util {
 
@@ -23,16 +23,25 @@ public class Util {
 		return map;
 		
 	}
-	public static ArrayList<Entry<String, Integer>> sortByValues(FVSortedMap fv){  
-		ArrayList<Entry<String, Integer>> sorted=new ArrayList<>();
+	public static FVValueSorted sortByValues(FVKeySortedMap fv){  
+		FVValueSorted sorted=new FVValueSorted(fv);
 		FVComparatorByValue comparator =new FVComparatorByValue();
-		for(Entry<String, Integer> entry: fv.entrySet()) sorted.add(entry);
-		
+	
 		Collections.sort(sorted, comparator);
 		return sorted;
 		
     }
 	
-	
+	public static String toString(FVHashMap vec)
+	{
+		String words="";
+		Set<String> keys = vec.keySet();
+		Iterator<String> it = keys.iterator();
+		while(it.hasNext())
+		{
+			words+=" " + it.next();
+		}
+		return words;
+	}
 	}
 

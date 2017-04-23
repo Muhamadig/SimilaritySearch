@@ -1,24 +1,25 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Map.Entry;
 
-import model.FVSortedMap;
+import model.FVKeySortedMap;
+import model.FVValueSorted;
+import utils.Util;
 
 public class CommonWords {
 
 	
-	public static FVSortedMap mergeAll(ArrayList<FVSortedMap> exapandedFVList){
+	public static FVKeySortedMap mergeAll(ArrayList<FVKeySortedMap> exapandedFVList){
 		
-		FVSortedMap globalFV= new FVSortedMap();
-		for(FVSortedMap map:exapandedFVList){
+		FVKeySortedMap globalFV= new FVKeySortedMap();
+		for(FVKeySortedMap map:exapandedFVList){
 			globalFV.merge(map);
 		}
 		
 		return globalFV;
 	}
 	
-	public static ArrayList<Entry<String, Integer>> sortGlobalFV(FVSortedMap globalFV){
+	public static FVValueSorted sortGlobalFV(FVKeySortedMap globalFV){
 		
 		return Util.sortByValues(globalFV);
 	}
