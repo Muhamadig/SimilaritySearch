@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import controller.ReadFile;
+import controller.StanfordStemmer;
 import controller.StopWordsFiltering;
 import model.FVHashMap;
 import model.FVKeySortedMap;
@@ -15,29 +16,38 @@ public class main {
 
 	public static void main(String[] args) {
 		
+		
+		//new language
+		Language eng= new Language(Langs.ENGLISH);
+		
 		//Step1: read files
 		String en_pdf=ReadFile.ReadFile("PDFs/file1_EN.pdf", "pdf");
-		String sp_pdf=ReadFile.ReadFile("PDFs/file1_SP.pdf", "pdf");
-		String en_docx=ReadFile.ReadFile("DOCs/file1_EN.docx", "docx");
-		//new language
-		Language lang= new Language(Langs.ENGLISH);
 		
-		//string to hash map
-		FVHashMap f1= new FVHashMap(en_pdf);
 		
-		System.out.println(f1.toString());
-		System.out.println("number of words:"+ f1.size() + " the sum of all words :"+f1.sum());
+		//without stemming:
+
 		
-		//Step 2:remove stop words
+		FVHashMap original=new FVHashMap(en_pdf);
+		System.out.println("Original:\n" +original.toString());
+		System.out.println("#of Words:"+original.size()+" #of appears:"+ original.getSum());
 		
-		f1=StopWordsFiltering.RemoveSW(f1, lang);
-		System.out.println("After remove the stop words");
-		System.out.println(f1.toString());
-		System.out.println("number of words:"+ f1.size() + " the sum of all words :"+f1.sum());
+		//step2:stemming
+		StanfordStemmer stm = new StanfordStemmer();
+		FVHashMap fv=stm.lemmatize(en_pdf);
 		
-		//Step 3: stemming and synonyms
+		//step3: remove stop words
+		FVHashMap fv_SW=StopWordsFiltering.RemoveSW(fv, eng);
 		
-		//step 4:merge all frequency vectors
+		System.out.println("after Stemming:\n" +fv.toString());
+		System.out.println("#of Words:"+fv.size()+" #of appears:"+ fv.getSum());
+		
+		System.out.println("after SW filtering:\n" +fv_SW.toString());
+		System.out.println("#of Words:"+fv_SW.size()+" #of appears:"+ fv_SW.getSum());
+		
+		
+		for(String key:original.keySet()){
+			System.out.println(key+"-->"+stm.Stemming(key));
+		}
 		
 	}
 }

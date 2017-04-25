@@ -29,18 +29,10 @@ public class StanfordStemmer {
         this.pipeline = new StanfordCoreNLP(props);
     }
 
-    public List<String> lemmatize(String documentText)
+    public FVHashMap lemmatize(String documentText)
     {
     	
-    	/*
-    	 lematize(FVHAshMap fv){
-    	 	for(String key:fv.keyset){
-    	 		curr value= fvf.v.getvalue();
-    	 		give me the stem of key;
-    	 		newFV.put(newStem,curr value);
-    	 	}
-    	 }
-    	 */
+    	
         List<String> lemmas = new LinkedList<String>();
         
         // create an empty Annotation just with the given text
@@ -58,8 +50,12 @@ public class StanfordStemmer {
                 lemmas.add(token.get(LemmaAnnotation.class));
             }
         }
-
-        return lemmas;
+        
+        FVHashMap fv= new FVHashMap();
+        for(String key:lemmas){
+        	fv.put(key, 1);
+        }
+        return fv;
     }
     
     public FVHashMap lemmatize(FVHashMap fv)

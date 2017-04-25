@@ -1,0 +1,19 @@
+Step 1.(Read file): with ReadFile.ReadFile(String dest,String type) method.
+			the method reads the pdf,doc or docx file and clean it from any non letter or digits and return it as String.
+			Input: file name+destination , file type;
+			return : plain Text
+
+
+Step 2.(Stemming): Using the StanfordStemmer.lemmatize(String documentText) method .
+			this method return FVHashMap (Frequency Vector Hash Map) after Stemming.
+			Input: plainText;
+			Output: FVHashMap object which is frequency vector of the text after stemming.
+			
+Step 3.(Stop Words): Using StopWordsFiltering.RemoveSW(FVHashMap words , Language language) method.
+			this method remove the stop words from the frequency vector;
+			Input: FVHashMap object which is frequency vector of the text after stemming.;
+			Output: FVHashMap frequency vector after removing the stop words.
+			
+TO BE Continue:
+
+Step4.(Synonyms): 
