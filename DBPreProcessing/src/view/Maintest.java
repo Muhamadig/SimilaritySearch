@@ -11,6 +11,7 @@ import utils.Util;
 import controller.ReadFile;
 import controller.StanfordStemmer;
 import controller.StopWordsFiltering;
+import edu.stanford.nlp.ling.CoreAnnotations.WordnetSynAnnotation;
 public class Maintest {
 
 	public static void main(String[] args) {
@@ -30,7 +31,8 @@ public class Maintest {
 //		for(String str: vector.keySet()){
 //			System.out.println(str+"-->"+ stm.lemmatize(str));
 //		}
-		List <String> stemms =stm.lemmatize(pdf);
+		
+		List <String> stemms =(List<String>) stm.lemmatize(pdf);
 //		FVHashMap stemmsHM=new FVHashMap();
 //		for(String str:stemms){
 //			stemmsHM.put(str, 1);
