@@ -39,13 +39,16 @@ public class main {
 		
 		HashMap<String, HashSet<String>> synTable=new HashMap<>();
 		
-		for(String key: stemAndSWText.keySet()){
-			synTable.put(key, Synonyms.getSynSet(key));
-		}
+//		for(String key: stemAndSWText.keySet()){
+//			synTable.put(key, Synonyms.getSynSet(key));
+//		}
+//		
+//		for(String key:synTable.keySet()){
+//			System.out.println(key +"--> "+ synTable.get(key));
+//		}
 		
-		for(String key:synTable.keySet()){
-			System.out.println(key +": "+ synTable.get(key));
-		}
+		System.out.println(Synonyms.getSynSet("play"));
+		System.out.println(Synonyms.getSynSet("playing"));
 	}
 	
 }
