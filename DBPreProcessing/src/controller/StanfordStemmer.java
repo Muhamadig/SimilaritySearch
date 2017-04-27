@@ -96,54 +96,6 @@ public class StanfordStemmer {
 	}
 
 
-	public static HashSet<String> getSynset(String lemma,POS pos){
-		HashSet<String> words = new HashSet<>();
-		Dictionary dictionary;
-		try {
-			dictionary = Dictionary.getDefaultResourceInstance();
-			IndexWord lemmaIndex = null;
-			List<IndexWord> lemmaIndexList= new ArrayList<>();
-			//for(POS pos:POS.getAllPOS()){
-				//System.out.println(pos);
-				lemmaIndex = dictionary.lookupIndexWord(pos, lemma);
-
-				if(lemmaIndex!=null){
-					List<Synset> synsets=lemmaIndex.getSenses();
-
-					for(Synset synset:synsets){
-						words.add(synset.getWords().get(0).getLemma());
-					}
-				}
-//			}
-		} catch (JWNLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		return words;
-
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 

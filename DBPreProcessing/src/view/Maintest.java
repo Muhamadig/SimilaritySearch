@@ -15,37 +15,44 @@ import edu.stanford.nlp.ling.CoreAnnotations.WordnetSynAnnotation;
 public class Maintest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		StanfordStemmer stm = new StanfordStemmer();
-		String pdf=ReadFile.ReadFile("PDFs/file1_en.pdf", "pdf");
-		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-		Date dateobj = new Date();
-		System.out.println(df.format(dateobj));
-		
-//		FVHashMap vector = new FVHashMap();
-//		vector.textToFrequency(pdf);
-//		vector = StopWordsFiltering.RemoveSW(vector, new Language(Langs.ENGLISH));
-//		pdf = Util.toString(vector);
-		//System.out.println(pdf);
-		
-//		for(String str: vector.keySet()){
-//			System.out.println(str+"-->"+ stm.lemmatize(str));
-//		}
-		
-		List <String> stemms =(List<String>) stm.lemmatize(pdf);
-//		FVHashMap stemmsHM=new FVHashMap();
-//		for(String str:stemms){
-//			stemmsHM.put(str, 1);
-//		}
-//		System.out.println(stemmsHM.toString());
-//		
-		for (int i =0;i<stemms.size();i++)
-			System.out.println(stemms.get(i));
-//		DateFormat df1 = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-//		Date dateobj1 = new Date();
-//		System.out.println(df1.format(dateobj1));
-		
-		
-	}
+             String wordForm = "capacity";
+             //  Get the synsets containing the word form=capicity
+
+            File f=new File("WordNet\\2.1\\dict");
+            System.setProperty("wordnet.database.dir", f.toString());
+            //setting path for the WordNet Directory
+
+            WordNetDatabase database = WordNetDatabase.getFileInstance();
+            Synset[] synsets = database.getSynsets(wordForm);
+            //  Display the word forms and definitions for synsets retrieved
+
+            if (synsets.length > 0){
+               ArrayList<String> al = new ArrayList<String>();
+               // add elements to al, including duplicates
+               HashSet hs = new HashSet();
+               for (int i = 0; i < synsets.length; i++){
+                  String[] wordForms = synsets[i].getWordForms();
+                    for (int j = 0; j < wordForms.length; j++)
+                    {
+                      al.add(wordForms[j]);
+                    }
+
+
+               //removing duplicates
+                hs.addAll(al);
+                al.clear();
+                al.addAll(hs);
+
+               //showing all synsets
+               for (int i = 0; i < al.size(); i++) {
+                     System.out.println(al.get(i));
+               }
+            }
+       }
+       }
+       else
+       {
+        System.err.println("No synsets exist that contain the word form '" + wordForm + "'");
+       }
 
 }
