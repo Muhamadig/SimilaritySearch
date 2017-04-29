@@ -67,11 +67,11 @@ public class FVHashMap extends HashMap<String, Integer>{
 		for (String str: FV.keySet()) put(str,FV.get(str));
 	}
 	
-//	public String toString(){
-//		String str="";
-//		for(String key : this.keySet()) str+=key+"="+this.get(key)+"\n";
-//		return str;
-//		
-//	}
+	public String toString(){
+		String str="";
+		for(String key : this.keySet()) str+=key+"="+this.get(key)+"\n";
+		return str;
+		
+	}
 
 }

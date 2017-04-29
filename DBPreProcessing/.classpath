@@ -31,5 +31,6 @@
 	<classpathentry kind="lib" path="libraries/extjwnl/slf4j-log4j12-1.7.21.jar"/>
 	<classpathentry kind="lib" path="libraries/stanford-postagger-3.7.0.jar"/>
 	<classpathentry kind="lib" path="libraries/stanford-postagger.jar"/>
+	<classpathentry kind="lib" path="quick-json-1.0.2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
