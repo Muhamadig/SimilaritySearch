@@ -4,11 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 import com.mysql.cj.core.io.FloatValueFactory;
-
->>>>>>> ce5e296ba90fa789da9c825dc1f990e71b177708
 import model.FVHashMap;
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;
@@ -51,23 +47,6 @@ public class Synonyms {
 
 	}
 	
-<<<<<<< HEAD
-	public static FVHashMap Getreduced(FVHashMap vec , HashMap<String, HashSet<String>> synonyms)
-	{
-		FVHashMap reducedVec = new FVHashMap();
-		int sum=0;
-		HashSet<String> syns;
-		for(String word : synonyms.keySet()){
-			syns = synonyms.get(word);
-			for(String synonym : syns){
-				if(synonyms.containsKey(synonym))
-					sum+=vec.get(synonym);
-				}
-			reducedVec.put(word, sum);
-			sum=0;
-		}
-		return reducedVec;
-=======
 	public static HashMap<String, HashSet<String>> setsVector(HashMap<String, HashSet<String>> global){
 		HashMap<String, HashSet<String>> local= new HashMap<>();
 		
@@ -106,7 +85,6 @@ public class Synonyms {
 		}
 		System.out.println("size:"+sum+ "  all:"+sum2);
 		return set;
-		
->>>>>>> ce5e296ba90fa789da9c825dc1f990e71b177708
+
 	}
 }

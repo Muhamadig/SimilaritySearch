@@ -2,28 +2,21 @@ package view;
 
 
 import java.time.LocalDateTime;
-<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.HashSet;
-=======
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.HashSet;
-
->>>>>>> ce5e296ba90fa789da9c825dc1f990e71b177708
 
 import controller.ReadFile;
 import controller.StanfordStemmer;
 import controller.StopWordsFiltering;
 import controller.Synonyms;
-<<<<<<< HEAD
 import model.FVHashMap;
-=======
 
 import model.FVHashMap;
 import model.FVKeySortedMap;
 import model.FVValueSorted;
->>>>>>> ce5e296ba90fa789da9c825dc1f990e71b177708
 import model.Language;
 import model.Language.Langs;
 
@@ -70,7 +63,6 @@ public class main {
 //		System.err.println("the reduce begin now ...\n\n\n\n\n----");
 		FVHashMap reduced=Synonyms.repWord(local, stemAndSWText);
 		
-<<<<<<< HEAD
 		HashMap<String, HashSet<String>> synTable=new HashMap<>();
 	//	System.out.println(LocalDateTime.now());
 		for(String key: stemAndSWText.keySet()){
@@ -81,7 +73,7 @@ public class main {
 			System.out.println(key +"--> "+ synTable.get(key));
 		}
 		System.out.println(LocalDateTime.now());
-=======
+
 //		System.err.println("reduce:\n");
 
 //		System.out.println(reduced.toString());
@@ -98,7 +90,8 @@ public class main {
 		
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now2 = LocalDateTime.now();
-		System.out.println(dtf2.format(now2)); //2016/11/16 12:08:43
+		System.out.println(dtf2.format(now2));
+		//2016/11/16 12:08:43
 		//		System.out.println(Synonyms.getSynSet("play"));
 		//		System.out.println(Synonyms.getSynSet("playing"));
 		
@@ -110,7 +103,7 @@ public class main {
 //		System.out.println();
 //		System.out.println();
 //		System.out.println(Synonyms.getSynSet("play"));
->>>>>>> ce5e296ba90fa789da9c825dc1f990e71b177708
+
 	}
 		
 
