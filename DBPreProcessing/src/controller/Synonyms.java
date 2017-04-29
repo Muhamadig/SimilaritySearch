@@ -1,8 +1,10 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import model.FVHashMap;
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;
 import net.sf.extjwnl.data.IndexWordSet;
@@ -33,5 +35,22 @@ public class Synonyms {
 
 		return synsSet;
 
+	}
+	
+	public static FVHashMap Getreduced(FVHashMap vec , HashMap<String, HashSet<String>> synonyms)
+	{
+		FVHashMap reducedVec = new FVHashMap();
+		int sum=0;
+		HashSet<String> syns;
+		for(String word : synonyms.keySet()){
+			syns = synonyms.get(word);
+			for(String synonym : syns){
+				if(synonyms.containsKey(synonym))
+					sum+=vec.get(synonym);
+				}
+			reducedVec.put(word, sum);
+			sum=0;
+		}
+		return reducedVec;
 	}
 }
