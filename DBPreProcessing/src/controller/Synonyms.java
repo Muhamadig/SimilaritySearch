@@ -3,8 +3,6 @@ package controller;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-
-import com.mysql.cj.core.io.FloatValueFactory;
 import model.FVHashMap;
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.IndexWord;
@@ -14,6 +12,7 @@ import net.sf.extjwnl.data.Word;
 import net.sf.extjwnl.dictionary.Dictionary;
 
 public class Synonyms {
+	
 	public static HashSet<String> getSynSet(String word){
 		HashSet<String> synsSet=new HashSet<>();
 
@@ -24,11 +23,6 @@ public class Synonyms {
 
 			for(IndexWord iw:words.getIndexWordArray()){
 				List <Synset> senses=iw.getSenses();
-//				for(Synset sense:senses) {
-//					
-//					synsSet.add(sense.getSynset().getWords().get(0).getLemma());
-//				}
-				
 				for(Synset sense:senses) {
 					List<Word> words1= sense.getSynset().getWords();
 					for(Word w:words1){
@@ -62,9 +56,8 @@ public class Synonyms {
 	}
 	
 	public static FVHashMap repWord(HashMap<String, HashSet<String>> local,FVHashMap fv){
-		HashMap<String, String> repWord=new HashMap<>();
+		//HashMap<String, String> repWord=new HashMap<>();
 		FVHashMap set=new FVHashMap();
-		
 		HashMap<String, Boolean> toCheck=new HashMap<>();
 		int sum=0,sum2=0;
 		for(String key:local.keySet()){
