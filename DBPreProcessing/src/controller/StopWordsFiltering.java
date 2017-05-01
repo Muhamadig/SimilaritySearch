@@ -32,5 +32,20 @@ public class StopWordsFiltering {
 		return temp;
 	}
 	
-	
+	public static ArrayList<String> RemoveSW(ArrayList <String> words, Language language)
+	{
+		ArrayList<String> temp = (ArrayList<String>) words.clone();
+		int sum =0;
+		ArrayList<String> SW = language.getSW();
+		for(String str:SW)
+		{
+			if(temp.contains(str))
+			{
+				sum++;
+				temp.remove(str);
+			}
+		}
+		System.out.println(sum);
+		return temp;
+	}
 }
