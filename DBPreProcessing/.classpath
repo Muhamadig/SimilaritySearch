@@ -34,5 +34,6 @@
 	<classpathentry kind="lib" path="quick-json-1.0.2.3.jar"/>
 	<classpathentry kind="lib" path="libraries/ejml-0.23.jar"/>
 	<classpathentry kind="lib" path="libraries/stanford-english-kbp-corenlp-2016-10-31-models.jar"/>
+	<classpathentry kind="lib" path="libraries/edu.mit.jwi_2.4.0_jdk.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
