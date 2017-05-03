@@ -135,7 +135,6 @@ public class main {
 			}
 			
 		}
-		
 		System.out.println("The Final Frequency Vector:");
 		System.out.println(FinalFV.toString());
 		System.out.println("Number of words in final FV:"+ FinalFV.size()+" All frequencies of final FV:"+FinalFV.getSum());
@@ -143,8 +142,11 @@ public class main {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now2 = LocalDateTime.now();
 		System.out.println(dtf2.format(now2));
+		/*FVKeySortedMap KeySorted = new FVKeySortedMap();
+		KeySorted.putAll(FinalFV);
+		FVValueSorted SortedFinalFV = new FVValueSorted(KeySorted);
+		//SortedFinalFV.putAll(FinalFV);
+		System.out.println(SortedFinalFV.toString());*/
 	}
-
-
 }
 
