@@ -98,12 +98,38 @@ public class main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System .out . print ("\n loading text file ... ");
+		long t = System . currentTimeMillis ();
 		
-		WordnetStemmer stem= new WordnetStemmer(dict);
-		System.out.println(stem.findStems("translated", POS.NOUN));
-		System.out.println(stem.findStems("translation", POS.ADJECTIVE));
-		System.out.println(stem.findStems("translation", POS.ADVERB));
-		System.out.println(stem.findStems("translated", POS.VERB));
+		
+		String text=ReadFile.ReadFile("PDFs/file1_en.pdf", "pdf");
+		System.out.println("done "+(System.currentTimeMillis()-t));
+		
+		FVHashMap fv=new FVHashMap(text);
+		
+		System .out . print ("\n remove sw ... ");
+		t = System . currentTimeMillis ();
+		fv=StopWordsFiltering.RemoveSW(fv, new Language(Langs.ENGLISH));
+		System.out.println("done "+(System.currentTimeMillis()-t));
+
+		
+		System .out . print ("\nfind stemming ... ");
+		t = System . currentTimeMillis ();
+		FVHashMap fv_stem=new FVHashMap();
+		for(String key:fv.keySet()){
+			fv_stem.put(JWIFramework.stemmer(key, dict),fv.get(key));
+		}
+		System.out.println("done "+(System.currentTimeMillis()-t));
+
+		System .out . print ("\n find synonyms ... ");
+		t = System . currentTimeMillis ();
+		for(String key:fv_stem.keySet()){
+			System.out.println(key+"-->"+ JWIFramework.getAllSynonyms(dict, key));
+		}
+		System.out.println("done "+(System.currentTimeMillis()-t));
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now2 = LocalDateTime.now();
+		System.out.println(dtf2.format(now2));
 	}
 	
 		 	
