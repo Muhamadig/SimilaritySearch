@@ -32,9 +32,6 @@ import net.sf.extjwnl.JWNLException;
 public class main {
 
 	public static void main(String[] args) throws IOException, JWNLException {
-
-
-
 		IDictionary dict = null;
 		try {
 			dict=JWIFramework.loadToRam();
@@ -42,7 +39,7 @@ public class main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System .out . print ("\n loading text file ... ");
+		System .out . print ("\n loading text file ... \n");
 		long t = System . currentTimeMillis ();
 
 
@@ -58,7 +55,7 @@ public class main {
 		System.err.println("number of words in the initial fv:"+fv.size()+"	number of all frequencies:"+ fv.getSum());
 
 
-		System .out . print ("\n removing stop words ... ");
+		System .out . print ("\n removing stop words ... \n");
 		t = System . currentTimeMillis ();
 		fv=StopWordsFiltering.RemoveSW(fv, new Language(Langs.ENGLISH));
 		System.out.println("done "+(System.currentTimeMillis()-t));
@@ -67,7 +64,7 @@ public class main {
 		System.err.println("number of words in the removed sw fv:"+fv.size()+"	number of all frequencies:"+ fv.getSum());
 
 
-		System .out . print ("\nfinding stemmings ... ");
+		System .out . print ("\nfinding stemmings ... \n");
 		t = System . currentTimeMillis ();
 		FVHashMap fv_stem=new FVHashMap();
 		for(String key:fv.keySet()){
@@ -79,7 +76,7 @@ public class main {
 		System.err.println("number of words in the stemmed fv:"+fv_stem.size()+"	number of all frequencies:"+ fv_stem.getSum());
 
 		Long synTime=System.currentTimeMillis();
-		System .out . print ("\n find synonyms ... ");
+		System .out . print ("\n find synonyms ... \n");
 		t = System . currentTimeMillis ();
 		HashMap<String,HashSet<String>> synonymsMap=new HashMap<>();
 		for(String key:fv_stem.keySet()){
@@ -142,11 +139,6 @@ public class main {
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now2 = LocalDateTime.now();
 		System.out.println(dtf2.format(now2));
-		/*FVKeySortedMap KeySorted = new FVKeySortedMap();
-		KeySorted.putAll(FinalFV);
-		FVValueSorted SortedFinalFV = new FVValueSorted(KeySorted);
-		//SortedFinalFV.putAll(FinalFV);
-		System.out.println(SortedFinalFV.toString());*/
 	}
 }
 

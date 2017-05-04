@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 
 public class FVValueSorted extends ArrayList<Entry<String,Integer>> {
 	private int Sum;
+	
 	public FVValueSorted(){
 		super();
 		Sum=0;
@@ -24,6 +25,7 @@ public class FVValueSorted extends ArrayList<Entry<String,Integer>> {
 		Sum+=e.getValue();
 		return res;
 	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean remove(Object o){
@@ -36,6 +38,6 @@ public class FVValueSorted extends ArrayList<Entry<String,Integer>> {
 	public int getSum(){
 		return Sum;
 	}
-
 	
+
 }
