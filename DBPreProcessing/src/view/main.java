@@ -14,9 +14,9 @@ import java.util.TreeMap;
 import org.apache.lucene.util.packed.PackedLongValues.Iterator;
 import java.time.format.DateTimeFormatter;
 import controller.Dictionary;
-import controller.DictionaryToMap;
 import controller.JWIFramework;
 import controller.ReadFile;
+import controller.ServerIssues;
 import controller.StanfordStemmer;
 import controller.StopWordsFiltering;
 import controller.Synonyms;
@@ -39,7 +39,12 @@ public class main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System .out . print ("\n loading text file ... \n");
+		
+		ServerIssues srv = new ServerIssues(dict);
+		srv.AllWordsSynonms();
+		srv.MakeSymatric();
+		srv.CollectSimilars();
+		/*System .out . print ("\n loading text file ... \n");
 		long t = System . currentTimeMillis ();
 
 
@@ -138,7 +143,7 @@ public class main {
 		System.out.println("synonyms Done:\n The time of synonyms processing : " +(System.currentTimeMillis()-synTime)+"milisecs" );
 		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now2 = LocalDateTime.now();
-		System.out.println(dtf2.format(now2));
+		System.out.println(dtf2.format(now2));*/
 	}
 }
 

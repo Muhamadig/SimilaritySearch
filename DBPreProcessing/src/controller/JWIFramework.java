@@ -67,42 +67,30 @@ public class JWIFramework {
 
 	}
 
-	public static HashSet<String> getSynonyms ( IDictionary dict ,String key,POS pos,FVHashMap fv){
+	public static HashSet<String> getSynonyms ( IDictionary dict ,String key,POS pos){
 
 		HashSet<String> set=new HashSet<>();
-		// look up first sense of the word "dog "
 		IIndexWord idxWord = dict.getIndexWord(key, pos);
 		if(idxWord==null) return null;
-//		List<IWordID> wordids=idxWord . getWordIDs ();
-//		for(IWordID wordID:wordids){
-//			IWord word = dict . getWord ( wordID );
-//			ISynset synset = word . getSynset ();
-//
-//			// iterate over words associated with the synset
-//			String tmp_lema;
-//			for(IWord w : synset . getWords ())
-//				if(fv.containsKey(tmp_lema=w.getLemma())) set.add(tmp_lema);
-//		}
-				IWordID wordID = idxWord . getWordIDs ().get (0) ; // 1st meaning
-				IWord word = dict . getWord ( wordID );
-				ISynset synset = word . getSynset ();
 		
-				// iterate over words associated with the synset
-				String tmp_lema;
-				for( IWord w : synset . getWords ())
-					if(fv.containsKey(tmp_lema=w.getLemma())) set.add(tmp_lema);
+		IWordID wordID = idxWord . getWordIDs ().get (0) ; // 1st meaning
+		IWord word = dict . getWord ( wordID );
+		ISynset synset = word . getSynset ();
+	
+		for( IWord w : synset . getWords ())
+			set.add(w.getLemma());
 
 		return set;
 	}
 
-	public static HashSet<String> getAllSynonyms(IDictionary dict ,String key,FVHashMap fv){
+	public static HashSet<String> getAllSynonyms(IDictionary dict ,String key){
 
 		HashSet<String> set=new HashSet<>();
 		HashSet<String> temp;
-		if((temp = getSynonyms(dict, key, POS.ADJECTIVE,fv))!=null) set.addAll(temp);
-		if((temp = getSynonyms(dict, key, POS.ADVERB,fv))!=null) set.addAll(temp);
-		if((temp = getSynonyms(dict, key, POS.NOUN,fv))!=null) set.addAll(temp);
-		if((temp = getSynonyms(dict, key, POS.VERB,fv))!=null) set.addAll(temp);
+		if((temp = getSynonyms(dict, key, POS.ADJECTIVE))!=null) set.addAll(temp);
+		if((temp = getSynonyms(dict, key, POS.ADVERB))!=null) set.addAll(temp);
+		if((temp = getSynonyms(dict, key, POS.NOUN))!=null) set.addAll(temp);
+		if((temp = getSynonyms(dict, key, POS.VERB))!=null) set.addAll(temp);
 		return set;
 
 
