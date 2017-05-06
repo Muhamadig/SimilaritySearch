@@ -41,9 +41,9 @@ public class main {
 		}
 		
 		ServerIssues srv = new ServerIssues(dict);
-		srv.AllWordsSynonms();
+		srv.AllWordsSynonyms();
 		srv.MakeSymatric();
-		srv.CollectSimilars();
+		srv.getSimilar();
 		/*System .out . print ("\n loading text file ... \n");
 		long t = System . currentTimeMillis ();
 

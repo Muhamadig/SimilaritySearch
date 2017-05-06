@@ -1,9 +1,12 @@
 package controller;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import edu.mit.jwi.IDictionary;
@@ -24,7 +27,7 @@ public class ServerIssues {
 		similars = new HashMap<HashSet<String>,HashSet<String>>();
 		}
 	
-	public void AllWordsSynonms(){
+	public void AllWordsSynonyms(){
 		int count= 0,StemsCount=0;
 		System.out.print ("\n Synonyms & Stemming ... \n");
 		long t = System . currentTimeMillis ();
@@ -51,7 +54,32 @@ public class ServerIssues {
 		System.out.println("\nThere is "+StemsCount+" different stems\n");
 	}
 	
-	public void MakeSymatric() throws FileNotFoundException, UnsupportedEncodingException{
+	public void MakeSymatric() throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader("EnglishWordsList/results2.txt"));     
+		if (br.readLine() == null) 
+		    Symatric();
+		else
+		{
+			BufferedReader br1 = new BufferedReader(new FileReader("EnglishWordsList/results2.txt")); 
+			getData(br);
+			br1.close();
+		}
+		br.close();
+	
+	}
+	public void getData(BufferedReader file ) throws IOException{
+		String line;
+		HashSet<String> syns=new HashSet<String>();
+		while((line=file.readLine()) != null){
+			String [] splited = line.split(":");
+			splited[1]=splited[1].substring(1, splited[1].length()-1);
+			String [] syn = splited[1].split(",");
+			for(String word : syn)
+				syns.add(word.trim());
+			synonyms.put(splited[0], syns);
+		}
+	}
+	public void Symatric() throws FileNotFoundException, UnsupportedEncodingException{
 		System.out.print ("\n Symatric ... \n");
 		long t = System . currentTimeMillis ();
 		PrintWriter writer = new PrintWriter("EnglishWordsList/results2.txt","UTF-8");
@@ -75,9 +103,22 @@ public class ServerIssues {
 	    writer.close();
 	}
 	
-	public void CollectSimilars() throws FileNotFoundException, UnsupportedEncodingException{
+	public void getSimilar() throws FileNotFoundException, UnsupportedEncodingException, IOException{
 		System.out.print ("\n Similars ... \n");
 		long t = System . currentTimeMillis ();
+		BufferedReader br = new BufferedReader(new FileReader("EnglishWordsList/results3.txt")); 
+		if(br.readLine() == null)
+			CollectSimilars();
+		else{
+			BufferedReader br1 = new BufferedReader(new FileReader("EnglishWordsList/results3.txt"));
+			ReadSimilars(br1);
+			br1.close();
+		}
+		br.close();
+		System.out.println("done ..."+(System.currentTimeMillis()-t));
+	}
+	public void CollectSimilars() throws FileNotFoundException, UnsupportedEncodingException{
+
 		TreeMap<String, HashSet<String>> copy = (TreeMap<String, HashSet<String>>) synonyms.clone();
 		HashMap<String,Boolean> checkList = new HashMap<String,Boolean>();
 		for(String key:copy.keySet()){
@@ -99,8 +140,26 @@ public class ServerIssues {
 			writer.println(keys +": " + values);
 			keys.clear();
 		}
-		System.out.println("done ..."+(System.currentTimeMillis()-t));
 		writer.close();
 	}
-	
+	public void ReadSimilars(BufferedReader file) throws IOException{
+		String line;
+		ArrayList<HashSet<String>> rows = new ArrayList<HashSet<String>>();
+		HashSet<String> temp = new HashSet<String>();
+		while((line=file.readLine()) != null){
+			String [] splited = line.split(":");
+			for(int i =0;i<splited.length;i++){
+				splited[i] = splited[i].substring(1, splited[i].length()-1);
+				String [] sim = splited[i].split(",");
+				for(String word : sim){
+					String toadd = word.trim();
+					temp.add(toadd);
+				}
+				rows.add(temp);
+				temp.clear();
+			}
+			
+			similars.put(rows.get(0), rows.get(1));
+		}
+	}
 }
