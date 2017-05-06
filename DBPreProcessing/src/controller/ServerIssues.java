@@ -54,7 +54,8 @@ public class ServerIssues {
 		System.out.println("\nThere is "+StemsCount+" different stems\n");
 	}
 	
-	public void MakeSymatric() throws IOException{
+	public void MakeSymatric() throws FileNotFoundException, UnsupportedEncodingException{
+		try{
 		BufferedReader br = new BufferedReader(new FileReader("EnglishWordsList/results2.txt"));     
 		if (br.readLine() == null) 
 		    Symatric();
@@ -65,7 +66,9 @@ public class ServerIssues {
 			br1.close();
 		}
 		br.close();
-	
+		}catch(IOException e){
+			Symatric();
+		}
 	}
 	public void getData(BufferedReader file ) throws IOException{
 		String line;
@@ -103,9 +106,10 @@ public class ServerIssues {
 	    writer.close();
 	}
 	
-	public void getSimilar() throws FileNotFoundException, UnsupportedEncodingException, IOException{
+	public void getSimilar() throws FileNotFoundException, UnsupportedEncodingException {
 		System.out.print ("\n Similars ... \n");
 		long t = System . currentTimeMillis ();
+		try{
 		BufferedReader br = new BufferedReader(new FileReader("EnglishWordsList/results3.txt")); 
 		if(br.readLine() == null)
 			CollectSimilars();
@@ -115,6 +119,9 @@ public class ServerIssues {
 			br1.close();
 		}
 		br.close();
+		}catch(IOException e){
+			CollectSimilars();
+		}
 		System.out.println("done ..."+(System.currentTimeMillis()-t));
 	}
 	public void CollectSimilars() throws FileNotFoundException, UnsupportedEncodingException{
