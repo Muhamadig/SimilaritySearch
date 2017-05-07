@@ -17,6 +17,12 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
 public class ServerIssues {
+	
+	/*
+	 * to check:
+	 * IDictionary.getIndexWordIterator(POS pos) 
+          Returns an iterator that will iterate over all index words of the specified part of speech.
+	 */
 
 	private IDictionary dictionary;
 	private TreeMap<String, HashSet<String>> synonyms;
