@@ -1,33 +1,12 @@
 package view;
 
 
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.TreeMap;
 
-import org.apache.lucene.util.packed.PackedLongValues.Iterator;
-import java.time.format.DateTimeFormatter;
-import controller.Dictionary;
+import java.io.IOException;
+
 import controller.JWIFramework;
-import controller.ReadFile;
 import controller.ServerIssues;
-import controller.StanfordStemmer;
-import controller.StopWordsFiltering;
-import controller.Synonyms;
 import edu.mit.jwi.IDictionary;
-import edu.mit.jwi.item.POS;
-import edu.mit.jwi.morph.WordnetStemmer;
-import model.FVHashMap;
-import model.FVKeySortedMap;
-import model.FVValueSorted;
-import model.Language;
-import model.Language.Langs;
 import net.sf.extjwnl.JWNLException;
 public class main {
 
