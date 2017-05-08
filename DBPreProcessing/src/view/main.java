@@ -1,17 +1,14 @@
 package view;
 
 
-
 import java.io.IOException;
 
-import controller.JWIFramework;
-import controller.ServerIssues;
 import edu.mit.jwi.IDictionary;
 import net.sf.extjwnl.JWNLException;
 public class main {
 
 	public static void main(String[] args) throws IOException, JWNLException {
-		IDictionary dict = null;
+	/*	IDictionary dict = null;
 		try {
 			dict=JWIFramework.loadToRam();
 		} catch (InterruptedException e) {
@@ -22,7 +19,7 @@ public class main {
 		ServerIssues srv = new ServerIssues(dict);
 		srv.AllWordsSynonyms();
 		srv.MakeSymatric();
-		srv.getSimilar();
+		srv.getSimilar();*/
 		/*System .out . print ("\n loading text file ... \n");
 		long t = System . currentTimeMillis ();
 

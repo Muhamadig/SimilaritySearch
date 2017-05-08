@@ -35,5 +35,6 @@
 	<classpathentry kind="lib" path="libraries/ejml-0.23.jar"/>
 	<classpathentry kind="lib" path="libraries/edu.mit.jwi_2.4.0_jdk.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SSModels"/>
+	<classpathentry kind="lib" path="/WordNetServer"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
