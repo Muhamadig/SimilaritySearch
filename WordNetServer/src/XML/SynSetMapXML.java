@@ -16,9 +16,12 @@ import org.jdom2.output.XMLOutputter;
 
 import model.SynSetMap;
 
-public class SynSetMapXML{
+public class SynSetMapXML implements XML{
 	
-	public static void export(SynSetMap synset,String fileName){
+	public SynSetMapXML(){
+		
+	}
+	private void export(SynSetMap synset,String fileName){
 		try{
 			//root element
 			Element synSetMap = new Element("synSetMap");
@@ -53,7 +56,7 @@ public class SynSetMapXML{
 		}	
 	}
 	
-	public static SynSetMap Import(String fileName){
+	public SynSetMap Import(String fileName){
 		
 		SynSetMap res=new SynSetMap();
 		File inputFile = new File(fileName);
@@ -76,12 +79,17 @@ public class SynSetMapXML{
 			value=value.substring(1, value.length()-1);
 			String[] tokens=value.trim().split(",");
 			set=new HashSet<>();
-			for(String val:tokens) set.add(val);
+			for(String val:tokens) set.add(val.trim());
 			res.put(key, set);
 
 		}
 		
 		return res;
 		
+	}
+	@Override
+	public void export(Object object, String fileName) {
+		SynSetMap synset=(SynSetMap) object;
+		export(synset, fileName);
 	}
 }
