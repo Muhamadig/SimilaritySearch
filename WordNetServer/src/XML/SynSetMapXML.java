@@ -79,9 +79,7 @@ public class SynSetMapXML implements XML{
 			value=value.substring(1, value.length()-1);
 			String[] tokens=value.trim().split(",");
 			set=new HashSet<>();
-			for(String val:tokens) {
-				if(!val.equals("")) set.add(val.trim());
-			}
+			for(String val:tokens) set.add(val.trim());
 			res.put(key, set);
 
 		}
