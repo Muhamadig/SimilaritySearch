@@ -24,7 +24,6 @@ public class Stemming {
 
 		//get the shortest word
 		if(res.isEmpty()) return word;
-		while(res.contains("")) res.remove(res.indexOf(""));
 		String min_word=res.get(0);	
 		for(String str:res){
 			if(str.length()<min_word.length())min_word=str; 
