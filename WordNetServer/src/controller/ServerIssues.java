@@ -12,10 +12,10 @@ import java.util.HashSet;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.ISenseEntry;
 import edu.mit.jwi.item.IWord;
-
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
+
 public class ServerIssues {
 	
 	/*
@@ -44,10 +44,11 @@ public class ServerIssues {
 			count++;
 			IWord Word = dictionary.getWord(it.next().getSenseKey());
 			String Stem = Word.getLemma();
-			Stem = JWIFramework.stemmer(Stem, dictionary);
+			Stemming stm = new Stemming(dictionary);
+			Stem = stm.stem(Stem);
 			if(!synonyms.containsKey(Stem)){
 				StemsCount++;
-				synonyms.put(Stem, JWIFramework.getAllSynonyms(dictionary, Stem));
+				synonyms.put(Stem, stm.getAllSynonyms(dictionary, Stem));
 			writer.println(Stem +": "+ synonyms.get(Stem));
 			}
 		}
