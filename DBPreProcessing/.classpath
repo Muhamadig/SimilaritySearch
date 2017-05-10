@@ -8,19 +8,7 @@
 	<classpathentry kind="lib" path="libraries/poi-ooxml-schemas-3.15.jar"/>
 	<classpathentry kind="lib" path="libraries/poi-scratchpad-3.15.jar"/>
 	<classpathentry kind="lib" path="libraries/xmlbeans.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-common-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-icu-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-kuromoji-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-morfologik-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-phonetic-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-smartcn-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-stempel-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/Lucene/lucene-analyzers-uima-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/apache-lucene.jar"/>
 	<classpathentry kind="lib" path="libraries/lucene-core-6.5.0.jar"/>
-	<classpathentry kind="lib" path="libraries/stanford-corenlp-3.7.0.jar"/>
-	<classpathentry kind="lib" path="libraries/stanford-english-corenlp-2016-10-31-models.jar"/>
-	<classpathentry kind="lib" path="libraries/extjwnl/concurrentlinkedhashmap-lru-1.3.2.jar"/>
 	<classpathentry kind="lib" path="libraries/extjwnl/extjwnl-1.9.2.jar"/>
 	<classpathentry kind="lib" path="libraries/extjwnl/extjwnl-data-wn31-1.2.jar"/>
 	<classpathentry kind="lib" path="libraries/extjwnl/extjwnl-utilities-1.9.2.jar"/>
@@ -29,8 +17,6 @@
 	<classpathentry kind="lib" path="libraries/extjwnl/postgresql-9.4.1212.jar"/>
 	<classpathentry kind="lib" path="libraries/extjwnl/slf4j-api-1.7.21.jar"/>
 	<classpathentry kind="lib" path="libraries/extjwnl/slf4j-log4j12-1.7.21.jar"/>
-	<classpathentry kind="lib" path="libraries/stanford-postagger-3.7.0.jar"/>
-	<classpathentry kind="lib" path="libraries/stanford-postagger.jar"/>
 	<classpathentry kind="lib" path="quick-json-1.0.2.3.jar"/>
 	<classpathentry kind="lib" path="libraries/ejml-0.23.jar"/>
 	<classpathentry kind="lib" path="libraries/edu.mit.jwi_2.4.0_jdk.jar"/>

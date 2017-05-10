@@ -1,3 +1,4 @@
+package dictionary;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -15,6 +16,7 @@ import edu.mit.jwi.item.POS;
 
 public class WordNet {
 	private IDictionary _dict;
+
 	public WordNet(){
 		this._dict=load();
 	}
@@ -48,38 +50,6 @@ public class WordNet {
 
 	}
 
-	public HashSet<String> getAllWords(){
-		HashSet<String> allWords=new HashSet<>();
-		allWords.addAll(getAllWordsByPOS(POS.NOUN));
-		allWords.addAll(getAllWordsByPOS(POS.ADJECTIVE));
-		allWords.addAll(getAllWordsByPOS(POS.VERB));
-		allWords.addAll(getAllWordsByPOS(POS.ADVERB));
-		return allWords;
 
-	}
 
-	private HashSet<String> getAllWordsByPOS(POS pos){
-		HashSet<String> res=new HashSet<>();
-		Stemming stemmer=new Stemming(_dict);
-		Iterator<IIndexWord> iterator= _dict.getIndexWordIterator(pos);
-		IIndexWord idxWord;
-		
-		while(iterator.hasNext()){
-			idxWord=iterator.next();
-
-			List<IWordID> wordIDList=idxWord.getWordIDs();
-			IWord word;
-			String str;
-			for(IWordID wordID:wordIDList){
-				word = _dict . getWord ( wordID );
-				str=(stemmer.stem(word.getLemma())).toLowerCase();
-				str=str.replaceAll("[-_]", " ");
-				str=str.trim();
-				if(!str.equals("")) res.add(str);
-			}
-
-		}
-		return res;
-
-	}
 }

@@ -1,7 +1,3 @@
-/Demo.class
-/DictGenerator.class
-/Stemming.class
-/Synonyms.class
-/WordNet.class
 /XML/
-/controller/
+/dictionary/
+/view/

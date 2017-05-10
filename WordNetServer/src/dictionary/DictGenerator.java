@@ -1,42 +1,80 @@
-import java.io.PrintWriter;
+package dictionary;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
-import XML.SynSetMapXML;
-import XML.WordSetXML;
+
 import XML.XML;
 import XML.XMLFactory;
 import edu.mit.jwi.IDictionary;
+import edu.mit.jwi.item.IIndexWord;
+import edu.mit.jwi.item.IWord;
+import edu.mit.jwi.item.IWordID;
+import edu.mit.jwi.item.POS;
 import model.RepWordMap;
 import model.SynSetMap;
 
 public class DictGenerator {
-	private Stemming stemer;
+	private IDictionary _dict;
+	private Stemming stemmer;
 	private Synonyms synonyms;
 	private XML synSetMapXML;
 	private XML wordSetMapXML;
 
 	public DictGenerator(IDictionary dic){
-		stemer=new Stemming(dic);
+		this._dict=dic;
+		stemmer=new Stemming(dic);
 		synonyms=new Synonyms(dic);
 		synSetMapXML=XMLFactory.getXML(XMLFactory.SynSetMap);
 		wordSetMapXML=XMLFactory.getXML(XMLFactory.WordSetMap);
 	}
+	
+
+	public HashSet<String> getAllWords(){
+		HashSet<String> allWords=new HashSet<>();
+		allWords.addAll(getAllWordsByPOS(POS.NOUN));
+		allWords.addAll(getAllWordsByPOS(POS.ADJECTIVE));
+		allWords.addAll(getAllWordsByPOS(POS.VERB));
+		allWords.addAll(getAllWordsByPOS(POS.ADVERB));
+		return allWords;
+
+	}
+
+	private HashSet<String> getAllWordsByPOS(POS pos){
+		HashSet<String> res=new HashSet<>();
+		Iterator<IIndexWord> iterator= _dict.getIndexWordIterator(pos);
+		IIndexWord idxWord;
+		
+		while(iterator.hasNext()){
+			idxWord=iterator.next();
+
+			List<IWordID> wordIDList=idxWord.getWordIDs();
+			IWord word;
+			String str;
+			for(IWordID wordID:wordIDList){
+				word = _dict . getWord ( wordID );
+				str=(stemmer.stem(word.getLemma())).toLowerCase();
+				str=str.replaceAll("[-_]", " ");
+				str=str.trim();
+				if(!str.equals("")) res.add(str);
+			}
+
+		}
+		return res;
+
+	}
 
 	public SynSetMap asymmetricSyns(String allWordsFileName){
 		HashSet<String> allWords=(HashSet<String>) wordSetMapXML.Import(allWordsFileName);
-		HashSet<String> synRes;
 		SynSetMap map=new SynSetMap();
 		for(String key:allWords){
 			map.put(key,synonyms.getAllSynonyms(key));
 		}
-		System.out.println("in the func: "+map.get("tamu communis").isEmpty());
 		return map;
 	}
 
 	public SynSetMap symmetricSyns(String asymmetricFileName){
 		SynSetMap asymmetric=(SynSetMap) synSetMapXML.Import(asymmetricFileName);
-		System.out.println("in the reading: "+asymmetric.get("tamu communis").isEmpty());
 
 		HashSet<String> currentSet;
 

@@ -1,3 +1,4 @@
+package dictionary;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -15,7 +16,6 @@ public class Synonyms {
 	public Synonyms(IDictionary dict){
 		this.dict=dict;
 	}
-
 
 	private HashSet<String> getSynonymsByPOS (String key,POS pos){
 		Stemming stemming=new Stemming(dict);
