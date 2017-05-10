@@ -34,7 +34,8 @@ public class WordSetXML implements XML{
 				//key element
 				key = new Element("key");
 
-				key.setText(keyname);
+				keyname=keyname.trim();
+				if(!keyname.equals("")) key.setText(keyname);
 				Map.addContent(key);
 
 				doc.getRootElement().addContent(Map);
@@ -67,9 +68,9 @@ public class WordSetXML implements XML{
 		Element root = document.getRootElement();
 		List<Element> mapList = root.getChildren();
 		String key;
-		HashSet<String> set =null;
 		for(Element map:mapList){
-			res.add(map.getChild("key").getText());
+			key=map.getChild("key").getText().trim();
+			if(!key.equals(""))res.add(key);
 		}
 		return res;
 	}
