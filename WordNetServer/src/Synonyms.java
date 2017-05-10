@@ -17,7 +17,7 @@ public class Synonyms {
 	}
 
 
-	public HashSet<String> getSynonymsByPOS (String key,POS pos){
+	private HashSet<String> getSynonymsByPOS (String key,POS pos){
 		Stemming stemming=new Stemming(dict);
 		HashSet<String> set=new HashSet<>();
 		IIndexWord idxWord = dict.getIndexWord(key, pos);

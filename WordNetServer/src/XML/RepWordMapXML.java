@@ -77,7 +77,7 @@ public class RepWordMapXML implements XML {
 		for(Element map:mapList){
 			key=map.getChild("key").getText();
 			value= map.getChild("value").getText().trim();
-			key=key.substring(1, value.length()-1);
+			key=key.substring(1, key.length()-1);
 			String[] tokens=key.trim().split(",");
 			keySet=new HashSet<>();
 			for(String val:tokens) {

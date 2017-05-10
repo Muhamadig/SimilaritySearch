@@ -23,26 +23,20 @@ public class DictGenerator {
 		wordSetMapXML=XMLFactory.getXML(XMLFactory.WordSetMap);
 	}
 
-	public void asymmetricSyns(){
-		long t=System.currentTimeMillis();
-		HashSet<String> allWords=(HashSet<String>) wordSetMapXML.Import("AllWords.xml");
+	public SynSetMap asymmetricSyns(String allWordsFileName){
+		HashSet<String> allWords=(HashSet<String>) wordSetMapXML.Import(allWordsFileName);
 		HashSet<String> synRes;
 		SynSetMap map=new SynSetMap();
 		for(String key:allWords){
 			map.put(key,synonyms.getAllSynonyms(key));
 		}
 		System.out.println("in the func: "+map.get("tamu communis").isEmpty());
-		synSetMapXML.export(map, "AsymmetricSyns.xml");
-		System.out.println("synonyms Done: " + (float)((System.currentTimeMillis()-t)/1000) +"secs");
-		System.out.println("number of words: "+ map.size());
+		return map;
 	}
 
-	public void symmetricSyns(){
-		SynSetMap asymmetric=(SynSetMap) synSetMapXML.Import("AsymmetricSyns.xml");
+	public SynSetMap symmetricSyns(String asymmetricFileName){
+		SynSetMap asymmetric=(SynSetMap) synSetMapXML.Import(asymmetricFileName);
 		System.out.println("in the reading: "+asymmetric.get("tamu communis").isEmpty());
-
-		System.out.print ("\n Symmetric ... \n");
-		long t = System . currentTimeMillis ();
 
 		HashSet<String> currentSet;
 
@@ -60,15 +54,12 @@ public class DictGenerator {
 			}
 		}
 		
-		synSetMapXML.export(asymmetric, "symmetricSyns.xml");
-		System.out.println("synonyms semmetric Done: " + (float)((System.currentTimeMillis()-t)/1000) +"secs");
-		System.out.println("number of words: "+ asymmetric.size());
+		return asymmetric;
 
 	}
 	
-	public RepWordMap createSynMap(){
-		SynSetMap synset=(SynSetMap) synSetMapXML.Import("symmetricSyns.xml");
-		System.out.println("number of words: "+synset.size());
+	public RepWordMap createSynMap(String symmetricFileName){
+		SynSetMap synset=(SynSetMap) synSetMapXML.Import(symmetricFileName);
 		RepWordMap map=new RepWordMap();
 		HashSet<String> current;
 		for(String key:synset.keySet()){
