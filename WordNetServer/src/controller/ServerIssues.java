@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,7 +23,7 @@ public class ServerIssues {
 	 * IDictionary.getIndexWordIterator(POS pos) 
           Returns an iterator that will iterate over all index words of the specified part of speech.
 	 */
-
+/*
 	private IDictionary dictionary;
 	private TreeMap<String, HashSet<String>> synonyms;
 	private HashMap<HashSet<String>,HashSet<String>> similars;
@@ -177,3 +177,4 @@ public class ServerIssues {
 		}
 	}
 }
+*/

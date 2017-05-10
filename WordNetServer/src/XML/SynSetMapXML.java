@@ -74,7 +74,7 @@ public class SynSetMapXML implements XML{
 		String key,value;
 		HashSet<String> set =null;
 		for(Element map:mapList){
-			key=map.getChild("key").getText();
+			key=map.getChild("key").getText().trim();
 			value= map.getChild("value").getText();
 			value=value.substring(1, value.length()-1);
 			String[] tokens=value.trim().split(",");

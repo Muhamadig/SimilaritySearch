@@ -74,7 +74,8 @@ public class WordNet {
 				word = _dict . getWord ( wordID );
 				str=(stemmer.stem(word.getLemma())).toLowerCase();
 				str=str.replaceAll("[-_]", " ");
-				res.add(str);
+				str=str.trim();
+				if(!str.equals("")) res.add(str);
 			}
 
 		}

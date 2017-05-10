@@ -7,8 +7,8 @@ import XML.WordSetXML;
 import XML.XML;
 import XML.XMLFactory;
 import edu.mit.jwi.IDictionary;
+import model.RepWordMap;
 import model.SynSetMap;
-import model.SynsMap;
 
 public class DictGenerator {
 	private Stemming stemer;
@@ -66,10 +66,10 @@ public class DictGenerator {
 
 	}
 	
-	public SynsMap createSynMap(){
+	public RepWordMap createSynMap(){
 		SynSetMap synset=(SynSetMap) synSetMapXML.Import("symmetricSyns.xml");
 		System.out.println("number of words: "+synset.size());
-		SynsMap map=new SynsMap();
+		RepWordMap map=new RepWordMap();
 		HashSet<String> current;
 		for(String key:synset.keySet()){
 			current=synset.get(key);

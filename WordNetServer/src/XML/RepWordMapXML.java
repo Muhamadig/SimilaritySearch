@@ -1,11 +1,15 @@
 package XML;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
@@ -54,8 +58,34 @@ public class RepWordMapXML implements XML {
 	}
 	@Override
 	public Object Import(String fileName) {
-		// TODO Auto-generated method stub
-		return null;
+		RepWordMap res=new RepWordMap();
+		File inputFile = new File(fileName);
+		SAXBuilder saxBuilder = new SAXBuilder();
+		Document document = null;
+		try {
+			document = saxBuilder.build(inputFile);
+		} catch (JDOMException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Element root = document.getRootElement();
+		List<Element> mapList = root.getChildren();
+		String key,value;
+		
+		HashSet<String> keySet;
+		for(Element map:mapList){
+			key=map.getChild("key").getText();
+			value= map.getChild("value").getText().trim();
+			key=key.substring(1, value.length()-1);
+			String[] tokens=key.trim().split(",");
+			keySet=new HashSet<>();
+			for(String val:tokens) {
+				if(!val.equals("")) keySet.add(val.trim());
+			}
+			res.put(keySet, value);
+		}
+		return res;
 	}
 
 	
