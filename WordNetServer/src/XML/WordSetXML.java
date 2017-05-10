@@ -15,12 +15,8 @@ import org.jdom2.output.XMLOutputter;
 
 import model.SynSetMap;
 
-public class WordSetXML implements XML{
-	
-	public WordSetXML(){
-		
-	}
-	private void export(HashSet<String> wordSet,String fileName){
+public class WordSetXML {
+	public static void export(HashSet<String> wordSet,String fileName){
 		try{
 			//root element
 			Element wordsSet = new Element("wordsSet");
@@ -51,7 +47,7 @@ public class WordSetXML implements XML{
 		}	
 	}
 	
-	public HashSet<String> Import(String fileName){
+	public static HashSet<String> Import(String fileName){
 		
 		HashSet<String> res=new HashSet<String>();
 		File inputFile = new File(fileName);
@@ -72,10 +68,5 @@ public class WordSetXML implements XML{
 			res.add(map.getChild("key").getText());
 		}
 		return res;
-	}
-	@Override
-	public void export(Object object, String fileName) {
-		HashSet<String> wordSet=(HashSet<String>) object;
-		export(wordSet, fileName);		
 	}
 }
