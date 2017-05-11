@@ -1,6 +1,5 @@
 package dictionary;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import edu.mit.jwi.IDictionary;
@@ -16,7 +15,6 @@ public class Stemming {
 	}
 	public String stem(String word){
 		WordnetStemmer wnstem=new WordnetStemmer(dict);
-		HashSet<String> set=new HashSet<>();
 		List<String> res= new ArrayList<String>();
 		res.addAll(wnstem.findStems(word, POS.NOUN));
 		res.addAll(wnstem.findStems(word, POS.ADJECTIVE));
@@ -37,7 +35,6 @@ public class Stemming {
 	
 	public String stemByPOS(String word,POS pos){
 		WordnetStemmer wnstem=new WordnetStemmer(dict);
-		HashSet<String> set=new HashSet<>();
 		List<String> res= new ArrayList<String>();
 		res.addAll(wnstem.findStems(word,pos));
 

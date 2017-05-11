@@ -14,7 +14,6 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 import model.RepWordMap;
-import model.SynSetMap;
 
 public class RepWordMapXML implements XML {
 

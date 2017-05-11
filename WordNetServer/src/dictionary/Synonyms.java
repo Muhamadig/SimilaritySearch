@@ -1,14 +1,11 @@
 package dictionary;
 import java.util.HashSet;
-import java.util.Iterator;
-
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
 import edu.mit.jwi.item.ISynset;
 import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
-import model.SynSetMap;
 
 public class Synonyms {
 	private IDictionary dict;

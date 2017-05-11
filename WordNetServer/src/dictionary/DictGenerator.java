@@ -2,8 +2,6 @@ package dictionary;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-
-
 import XML.XML;
 import XML.XMLFactory;
 import edu.mit.jwi.IDictionary;
@@ -65,6 +63,7 @@ public class DictGenerator {
 	}
 
 	public SynSetMap asymmetricSyns(String allWordsFileName){
+		@SuppressWarnings("unchecked")
 		HashSet<String> allWords=(HashSet<String>) wordSetMapXML.Import(allWordsFileName);
 		SynSetMap map=new SynSetMap();
 		for(String key:allWords){

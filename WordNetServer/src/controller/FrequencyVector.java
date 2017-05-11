@@ -1,24 +1,26 @@
 package controller;
 
+import Server.View;
+import Server.WordNetHandler;
+import Utils.Request;
 import dictionary.Stemming;
-import edu.mit.jwi.IDictionary;
 import model.FVHashMap;
 import model.RepWordMap;
 import model.SynSetMap;
 
-public class FrequencyVector {
+public class FrequencyVector extends View {
 	private SynSetMap synonymsMap;
 	private RepWordMap repWordMap;
 	private Stemming stemming;
 	
 	
-	public FrequencyVector(IDictionary dict,SynSetMap synonymsMap,RepWordMap repWordMap){
-		this.synonymsMap=synonymsMap;
-		this.repWordMap=repWordMap;
-		this.stemming=new Stemming(dict);
+	public FrequencyVector(){
+		this.synonymsMap=WordNetHandler.getSynonymsMap();
+		this.repWordMap=WordNetHandler.getRepWordMap();
+		this.stemming=WordNetHandler.getStemming();
 	}
 	
-	public FVHashMap stemmingAndSynonyms(FVHashMap fv){
+	private FVHashMap stemmingAndSynonyms(FVHashMap fv){
 		FVHashMap stemmingMap=new FVHashMap();
 		FVHashMap res=new FVHashMap();
 		for(String key:fv.keySet()){
@@ -33,5 +35,12 @@ public class FrequencyVector {
 			}
 		}
 		return res;
+	}
+	
+	public Object fv(Request request){
+		FVHashMap fv=(FVHashMap) request.getParam("fv");
+		return stemmingAndSynonyms(fv);
+
+		
 	}
 }

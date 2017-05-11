@@ -5,15 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-
-import model.SynSetMap;
 
 public class WordSetXML implements XML{
 	
@@ -76,6 +73,7 @@ public class WordSetXML implements XML{
 	}
 	@Override
 	public void export(Object object, String fileName) {
+		@SuppressWarnings("unchecked")
 		HashSet<String> wordSet=(HashSet<String>) object;
 		export(wordSet, fileName);		
 	}
