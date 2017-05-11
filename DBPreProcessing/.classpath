@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="libraries/poi-scratchpad-3.15.jar"/>
 	<classpathentry kind="lib" path="libraries/xmlbeans.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
+	<classpathentry kind="lib" path="libraries/itextpdf-5.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
