@@ -10,6 +10,10 @@
 	<classpathentry kind="lib" path="libraries/poi-ooxml-schemas-3.15.jar"/>
 	<classpathentry kind="lib" path="libraries/poi-scratchpad-3.15.jar"/>
 	<classpathentry kind="lib" path="libraries/xmlbeans.jar"/>
+<<<<<<< HEAD
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
+=======
+	<classpathentry kind="lib" path="libraries/itextpdf-5.4.1.jar"/>
+>>>>>>> 86c2b3666c8fce93004c176831fe4505a04da45b
 	<classpathentry kind="output" path="bin"/>
 </classpath>

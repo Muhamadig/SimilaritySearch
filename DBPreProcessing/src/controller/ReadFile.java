@@ -125,7 +125,7 @@ public class ReadFile {
 	}
 
 	
-	private static String clean(String str){
+	static String clean(String str){
 		return str.replaceAll("[^0-9a-zA-Z\\s]", "");
 	}
 
