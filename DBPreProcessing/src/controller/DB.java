@@ -4,16 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import com.itextpdf.text.DocumentException;
 
 import model.FVHashMap;
 import model.Language;
@@ -34,32 +29,7 @@ public class DB {
 	}
 	
 	
-	public void pdfcreate() throws IOException{
-		
-		PDDocument document = new PDDocument();
-		PDPage page = new PDPage();
-		document.addPage( page );
-
-		// Create a new font object selecting one of the PDF base fonts
-		PDFont font = PDType1Font.HELVETICA;	
-		// Start a new content stream which will "hold" the to be created content
-		PDPageContentStream contentStream = new PDPageContentStream(document, page);
-		String text = PageText("http://www.courts.ie/Judgments.nsf/597645521f07ac9a80256ef30048ca52/8e8929c277c2fe5e8025811a0057b95a?OpenDocument");
-		
-		// Define a text content stream using the selected font, moving the cursor and drawing the text "Hello World"
-		contentStream.beginText();
-		contentStream.setFont( font, 12 );
-		contentStream.moveTextPositionByAmount( 100, 700 );
-		contentStream.drawString(text);
-		contentStream.endText();
-
-		// Make sure that the content stream is closed:
-		contentStream.close();
-
-		// Save the results and ensure that the document is properly closed:
-		document.save( "PDFs/Hello World.pdf");
-		document.close();
-	}
+	
 	public void init() throws IOException{
 		long t = System.currentTimeMillis();
 		System.out.println("Getting Texts..\n");
@@ -77,6 +47,15 @@ public class DB {
 		value = ReadFile.clean(value);
 		texts.add(value);
 	}
+	public String getTitle(String URL)throws IOException{
+		String title="";
+		Document document = Jsoup.connect(URL).followRedirects(false).timeout(60000/*wait up to 60 sec for response*/).get();
+		Element table = document.body().select("table").get(9);
+		Element tr = table.select("tr").first();
+		Element td = tr.select("td").get(1);
+		title= td.text();
+		return title;
+	}
 	public void getLinks() throws IOException{
 		Document document = Jsoup.connect(this.url).followRedirects(false).timeout(60000/*wait up to 60 sec for response*/).get();
 		Elements links = document.getElementsByTag("a");
@@ -90,29 +69,23 @@ public class DB {
 		}
 		System.out.println("Done getting links");
 	}
-	public String PageText(String URL) throws IOException{
+
+	public String getTableText(String URL) throws IOException{
 		System.out.println("Getting text:\n");
-		long t = System.currentTimeMillis();
-		String value=new String();
 		Document document = Jsoup.connect(URL).followRedirects(false).timeout(60000/*wait up to 60 sec for response*/).get();
-		if(document.body().getElementById("ContentOnly") != null){
-			Elements childs = document.body().getElementById("ContentOnly").children();
-			int len = childs.size();
-			for(int i=0;i<len;i++){
-				String text= childs.get(i).text();
-				if(text.equals("th")){
-					int size = value.length()-1;
-					value = value.substring(0,size);
-					value+=text+childs.get(i+1).text() +"\n";
-					i++;
-				}
-				else
-					value +=text +"\n";
-			}
-			System.out.println("Done ..." + (System.currentTimeMillis()-t));
-		}
-		return value;	
+		Element table = document.body().select("table").get(8);
+		Elements childs = table.children();
+		String text="";
+		for(Element child : childs)
+			if (!child.is("img"))
+				text+=child.text()+"\n";
+		text = text.replaceAll("\t", "");
+		text = text.replace("Back to top of document", "");
+		System.out.println("Done...");
+		return text;
+		
 	}
+	
 	public void getText(String URL) throws IOException{
 	
 		Document document = Jsoup.connect(URL).followRedirects(false).timeout(60000/*wait up to 60 sec for response*/).get();
@@ -137,9 +110,9 @@ public class DB {
 	}
 	public int GetCounter(){return this.NOtexts;}
 	public HashMap<String , FVHashMap> getTextsVectors(){return freqvec;}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DocumentException {
 
-		   DB temp = new DB();
+		   PDFcreator creator = new PDFcreator();
 		   /*HashMap<String , FVHashMap> vector=null;
 		   try{
 			   temp.init();
@@ -149,8 +122,11 @@ public class DB {
 		   }catch(IOException e){System.out.println(e.toString());}
 		   System.out.println("Number of texts: " + temp.GetCounter());*/
 		   try {
-			   temp.pdfcreate();
-		/*	String str = temp.PageText("http://www.courts.ie/Judgments.nsf/597645521f07ac9a80256ef30048ca52/8e8929c277c2fe5e8025811a0057b95a?OpenDocument");
+			   DB temp = new DB();
+			   String url = "http://www.courts.ie/Judgments.nsf/597645521f07ac9a80256ef30048ca52/8e8929c277c2fe5e8025811a0057b95a?OpenDocument";
+			   String title ="PDFs/" + temp.getTitle(url)+".pdf";
+			   creator.pdfcreate(temp.getTableText(url),title);
+			/*String str = temp.getTableText("http://www.courts.ie/Judgments.nsf/597645521f07ac9a80256ef30048ca52/8e8929c277c2fe5e8025811a0057b95a?OpenDocument");
 			System.out.println(str);*/
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
