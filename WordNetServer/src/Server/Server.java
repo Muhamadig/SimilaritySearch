@@ -35,9 +35,9 @@ public class Server extends AbstractServer {
 		logger.info("-----------------------");
 		logger.info("     Server status");
 		logger.info("-----------------------");
-		logger.info("\t[Server is " + (this.isListening() == true ? "online" : "offline"));
-		logger.info("\t[Port " + this.getPort());
-		logger.info("\t[Clients connected " + this.getNumberOfClients());
+		logger.info("[Server is " + (this.isListening() == true ? "online" : "offline"));
+		logger.info("[Port " + this.getPort());
+		logger.info("[Clients connected " + this.getNumberOfClients());
 	}
 	/**
 	 * ServerStarted handler
@@ -50,14 +50,14 @@ public class Server extends AbstractServer {
 	 * @param client
 	 */
 	protected void clientConnected(ConnectionToClient client) {
-		logger.info("New client connected: " + client.getInetAddress() + ", total : " + (this.getNumberOfClients()-1));
+		logger.info("New client connected: " + client.getInetAddress() + ", total : " + this.getNumberOfClients());
 	}
 	/**
 	 * Server exception hook handler
 	 * @param  client
 	 */
 	synchronized protected void clientException(ConnectionToClient client, Throwable exception) {
-		logger.info("Client disconnected: " + client.getIp() + ", total : " + this.getNumberOfClients());
+		logger.info("Client disconnected: " + client.getIp() + ", total : " + (this.getNumberOfClients()-1));
 		Users.clientDisconnected(client.getIp());
 	}
 	/**
@@ -65,7 +65,7 @@ public class Server extends AbstractServer {
 	 * @param client
 	 */
 	synchronized protected void clientDisconnected(ConnectionToClient client) {
-		logger.info("Client unexpectedly disconnected: " + client.getIp() + ", total : " + this.getNumberOfClients());
+		logger.info("Client unexpectedly disconnected: " + client.getIp() + ", total : " + (this.getNumberOfClients()-1));
 		Users.clientDisconnected(client.getIp());
 	}
 	/**
@@ -85,8 +85,7 @@ public class Server extends AbstractServer {
 	protected void handleMessageFromClient(Object message, ConnectionToClient client) {
 		Request request = (Request) message;
 		request.addParam("ip", client.getInetAddress().getHostAddress());
-		logger.info("[REQUEST] from " + client.getInetAddress() + " : " + request.getUrl() + " "
-				+ request.getParams().keySet().toString());
+		logger.info("[REQUEST] from " + client.getInetAddress() + " : " + request.getUrl());
 		try {
 			client.sendToClient(router.resolve((Request) request));
 		} catch (IOException e) {
