@@ -2,10 +2,8 @@ package Client;
 
 import java.io.IOException;
 
-import Utils.Logger;
 import Utils.Request;
 import ocsf.client.*;
-import ui.main.ClientUI;
 
 public class Client extends AbstractClient {
 	public Client(String host, int port) {

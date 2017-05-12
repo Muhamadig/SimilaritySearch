@@ -50,7 +50,7 @@ public class Server extends AbstractServer {
 	 * @param client
 	 */
 	protected void clientConnected(ConnectionToClient client) {
-		logger.info("New client connected: " + client.getInetAddress() + ", total : " + this.getNumberOfClients());
+		logger.info("New client connected: " + client.getInetAddress() + ", total : " + (this.getNumberOfClients()-1));
 	}
 	/**
 	 * Server exception hook handler

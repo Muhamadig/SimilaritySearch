@@ -28,7 +28,7 @@ public class Router {
 	 */
 		public Object resolve(Request request) {
 			switch (request.getView()) {
-			case "fv":
+			case "FV":
 				return FV.resolve(request);
 			}
 			return null;

@@ -1,12 +1,10 @@
 package Client;
 
-import models.User;
-import ui.main.SignInUI;
+import java.io.IOException;
 
 public class Application {
 
 	public static Client client = null;
-	public static User user = null;
 	
 	public static void connect() {
 		Config cfg = Config.getConfig();
@@ -19,10 +17,8 @@ public class Application {
 		client.open();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
-		connect();
-		
-		new SignInUI();
+		connect();		
 	}
 }

@@ -21,19 +21,22 @@ public class FrequencyVector extends View {
 	}
 	
 	private FVHashMap stemmingAndSynonyms(FVHashMap fv){
+		int sum=0;
 		FVHashMap stemmingMap=new FVHashMap();
 		FVHashMap res=new FVHashMap();
 		for(String key:fv.keySet()){
 			stemmingMap.put(stemming.stem(key),fv.get(key));
 		}
-		for(String key:fv.keySet()){
+		for(String key:stemmingMap.keySet()){
 			if(synonymsMap.containsKey(key)){
-				res.put(repWordMap.get(synonymsMap.get(key)), fv.get(key));
+				sum++;
+				res.put(repWordMap.get(synonymsMap.get(key)), stemmingMap.get(key));
 			}
 			else{
-				res.put(key, fv.get(key));
+				res.put(key, stemmingMap.get(key));
 			}
 		}
+		System.out.println("number of words from dic: "+sum);
 		return res;
 	}
 	

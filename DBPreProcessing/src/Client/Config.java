@@ -9,7 +9,7 @@ public class Config {
 	public boolean isDebug = false;
 	private String host = "localhost";
 	private int port = 5000;
-	private FileManager fileManager = new FileManager("c:/GHealth");
+	private FileManager fileManager = new FileManager("");
 	private Logger logger = new Logger(isDebug);
 
 	private static Config instance = new Config();
@@ -29,7 +29,7 @@ public class Config {
 			port = Integer.parseInt(ip[1]);
 		} catch (Exception e) {
 			host = "localhost";
-			port = 5000;
+			port = 8000;
 			Config.getConfig().getLogger().exception(e);
 		}
 
