@@ -51,7 +51,7 @@ public class Config {
 	public void printConfig() {
 
 		logger.debug("[CONFIGURATION]");
-		logger.debug("\t|PORT : " + port);
+		logger.debug("PORT : " + port);
 	}	
 
 	public int getPort() {

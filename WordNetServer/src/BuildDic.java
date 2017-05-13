@@ -1,13 +1,13 @@
 
-import java.util.HashSet;
-
-import XML.XML;
-import XML.XMLFactory;
-import dictionary.DictGenerator;
+//import java.util.HashSet;
+//
+//import XML.XML;
+//import XML.XMLFactory;
+//import dictionary.DictGenerator;
 import dictionary.WordNet;
-import edu.mit.jwi.IDictionary;
-import model.RepWordMap;
-import model.SynSetMap;
+//import edu.mit.jwi.IDictionary;
+//import model.RepWordMap;
+//import model.SynSetMap;
 
 public class BuildDic {
 
