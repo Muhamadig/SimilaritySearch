@@ -6,18 +6,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import model.FVHashMap;
+import model.Language;
+import model.Language.Langs;
+
 
 public class DB {
 
 	public int count;
-	private HashMap<String,String> htmls;
-	private ArrayList<String> links;
-	private HashMap <String,String > tables;
+	private HashMap<String,FVHashMap> texts;
+	private HashMap<String,String> htmls; // this hashmap contains the texts and there's html code
+	private HashMap <String,String > tables; // this hashmap contains the title of the document and it's link
 	private String [] pages ={
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&ExpandView&Seq=1",
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&Start=1.1.28&ExpandView&Seq=2",
@@ -37,40 +43,13 @@ public class DB {
 	
 	public DB(){
 		tables = new HashMap<String,String>();
-		links = new ArrayList<String>();
 		htmls = new HashMap<String,String>();
+		texts = new HashMap<String,FVHashMap>();
 	}
-	
-	public void LoadLinks(){
-		for(String link : pages){
-			try {
-				getLinks(link);
-			} catch (IOException e) {
-				System.out.println("Bad Link");
-			}
-		}
-	}
-	
-	public void init(){
-		long t = System.currentTimeMillis();
-		System.out.println("Initialize...");
-		LoadLinks();
-		
-		System.out.println("Done ... "+(System.currentTimeMillis()-t));
-	}
-	
-	public void getLinks(String url) throws IOException{
-		Document document = Jsoup.connect(url).get();
-		Element table = document.select("table").get(9);
-		Elements links = table.getElementsByTag("a");
-		int len = links.size();
-		for(int i=0;i<len;i++){
-			String link ="http://www.courts.ie"+ links.get(i).attr("href");
-			this.links.add(link);
-		}
-		//System.out.println("Done getting links");
-	}
-
+	/*
+	 * @Param URL: the url of web page (our DB) that contains text.
+	 * the function returns arraylist that contains the document text and the page's HTML code
+	 * */
 	public ArrayList<String> GetHtmlandText(String URL){
 		System.out.println(URL);
 		ArrayList<String> results = null;
@@ -101,6 +80,12 @@ public class DB {
 		
 	}
 	
+	/*
+	 * @Param title: the html file name
+	 * @Param table: the html code that contains the document as a html table.
+	 * 
+	 * the function creats html file and put it in HTMLs folder.
+	 * */
 	public void GenerateHTML(String title,String table) throws IOException{
 		//System.out.println(title);
 		File file = new File("HTMLs/"+title.replaceAll("/", "")+".html");
@@ -118,7 +103,6 @@ public class DB {
 		}
 	}
 
-	
 	public void loadtables(String URL) throws IOException{
 		Document document = Jsoup.connect(URL).get();
 		Element bigtd = document.body().getElementsByClass("viewtable").first();
@@ -146,6 +130,14 @@ public class DB {
 	
 	public String [] getlinks(){ return this.pages;}
 	
+	public void FrequencyVectors(){
+		Set <String> keys = htmls.keySet();
+		for(String text : keys){
+			FVHashMap vec = new FVHashMap(text);
+			vec = StopWordsFiltering.RemoveSW(vec, new Language(Langs.ENGLISH));
+			texts.put(text, vec);
+		}
+	}
 	public static void main(String[] args) throws IOException{
 		DB temp = new DB();
 		String [] pgs = temp.getlinks();
