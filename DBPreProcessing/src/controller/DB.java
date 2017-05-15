@@ -13,6 +13,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.itextpdf.text.DocumentException;
+
 import model.FVHashMap;
 import model.Language;
 import model.Language.Langs;
@@ -138,8 +140,9 @@ public class DB {
 			texts.put(text, vec);
 		}
 	}
-	public static void main(String[] args) throws IOException{
-		DB temp = new DB();
+	
+	public static void main(String[] args) throws IOException, DocumentException{
+	/*	DB temp = new DB();
 		String [] pgs = temp.getlinks();
 		long t = System.currentTimeMillis();
 		System.out.println("Start generating HTMLs:");
@@ -148,6 +151,9 @@ public class DB {
 			temp.loadhtml();
 		}
 		System.out.println("Done ... " + ((System.currentTimeMillis()-t)/1000) +" secs");
-		System.out.println(temp.count + " files has generated");
-	   }
+		System.out.println(temp.count + " files has generated");*/
+		
+		DB temp = new DB();
+		ArrayList<String> data = temp.GetHtmlandText("http://www.courts.ie/Judgments.nsf/597645521f07ac9a80256ef30048ca52/95044a0f312a3c388025811e003a218e?OpenDocument");
+	}
 	}
