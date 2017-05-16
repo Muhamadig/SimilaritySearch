@@ -1,19 +1,19 @@
 
-//import java.util.HashSet;
+import java.util.HashSet;
 //
-//import XML.XML;
-//import XML.XMLFactory;
-//import dictionary.DictGenerator;
+import XML.XML;
+import XML.XMLFactory;
+import dictionary.DictGenerator;
 import dictionary.WordNet;
-//import edu.mit.jwi.IDictionary;
-//import model.RepWordMap;
-//import model.SynSetMap;
+import edu.mit.jwi.IDictionary;
+import model.RepWordMap;
+import model.SynSetMap;
 
 public class BuildDic {
 
 	public static void main(String[] args) {
 
-/*
+
 		WordNet wn=new WordNet();
 		IDictionary dict=wn.getDictionary();
 		DictGenerator generator=new DictGenerator(dict);
@@ -79,8 +79,8 @@ public class BuildDic {
 		System.err.println("time of building represintative word dictionary: "+(float)((System.currentTimeMillis()-t)/1000)+" secs");
 		System.out.println("----------------------------------------------------");
 		//=======================================================================================================
-*/
-		new WordNet();
+
+//		new WordNet();
 
 
 

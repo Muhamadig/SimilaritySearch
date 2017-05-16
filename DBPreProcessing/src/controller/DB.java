@@ -1,7 +1,9 @@
 package controller;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -105,6 +107,28 @@ public class DB {
 		}
 	}
 
+	public void load() throws IOException{
+		System.out.println("Start loading ...");
+		long t = System.currentTimeMillis();
+		File folder = new File("HTMLs");
+		if(folder.isDirectory())
+			if(folder.list().length > 0 ){
+				String [] files = folder.list();
+				for(String file : files){
+				}
+			}
+			else{
+				for(String link : pages){
+					loadtables(link);
+					loadhtml();
+				}
+			}
+		else
+			System.out.println("bad directory");
+		//FrequencyVectors();
+		System.out.println("Done ... " + (System.currentTimeMillis() - t));
+	}
+	
 	public void loadtables(String URL) throws IOException{
 		Document document = Jsoup.connect(URL).get();
 		Element bigtd = document.body().getElementsByClass("viewtable").first();
@@ -132,28 +156,20 @@ public class DB {
 	
 	public String [] getlinks(){ return this.pages;}
 	
-	public void FrequencyVectors(){
-		Set <String> keys = htmls.keySet();
-		for(String text : keys){
-			FVHashMap vec = new FVHashMap(text);
-			vec = StopWordsFiltering.RemoveSW(vec, new Language(Langs.ENGLISH));
-			texts.put(text, vec);
-		}
+	public void FrequencyVectors(String text){
+			FVHashMap finalfv = SuperSteps.buildFrequencyVector(text, new Language(Langs.ENGLISH));
+			System.out.println(finalfv.toString());
+			//texts.put(text, finalfv);
+			
 	}
 	
 	public static void main(String[] args) throws IOException, DocumentException{
-	/*	DB temp = new DB();
-		String [] pgs = temp.getlinks();
-		long t = System.currentTimeMillis();
-		System.out.println("Start generating HTMLs:");
-		for(String link : pgs){
-			temp.loadtables(link);
-			temp.loadhtml();
-		}
-		System.out.println("Done ... " + ((System.currentTimeMillis()-t)/1000) +" secs");
-		System.out.println(temp.count + " files has generated");*/
-		
 		DB temp = new DB();
-		ArrayList<String> data = temp.GetHtmlandText("http://www.courts.ie/Judgments.nsf/597645521f07ac9a80256ef30048ca52/95044a0f312a3c388025811e003a218e?OpenDocument");
+		File folder = new File("HTMLs");
+		File input = new File("HTMLs/"+folder.list()[2]);
+		Document doc = Jsoup.parse(input,"UTF-8");
+		Element table = doc.select("table").first();
+		Element div = doc.getElementById("itabs");
+		temp.FrequencyVectors(table.text() +"\n" + div.text());
 	}
-	}
+}

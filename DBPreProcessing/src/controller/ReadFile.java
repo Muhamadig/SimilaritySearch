@@ -11,6 +11,9 @@ import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class ReadFile {
 
@@ -80,6 +83,20 @@ public class ReadFile {
 		
 	}
 
+	private static String htmlRead(String fileDest){
+		File input = new File("HTMLs/"+fileDest);
+		Document doc = null;
+		try {
+			doc = Jsoup.parse(input,"UTF-8");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Element table = doc.select("table").first();
+		Element div = doc.getElementById("itabs");
+		String text = table.text() + "\n" + div.text();
+		return text;
+	}
 	/**
 	 * 
 	 * @param text : full text
@@ -113,12 +130,14 @@ public class ReadFile {
 	 * @param dest The file destination and name for example (file1_EN.pdf).
 	 * @param type the file type (pdf,doc,docx).
 	 * @return the text as String in lower case.
+	 * @throws IOException 
 	 */
-	public static String ReadFile(String dest,String type){
+	public static String ReadFile(String dest,String type) throws IOException{
 		String text = null;
 		if(type.equals("pdf")) text=pdfRead(dest);
 		if(type.equals("doc")) text=docRead(dest);
 		if(type.equals("docx")) text=docxRead(dest);
+		if(type.equals("html")) text =htmlRead(dest);
 		return clean(text);
 //		return text;
 

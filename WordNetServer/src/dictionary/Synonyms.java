@@ -25,9 +25,9 @@ public class Synonyms {
 		ISynset synset = word . getSynset ();
 		String lemma;
 		for( IWord w : synset . getWords ()){
-			lemma=w.getLemma().replaceAll("[-_]", " ");
+			lemma=w.getLemma();
 			lemma=stemming.stem(lemma);
-			
+			lemma = lemma.replaceAll("[-_]", " ");
 			set.add(lemma.toLowerCase());
 		}
 			
