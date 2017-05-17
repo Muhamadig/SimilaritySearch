@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.IOException;
+
 import Client.Application;
 import Utils.Request;
 import model.FVHashMap;
@@ -17,7 +19,13 @@ public class SuperSteps {
 	public static FVHashMap buildFrequencyVector(String pathAndName,String fileType,Language lang){
 
 		//step 1:read the file and clean it with (^[a-zA-Z0-9])
-		String text=ReadFile.ReadFile(pathAndName, fileType);
+		String text="";
+		try {
+			text = ReadFile.ReadFile(pathAndName, fileType);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//step 2:convert text to frequency Vector:
 		FVHashMap initialFV=new FVHashMap(text);
