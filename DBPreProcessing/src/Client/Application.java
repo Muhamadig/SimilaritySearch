@@ -25,8 +25,8 @@ public class Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
 		connect();
-		//temporary
-		FVHashMap finalfv= SuperSteps.buildFrequencyVector("PDFs/file1_en.pdf", "pdf", new Language(Langs.ENGLISH));
+		//temporary///HTMLs/A.O. -v- Refugee Appeals Tribunal & ors.html
+		FVHashMap finalfv= SuperSteps.buildFrequencyVector("HTMLs/A.O. -v- Refugee Appeals Tribunal & ors.pdf", "pdf", new Language(Langs.ENGLISH));
 		System.out.println(finalfv.toString());
 		System.out.println(finalfv.size() +"  "+finalfv.getSum());
 	}

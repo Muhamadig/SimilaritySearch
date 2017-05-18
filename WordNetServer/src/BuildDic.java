@@ -1,4 +1,6 @@
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 //
 import XML.XML;
@@ -6,6 +8,9 @@ import XML.XMLFactory;
 import dictionary.DictGenerator;
 import dictionary.WordNet;
 import edu.mit.jwi.IDictionary;
+import edu.mit.jwi.IRAMDictionary;
+import edu.mit.jwi.RAMDictionary;
+import edu.mit.jwi.data.ILoadPolicy;
 import model.RepWordMap;
 import model.SynSetMap;
 
@@ -14,8 +19,7 @@ public class BuildDic {
 	public static void main(String[] args) {
 
 
-		WordNet wn=new WordNet();
-		IDictionary dict=wn.getDictionary();
+		IDictionary dict=load();
 		DictGenerator generator=new DictGenerator(dict);
 
 
@@ -85,7 +89,30 @@ public class BuildDic {
 
 
 	}
+	private static IDictionary load(){
 
+		File dir=new File("dict");
+		IRAMDictionary dict = new RAMDictionary(dir,  ILoadPolicy . NO_LOAD );
+
+		try {
+			dict . open ();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System .out . print ("\n Loading Wordnet into memory ... ");
+		long t = System . currentTimeMillis ();
+		try {
+			dict . load ( true );
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("done "+(System.currentTimeMillis()-t));
+		return dict;
+
+	}
 
 }
 

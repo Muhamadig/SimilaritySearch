@@ -51,9 +51,7 @@ public class DictGenerator {
 			String str;
 			for(IWordID wordID:wordIDList){
 				word = _dict . getWord ( wordID );
-				str=(stemmer.stem(word.getLemma())).toLowerCase();
-				str=str.replaceAll("[-_]", " ");
-				str=str.trim();
+				str=(stemmer.stem(word.getLemma()));
 				if(!str.equals("")) res.add(str);
 			}
 

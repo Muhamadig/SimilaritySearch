@@ -29,24 +29,10 @@ public class Stemming {
 			if(str.length()<min_word.length())min_word=str; 
 		}
 
-		return min_word;
+		return (min_word.replaceAll("[-_]", " ")).trim().toLowerCase();
 
 	}
 	
-	public String stemByPOS(String word,POS pos){
-		WordnetStemmer wnstem=new WordnetStemmer(dict);
-		List<String> res= new ArrayList<String>();
-		res.addAll(wnstem.findStems(word,pos));
 
-		//get the shortest word
-		if(res.isEmpty()) return word;
-		String min_word=res.get(0);	
-		for(String str:res){
-			if(str.length()<min_word.length())min_word=str; 
-		}
-
-		return min_word;
-
-	}
 
 }
