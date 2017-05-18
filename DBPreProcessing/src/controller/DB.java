@@ -3,29 +3,30 @@ package controller;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.itextpdf.text.DocumentException;
+
 import model.FVHashMap;
 import model.Language;
 import model.Language.Langs;
 
 
 public class DB {
-	private static int count=0;
+
+	public int count;
 	private HashMap<String,FVHashMap> texts;
-	private HashMap<ArrayList<String>,String> htmls; // this hashmap contains the texts and there's html code
+	private HashMap<String,String> htmls; // this hashmap contains the texts and there's html code
 	private HashMap <String,String > tables; // this hashmap contains the title of the document and it's link
 	private String [] pages ={
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&ExpandView&Seq=1",
@@ -44,38 +45,18 @@ public class DB {
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&Start=1.3.204&ExpandView&Seq=14",
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&Start=1.4.9&ExpandView&Seq=15"};
 	
-
 	public DB(){
 		tables = new HashMap<String,String>();
-		htmls = new HashMap<ArrayList<String>,String>();
+		htmls = new HashMap<String,String>();
 		texts = new HashMap<String,FVHashMap>();
-	}
-	
-	public void DownloadAllPages() throws IOException{
-		System.out.println("Start Downloding...");
-		System.out.println("Loading tables ...");
-		long t = System.currentTimeMillis();
-		for(String link :pages)
-			loadtables(link);
-		System.out.println("Done loading ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
-		System.out.println("Start Creating ...");
-		t=System.currentTimeMillis();
-		Set<String> keys = tables.keySet();
-		for(String key : keys){
-			createhtml(tables.get(key) , key);
-		}
-		System.out.println("Done Creating ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
 	}
 	/*
 	 * @Param URL: the url of web page (our DB) that contains text.
 	 * the function returns arraylist that contains the document text and the page's HTML code
 	 * */
-	public HashMap<ArrayList<String>, ArrayList<String>> GetHtmlandText(String URL){
+	public ArrayList<String> GetHtmlandText(String URL){
 		System.out.println(URL);
-		ArrayList<String> HTML = new ArrayList<String>();
-		HashMap<ArrayList<String>, ArrayList<String>> res = new HashMap<ArrayList<String>,ArrayList<String>>();
-		ArrayList<String> text = new ArrayList<String>();
-		
+		ArrayList<String> results = null;
 		Document document;
 		try {
 			document = Jsoup.connect(URL).get();
@@ -85,22 +66,21 @@ public class DB {
 			Element tr = trs.get(1);
 			Element td = tr.select("td").first();
 			Elements childs = td.children();
-//			String text="";
+			String text="";
 			for(Element child : childs)
 				if (!child.is("img"))
-					text.add(child.text());
-			text.remove("\t");
-			text.remove("Back to top of document");
-			for(Element child : table.children()){
-				HTML.add(child.html());
-			}
-			res.put(text, HTML);
+					text+=child.text()+"\n";
+			text = text.replaceAll("\t", "");
+			text = text.replace("Back to top of document", "");
+			results = new ArrayList<String>();
+			results.add(text);
+			results.add(html);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return res;
+		return results;
 		
 	}
 	
@@ -110,7 +90,7 @@ public class DB {
 	 * 
 	 * the function creats html file and put it in HTMLs folder.
 	 * */
-	public void GenerateHTML(String title,ArrayList<String> table) throws IOException{
+	public void GenerateHTML(String title,String table) throws IOException{
 		//System.out.println(title);
 		File file = new File("HTMLs/"+title.replaceAll("/", "")+".html");
 		FileWriter fileWriter = null;
@@ -118,13 +98,9 @@ public class DB {
 		try {
 		fileWriter = new FileWriter(file);
 		bufferedWriter = new BufferedWriter(fileWriter);
-		String htmlPage = "<html><body style=’background-color:#ccc’><center>";
-		Iterator <String> element = table.iterator();
-		while(element.hasNext()){
-		htmlPage+=element.next();
-		}
-		htmlPage+="</center></body></html>";
+		String htmlPage = "<html><body style=’background-color:#ccc’><center>" + table + "</center></body></html>" ;
 		bufferedWriter.write(htmlPage);
+		count++;
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -154,7 +130,6 @@ public class DB {
 	}
 	
 	public void loadtables(String URL) throws IOException{
-		
 		Document document = Jsoup.connect(URL).get();
 		Element bigtd = document.body().getElementsByClass("viewtable").first();
 		Element table = bigtd.select("table").first();
@@ -164,34 +139,18 @@ public class DB {
 			if(tds.size() > 2){
 			Element td = tds.get(2);
 			String link ="http://www.courts.ie"+ td.select("a").attr("href");
-			String title = tds.get(3).text().replace("/", "");
+			String title = tds.get(3).text();
 			tables.put(title, link);
 			}
 		}
 	}
 
-	public void createhtml(String url,String title) throws IOException{
-		count++;
-		System.out.println("("+count+") " +title);
-		URL link = new URL(url);
-		BufferedReader in = new BufferedReader(new InputStreamReader(link.openStream()));
-		String line;
-		PrintWriter out = new PrintWriter("AllPages/"+title+".html");
-		
-		while((line = in.readLine())!=null){
-			out.println(line);
-		}
-		out.close();
-	}
-	
 	public void loadhtml() throws IOException{
 		for(String key: tables.keySet()){
-			HashMap<ArrayList <String>,ArrayList<String>> TextHtml = GetHtmlandText(tables.get(key));
+			ArrayList <String> TextHtml = GetHtmlandText(tables.get(key));
 			if(TextHtml != null){
-			//htmls.putAll(TextHtml);
-			ArrayList<String> text = TextHtml.keySet().iterator().next();
-			GenerateHTML(key,TextHtml.get(text));
-			}
+			htmls.put(TextHtml.get(0), TextHtml.get(1));
+			GenerateHTML(key,TextHtml.get(1));}
 		}
 	}
 	
@@ -206,12 +165,11 @@ public class DB {
 	
 	public static void main(String[] args) throws IOException, DocumentException{
 		DB temp = new DB();
-		temp.DownloadAllPages();
-//		File folder = new File("HTMLs");
-//		File input = new File("HTMLs/"+folder.list()[2]);
-//		Document doc = Jsoup.parse(input,"UTF-8");
-//		Element table = doc.select("table").first();
-//		Element div = doc.getElementById("itabs");
-//		temp.FrequencyVectors(table.text() +"\n" + div.text());
+		File folder = new File("HTMLs");
+		File input = new File("HTMLs/"+folder.list()[2]);
+		Document doc = Jsoup.parse(input,"UTF-8");
+		Element table = doc.select("table").first();
+		Element div = doc.getElementById("itabs");
+		temp.FrequencyVectors(table.text() +"\n" + div.text());
 	}
 }
