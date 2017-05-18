@@ -99,40 +99,12 @@ public class ReadFile {
 	}
 	/**
 	 * 
-	 * @param text : full text
-	 * @return hashmap<word,frequency> frequency vector 
-	 */
-	/*public static FrequencyVector textToFrequency (String text){
-
-		FrequencyVector freq=new FrequencyVector();
-
-		String [] words=text.trim().split(" ");
-		
-		//		String [] words=filter(textWords);
-		for (int i=0;i<words.length;i++)
-		{
-			words[i] = words[i].replace("\r", "");
-			words[i] = words[i].replace("\n", "");
-		}
-		System.out.println("words in string array=" + words.length);
-		for(String str:words){
-
-			if(freq.containsKey(str)) freq.replace(str.toLowerCase(), freq.get(str),freq.get(str)+1 );
-			else freq.put(str.toLowerCase(), 1);
-		}
-		if(freq.containsKey(""))freq.remove("");
-		System.out.println("words in string array=" + freq.size());
-		return freq;
-	}*/
-
-	/**
-	 * 
 	 * @param dest The file destination and name for example (file1_EN.pdf).
 	 * @param type the file type (pdf,doc,docx).
 	 * @return the text as String in lower case.
 	 * @throws IOException 
 	 */
-	public static String ReadFile(String dest,String type) throws IOException{
+	public static String ReadFile(String dest,String type){
 		String text = null;
 		if(type.equals("pdf")) text=pdfRead(dest);
 		if(type.equals("doc")) text=docRead(dest);
