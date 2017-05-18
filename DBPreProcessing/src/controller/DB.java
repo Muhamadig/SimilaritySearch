@@ -70,36 +70,32 @@ public class DB {
 	 * @Param URL: the url of web page (our DB) that contains text.
 	 * the function returns arraylist that contains the document text and the page's HTML code
 	 * */
-	public HashMap<ArrayList<String>, ArrayList<String>> GetHtmlandText(String URL){
-		System.out.println(URL);
-		ArrayList<String> HTML = new ArrayList<String>();
-		HashMap<ArrayList<String>, ArrayList<String>> res = new HashMap<ArrayList<String>,ArrayList<String>>();
+	public HashMap<ArrayList<String>, Element> GetHtmlandText(String file) throws IOException{
+		System.out.println(file);
+		//ArrayList<String> HTML = new ArrayList<String>();
+		HashMap<ArrayList<String>, Element> res = new HashMap<ArrayList<String>,Element>();
 		ArrayList<String> text = new ArrayList<String>();
 		
 		Document document;
-		try {
-			document = Jsoup.connect(URL).get();
-			Element table = document.body().select("table").get(8);
-			String html = table.html();
-			Elements trs = table.select("tr");
-			Element tr = trs.get(1);
-			Element td = tr.select("td").first();
-			Elements childs = td.children();
+		File input = new File("AllPages/"+file);
+		document = Jsoup.parse(input,"UTF-8");
+		//System.out.println(document.body().html());
+		Element table = document.body().select("table").get(8);
+		//String html = table.html();
+//		Elements trs = table.select("tr");
+//		Element tr = trs.get(1);
+//		Element td = tr.select("td").first();
+		Elements childs = table.children();
 //			String text="";
-			for(Element child : childs)
-				if (!child.is("img"))
-					text.add(child.text());
-			text.remove("\t");
-			text.remove("Back to top of document");
-			for(Element child : table.children()){
-				HTML.add(child.html());
-			}
-			res.put(text, HTML);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		for(Element child : childs)
+			if (!child.is("img"))
+				text.add(child.text());
+	//	text.remove("\t");
+		text.remove("Back to top of document");
+//		for(Element child : table.children()){
+//			HTML.add(child.html());
+//		}
+		res.put(text, table);
 		return res;
 		
 	}
@@ -110,21 +106,23 @@ public class DB {
 	 * 
 	 * the function creats html file and put it in HTMLs folder.
 	 * */
-	public void GenerateHTML(String title,ArrayList<String> table) throws IOException{
+	public void GenerateHTML(String title,Element table) throws IOException{
 		//System.out.println(title);
-		File file = new File("HTMLs/"+title.replaceAll("/", "")+".html");
+		File file = new File("HTMLs/"+title.replaceAll("/", ""));
 		FileWriter fileWriter = null;
 		BufferedWriter bufferedWriter = null;
 		try {
 		fileWriter = new FileWriter(file);
 		bufferedWriter = new BufferedWriter(fileWriter);
-		String htmlPage = "<html><body style=’background-color:#ccc’><center>";
+		/*String htmlPage = "<html><body style=’background-color:#ccc’><center>";
 		Iterator <String> element = table.iterator();
 		while(element.hasNext()){
 		htmlPage+=element.next();
+		
 		}
-		htmlPage+="</center></body></html>";
-		bufferedWriter.write(htmlPage);
+		htmlPage+="</center></body></html>";*/
+		
+		bufferedWriter.write(table.html());
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -134,17 +132,19 @@ public class DB {
 	public void load() throws IOException{
 		System.out.println("Start loading ...");
 		long t = System.currentTimeMillis();
-		File folder = new File("HTMLs");
+		File folder = new File("AllPages");
 		if(folder.isDirectory())
 			if(folder.list().length > 0 ){
 				String [] files = folder.list();
 				for(String file : files){
+					HashMap<ArrayList<String>,Element> res = GetHtmlandText(file);
+					Element html = res.get(res.keySet().iterator().next());
+					GenerateHTML(file,html);
 				}
 			}
 			else{
 				for(String link : pages){
-					loadtables(link);
-					loadhtml();
+					DownloadAllPages();
 				}
 			}
 		else
@@ -152,6 +152,7 @@ public class DB {
 		//FrequencyVectors();
 		System.out.println("Done ... " + (System.currentTimeMillis() - t));
 	}
+	
 	
 	public void loadtables(String URL) throws IOException{
 		
@@ -176,14 +177,14 @@ public class DB {
 		URL link = new URL(url);
 		BufferedReader in = new BufferedReader(new InputStreamReader(link.openStream()));
 		String line;
-		PrintWriter out = new PrintWriter("AllPages/"+title+".html");
+		PrintWriter out = new PrintWriter("AllPages/"+title);
 		
 		while((line = in.readLine())!=null){
 			out.println(line);
 		}
 		out.close();
 	}
-	
+	/*
 	public void loadhtml() throws IOException{
 		for(String key: tables.keySet()){
 			HashMap<ArrayList <String>,ArrayList<String>> TextHtml = GetHtmlandText(tables.get(key));
@@ -193,20 +194,12 @@ public class DB {
 			GenerateHTML(key,TextHtml.get(text));
 			}
 		}
-	}
+	}*/
 	
-	public String [] getlinks(){ return this.pages;}
-	
-	public void FrequencyVectors(String text){
-			FVHashMap finalfv = SuperSteps.buildFrequencyVector(text, new Language(Langs.ENGLISH));
-			System.out.println(finalfv.toString());
-			//texts.put(text, finalfv);
-			
-	}
 	
 	public static void main(String[] args) throws IOException, DocumentException{
 		DB temp = new DB();
-		temp.DownloadAllPages();
+		temp.load();
 //		File folder = new File("HTMLs");
 //		File input = new File("HTMLs/"+folder.list()[2]);
 //		Document doc = Jsoup.parse(input,"UTF-8");
