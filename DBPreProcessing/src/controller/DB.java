@@ -78,6 +78,7 @@ public class DB {
 		
 		Document document;
 		File input = new File("AllPages/"+file);
+		
 		document = Jsoup.parse(input,"UTF-8");
 		//System.out.println(document.body().html());
 		Element table = document.body().select("table").get(8);
@@ -92,6 +93,7 @@ public class DB {
 				text.add(child.text());
 	//	text.remove("\t");
 		text.remove("Back to top of document");
+		text.toString();
 //		for(Element child : table.children()){
 //			HTML.add(child.html());
 //		}
@@ -112,6 +114,7 @@ public class DB {
 		FileWriter fileWriter = null;
 		BufferedWriter bufferedWriter = null;
 		try {
+			//System.out.println(table.html());
 		fileWriter = new FileWriter(file);
 		bufferedWriter = new BufferedWriter(fileWriter);
 		/*String htmlPage = "<html><body style=’background-color:#ccc’><center>";
@@ -122,7 +125,8 @@ public class DB {
 		}
 		htmlPage+="</center></body></html>";*/
 		
-		bufferedWriter.write(table.html());
+		bufferedWriter.write("<html><body style=’background-color:#ccc’><center>" + table.html()+"</center></body></html>");
+		bufferedWriter.close();
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -177,8 +181,8 @@ public class DB {
 		URL link = new URL(url);
 		BufferedReader in = new BufferedReader(new InputStreamReader(link.openStream()));
 		String line;
+	//	PrintWriter out = new PrintWriter("AllPages/"+title);
 		PrintWriter out = new PrintWriter("AllPages/"+title);
-		
 		while((line = in.readLine())!=null){
 			out.println(line);
 		}
