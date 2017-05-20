@@ -62,7 +62,7 @@ public class DB {
 		t=System.currentTimeMillis();
 		Set<String> keys = tables.keySet();
 		for(String key : keys){
-			createhtml(tables.get(key) , key);
+			if(!key.equals(""))createhtml(tables.get(key) , key);
 		}
 		System.out.println("Done Creating ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
 	}
@@ -78,7 +78,7 @@ public class DB {
 		
 		Document document;
 		File input = new File("AllPages/"+file);
-		
+	
 		document = Jsoup.parse(input,"UTF-8");
 		//System.out.println(document.body().html());
 		Element table = document.body().select("table").get(8);
@@ -181,8 +181,7 @@ public class DB {
 		URL link = new URL(url);
 		BufferedReader in = new BufferedReader(new InputStreamReader(link.openStream()));
 		String line;
-	//	PrintWriter out = new PrintWriter("AllPages/"+title);
-		PrintWriter out = new PrintWriter("AllPages/"+title);
+		PrintWriter out = new PrintWriter("AllPages/"+title+".html");
 		while((line = in.readLine())!=null){
 			out.println(line);
 		}
@@ -203,7 +202,12 @@ public class DB {
 	
 	public static void main(String[] args) throws IOException, DocumentException{
 		DB temp = new DB();
-		temp.load();
+		//temp.DownloadAllPages();
+		//temp.load();
+		ReadFile read = new ReadFile();
+		String text = read.ReadFile("Vodafone GMBH -v- IV International Leasing & Anor.html", "html");
+		System.out.println(text.split(" ").length);
+		
 //		File folder = new File("HTMLs");
 //		File input = new File("HTMLs/"+folder.list()[2]);
 //		Document doc = Jsoup.parse(input,"UTF-8");
