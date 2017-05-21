@@ -30,15 +30,4 @@ public class SuperSteps {
 		request.addParam("fv", removedSWFV);
 		return (FVHashMap) Application.client.sendRequest(request);
 	}
-	
-	public static FVHashMap buildFrequencyVector(String text , Language lang){
-		FVHashMap initialFV=new FVHashMap(text);
-		
-		
-		FVHashMap removedSWFV=StopWordsFiltering.RemoveSW(initialFV, lang);
-		
-		Request request=new Request("FV/fv");
-		request.addParam("fv", removedSWFV);
-		return (FVHashMap) Application.client.sendRequest(request);
-	}
 }

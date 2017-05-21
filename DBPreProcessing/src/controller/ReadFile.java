@@ -84,7 +84,7 @@ public class ReadFile {
 	}
 
 	private static String htmlRead(String fileDest){
-		File input = new File("HTMLs/"+fileDest);
+		File input = new File(fileDest);
 		Document doc = null;
 		try {
 			doc = Jsoup.parse(input,"UTF-8");
