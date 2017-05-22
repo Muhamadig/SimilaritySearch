@@ -26,7 +26,7 @@ public class Application {
 		Config.getConfig().readTextConfig();
 		connect();
 		//temporary///HTMLs/A.O. -v- Refugee Appeals Tribunal & ors.html
-		FVHashMap finalfv= SuperSteps.buildFrequencyVector("HTMLs/A.O. -v- Refugee Appeals Tribunal & ors.pdf", "pdf", new Language(Langs.ENGLISH));
+		FVHashMap finalfv= SuperSteps.buildFrequencyVector("Vodafone GMBH -v- IV International Leasing & Anor.html", "html", new Language(Langs.ENGLISH));
 		System.out.println(finalfv.toString());
 		System.out.println(finalfv.size() +"  "+finalfv.getSum());
 	}
