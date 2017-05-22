@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Cluster {
 	
 	public ArrayList<Point> points;
-	public Point centroid;
+	public Point centroid; // the center point of the cluster
 	public int id;
 	
 	//Creates a new Cluster

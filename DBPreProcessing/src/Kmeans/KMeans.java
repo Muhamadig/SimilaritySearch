@@ -6,9 +6,10 @@ import java.util.List;
 public class KMeans {
  
 	//Number of Clusters. This metric should be related to the number of points
-    private int NUM_CLUSTERS = 3;    
+    private int NUM_CLUSTERS;   
+    
     //Number of Points
-    private int NUM_POINTS = 15;
+    private int NUM_POINTS;
     //Min and Max X and Y
     private static final int MIN_COORDINATE = 0;
     private static final int MAX_COORDINATE = 10;
@@ -16,7 +17,9 @@ public class KMeans {
     private List<Point> points;
     private List<Cluster> clusters;
     
-    public KMeans() {
+    public KMeans(int ClustersNum , int PointsNum) {
+    	this.NUM_CLUSTERS = ClustersNum;
+    	this.NUM_POINTS = PointsNum;
     	this.points = new ArrayList<Point>();
     	this.clusters = new ArrayList<Cluster>();    	
     }
@@ -107,13 +110,10 @@ public class KMeans {
         double distance = 0.0; 
         
         for(Point point : points) {
-//        	count++;
-//        	System.out.println("(" + count +")");
         	min = max;
             for(int i = 0; i < NUM_CLUSTERS; i++) {
             	Cluster c = clusters.get(i);
             	distance = Point.distance(point, c.getCentroid());
-               // distance = Point.distance(point, c.getCentroid());
                 if(distance < min){
                     min = distance;
                     cluster = i;
@@ -154,7 +154,7 @@ public class KMeans {
     
     public static void main(String[] args) {
     	
-    	KMeans kmeans = new KMeans();
+    	KMeans kmeans = new KMeans(3,15);
     	kmeans.init();
     	kmeans.calculate();
     }

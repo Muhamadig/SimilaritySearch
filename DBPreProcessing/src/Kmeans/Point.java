@@ -9,7 +9,7 @@ public class Point {
 	private ArrayList<Double> cordinates;
     private int cluster_number = 0;
  
-    public Point (ArrayList<Double> cord){
+   public Point (ArrayList<Double> cord){
     	cordinates = new ArrayList<Double>();
     	cordinates.addAll(cord);
     }
@@ -18,15 +18,17 @@ public class Point {
 	   cordinates.clear();
 	   cordinates.addAll(cords);
    }
-    public void setCluster(int n) {
+   
+   public void setCluster(int n) {
         this.cluster_number = n;
     }
     
-    public int getCluster() {
+   public int getCluster() {
         return this.cluster_number;
     }
     
-    public ArrayList<Double> getCordinates(){return this.cordinates;}
+   public ArrayList<Double> getCordinates(){
+	   return this.cordinates;}
     
     //Calculates the distance between two points.
     protected  static double distance(Point p, Point centroid) {
