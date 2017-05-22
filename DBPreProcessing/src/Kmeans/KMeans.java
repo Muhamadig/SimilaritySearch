@@ -11,7 +11,7 @@ public class KMeans {
     //Number of Points
     private int NUM_POINTS;
     //Min and Max X and Y
-    private static final int MIN_COORDINATE = 0;
+    private static final int MIN_COORDINATE = 1;
     private static final int MAX_COORDINATE = 10;
     
     private List<Point> points;
