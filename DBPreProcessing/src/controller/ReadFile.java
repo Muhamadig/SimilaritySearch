@@ -110,6 +110,7 @@ public class ReadFile {
 		if(type.equals("doc")) text=docRead(dest);
 		if(type.equals("docx")) text=docxRead(dest);
 		if(type.equals("html")) text =htmlRead(dest);
+		System.out.println(Thread.activeCount());
 		return clean(text);
 //		return text;
 
