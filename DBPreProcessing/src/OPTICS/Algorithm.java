@@ -1,11 +1,10 @@
-package SCAN;
-
- 
+package OPTICS;
 import java.util.List;
+
  
 public interface Algorithm {
  
-public void setPoints(List<DataPoint> points);
+public void setPoints(List points);
  
 public void cluster();
  

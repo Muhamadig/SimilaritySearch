@@ -6,32 +6,18 @@ import java.util.Random;
  
 public class Point {
  
-    private double x = 0;
-    private double y = 0;
+	private ArrayList<Double> cordinates;
     private int cluster_number = 0;
  
-    public Point(double x, double y)
-    {
-        this.setX(x);
-        this.setY(y);
+    public Point (ArrayList<Double> cord){
+    	cordinates = new ArrayList<Double>();
+    	cordinates.addAll(cord);
     }
     
-    public void setX(double x) {
-        this.x = x;
-    }
-    
-    public double getX()  {
-        return this.x;
-    }
-    
-    public void setY(double y) {
-        this.y = y;
-    }
-    
-    public double getY() {
-        return this.y;
-    }
-    
+   public void setCordinates(ArrayList<Double> cords){
+	   cordinates.clear();
+	   cordinates.addAll(cords);
+   }
     public void setCluster(int n) {
         this.cluster_number = n;
     }
@@ -40,28 +26,39 @@ public class Point {
         return this.cluster_number;
     }
     
+    public ArrayList<Double> getCordinates(){return this.cordinates;}
+    
     //Calculates the distance between two points.
-    protected static double distance(Point p, Point centroid) {
-        return Math.sqrt(Math.pow((centroid.getY() - p.getY()), 2) + Math.pow((centroid.getX() - p.getX()), 2));
+    protected  static double distance(Point p, Point centroid) {
+    	ArrayList <Double> cordinate1 = p.getCordinates();
+    	ArrayList <Double> cordinate2 = centroid.getCordinates();
+    	int len = cordinate1.size();
+    	double sum =0;
+    	for(int i=0;i<len; i++)
+    		sum +=Math.sqrt(Math.pow((cordinate1.get(i) - cordinate2.get(i)), 2));
+      return sum;
     }
     
     //Creates random point
-    protected static Point createRandomPoint(int min, int max) {
+    protected static Point createRandomPoint(int min, int max, int n) {
     	Random r = new Random();
+    	ArrayList<Double> points = new ArrayList<Double> ();
+    	for(int i=0;i<n;i++){
     	double x = min + (max - min) * r.nextDouble();
-    	double y = min + (max - min) * r.nextDouble();
-    	return new Point(x,y);
+    	points.add(x);
+    	}
+    	return new Point(points);
     }
     
     protected static List<Point> createRandomPoints(int min, int max, int number) {
     	List<Point> points = new ArrayList<Point>(number);
     	for(int i = 0; i < number; i++) {
-    		points.add(createRandomPoint(min,max));
+    		points.add(createRandomPoint(min,max,10));
     	}
     	return points;
     }
     
     public String toString() {
-    	return "("+x+","+y+")";
+    	return "("+cordinates.toString()+")";
     }
 }

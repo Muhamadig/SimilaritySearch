@@ -1,4 +1,4 @@
-package SCAN;
+package OPTICS;
 
 public interface DataPoint {
 	 

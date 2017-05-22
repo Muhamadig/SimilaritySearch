@@ -31,7 +31,7 @@ public class KMeans {
     	//Set Random Centroids
     	for (int i = 0; i < NUM_CLUSTERS; i++) {
     		Cluster cluster = new Cluster(i);
-    		Point centroid = Point.createRandomPoint(MIN_COORDINATE,MAX_COORDINATE);
+    		Point centroid = Point.createRandomPoint(MIN_COORDINATE,MAX_COORDINATE,10);
     		cluster.setCentroid(centroid);
     		clusters.add(cluster);
     	}
@@ -93,19 +93,22 @@ public class KMeans {
     	List<Point> centroids = new ArrayList<Point>(NUM_CLUSTERS);
     	for(Cluster cluster : clusters) {
     		Point aux = cluster.getCentroid();
-    		Point point = new Point(aux.getX(),aux.getY());
+    		Point point = new Point(aux.getCordinates());
     		centroids.add(point);
     	}
     	return centroids;
     }
     
     private void assignCluster() {
+    	
         double max = Double.MAX_VALUE;
         double min = max; 
         int cluster = 0;                 
         double distance = 0.0; 
         
         for(Point point : points) {
+//        	count++;
+//        	System.out.println("(" + count +")");
         	min = max;
             for(int i = 0; i < NUM_CLUSTERS; i++) {
             	Cluster c = clusters.get(i);
@@ -123,22 +126,28 @@ public class KMeans {
     
     private void calculateCentroids() {
         for(Cluster cluster : clusters) {
-            double sumX = 0;
-            double sumY = 0;
             List<Point> list = cluster.getPoints();
             int n_points = list.size();
-            
+            ArrayList<Double> sums = new ArrayList<Double>();
+            for(int i=0;i<10;i++)
+            	sums.add(0.0);
             for(Point point : list) {
-            	sumX += point.getX();
-                sumY += point.getY();
+            	ArrayList<Double> cordinates = point.getCordinates();
+            	for(int i=0;i<cordinates.size();i++){
+            		double oldval = sums.get(i);
+            		oldval+=cordinates.get(i);
+            		sums.remove(i);
+            		sums.add(i,oldval);
+            	}
+            		
             }
-            
             Point centroid = cluster.getCentroid();
             if(n_points > 0) {
-            	double newX = sumX / n_points;
-            	double newY = sumY / n_points;
-                centroid.setX(newX);
-                centroid.setY(newY);
+            	ArrayList<Double> toadd = new ArrayList<Double>();
+            	for(Double element : sums)
+            		toadd.add(element/n_points);
+                centroid.setCordinates(toadd);
+            
             }
         }
     }
