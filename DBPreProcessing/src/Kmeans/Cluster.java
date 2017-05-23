@@ -1,12 +1,10 @@
 package Kmeans;
-
 import java.util.ArrayList;
-import java.util.List;
  
 public class Cluster {
 	
-	public List<Point> points;
-	public Point centroid;
+	public ArrayList<Point> points;
+	public Point centroid; // the center point of the cluster
 	public int id;
 	
 	//Creates a new Cluster
@@ -16,7 +14,7 @@ public class Cluster {
 		this.centroid = null;
 	}
  
-	public List<Point> getPoints() {
+	public ArrayList<Point> getPoints() {
 		return points;
 	}
 	
@@ -24,7 +22,7 @@ public class Cluster {
 		points.add(point);
 	}
  
-	public void setPoints(List<Point> points) {
+	public void setPoints(ArrayList<Point> points) {
 		this.points = points;
 	}
  

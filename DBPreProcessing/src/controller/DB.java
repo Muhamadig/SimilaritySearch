@@ -153,7 +153,6 @@ public class DB {
 			}
 		else
 			System.out.println("bad directory");
-		//FrequencyVectors();
 		System.out.println("Done ... " + (System.currentTimeMillis() - t));
 	}
 	

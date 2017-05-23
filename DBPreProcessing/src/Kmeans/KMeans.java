@@ -6,17 +6,20 @@ import java.util.List;
 public class KMeans {
  
 	//Number of Clusters. This metric should be related to the number of points
-    private int NUM_CLUSTERS = 3;    
+    private int NUM_CLUSTERS;   
+    
     //Number of Points
-    private int NUM_POINTS = 15;
+    private int NUM_POINTS;
     //Min and Max X and Y
-    private static final int MIN_COORDINATE = 0;
+    private static final int MIN_COORDINATE = 1;
     private static final int MAX_COORDINATE = 10;
     
     private List<Point> points;
     private List<Cluster> clusters;
     
-    public KMeans() {
+    public KMeans(int ClustersNum , int PointsNum) {
+    	this.NUM_CLUSTERS = ClustersNum;
+    	this.NUM_POINTS = PointsNum;
     	this.points = new ArrayList<Point>();
     	this.clusters = new ArrayList<Cluster>();    	
     }
@@ -31,7 +34,7 @@ public class KMeans {
     	//Set Random Centroids
     	for (int i = 0; i < NUM_CLUSTERS; i++) {
     		Cluster cluster = new Cluster(i);
-    		Point centroid = Point.createRandomPoint(MIN_COORDINATE,MAX_COORDINATE);
+    		Point centroid = Point.createRandomPoint(MIN_COORDINATE,MAX_COORDINATE,10);
     		cluster.setCentroid(centroid);
     		clusters.add(cluster);
     	}
@@ -93,13 +96,14 @@ public class KMeans {
     	List<Point> centroids = new ArrayList<Point>(NUM_CLUSTERS);
     	for(Cluster cluster : clusters) {
     		Point aux = cluster.getCentroid();
-    		Point point = new Point(aux.getX(),aux.getY());
+    		Point point = new Point(aux.getCordinates());
     		centroids.add(point);
     	}
     	return centroids;
     }
     
     private void assignCluster() {
+    	
         double max = Double.MAX_VALUE;
         double min = max; 
         int cluster = 0;                 
@@ -110,7 +114,6 @@ public class KMeans {
             for(int i = 0; i < NUM_CLUSTERS; i++) {
             	Cluster c = clusters.get(i);
             	distance = Point.distance(point, c.getCentroid());
-               // distance = Point.distance(point, c.getCentroid());
                 if(distance < min){
                     min = distance;
                     cluster = i;
@@ -123,29 +126,55 @@ public class KMeans {
     
     private void calculateCentroids() {
         for(Cluster cluster : clusters) {
-            double sumX = 0;
-            double sumY = 0;
             List<Point> list = cluster.getPoints();
             int n_points = list.size();
-            
+            ArrayList<Double> sums = new ArrayList<Double>();
+            for(int i=0;i<10;i++)
+            	sums.add(0.0);
             for(Point point : list) {
-            	sumX += point.getX();
-                sumY += point.getY();
+            	ArrayList<Double> cordinates = point.getCordinates();
+            	for(int i=0;i<cordinates.size();i++){
+            		double oldval = sums.get(i);
+            		oldval+=cordinates.get(i);
+            		sums.remove(i);
+            		sums.add(i,oldval);
+            	}
+            		
             }
-            
             Point centroid = cluster.getCentroid();
             if(n_points > 0) {
-            	double newX = sumX / n_points;
-            	double newY = sumY / n_points;
-                centroid.setX(newX);
-                centroid.setY(newY);
+            	ArrayList<Double> toadd = new ArrayList<Double>();
+            	for(Double element : sums)
+            		toadd.add(element/n_points);
+                centroid.setCordinates(toadd);
+            
             }
         }
     }
     
+    public double max(ArrayList <Double> vec){
+    	double MaxFreq=0;
+    	for(int i=0;i<vec.size();i++){
+    		double freq = vec.get(i);
+    		if(freq >MaxFreq)
+    			MaxFreq=freq;
+    	}
+    	return MaxFreq;
+    }
+    
+    public double min (ArrayList <Double> vec){
+    	double MinFreq = -1;
+    	for(int i=0;i<vec.size();i++){
+    		double freq = vec.get(i);
+    		if(MinFreq == -1 || freq<MinFreq)
+    			MinFreq = freq;
+    	}
+    	return MinFreq;
+    }
+    
     public static void main(String[] args) {
     	
-    	KMeans kmeans = new KMeans();
+    	KMeans kmeans = new KMeans(3,15);
     	kmeans.init();
     	kmeans.calculate();
     }
