@@ -152,6 +152,26 @@ public class KMeans {
         }
     }
     
+    public double max(ArrayList <Double> vec){
+    	double MaxFreq=0;
+    	for(int i=0;i<vec.size();i++){
+    		double freq = vec.get(i);
+    		if(freq >MaxFreq)
+    			MaxFreq=freq;
+    	}
+    	return MaxFreq;
+    }
+    
+    public double min (ArrayList <Double> vec){
+    	double MinFreq = -1;
+    	for(int i=0;i<vec.size();i++){
+    		double freq = vec.get(i);
+    		if(MinFreq == -1 || freq<MinFreq)
+    			MinFreq = freq;
+    	}
+    	return MinFreq;
+    }
+    
     public static void main(String[] args) {
     	
     	KMeans kmeans = new KMeans(3,15);
