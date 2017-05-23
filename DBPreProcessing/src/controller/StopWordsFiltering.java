@@ -15,20 +15,18 @@ public class StopWordsFiltering {
 	 * @param language The language of the text(english,spanish...)
 	 * @return Frequency vector of words without stop wods.
 	 */
-	public static FVHashMap RemoveSW(FVHashMap words , Language language)
+	public static FVHashMap RemoveSW(FVHashMap words , Language language,Integer[] stopWords_num)
 	{
-		int sum=0;
 		FVHashMap temp = (FVHashMap) words.clone();
 		ArrayList<String> SW=language.getSW();
 		for(String str:SW)
 		{
 			if(temp.containsKey(str))
 			{
-				sum++;
+				stopWords_num[0]+=temp.get(str);
 				temp.remove(str);
 			}
 		}
-		System.out.println(sum);
 		return temp;
 	}
 	

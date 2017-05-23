@@ -6,18 +6,21 @@ public class Text {
 	private Integer SW_num;
 	private Integer words_num;
 	private Integer frequecny_num;
-
-	
+	private String fv_xml_file_path;
+	private String type;
 	public Text(){
 		
 	}
-	public Text(String name, FVHashMap fv, Integer sW_num, Integer words_num, Integer frequecny_num) {
+	public Text(String name, FVHashMap fv, Integer sW_num, Integer words_num, Integer frequecny_num,
+			String fv_xml_file_path,String type) {
 		super();
 		this.name = name;
 		this.fv = fv;
 		SW_num = sW_num;
 		this.words_num = words_num;
 		this.frequecny_num = frequecny_num;
+		this.fv_xml_file_path=fv_xml_file_path;
+		this.type=type;
 	}
 	public String getName() {
 		return name;
@@ -48,6 +51,18 @@ public class Text {
 	}
 	public void setFrequecny_num(Integer frequecny_num) {
 		this.frequecny_num = frequecny_num;
+	}
+	public String getFv_xml_file_path() {
+		return fv_xml_file_path;
+	}
+	public void setFv_xml_file_path(String fv_xml_file_path) {
+		this.fv_xml_file_path = fv_xml_file_path;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	

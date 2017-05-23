@@ -10,7 +10,8 @@ import model.FVHashMap;
 import model.Language;
 import model.Language.Langs;
 import view.LineChart_AWT;
-import view.PreProccessing;
+import view.MainApp;
+//import view.PreProccessing;
 
 public class Application {
 
@@ -30,8 +31,6 @@ public class Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
 		connect();
-		Proccessing proc=new Proccessing();
-		FVHashMap fv=proc.getGlobal();
-		System.out.println(fv.size() +" "+ fv.getSum());
+		MainApp.run();
 	}
 }

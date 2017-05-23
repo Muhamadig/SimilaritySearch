@@ -15,10 +15,9 @@ import XML.XMLFactory;
 import model.FVHashMap;
 import model.Language;
 import model.Language.Langs;
-import view.PreProccessing;
+import model.Text;
 
 public class Proccessing {
-	private PreProccessing view;
 	private int numOfFiles;
 	private int numOfWords;
 	private int numOfFQ;
@@ -64,16 +63,14 @@ public class Proccessing {
 		time=0;
 	}
 
-	public void process(String directory,String fileNname,String type,Language lang){
+	public Text process(File file,String exportDirectory,Language lang){
+		Integer[] stopWords_num = {0}; 
+		String type=utils.Util.getFileExtension(file.getName());
+		FVHashMap fv=SuperSteps.buildFrequencyVector(file.getAbsolutePath().toString(), type, lang,stopWords_num);
+		fvXml.export(fv, exportDirectory+""+file.getName()+".xml");
 		
-		long t=System.currentTimeMillis();
-		FVHashMap fv=SuperSteps.buildFrequencyVector(directory+"/"+fileNname, type, lang);
-		fvXml.export(fv, "FVs/"+fileNname+".xml");
-		time+=(long)((System.currentTimeMillis()-t));
-		numOfFiles++;
-		numOfWords+=fv.size();
-		numOfFQ+=fv.getSum();
-		counter++;
+		Text text=new Text(file.getName(), fv, stopWords_num[0], fv.size(), fv.getSum(), exportDirectory+""+file.getName()+".xml",type);
+		return text;
 	}
 	public static int getCounter(){
 		return counter;
