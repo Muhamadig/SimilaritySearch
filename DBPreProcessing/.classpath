@@ -13,5 +13,9 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
 	<classpathentry kind="lib" path="libraries/itextpdf-5.4.1.jar"/>
 	<classpathentry kind="lib" path="libraries/xmlworker-5.4.1.jar"/>
+	<classpathentry kind="lib" path="libraries/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="libraries/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="libraries/javax.jar"/>
+	<classpathentry kind="lib" path="libraries/org-jdesktop-layout.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

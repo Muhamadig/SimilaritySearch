@@ -24,10 +24,12 @@ public class SuperSteps {
 		
 		//step 3:remove the stop words from the initial Frequency Victor
 		FVHashMap removedSWFV=StopWordsFiltering.RemoveSW(initialFV, lang);
-		
+
 		//step 4: reduce the frequency vector by Stemming and Synonyms (Request from WordNet Server)
 		Request request=new Request("FV/fv");
 		request.addParam("fv", removedSWFV);
+//		FVHashMap result= (FVHashMap) Application.client.sendRequest(request);
+//		return StopWordsFiltering.RemoveSW(result, lang);
 		return (FVHashMap) Application.client.sendRequest(request);
 	}
 }

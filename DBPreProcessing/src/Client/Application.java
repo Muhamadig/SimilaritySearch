@@ -2,11 +2,14 @@ package Client;
 
 import java.io.IOException;
 
+import XML.XML;
+import XML.XMLFactory;
 import controller.Proccessing;
 import controller.SuperSteps;
 import model.FVHashMap;
 import model.Language;
 import model.Language.Langs;
+import view.LineChart_AWT;
 import view.PreProccessing;
 
 public class Application {
@@ -27,18 +30,8 @@ public class Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
 		connect();
-		//temporary///HTMLs/A.O. -v- Refugee Appeals Tribunal & ors.html
-//		FVHashMap finalfv= SuperSteps.buildFrequencyVector("Vodafone GMBH -v- IV International Leasing & Anor.html", "html", new Language(Langs.ENGLISH));
-//		System.out.println(finalfv.toString());
-//		System.out.println(finalfv.size() +"  "+finalfv.getSum());
-		
-		PreProccessing view=new PreProccessing();
-//		Proccessing p=new Proccessing(view);
-//		view.setVisible(true);
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-        		view.setVisible(true);
-            }
-        });
+		Proccessing proc=new Proccessing();
+		FVHashMap fv=proc.getGlobal();
+		System.out.println(fv.size() +" "+ fv.getSum());
 	}
 }

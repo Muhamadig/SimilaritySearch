@@ -95,7 +95,7 @@ public class ReadFile {
 		Element table = doc.select("table").first();
 		Element div = doc.getElementById("itabs");
 		String text = table.text() + "\n" + div.text();
-		return text;
+		return text.toLowerCase();
 	}
 	/**
 	 * 
