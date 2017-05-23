@@ -1,5 +1,6 @@
 package Kmeans;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class KMeans {
     private int NUM_POINTS;
     //Min and Max X and Y
     private static final int MIN_COORDINATE = 1;
-    private static final int MAX_COORDINATE = 10;
+    private static final int MAX_COORDINATE = 2900;
     
     private List<Point> points;
     private List<Cluster> clusters;
@@ -42,7 +43,8 @@ public class KMeans {
     	//Print Initial state
     	plotClusters();
     }
- 
+    
+    public List<Cluster> getclusters(){return this.clusters;}
 	private void plotClusters() {
     	for (int i = 0; i < NUM_CLUSTERS; i++) {
     		Cluster c = clusters.get(i);
@@ -151,31 +153,23 @@ public class KMeans {
             }
         }
     }
-    
-    public double max(ArrayList <Double> vec){
-    	double MaxFreq=0;
-    	for(int i=0;i<vec.size();i++){
-    		double freq = vec.get(i);
-    		if(freq >MaxFreq)
-    			MaxFreq=freq;
-    	}
-    	return MaxFreq;
-    }
-    
-    public double min (ArrayList <Double> vec){
-    	double MinFreq = -1;
-    	for(int i=0;i<vec.size();i++){
-    		double freq = vec.get(i);
-    		if(MinFreq == -1 || freq<MinFreq)
-    			MinFreq = freq;
-    	}
-    	return MinFreq;
-    }
+
     
     public static void main(String[] args) {
+    	int ClustersNumber;
+
+    	try{
+    		PrintWriter writer = new PrintWriter("clusters.txt", "UTF-8");
+    	for(ClustersNumber =2 ; ClustersNumber < 51;ClustersNumber++){
+    		KMeans kmeans = new KMeans(ClustersNumber,15);
+        	kmeans.init();
+        	kmeans.calculate();
+        	writer.write("Number of clusters: " + ClustersNumber + " Aggregate Distance: " + Cluster.GetAllAggDistsAvg(kmeans.getclusters())+"\n");
+        	kmeans.clearClusters();
+    	}
+    	writer.close();
+    	}catch(Exception e){System.out.println(e.toString());
     	
-    	KMeans kmeans = new KMeans(3,15);
-    	kmeans.init();
-    	kmeans.calculate();
     }
+}
 }
