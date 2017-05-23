@@ -1,9 +1,13 @@
-<<<<<<< HEAD
-/view/
-=======
-/controller/
 /Client/
 /Kmeans/
+<<<<<<< HEAD
 /SCAN/
 /OPTICS/
->>>>>>> c0be3b19d74ca45e936eebf17b907bf887ec6ae6
+/controller/
+/utils/
+/Client/
+=======
+/controller/
+/utils/
+/view/
+>>>>>>> 34dded08a6e6a8e2542c700e1b94494866a75e70

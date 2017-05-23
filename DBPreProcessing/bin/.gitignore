@@ -1,7 +1,7 @@
-/view/
+/Client/
 /Kmeans/
-/SCAN/
-/OPTICS/
+/controller/
+/utils/
 /controller/
 /utils/
 /Client/

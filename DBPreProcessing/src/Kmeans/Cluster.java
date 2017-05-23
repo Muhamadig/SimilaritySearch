@@ -1,12 +1,13 @@
 package Kmeans;
 import java.util.ArrayList;
+import java.util.List;
  
 public class Cluster {
 	
 	public ArrayList<Point> points;
 	public Point centroid; // the center point of the cluster
 	public int id;
-	
+	private double aggDist;
 	//Creates a new Cluster
 	public Cluster(int id) {
 		this.id = id;
@@ -51,5 +52,26 @@ public class Cluster {
 		}
 		System.out.println("]");
 	}
- 
+	
+    private double AggregateDistance(){
+    	if(aggDist != 0)
+    		return aggDist;
+    	int len = points.size();
+    	double sum =0;
+    	for(int i=0; i<len-1;i++)
+    		for(int j=i+1;j<len;j++)
+    			sum+=Point.distance(points.get(i), points.get(j));
+    	aggDist=sum;
+    	return sum;
+    }
+    
+    public static double GetAllAggDistsAvg(List<Cluster> list){
+    	double aggdists= 0;
+    	int len = list.size();
+    	for(int i=0;i<len;i++){
+    		aggdists+=(list.get(i).AggregateDistance());
+    	}
+    	aggdists/=len;
+    	return aggdists;
+    }
 }
