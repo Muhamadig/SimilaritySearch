@@ -8,9 +8,24 @@ public class Text {
 	private Integer frequecny_num;
 	private String fv_xml_file_path;
 	private String type;
+	private FVKeySortedMap sortedMap;
+	private FVKeySortedMap sortedMapXmlPath;
+
+	public Text(String name, Integer words_num, Integer frequecny_num, String type, FVKeySortedMap sortedMap,
+			FVKeySortedMap sortedMapXmlPath) {
+		super();
+		this.name = name;
+		this.words_num = words_num;
+		this.frequecny_num = frequecny_num;
+		this.type = type;
+		this.setSortedMap(sortedMap);
+		this.setSortedMapXmlPath(sortedMapXmlPath);
+	}
+
 	public Text(){
 		
 	}
+	
 	public Text(String name, FVHashMap fv, Integer sW_num, Integer words_num, Integer frequecny_num,
 			String fv_xml_file_path,String type) {
 		super();
@@ -63,6 +78,22 @@ public class Text {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public FVKeySortedMap getSortedMap() {
+		return sortedMap;
+	}
+
+	public void setSortedMap(FVKeySortedMap sortedMap) {
+		this.sortedMap = sortedMap;
+	}
+
+	public FVKeySortedMap getSortedMapXmlPath() {
+		return sortedMapXmlPath;
+	}
+
+	public void setSortedMapXmlPath(FVKeySortedMap sortedMapXmlPath) {
+		this.sortedMapXmlPath = sortedMapXmlPath;
 	}
 	
 	

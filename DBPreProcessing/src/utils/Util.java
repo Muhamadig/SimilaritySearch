@@ -17,6 +17,9 @@ public class Util {
 	public static String getFileExtension(String fileName){
 		return fileName.replaceAll(".*\\.(html|pdf|docx|doc)","$1");
 	}
+	public static String cutExtension(String fileName){
+		return fileName.replaceAll(".*\\.(html|pdf|docx|doc|xml)","$0");
+	}
 	public static  Map<String, Integer> sortByKeys(Map fv){
 		FVHashMap res= new FVHashMap();
 		Map<String, Integer> map= new TreeMap<String,Integer>(fv);

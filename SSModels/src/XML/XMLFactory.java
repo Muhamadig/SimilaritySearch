@@ -6,6 +6,7 @@ public class XMLFactory {
 	public final static int WordSetMap=1;
 	public final static int RepWordMap=2;
 	public final static int FV=3;
+	public final static int FVSortedMap=4;
 
 
 	public static XML getXML(int type){
@@ -18,6 +19,8 @@ public class XMLFactory {
 			return new RepWordMapXML();
 		case FV:
 			return new FVXML();
+		case FVSortedMap:
+			return new TreeMap();
 		}
 		return null;
 	}

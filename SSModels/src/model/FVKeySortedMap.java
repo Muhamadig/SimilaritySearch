@@ -8,8 +8,6 @@ import java.util.TreeMap;
 public class FVKeySortedMap extends TreeMap<String, Integer> {
 	private int Sum;
 
-
-
 	public FVKeySortedMap(){
 		super();
 		Sum=0;
@@ -71,11 +69,11 @@ public class FVKeySortedMap extends TreeMap<String, Integer> {
 		for (String str: FV.keySet()) put(str,FV.get(str));
 	}
 
-	public String toString(){
-		String str="";
-		for(String key : this.keySet()) str+=key+"="+this.get(key)+"\n";
-		return str;
-
-	}
+//	public String toString(){
+//		String str="";
+//		for(String key : this.keySet()) str+=key+"="+this.get(key)+"\n";
+//		return str;
+//
+//	}
 
 }

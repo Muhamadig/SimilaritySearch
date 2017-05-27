@@ -16,6 +16,7 @@ import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.swing.Icon;
 import javax.swing.JFrame;
@@ -30,7 +31,10 @@ import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 
+import com.sun.tools.xjc.gen.Array;
+
 import controller.Proccessing;
+import model.FVHashMap;
 import model.LangFactory;
 import model.Language;
 import model.Text;
@@ -48,17 +52,33 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextArea;
+import java.awt.SystemColor;
+import javax.swing.JTextPane;
+import javax.swing.JCheckBox;
 
 public class MainApp extends JFrame {
 	private JTextField files_text;
-	private String lastPath;
+	private String lastPathFiles;
+	private String lastPathDir;
 	private JTable FVs_table;
 	private File[] files;
 	private JTextField directory_txt;
 	private boolean files_selected;
 	private boolean dir_selected;
 	private String directory;
-	private ArrayList<Text> allTexts;
+	private String sortedDirectory;
+	private JTextField files_text2;
+	private File[] xml_files;
+	private JCheckBox chckbx_read;
+	private JCheckBox chckbx_createGlobal;
+	private JCheckBox chckbxExpand;
+	private JTextField textField_import;
+	private JTextField textField_export;
+	private File[] eXml_files2;
+	private boolean import_dir;
+	private boolean export_dir;
+
 	public MainApp() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -71,13 +91,13 @@ public class MainApp extends JFrame {
 		tabbedPane.setBackground(Color.WHITE);
 		getContentPane().add(tabbedPane, BorderLayout.WEST);
 
-		int tabWidth=tabbedPane.getWidth();
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(new Dimension(700, 500));
 		//		panel.setBounds(tabWidth, 0, this.getWidth()-tabWidth, 400);
 		tabbedPane.addTab("Process All Texts", null, panel,"Build Frequency Vectors for All Texts");
 		panel.setLayout(null);
-		lastPath="/";
+		lastPathFiles=".";
+		lastPathDir=".";
 
 		files_text = new JTextField();
 		files_text.setEditable(false);
@@ -147,48 +167,167 @@ public class MainApp extends JFrame {
 		FVs_table.getColumnModel().getColumn(3).setPreferredWidth(90);
 		FVs_table.getColumnModel().getColumn(4).setPreferredWidth(90);
 
-
-		//        tabbedPane.setMnemonicAt(0, 49);
-
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Merge All Texts", null, panel_1, "Build and Sort The Global Frequency Vector");
+		tabbedPane.addTab("Expand All Frequency Vectors", null, panel_1, "Expand All Frequency Vectors");
+		panel_1.setLayout(null);
+		
+		files_text2 = new JTextField();
+		files_text2.setBounds(10, 173, 424, 20);
+		panel_1.add(files_text2);
+		files_text2.setColumns(10);
+		
+		JButton browse_xmlFolder = new JButton("Select Xml Files");
+		
+		browse_xmlFolder.setBounds(444, 172, 223, 23);
+		panel_1.add(browse_xmlFolder);
+		
+		JButton Proccess2_btn = new JButton("Process");
+		
+		Proccess2_btn.setBounds(211, 224, 223, 23);
+		Proccess2_btn.setEnabled(false);
+
+		panel_1.add(Proccess2_btn);
+		
+		JTextArea txtrStepCreating = new JTextArea();
+		txtrStepCreating.setBackground(SystemColor.info);
+		txtrStepCreating.setTabSize(2);
+		txtrStepCreating.setLineWrap(true);
+		txtrStepCreating.setWrapStyleWord(true);
+		txtrStepCreating.setText("Step 2: Creating global Frequency Vector which have all the words and frequencies from all the texts, Then expand each text frequency vector to be all the same length then find and remove the common word from each expanded vector.\r\n\r\nInput: Read all frequency vectors from an folder (XML Files).\r\nOutput:\r\n\t\t1.global.XML File which have the global frequency vector.\r\n\t\t2.common.XML which have all the common words.\r\n\t\t3.Expanded vectors after removing common words.");
+		txtrStepCreating.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtrStepCreating.setEditable(false);
+		txtrStepCreating.setBounds(0, 0, 695, 140);
+		panel_1.add(txtrStepCreating);
+		
+		chckbx_read = new JCheckBox("Read Files");
+		chckbx_read.setForeground(SystemColor.desktop);
+		chckbx_read.setBounds(10, 270, 300, 23);
+		panel_1.add(chckbx_read);
+		
+		chckbx_createGlobal = new JCheckBox("Create Global Frequency Vector");
+		chckbx_createGlobal.setForeground(SystemColor.desktop);
+		chckbx_createGlobal.setBounds(10, 296, 300, 23);
+		panel_1.add(chckbx_createGlobal);
+		
+		chckbxExpand = new JCheckBox("Expand All Vectors");
+		chckbxExpand.setForeground(SystemColor.desktop);
+		chckbxExpand.setBounds(10, 322, 300, 23);
+		panel_1.add(chckbxExpand);
+		
+		JLabel upload_info2 = new JLabel("");
+		upload_info2.setBounds(10, 199, 424, 14);
+		panel_1.add(upload_info2);
 
 		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("Find The Common Words", null, panel_2,"Find The Common Words");
+		tabbedPane.addTab("Clustering Preparation", null, panel_2,"Create a sorted FVs by keys");
+		panel_2.setLayout(null);
+		
+		textField_import = new JTextField();
+		textField_import.setColumns(10);
+		textField_import.setBounds(10, 64, 424, 20);
+		panel_2.add(textField_import);
+		
+		JButton btnSelectExpanded = new JButton("Select Expanded Vectors");
+		
+		btnSelectExpanded.setBounds(444, 63, 223, 23);
+		panel_2.add(btnSelectExpanded);
+		
+		JLabel label1 = new JLabel("");
+		label1.setBounds(10, 95, 424, 14);
+		panel_2.add(label1);
+		
+		textField_export = new JTextField();
+		textField_export.setColumns(10);
+		textField_export.setBounds(10, 120, 424, 20);
+		panel_2.add(textField_export);
+		
+		JButton btnSelectExportDirectory = new JButton("Select Export Directory");
+		
+		btnSelectExportDirectory.setBounds(444, 119, 223, 23);
+		panel_2.add(btnSelectExportDirectory);
+		
+		JLabel label2 = new JLabel("");
+		label2.setBounds(10, 151, 424, 14);
+		panel_2.add(label2);
+		
+		JButton btnPrepare = new JButton("Prepare Clustering");
+		
+		btnPrepare.setBounds(333, 174, 186, 23);
+		btnPrepare.setEnabled(false);
+		panel_2.add(btnPrepare);
+		
+		JTextArea Message = new JTextArea("");
+		Message.setWrapStyleWord(true);
+		Message.setLineWrap(true);
+		Message.setEditable(false);
+		Message.setBackground(SystemColor.info);
+		Message.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		Message.setBounds(10, 216, 675, 42);
+		Message.setVisible(false);
+		panel_2.add(Message);
+		
 
-		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("Remove The Common Words From All Texts", null, panel_3,"Remove The Common Words From All The frequency Vectors of the Texts");
-
-		/*
-        JXTabbedPane tabbedPane = new JXTabbedPane(JTabbedPane.LEFT);
-        AbstractTabRenderer renderer = (AbstractTabRenderer)tabbedPane.getTabRenderer();
-        renderer.setPrototypeText("This text is a prototype");
-        renderer.setHorizontalTextAlignment(SwingConstants.LEADING);
-
-        JPanel panel = new JPanel();
-        tabbedPane.addTab("Process All Texts", null, createEmptyPanel(),"Build Frequency Vectors for All Texts");
-
-		JPanel panel_1 = new JPanel();
-        tabbedPane.addTab("Merge All Texts", null, createEmptyPanel(), "Build and Sort The Global Frequency Vector");
-
-		JPanel panel_2 = new JPanel();
-        tabbedPane.addTab("Find The Common Words", null, createEmptyPanel(),"Find The Common Words");
-
-		JPanel panel_3 = new JPanel();
-        tabbedPane.addTab("Remove The Common Words From All Texts", null, createEmptyPanel(),"Remove The Common Words From All The frequency Vectors of the Texts");
-
-//       add(tabbedPane);
-		 */
 		setBounds(0, 0, 1000, 500);
 		this.setLocationRelativeTo(null);
+		
+		import_dir=false;
+		export_dir=false;
+		
+		btnPrepare.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Message.setVisible(false);
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+				Proccessing proc=new Proccessing();
+				ArrayList<String> fv_paths=new ArrayList<>();
+				ArrayList<String> fv_names=new ArrayList<>();
 
+				for(File file:eXml_files2){
+					if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml"))){
+						fv_paths.add(file.getAbsolutePath());
+						fv_names.add(file.getName());
+					}
+				}
+				
+				proc.sortFV(fv_paths,fv_names,sortedDirectory);
+				setCursor(null);
+				Message.setText("The texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys ,"
+						+ " you can find your xml files in: "+ sortedDirectory);
+				Message.setVisible(true);
+
+			}
+		});
+		
+		btnSelectExportDirectory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPrepare.setEnabled(false);
+				export_dir=false;
+				sortedDirectory=selectDirectory();
+				if(sortedDirectory!= null) {
+					textField_export.setText(sortedDirectory);
+					export_dir=true;
+					lastPathDir=sortedDirectory;
+
+				}
+				else{
+					textField_export.setText("No Directory Selected");
+					export_dir=false;
+				}
+				if(export_dir && import_dir) btnPrepare.setEnabled(true);
+			}
+		});
 		browse_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				proc_btn.setEnabled(false);
 				files_selected=false;
-				files=BrowseFiles();
+				
+				ArrayList<String> types=new ArrayList<>();
+				types.add("doc");
+				types.add("docx");
+				types.add("pdf");
+				types.add("html");
+				files=BrowseFiles(types);
 
-				if(files.length>0)files_text.setText(lastPath=files[0].getParentFile().toString());
+				if(files.length>0)files_text.setText(lastPathFiles=files[0].getParentFile().toString());
 
 				int files_size=files.length;
 				if(files_size==0){
@@ -214,6 +353,7 @@ public class MainApp extends JFrame {
 				if(directory!= null) {
 					directory_txt.setText(directory);
 					dir_selected=true;
+					lastPathDir=directory;
 
 				}
 				else{
@@ -244,25 +384,103 @@ public class MainApp extends JFrame {
 				}
 			}
 		});
+		browse_xmlFolder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Proccess2_btn.setEnabled(false);
+				chckbx_read.setSelected(false);
+				chckbx_createGlobal.setSelected(false);
+				chckbxExpand.setSelected(false);
+
+				ArrayList<String> types=new ArrayList<>();
+				types.add("xml");
+				xml_files=BrowseFiles(types);
+				if(xml_files.length>0)files_text2.setText(lastPathFiles=xml_files[0].getParentFile().toString());
+
+				int files_size=xml_files.length;
+				if(files_size==0){
+					upload_info2.setText("Warning :No files was uploaded");
+					Proccess2_btn.setEnabled(false);
+					files_selected=false;
+
+				}else if(files_size>0){
+					upload_info2.setText("Done :Number of uploaded files: "+files_size );
+					Proccess2_btn.setEnabled(true);
+					
+
+				}
+			}
+		});
+		
+		Proccess2_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				process2(xml_files);
+			}
+		});
+		btnSelectExpanded.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				import_dir=false;
+				btnPrepare.setEnabled(false);
+				ArrayList<String> types=new ArrayList<>();
+				types.add("xml");
+				eXml_files2=BrowseFiles(types);
+				if(eXml_files2.length>0)textField_import.setText(lastPathFiles=eXml_files2[0].getParentFile().toString());
+
+				int files_size=eXml_files2.length;
+				if(files_size==0){
+					label1.setText("Warning :No files was uploaded");
+					btnPrepare.setEnabled(false);
+					import_dir=false;
+
+				}else if(files_size>0){
+					label1.setText("Done :Number of uploaded files: "+files_size );
+					import_dir=true;
+				}
+			}
+		});
+	}
+
+	protected void process2(File[] xml_files2) {
+		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+		Proccessing proc=new Proccessing();
+		ArrayList<String> fv_paths=new ArrayList<>();
+		for(File file:xml_files2){
+			if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml"))){
+				fv_paths.add(file.getAbsolutePath());
+			}
+		}
+		chckbx_read.setSelected(true);
+		//the fvs names ready
+		
+		//find global vector
+		FVHashMap global=proc.createGlobal(fv_paths, xml_files2[0].getParent());
+		chckbx_createGlobal.setSelected(true);
+		//find common words vector
+		FVHashMap common=proc.getCommonVector(fv_paths, xml_files2[0].getParent(), fv_paths.size(), xml_files2[0].getParent()+File.separator+"global.xml");
+		
+		proc.expandAll(fv_paths,global,common);
+		chckbxExpand.setSelected(true);
+		setCursor(null);
 	}
 
 	protected String selectDirectory() {
 		JFileChooser chooser;
 		chooser = new JFileChooser(); 
-		chooser.setCurrentDirectory(new java.io.File("."));
+		chooser.setCurrentDirectory(new java.io.File(lastPathDir));
 		chooser.setDialogTitle("Select Directory");
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
 		chooser.setAcceptAllFileFilterUsed(false);
 		if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
-			return chooser.getCurrentDirectory().toString();
+			return chooser.getSelectedFile().toString();
 		}
 		else return null;
 	}
 
-	protected File[] BrowseFiles() {
+	protected File[] BrowseFiles(ArrayList<String> types) {
 		JFileChooser chooser = new JFileChooser();
-		chooser.setCurrentDirectory(new java.io.File(lastPath));
+		chooser.setCurrentDirectory(new java.io.File(lastPathFiles));
 		chooser.setDialogTitle("Browse the folder to process");
 		chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		chooser.setAcceptAllFileFilterUsed(false);
@@ -271,8 +489,11 @@ public class MainApp extends JFrame {
 
 			@Override
 			public String getDescription() {
-				// TODO Auto-generated method stub
-				return "*.HTML,*.Doc,*.Docx,*.PDF";
+				String res="";
+				for(String type:types){
+					res+=",*."+type;
+				}
+				return res;
 			}
 
 			@Override
@@ -281,7 +502,11 @@ public class MainApp extends JFrame {
 					return true;
 				} else {
 					String filename = f.getName();
-					return filename.endsWith(".doc") || filename.endsWith(".docx") ||filename.endsWith(".pdf") ||filename.endsWith(".html") ;
+					boolean res=false;
+					for(String type:types){
+						res=res||filename.endsWith("."+type);
+					}
+					return res;
 				}			
 			}
 		});
@@ -294,19 +519,6 @@ public class MainApp extends JFrame {
 	}
 
 	//----------------------------------------------------------------------------------------------------------
-	private JPanel createEmptyPanel() {
-		JPanel dummyPanel = new JPanel() {
-
-			@Override
-			public Dimension getPreferredSize() {
-				return isPreferredSizeSet() ?
-						super.getPreferredSize() : new Dimension(400, 300);
-			}
-
-		};
-		return dummyPanel;
-	}
-
 
 
 	public static void run(){
@@ -330,161 +542,5 @@ public class MainApp extends JFrame {
 				new MainApp().setVisible(true);
 			}
 		});
-	}
-
-	class JXTabbedPane extends JTabbedPane {
-
-		private ITabRenderer tabRenderer = new DefaultTabRenderer();
-
-		public JXTabbedPane() {
-			super();
-		}
-
-		public JXTabbedPane(int tabPlacement) {
-			super(tabPlacement);
-		}
-
-		public JXTabbedPane(int tabPlacement, int tabLayoutPolicy) {
-			super(tabPlacement, tabLayoutPolicy);
-		}
-
-		public ITabRenderer getTabRenderer() {
-			return tabRenderer;
-		}
-
-		public void setTabRenderer(ITabRenderer tabRenderer) {
-			this.tabRenderer = tabRenderer;
-		}
-
-		@Override
-		public void addTab(String title, Component component) {
-			this.addTab(title, null, component, null);
-		}
-
-		@Override
-		public void addTab(String title, Icon icon, Component component) {
-			this.addTab(title, icon, component, null);
-		}
-
-		@Override
-		public void addTab(String title, Icon icon, Component component, String tip) {
-			super.addTab(title, icon, component, tip);
-			int tabIndex = getTabCount() - 1;
-			Component tab = tabRenderer.getTabRendererComponent(this, title, icon, tabIndex);
-			super.setTabComponentAt(tabIndex, tab);
-		}
-	}
-
-	interface ITabRenderer {
-
-		public Component getTabRendererComponent(JTabbedPane tabbedPane, String text, Icon icon, int tabIndex);
-
-	}
-
-	abstract class AbstractTabRenderer implements ITabRenderer {
-
-		private String prototypeText = "";
-		private Icon prototypeIcon = UIManager.getIcon("OptionPane.informationIcon");
-		private int horizontalTextAlignment = SwingConstants.CENTER;
-		private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
-
-		public AbstractTabRenderer() {
-			super();
-		}
-
-		public void setPrototypeText(String text) {
-			String oldText = this.prototypeText;
-			this.prototypeText = text;
-			firePropertyChange("prototypeText", oldText, text);
-		}
-
-		public String getPrototypeText() {
-			return prototypeText;
-		}
-
-		public Icon getPrototypeIcon() {
-			return prototypeIcon;
-		}
-
-		public void setPrototypeIcon(Icon icon) {
-			Icon oldIcon = this.prototypeIcon;
-			this.prototypeIcon = icon;
-			firePropertyChange("prototypeIcon", oldIcon, icon);
-		}
-
-		public int getHorizontalTextAlignment() {
-			return horizontalTextAlignment;
-		}
-
-		public void setHorizontalTextAlignment(int horizontalTextAlignment) {
-			this.horizontalTextAlignment = horizontalTextAlignment;
-		}
-
-		public PropertyChangeListener[] getPropertyChangeListeners() {
-			return propertyChangeSupport.getPropertyChangeListeners();
-		}
-
-		public PropertyChangeListener[] getPropertyChangeListeners(String propertyName) {
-			return propertyChangeSupport.getPropertyChangeListeners(propertyName);
-		}
-
-		public void addPropertyChangeListener(PropertyChangeListener listener) {
-			propertyChangeSupport.addPropertyChangeListener(listener);
-		}
-
-		public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-			propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
-		}
-
-		protected void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
-			PropertyChangeListener[] listeners = getPropertyChangeListeners();
-			for (int i = listeners.length - 1; i >= 0; i--) {
-				listeners[i].propertyChange(new PropertyChangeEvent(this, propertyName, oldValue, newValue));
-			}
-		}
-	}
-
-	class DefaultTabRenderer extends AbstractTabRenderer implements PropertyChangeListener {
-
-		private Component prototypeComponent;
-
-		public DefaultTabRenderer() {
-			super();
-			prototypeComponent = generateRendererComponent(getPrototypeText(), getPrototypeIcon(), getHorizontalTextAlignment());
-			addPropertyChangeListener(this);
-		}
-
-		private Component generateRendererComponent(String text, Icon icon, int horizontalTabTextAlignmen) {
-			JPanel rendererComponent = new JPanel(new GridBagLayout());
-			rendererComponent.setOpaque(false);
-
-			GridBagConstraints c = new GridBagConstraints();
-			c.insets = new Insets(2, 4, 2, 4);
-			c.fill = GridBagConstraints.HORIZONTAL;
-			rendererComponent.add(new JLabel(icon), c);
-
-			c.gridx = 1;
-			c.weightx = 1;
-			rendererComponent.add(new JLabel(text, horizontalTabTextAlignmen), c);
-
-			return rendererComponent;
-		}
-
-		@Override
-		public Component getTabRendererComponent(JTabbedPane tabbedPane, String text, Icon icon, int tabIndex) {
-			Component rendererComponent = generateRendererComponent(text, icon, getHorizontalTextAlignment());
-			int prototypeWidth = prototypeComponent.getPreferredSize().width;
-			int prototypeHeight = prototypeComponent.getPreferredSize().height;
-			rendererComponent.setPreferredSize(new Dimension(prototypeWidth, prototypeHeight));
-			return rendererComponent;
-		}
-
-		@Override
-		public void propertyChange(PropertyChangeEvent evt) {
-			String propertyName = evt.getPropertyName();
-			if ("prototypeText".equals(propertyName) || "prototypeIcon".equals(propertyName)) {
-				this.prototypeComponent = generateRendererComponent(getPrototypeText(), getPrototypeIcon(), getHorizontalTextAlignment());
-			}
-		}
 	}
 }
