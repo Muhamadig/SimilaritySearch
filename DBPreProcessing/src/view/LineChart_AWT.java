@@ -30,7 +30,21 @@ public class LineChart_AWT extends ApplicationFrame {
 		chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
 		setContentPane( chartPanel );
 	}
+	public LineChart_AWT(String applicationTitle , String chartTitle , ArrayList<Double> vec){
+		super(applicationTitle);
+		JFreeChart lineChart = ChartFactory.createLineChart(
+				chartTitle,
+				"Clusters Number","Distance",
+				createDataset(vec),
+				PlotOrientation.VERTICAL,
+				true,true,false);
 
+		ChartPanel chartPanel = new ChartPanel( lineChart );
+		chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+		setContentPane( chartPanel );
+	}
+
+	
 	private DefaultCategoryDataset createDataset( ) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
 		Proccessing proc=new Proccessing();
@@ -39,6 +53,15 @@ public class LineChart_AWT extends ApplicationFrame {
 			if(entry.getValue()<=1000) dataset.addValue(entry.getValue(), "Frequency", entry.getKey());
 		}
 		
+		return dataset;
+	}
+	
+	public DefaultCategoryDataset createDataset(ArrayList<Double> data) {
+		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		for(int i=0;i<data.size();i++){
+			Double dist = data.get(i);
+			dataset.addValue(dist, "Aggregate Distance", i+"");
+		}
 		return dataset;
 	}
 

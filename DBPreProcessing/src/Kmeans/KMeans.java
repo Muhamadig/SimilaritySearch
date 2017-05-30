@@ -338,7 +338,7 @@ public class KMeans {
 			c.setCentroid(centroid);
 			//Point temp = c.getCentroid();
 			//System.out.println(temp.toString());
-			System.out.println("Cluster number : " + key);
+			//System.out.println("Cluster number : " + key);
 			ArrayList<String> files = res.get(key);
 			fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
 			for(String filename: files){
