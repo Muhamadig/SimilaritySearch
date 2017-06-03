@@ -1,6 +1,9 @@
 package Kmeans;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import model.FVHashMap;
  
 public class Cluster {
 	
@@ -8,19 +11,41 @@ public class Cluster {
 	public Point centroid; // the center point of the cluster
 	public int id;
 	private double aggDist;
+	public FVHashMap CommonWords;
+	
+	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
 	//Creates a new Cluster
 	public Cluster(int id) {
 		this.id = id;
 		this.points = new ArrayList<Point>();
 		this.centroid = null;
+	
 	}
  
+	public double CommonDistnce(FVHashMap text){
+		double dist=0.0;
+		for(String CW : CommonWords.keySet())
+			if(text.containsKey(CW))
+				dist += Math.pow((text.get(CW) - CommonWords.get(CW)), 2);
+		dist= Math.sqrt(dist);
+	return dist;	
+	}
+	public void setCommonWords(FVHashMap CW){
+		this.CommonWords = CW;
+	}
+	
+	public FVHashMap getCommonWords(){
+		return this.CommonWords;
+	}
+	
+	
 	public ArrayList<Point> getPoints() {
 		return points;
 	}
 	
 	public void addPoint(Point point) {
 		points.add(point);
+		
 	}
  
 	public void setPoints(ArrayList<Point> points) {
@@ -43,15 +68,7 @@ public class Cluster {
 		points.clear();
 	}
 	
-	public void plotCluster() {
-		System.out.println("[Cluster: " + id+"]");
-		System.out.println("[Centroid: " + centroid + "]");
-		System.out.println("[Points: \n");
-		for(Point p : points) {
-			System.out.println(p);
-		}
-		System.out.println("]");
-	}
+
 	
     private double AggregateDistance(){
     	if(aggDist != 0)
@@ -74,4 +91,6 @@ public class Cluster {
     	aggdists/=len;
     	return aggdists;
     }
+    
+  
 }
