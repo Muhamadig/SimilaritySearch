@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <Clusters_Vector>
   <Map>
@@ -409,3 +410,416 @@
     <value>YY -v- The Minister for Justice and Equality.html.xml</value>
   </Map>
 </Clusters_Vector>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<Clusters_Vector>
+  <Map>
+    <key>0</key>
+    <value>A.S. -v- Minister for Justice and Equality.html.xml</value>
+    <value>AIB Mortgage Bank -v- Lynskey.html.xml</value>
+    <value>Bennett &amp; Anor -v- Minister for Justice and Equality.html.xml</value>
+    <value>Burns -v- Maye Concrete &amp; Anor.html.xml</value>
+    <value>Chesnokov -v- An tArd-Chláraitheoir.html.xml</value>
+    <value>Cirpaci -v- Judge O'Neill &amp; Anor.html.xml</value>
+    <value>D.N. &amp; anor -v- Minister for Foreign Affairs &amp; anor.html.xml</value>
+    <value>Danqua -v- Minister for Justice and Equality (No.2).html.xml</value>
+    <value>Diamrem Limited -v- Cliffs of Moher Centre Limited &amp; anor.html.xml</value>
+    <value>Director of Public Prosecutions -v- Byrne &amp; ors.html.xml</value>
+    <value>Director of Public Prosecutions -v- J.D..html.xml</value>
+    <value>Director of Public Prosecutions -v- McCarthy.html.xml</value>
+    <value>Director of Public Prosecutions -v- Myers.html.xml</value>
+    <value>Director of Public Prosecutions -v- Zimants.html.xml</value>
+    <value>Dowling -v- An Bord Altranais &amp; Anor.html.xml</value>
+    <value>ES -v- Judge Teehan &amp; anor.html.xml</value>
+    <value>Gaffney &amp; anor -v- Commissioner of An Garda Siochana &amp; ors.html.xml</value>
+    <value>Hu -v- The Governor of Cloverhill Prison.html.xml</value>
+    <value>Hu -v- The Governor of Mountjoy Prison &amp; Anor.html.xml</value>
+    <value>ID &amp; ors -v- The Minister for Justice and Equality and Law Reform.html.xml</value>
+    <value>JW -v- MR.html.xml</value>
+    <value>McCabe &amp; Anor -v- The Irish Life Assurance PLC &amp; Anor.html.xml</value>
+    <value>McCaughey Developments Ltd -v- Dundalk Town Council &amp; ors.html.xml</value>
+    <value>MM -v- The International Protection Appeals Tribunal.html.xml</value>
+    <value>O'Brien -v- The Governor of Cork Prison.html.xml</value>
+    <value>O'Connor -v- Adigun Limited.html.xml</value>
+    <value>SO -v- Refugee Appeals Tribunal &amp; ors.html.xml</value>
+    <value>Start Mortgages Limited -v- O'Regan.html.xml</value>
+    <value>Sterimed Technologies International &amp; Anor -v- Schivo Precision Limited &amp; Ors.html.xml</value>
+    <value>Sweetman -v- An Bord Pleanála &amp; Ors.html.xml</value>
+    <value>The Director of Public Prosecutions -v- N.R. &amp; anor.html.xml</value>
+  </Map>
+  <Map>
+    <key>1</key>
+    <value>Allied Irish Banks PLC -v- Hyszko &amp; Ors.html.xml</value>
+    <value>Bank of Ireland -v- Smyth.html.xml</value>
+    <value>Butler &amp; Anor -v- Nelson &amp; Co Solicitors.html.xml</value>
+    <value>Camiveo Limited -v- Dunnes Stores.html.xml</value>
+    <value>Carroll -v- Seamus Kerrigan Ltd &amp; Anor.html.xml</value>
+    <value>Dardis -v- Poplovka.html.xml</value>
+    <value>Director of Public Prosecitions -v- D. McG.html.xml</value>
+    <value>Director of Public Prosecutions -v- Browne (No. 2).html.xml</value>
+    <value>Director of Public Prosecutions -v- Christie.html.xml</value>
+    <value>Director of Public Prosecutions -v- Coleman.html.xml</value>
+    <value>Director of Public Prosecutions -v- Handley.html.xml</value>
+    <value>Director of Public Prosecutions -v- Kavanagh.html.xml</value>
+    <value>Director of Public Prosecutions -v- Kilsaran Concrete Limited.html.xml</value>
+    <value>Director of Public Prosecutions -v- Lelakowski.html.xml</value>
+    <value>Director of Public Prosecutions -v- McManus.html.xml</value>
+    <value>Director of Public Prosecutions -v- Murphy.html.xml</value>
+    <value>Director of Public Prosecutions -v- Nally.html.xml</value>
+    <value>Director of Public Prosecutions -v- O.R..html.xml</value>
+    <value>Director of Public Prosecutions -v- S.O.C..html.xml</value>
+    <value>Director of Public Prosecutions -v- Zaharia.html.xml</value>
+    <value>Djamba &amp; Ors -v- The Minister for Justice and Equality.html.xml</value>
+    <value>Donore Garages &amp; Anor -v- Tennant.html.xml</value>
+    <value>Doyle -v- Bailey &amp; Anor.html.xml</value>
+    <value>E.K.K. (Democratic Rep. of Congo) -v- Minister for Justice and Equality &amp; Ors No. 2.html.xml</value>
+    <value>Fastwell Limited -v- OCL Capital PLC.html.xml</value>
+    <value>Fides Capital Limited -v- Alchemy Products Limited.html.xml</value>
+    <value>G.C. -v- Minister for Justice and Equality.html.xml</value>
+    <value>Gardiner -v- Zinc Processors Limited.html.xml</value>
+    <value>Hedgecroft LTD ta Beary Capital Partners -v- Htamretfa LTD.html.xml</value>
+    <value>Holohan &amp; Ors -v- An Bord Pleanala.html.xml</value>
+    <value>Hughes &amp; Ors -v- Collins.html.xml</value>
+    <value>Irish Water -v- Woodstown Bay Shellfish Limited.html.xml</value>
+    <value>James Elliot Construction Limited -v- Lagan &amp; Ors.html.xml</value>
+    <value>KBC Bank Ireland PLC -v- Woods.html.xml</value>
+    <value>L.O'G. &amp; anor -v- Child and Family Agency.html.xml</value>
+    <value>Laurence Corrigan -v- Ken Fennell.html.xml</value>
+    <value>LO'S -v- The Minister for Health and Children.html.xml</value>
+    <value>Lynch -v- Director of Public Prosecutions.html.xml</value>
+    <value>Massey -v- Stagg.html.xml</value>
+    <value>MC -v- Legal Aid Board &amp; ors.html.xml</value>
+    <value>McAteer -v- Burke &amp; Ors.html.xml</value>
+    <value>McCool -v- Monaghan.html.xml</value>
+    <value>MG -v- Refugee Appeals Tribunal &amp; Ors.html.xml</value>
+    <value>Minister for Communications Energy and Natural Resources -v- Information Commissioner.html.xml</value>
+    <value>Moore -v- Advanced Tyre Company Limited ta 'Advanced Pit Stop'.html.xml</value>
+    <value>Morey -v- Marymount University Hospital and Hospice Limited &amp; Anor.html.xml</value>
+    <value>Muckian &amp; Anor -v- Hoey &amp; Ors.html.xml</value>
+    <value>Neuzil -v- Tesco Ireland Limited.html.xml</value>
+    <value>OO -v- Refugee Appeals Tribunal &amp; Ors.html.xml</value>
+    <value>People over Winds 7 anor -v- Coillte Teoranta.html.xml</value>
+    <value>Petkus &amp; ors -v- Complete Highway Care Limited.html.xml</value>
+    <value>Quinn Insurance Limited (Under Administration) -v- PriceWaterhouseCoopers (A Firm).html.xml</value>
+    <value>Re Varma (a debtor).html.xml</value>
+    <value>Regan Developments Limited &amp; Companies Acts.html.xml</value>
+    <value>Rooney -v- Shell E&amp;P Ireland LTD.html.xml</value>
+    <value>Shortall -v- Acton.html.xml</value>
+    <value>The Director of Public Prosecutions (at the suit of Garda Andrea McGovern) -v- Higgins.html.xml</value>
+    <value>The Square Management Limited &amp; Ors -v- Dunnes Stores Dublin Company.html.xml</value>
+    <value>Top Security Limited -v- Thomas Sadlier &amp; Ors.html.xml</value>
+    <value>Tyrell -v- Wright &amp; Anor.html.xml</value>
+    <value>Ulster Bank Ireland Limited -v- Reaney.html.xml</value>
+    <value>Vodafone GMBH -v- IV International Leasing &amp; Anor.html.xml</value>
+    <value>Wallace -v- Beggan &amp; Anor.html.xml</value>
+    <value>Woods -v- Ulster Bank Ireland Limited &amp; ors.html.xml</value>
+  </Map>
+  <Map>
+    <key>2</key>
+    <value>Adigun -v- McEvoy &amp; Anor.html.xml</value>
+    <value>Bank of Scotland PLC -v- McDermott.html.xml</value>
+    <value>C.A. -v- Governor of Cloverhill Prison.html.xml</value>
+    <value>Director of Public Prosecutions -v- C.C..html.xml</value>
+    <value>Everard (a minor) -v- Health Service Executive.html.xml</value>
+    <value>Hickey -v- McGowan &amp; ors.html.xml</value>
+    <value>Maloney -v- Dunnes Stores (Newbridge) Limited.html.xml</value>
+    <value>R.S. -v- Minister for Justice and Equality &amp; Ors No. 2.html.xml</value>
+    <value>Superwood Holdings Plc &amp; Ors -v- Sun Alliance &amp; London Insurance Plc &amp; Ors.html.xml</value>
+  </Map>
+  <Map>
+    <key>3</key>
+    <value>A.O. -v- Refugee Appeals Tribunal &amp; ors.html.xml</value>
+    <value>Attorney General -v- Davis.html.xml</value>
+    <value>BA -v- The Minister for Justice and Equality.html.xml</value>
+    <value>BAM PPP Ireland Limited -v- Balfour Beatty Ireland Limited &amp; Anor.html.xml</value>
+    <value>BPSG Limited ta Stubbs Gazette -v- The Courts Service &amp; Anor.html.xml</value>
+    <value>Browne -v- The Minister for Finance and Public Expenditure.html.xml</value>
+    <value>CA -v- The Governor of Cloverhill Prison.html.xml</value>
+    <value>Child and Family Agency -v- McG and JC.html.xml</value>
+    <value>Croake -v- Coughlan &amp; Anor.html.xml</value>
+    <value>D&amp;L Properties Limited -v- Yolanda Limited.html.xml</value>
+    <value>D.F.S. (also known as D.M.) -v- RAC.html.xml</value>
+    <value>David Naughton and Wesley Kenny -v- Commissioner of an Garda Siochana.html.xml</value>
+    <value>Director of Public Prosecutions -v- Berkery.html.xml</value>
+    <value>Director of Public Prosecutions -v- Byrne.html.xml</value>
+    <value>Director of Public Prosecutions -v- Connaughton.html.xml</value>
+    <value>Director of Public Prosecutions -v- Culhane.html.xml</value>
+    <value>Director of Public Prosecutions -v- Cummins.html.xml</value>
+    <value>Director of Public Prosecutions -v- Doherty.html.xml</value>
+    <value>Director of Public Prosecutions -v- Doyle.html.xml</value>
+    <value>Director of Public Prosecutions -v- Durcan.html.xml</value>
+    <value>Director of Public Prosecutions -v- Heffernan.html.xml</value>
+    <value>Director of Public Prosecutions -v- Hutchinson.html.xml</value>
+    <value>Director of Public Prosecutions -v- Jackson.html.xml</value>
+    <value>Director of Public Prosecutions -v- Jones.html.xml</value>
+    <value>Director of Public Prosecutions -v- Keane.html.xml</value>
+    <value>Director of Public Prosecutions -v- Kinsella.html.xml</value>
+    <value>Director of Public Prosecutions -v- Moore.html.xml</value>
+    <value>Director of Public Prosecutions -v- Murphy (No. 2).html.xml</value>
+    <value>Director of Public Prosecutions -v- Murray.html.xml</value>
+    <value>Director of Public Prosecutions -v- O'Dea.html.xml</value>
+    <value>Director of Public Prosecutions -v- O'Reilly.html.xml</value>
+    <value>Director of Public Prosecutions -v- Slattery &amp; anor.html.xml</value>
+    <value>Director of Public Prosecutions -v- Stokes.html.xml</value>
+    <value>Director of Public Prosecutions -v- Wynne.html.xml</value>
+    <value>Director of Public Prosecutions -v- Zinck.html.xml</value>
+    <value>Director of Public Prosecutions -v-Coughlan Ryan.html.xml</value>
+    <value>Douglas -v- DPP &amp; Ors.html.xml</value>
+    <value>Doyle -v- White &amp; anor.html.xml</value>
+    <value>Dunne -v- Governor of Wheatfield Prison &amp; Anor.html.xml</value>
+    <value>Fennell &amp; Anor -v- Mc Donagh.html.xml</value>
+    <value>Flynn &amp; Anor -v- Breccia &amp; Anor.html.xml</value>
+    <value>Friends First Managed Pension Funds Limited -v- Smithwick.html.xml</value>
+    <value>Gallagher -v- Letterkenny General Hospital &amp; Ors.html.xml</value>
+    <value>Gervin -v- Motor Insurers Bureau of Ireland.html.xml</value>
+    <value>Gladney -v- Forte.html.xml</value>
+    <value>Griffiths -v- Collins.html.xml</value>
+    <value>Healy -v- Noonan.html.xml</value>
+    <value>Hickey &amp; Personal Insolvency Acts.html.xml</value>
+    <value>Howe &amp; Anor -v- Revenue Commissioners &amp; Ors.html.xml</value>
+    <value>Inglis -v- The Salvation Army (Republic of Ireland).html.xml</value>
+    <value>IRM &amp; Anor -v- MJE &amp; Ors.html.xml</value>
+    <value>JD &amp; Personal Insolvency Acts.html.xml</value>
+    <value>KBC Bank Ireland Limited -v- Flynn &amp; Anor.html.xml</value>
+    <value>Kempis Rolls Limited -v- Hogan.html.xml</value>
+    <value>Larianov Foundation -v- Leo Prendergast and Sons (Engineering) Limited.html.xml</value>
+    <value>Leech -v- Independent Newspapers (Ireland) Limited.html.xml</value>
+    <value>Lyons -v- Longford Westmeath Education and Training Board.html.xml</value>
+    <value>Mansfield &amp; ors -v- Lucey &amp; ors.html.xml</value>
+    <value>McFeely -v- Official Assignee in Bankruptcy.html.xml</value>
+    <value>Minister for Education and Skills -v- Boyle &amp; ors.html.xml</value>
+    <value>Minister for Justice and Equality -v- Dunauskis.html.xml</value>
+    <value>Minister for Justice and Equality -v- Lisauskas.html.xml</value>
+    <value>Minister for Justice and Equality -v- Mangan.html.xml</value>
+    <value>MM -v- The Child and Family Agency.html.xml</value>
+    <value>Modu &amp; Anor -v- MJE &amp; Ors.html.xml</value>
+    <value>Moore -v- Dublin City Council.html.xml</value>
+    <value>Morgan -v- Slaneygio &amp; Anor.html.xml</value>
+    <value>Mujahid &amp; Anor -v- Carroll.html.xml</value>
+    <value>Mulhare &amp; Anor -v- Cork County Council.html.xml</value>
+    <value>Munteanu -v- Minister for Social Protection.html.xml</value>
+    <value>MY -v- AA.html.xml</value>
+    <value>N.K. -v- S.K..html.xml</value>
+    <value>Nevin &amp; Anor -v- Nevin.html.xml</value>
+    <value>O'Brien -v- The Director of Public Prosecutions.html.xml</value>
+    <value>PC -v- The Minister for Justice and Equality.html.xml</value>
+    <value>PP -v- The Judges of the Circuit Court &amp; Ors.html.xml</value>
+    <value>RB -v- The Minister for Justice and Law Reform &amp; Ors.html.xml</value>
+    <value>Rooney -v- Minister for Agriculture and Food &amp; Ors.html.xml</value>
+    <value>Ryanair Limited -v- Google Ireland Limited &amp; Ors.html.xml</value>
+    <value>Ryanair Limited -v- The Revenue Commissioners &amp; Ors.html.xml</value>
+    <value>Sony Music Entertainment (Ireland) Ltd &amp; Ors -v- UPC Communications Ireland Ltd.html.xml</value>
+    <value>The Data Protection Commssioner -v- Facebook Ireland Limited &amp; anor.html.xml</value>
+    <value>The Minister for Justice and Equality -v- Imran.html.xml</value>
+    <value>Walsh -v- Tesco Ireland Limited.html.xml</value>
+    <value>WS -v- Minister for Justice and Equality.html.xml</value>
+  </Map>
+  <Map>
+    <key>4</key>
+    <value>ACC Loan Management -v- Dooley.html.xml</value>
+    <value>ACC Loan Management Limited -v- Connolly &amp; Anor.html.xml</value>
+    <value>Allied Irish Bank PLC -v- Guerin.html.xml</value>
+    <value>Allied Irish Banks PLC &amp; Anor -v- O'Brien.html.xml</value>
+    <value>Allied Irish Banks Plc -v- Aqua Fresh Fish Limited.html.xml</value>
+    <value>BA &amp; ors -v- International Protection Appeals Tribunal.html.xml</value>
+    <value>Bank of Scotland plc -v- O'Connor; O'Connor -v- Bank of Scotland plc &amp; Ors.html.xml</value>
+    <value>Brennan -v- Irish Pride Bakeries (In Receivership).html.xml</value>
+    <value>Burke -v- Mullaly &amp; ors.html.xml</value>
+    <value>Cagney -v- Bank of Ireland.html.xml</value>
+    <value>Child and Family Agency -v- CM.html.xml</value>
+    <value>Conway -v- Ireland, the Attorney General &amp; ors.html.xml</value>
+    <value>CTO Greenclean Environmental Solutions Limited -v- Companies Acts.html.xml</value>
+    <value>Culkin -v- Sligo County Council &amp; Anor.html.xml</value>
+    <value>Danske Bank A.S. (ta Danske Bank) -v- Macken &amp; anor.html.xml</value>
+    <value>Danske Bank AS trading as Danske Bank -v- Fox and Fox -v- McDonald &amp; Anor.html.xml</value>
+    <value>Director of Public Prosecutions -v- Awode.html.xml</value>
+    <value>Director of Public Prosecutions -v- Daly.html.xml</value>
+    <value>Director of Public Prosecutions -v- Dineen.html.xml</value>
+    <value>Director of Public Prosecutions -v- G.C..html.xml</value>
+    <value>Director of Public Prosecutions -v- Judge.html.xml</value>
+    <value>Director of Public Prosecutions -v- Kennaway.html.xml</value>
+    <value>Director of Public Prosecutions -v- Lee.html.xml</value>
+    <value>Director of Public Prosecutions -v- Lyons.html.xml</value>
+    <value>Director of Public Prosecutions -v- Murphy &amp; anor.html.xml</value>
+    <value>Director of Public Prosecutions -v- Nolan.html.xml</value>
+    <value>Director of Public Prosecutions -v- P.G..html.xml</value>
+    <value>Director of Public Prosecutions -v- Riordan.html.xml</value>
+    <value>Director of Public Prosecutions -v- T.O.N.html.xml</value>
+    <value>Director of Public Prosecutions -v- Taylor.html.xml</value>
+    <value>Director of Public Prosecutions -v- Tobin.html.xml</value>
+    <value>Director of Public Prosecutions -v- W.L..html.xml</value>
+    <value>Director of Public Prosecutions -v- Zaffer (No. 2).html.xml</value>
+    <value>DJ -v- The Minister for Health.html.xml</value>
+    <value>Djadenko -v- Dunnes Stores.html.xml</value>
+    <value>Donegal Investment Group plc -v- Danbywiske, Wilson &amp; ors.html.xml</value>
+    <value>Duffy -v- Liffey Meats (Cavan).html.xml</value>
+    <value>Dundon &amp; ors (pa Dundon Callanan Solicitors) &amp; ors -v- Butler Homes Limited.html.xml</value>
+    <value>Dundon [pa Dundon Callanan Solicitors] &amp; Ors -v- Butler Homes.html.xml</value>
+    <value>EBS -v- The Refugee Appeals Tribunal &amp; Anor.html.xml</value>
+    <value>Ennis &amp; Personal Insolvency Acts.html.xml</value>
+    <value>Ennis -v- Sports Travel International Ltd &amp; Anor.html.xml</value>
+    <value>Ganley -v- RTE.html.xml</value>
+    <value>Geaney -v- Geaney &amp; Anor.html.xml</value>
+    <value>Glegola -v- Minister for Social Protection &amp; ors.html.xml</value>
+    <value>Grackovs -v- Minister for Justice and Equality &amp; Ors.html.xml</value>
+    <value>Green -v- Hardiman.html.xml</value>
+    <value>Hill &amp; Personal Insolvency Acts.html.xml</value>
+    <value>JC -v- Director of Public Prosecutions.html.xml</value>
+    <value>JJ -v- PJ.html.xml</value>
+    <value>K.P. -v- Minister for Justice and Equality.html.xml</value>
+    <value>Kelly -v- The Irish Prison Service &amp; Anor.html.xml</value>
+    <value>Lanigan -v- Governor of Cloverhill Prison &amp; ors.html.xml</value>
+    <value>Long -v- Bord Bia &amp; Ors.html.xml</value>
+    <value>M.A. -v- Minister for Justice, Equality and Law Reform &amp; ors.html.xml</value>
+    <value>M.I. (an infant) &amp; anor -v- Minister for Justice and Equality &amp; ors.html.xml</value>
+    <value>M.Y. -v- Refugee Appeals Tribunal &amp; ors.html.xml</value>
+    <value>McDermott Hawking -v- McNeive trading as Performers High School &amp; Ors.html.xml</value>
+    <value>McFadden -v- Neuhold.html.xml</value>
+    <value>McGrath &amp; Ors -v- Reddy Charlton McKnight.html.xml</value>
+    <value>MGOL -v- Refugee Appeals Tribunal.html.xml</value>
+    <value>Minister for Justice and Equality -v- Bukoshi.html.xml</value>
+    <value>Minister for Justice and Equality -v- Poteliunas.html.xml</value>
+    <value>Murphy &amp; anor -v- Gilligan.html.xml</value>
+    <value>Murphy &amp; Ors -v- Launceston Property Finance Limited &amp; Anor.html.xml</value>
+    <value>Muwema -v- Facebook Ireland Limited.html.xml</value>
+    <value>Nutrimedical B.V. &amp; Anor -v- Nualtra LTD.html.xml</value>
+    <value>O'Brien -v- Clerk of Dáil Éireann &amp; ors.html.xml</value>
+    <value>O'Brien -v- The Minister for Justice and Equality &amp; Anor.html.xml</value>
+    <value>O'Connell -v- Solas.html.xml</value>
+    <value>O'Reilly -v- O'Neill and Brennan Limited &amp; Ors.html.xml</value>
+    <value>P. -v- Minister for Justice and Equality.html.xml</value>
+    <value>Park Magic Mobile Solutions Limited -v- Companies Act.html.xml</value>
+    <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value>
+    <value>Power -v- Eustace &amp; Ors.html.xml</value>
+    <value>Rathmond Ireland Limited &amp; Companies Act 2014.html.xml</value>
+    <value>Rooney -v- Ireland &amp; Anor.html.xml</value>
+    <value>Rughoonauth -v- The Minister for Justice and Equality.html.xml</value>
+    <value>Ryan -v- Commissioner of An Garda Siochana.html.xml</value>
+    <value>S.A.A.E. -v- Minister for Justice and Equality.html.xml</value>
+    <value>Silaghi -v- Judge O'Hagan.html.xml</value>
+    <value>Sinnott -v- The Minister for The Environment.html.xml</value>
+    <value>Snochowski -v- Private Residential Tenancies Board &amp; anor.html.xml</value>
+    <value>SPV Optimal Osus Limited -v- HSBC Institutional Trust Services (Ireland) Limited &amp; Ors.html.xml</value>
+    <value>Start Mortgages Ltd -v- Tierney &amp; Anor.html.xml</value>
+    <value>Stokes -v- South Dublin County Council.html.xml</value>
+    <value>Sugg -v- Ireland &amp; Ors.html.xml</value>
+    <value>SWA -v- Refugee Appeals Tribunal &amp; Ors.html.xml</value>
+    <value>SZ -v- The Minister for Justice and Equality &amp; Ors.html.xml</value>
+    <value>TKB -v- Minister for Justice Equality and Law Reform.html.xml</value>
+    <value>W.S. -v- Minister for Justice and Equality.html.xml</value>
+    <value>Wall -v- National Parks and Wildlife Service.html.xml</value>
+    <value>Walsh -v- Law Society of Ireland.html.xml</value>
+    <value>Walsh -v- The Minister for Justice and Equality &amp; Ors.html.xml</value>
+    <value>Walsh -v- Wexford Wanderers Rugby Club.html.xml</value>
+    <value>White -v- The Bar Council of Ireland.html.xml</value>
+  </Map>
+  <Map>
+    <key>5</key>
+    <value>Agha (a minor) &amp; ors -v- Minister for Social Protection &amp; ors.html.xml</value>
+    <value>Aldi Stores (Ireland) Ltd &amp; Anor -v- Dunnes Stores.html.xml</value>
+    <value>Allied Irish Banks Plc -v- Rooney.html.xml</value>
+    <value>AMC -v- Child and Family Agency.html.xml</value>
+    <value>Byrne -v- Criminal Inuries Compensation Tribunal &amp; Ors.html.xml</value>
+    <value>Byrnes -v- Dublin City Council.html.xml</value>
+    <value>C. McD -v- Ireland &amp; Ors.html.xml</value>
+    <value>Cash -v- DPP.html.xml</value>
+    <value>Colgan &amp; Ors -v- Irish Bank Resolution Corporation Limited &amp; Anor.html.xml</value>
+    <value>Condon -v- Law Society of Ireland.html.xml</value>
+    <value>Cornelius Minihane -v- Skellig Fish Limited.html.xml</value>
+    <value>Corrib Oil Company Limited -v- Murray.html.xml</value>
+    <value>Costello &amp; Anor -v- The Commissioner of an Garda Siochana.html.xml</value>
+    <value>DE -v- Minister for Justice and Equality.html.xml</value>
+    <value>Director of Military Prosecutions -v- Donohoe.html.xml</value>
+    <value>Director of Public Prosecutions -v- Andruska.html.xml</value>
+    <value>Director of Public Prosecutions -v- Cadden.html.xml</value>
+    <value>Director of Public Prosecutions -v- Egan.html.xml</value>
+    <value>Director of Public Prosecutions -v- Eric Ryan Jnr.html.xml</value>
+    <value>Director of Public Prosecutions -v- Freyne.html.xml</value>
+    <value>Director of Public Prosecutions -v- Kelly &amp; ors.html.xml</value>
+    <value>Director of Public Prosecutions -v- Kirwan.html.xml</value>
+    <value>Director of Public Prosecutions -v- M.R..html.xml</value>
+    <value>Director of Public Prosecutions -v- McNamara.html.xml</value>
+    <value>Director of Public Prosecutions -v- P.C..html.xml</value>
+    <value>Director of Public Prosecutions -v- Power.html.xml</value>
+    <value>Director of Public Prosecutions -v- R.McC..html.xml</value>
+    <value>Director of Public Prosecutions -v- S.T..html.xml</value>
+    <value>Director of Public Prosecutions -v- Sweeney.html.xml</value>
+    <value>Director of Public Prosecutions -v- Walsh.html.xml</value>
+    <value>DN -v- The Chief Appeals Officer.html.xml</value>
+    <value>Donegal Investment Group plc -v- Danbywiske &amp; Ors.html.xml</value>
+    <value>Dooley -v- Director of Public Prosecutions &amp; ors; Owens -v- Director of Public Prosecutions &amp; ors.html.xml</value>
+    <value>Dooley -v- DPP &amp; Ors.html.xml</value>
+    <value>Dunnes Stores -v- Dublin City Council &amp; Anor.html.xml</value>
+    <value>E &amp; Anor -v- The Minister for Justice and Equality.html.xml</value>
+    <value>Gallagher -v- RTE.html.xml</value>
+    <value>Grace and anor -v- An Bórd Pleanála &amp; ors.html.xml</value>
+    <value>J.M.N. (a minor) -v- Refugee Appeals Tribunal &amp; anor.html.xml</value>
+    <value>K.D. -v- The Director of Public Prosecutions &amp; Anor.html.xml</value>
+    <value>Kerins -v- McGuinness &amp; ors.html.xml</value>
+    <value>Lagan Bitumen Limited -v- Tullagower Quarries Limited.html.xml</value>
+    <value>Lennon -v- Fun Fitness Limited (in liquidation).html.xml</value>
+    <value>Lyons -v- Governor of the Midlands Prison.html.xml</value>
+    <value>M.H. -v- M.H..html.xml</value>
+    <value>M.Y.A. -v- Refugee Appeals Commissioner.html.xml</value>
+    <value>Maloney -v- The Member In Charge of Finglas Garda Station &amp; Ors.html.xml</value>
+    <value>McCann -v- J.M. and Y.W..html.xml</value>
+    <value>McNamara -v- Dunnes Stores (Parkway) Limited.html.xml</value>
+    <value>McNicholas -v- Hermann.html.xml</value>
+    <value>Minister for Justice and Equality -v- Swacha.html.xml</value>
+    <value>MOS -v- The Residential Institutions Redress Board &amp; Ors.html.xml</value>
+    <value>Murray -v- Budds &amp; ors.html.xml</value>
+    <value>North Kerry Wind Turbine Awareness Group -v- An Bord Pleanála.html.xml</value>
+    <value>O'Connor -v- Cotter &amp; Anor.html.xml</value>
+    <value>O'Leary -v- Volkswagen Group Ireland.html.xml</value>
+    <value>O'Neill -v- McCann Fitzgerald Solicitors and ors.html.xml</value>
+    <value>ON -v- Refugee Appeals Tribunal &amp; Ors.html.xml</value>
+    <value>Ó Gríanna &amp; ors -v- An Bord Pleanála &amp; ors.html.xml</value>
+    <value>Palaceanne Management Limited -v- Allied Irish Bank plc.html.xml</value>
+    <value>PC -v- The International Protection Tribunal &amp; Anor.html.xml</value>
+    <value>R.T. -v- Refugee Appeals Tribunal &amp; ors.html.xml</value>
+    <value>S.A.S. &amp; Anor -v- Minister for Justice and Equality &amp; Anor.html.xml</value>
+    <value>SH -v- The Minister for Justice and Equality.html.xml</value>
+    <value>Shatter -v- Guerin.html.xml</value>
+    <value>Speedie -v- Sunday Newspapers Ltd &amp; Ors.html.xml</value>
+    <value>Sweetman -v- An Bord Pleanala.html.xml</value>
+    <value>Tracey -v- McCarthy J &amp; anor.html.xml</value>
+    <value>Y. -v- Minister for Justice Equality and Law Reform.html.xml</value>
+  </Map>
+  <Map>
+    <key>6</key>
+    <value>Bride -v- Oliver.html.xml</value>
+    <value>Cantrell -v- AIB PLC &amp; Ors.html.xml</value>
+    <value>Christie -v- TV3 Television Networks Limited.html.xml</value>
+    <value>Director of Military Prosecutions -v- Donaghy.html.xml</value>
+    <value>Director of Public Prosecutions -v- Brannigan.html.xml</value>
+    <value>Director of Public Prosecutions -v- Casey.html.xml</value>
+    <value>Director of Public Prosecutions -v- Popovici.html.xml</value>
+    <value>Dunne &amp; Personal Insolvency Acts.html.xml</value>
+    <value>GS -v- The Commissioner of an Garda Siochana.html.xml</value>
+    <value>Haier Europe Trading SRL -v- Mares Associates Limited.html.xml</value>
+    <value>HKC Limited -v- Borsatec Limited &amp; Anor.html.xml</value>
+    <value>In the matter of A.M., a proposed Ward of Court.html.xml</value>
+    <value>J.N.E. -v- Minister for Justice and Equality &amp; ors.html.xml</value>
+    <value>J.S. -v- Director of Public Prosecutions &amp; anor.html.xml</value>
+    <value>Klohn -v- An Bórd Pleanála &amp; ors.html.xml</value>
+    <value>Law Society of Ireland -v- Herlihy.html.xml</value>
+    <value>M.A.K. &amp; ors -v- Minister for Justice and Equality.html.xml</value>
+    <value>MAK -V- Minister for Justice and Equality.html.xml</value>
+    <value>Morrissey -v- The National Asset Management Agency Limited.html.xml</value>
+    <value>NN -v- The Minister for Justice and Equality &amp; Ors.html.xml</value>
+    <value>North Kerry Wind Turbine Awareness Group -v- An Bord Pleanala.html.xml</value>
+    <value>Nowak &amp; Anor -v- Residential Tenancies Board.html.xml</value>
+    <value>O'Shea -v- Ireland and ors.html.xml</value>
+    <value>ON &amp; anor -v- The Refugee Applications Commissioner &amp; ors.html.xml</value>
+    <value>Ononkewagbe &amp; Anor -v- The Governor of the Dochas Centre &amp; Anor.html.xml</value>
+    <value>Ryan -v- Governor of Mountjoy Prison.html.xml</value>
+    <value>Secular Schools Ireland Ltd -v- The Minister for Education and Skills &amp; ors.html.xml</value>
+    <value>Smith -v- Considine &amp; anor.html.xml</value>
+    <value>The National Museum of Ireland -v- The Minister for Social Protection.html.xml</value>
+    <value>Tracey &amp; Anor -v- McDowell &amp; Ors.html.xml</value>
+    <value>V.B. &amp; ors -v- Minister for Justice and Equality.html.xml</value>
+    <value>Walsh -v- Walsh.html.xml</value>
+    <value>YY -v- The Minister for Justice and Equality.html.xml</value>
+  </Map>
+</Clusters_Vector>
+>>>>>>> c9b090f0af196e77ca727cb3083c2d5da11f15bf
