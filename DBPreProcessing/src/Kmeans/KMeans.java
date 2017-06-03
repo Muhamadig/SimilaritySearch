@@ -389,7 +389,10 @@ public class KMeans {
     	km.SetPoints(freqs);
     	km = km.Clustering();
     	List <Cluster> KMClusters = km.getclusters();
-    	for(Cluster c : KMClusters)
+    	for(Cluster c : KMClusters){
     		System.out.println("Cluster Number: " + c.getId() + " Contains "  + c.getPoints().size() + " Texts");
+    		c.CreateChart(c.ClaculateCW());
+    	}
+    	
    }
 }

@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
@@ -6,10 +8,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import XML.XML;
+import XML.XMLFactory;
+import model.FVValueSorted;
+
 public class Stam {
 
 	public static void main(String[] args){
-		DateFormat dateFormat = new SimpleDateFormat("yyyy:MM:dd HH,mm,ss");
+		/*DateFormat dateFormat = new SimpleDateFormat("yyyy:MM:dd HH,mm,ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));
 		String path = System.getProperty("user.home") + "/Desktop/Results/"+dateFormat.format(date);
@@ -25,7 +36,30 @@ public class Stam {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+		XML SortXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+		
+		 
+	      try
+	      {
+	    	  for(int i=0;i<6;i++){
+	    		  Document document = new Document();
+	    		  FVValueSorted sorted = (FVValueSorted) SortXML.Import("CW/"+i+"_CW.xml");
+	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(i+"_CW.pdf"));
+	         document.open();
+	         for(int j=0;j<sorted.size();j++)
+	        	 document.add(new Paragraph((j+1) +")          " + sorted.get(j).getKey() +"  =  " + sorted.get(j).getValue()));
+	    	  
+	         document.close();
+	         writer.close();
+	    	  }
+	      } catch (DocumentException e)
+	      {
+	         e.printStackTrace();
+	      } catch (FileNotFoundException e)
+	      {
+	         e.printStackTrace();
+	      }
 	}
 
 }

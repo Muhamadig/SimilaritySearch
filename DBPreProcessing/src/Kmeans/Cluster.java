@@ -3,10 +3,14 @@ package Kmeans;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jfree.ui.RefineryUtilities;
+
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
+import model.FVKeySortedMap;
 import model.FVValueSorted;
+import view.LineChart_AWT;
  
 public class Cluster {
 	
@@ -14,7 +18,7 @@ public class Cluster {
 	public Point centroid; // the center point of the cluster
 	public int id;
 	private double aggDist;
-	public FVHashMap CommonWords;
+	public FVValueSorted CommonWords;
 	
 	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
 	
@@ -35,20 +39,22 @@ public class Cluster {
 	
 	public double CommonDistnce(FVHashMap text){
 		double dist=0.0;
-		for(String CW : CommonWords.keySet())
+		for(int i=0;i<CommonWords.size();i++){
+			String CW = CommonWords.get(i).getKey();
 			if(text.containsKey(CW))
-				dist += Math.pow((text.get(CW) - CommonWords.get(CW)), 2);
+				dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
+		}
 		dist= Math.sqrt(dist);
 	return dist;	
 	}
-	public void setCommonWords(FVHashMap CW){
+	
+	public void setCommonWords(FVValueSorted CW){
 		this.CommonWords = CW;
 	}
 	
-	public FVHashMap getCommonWords(){
+	public FVValueSorted getCommonWords(){
 		return this.CommonWords;
 	}
-	
 	
 	public ArrayList<Point> getPoints() {
 		return points;
@@ -79,8 +85,6 @@ public class Cluster {
 		points.clear();
 	}
 	
-
-	
     private double AggregateDistance(){
     	if(aggDist != 0)
     		return aggDist;
@@ -103,5 +107,27 @@ public class Cluster {
     	return aggdists;
     }
     
-  
+    public FVValueSorted ClaculateCW(){
+    	XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
+    	ArrayList<FVKeySortedMap> texts = new ArrayList<FVKeySortedMap>();
+    	FVHashMap freqs = new FVHashMap();
+    	for(Point p : points){
+    		FVKeySortedMap text = (FVKeySortedMap) fvxml.Import("final/"+p.getName());
+    		  texts.add(text);
+    		  for(String key : text.keySet())
+    			  freqs.put(key, text.get(key));
+    	}
+    	XML SortedXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+    	FVValueSorted SortedCW = new FVValueSorted(freqs);
+    	SortedXML.export(SortedCW,"CW/"+ id+"_CW.xml");
+    	return SortedCW ;
+    
+    }
+    
+    public void CreateChart(FVValueSorted data){
+    	LineChart_AWT chart = new LineChart_AWT("" ,id+"" , data);
+		chart.pack( );
+		RefineryUtilities.centerFrameOnScreen( chart );
+		chart.setVisible( true );
+    }
 }

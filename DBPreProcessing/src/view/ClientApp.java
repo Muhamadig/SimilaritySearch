@@ -34,6 +34,7 @@ import controller.Pareto;
 import controller.Proccessing;
 import model.FVHashMap;
 import model.FVKeySortedMap;
+import model.FVValueSorted;
 import model.Language;
 import model.Language.Langs;
 import model.Text;
@@ -222,11 +223,11 @@ public class ClientApp extends JFrame {
     	int cluster = getCluster();
     	
     	//Get the specific cluster Common words
-    	FVHashMap ClusterCW = clusters.get(cluster).getCommonWords();
+    	FVValueSorted ClusterCW = clusters.get(cluster).getCommonWords();
     	
     	ArrayList<String> CW= new ArrayList<String>();
-    	for(String key : ClusterCW.keySet())
-    		CW.add(key);
+    	for(int i=0;i<ClusterCW.size();i++)
+    		CW.add(ClusterCW.get(i).getKey());
     	
     	// Remove the Cluster Common Words
     	text = Remove(text , CW);

@@ -11,6 +11,7 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 import controller.Proccessing;
+import model.FVValueSorted;
 
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -45,6 +46,19 @@ public class LineChart_AWT extends ApplicationFrame {
 		setContentPane( chartPanel );
 	}
 
+	public LineChart_AWT(String applicationTitle , String chartTitle , FVValueSorted vec){
+		super(applicationTitle);
+		JFreeChart lineChart = ChartFactory.createLineChart(
+				chartTitle,
+				"Words","Frequency",
+				createDataset(vec),
+				PlotOrientation.VERTICAL,
+				true,true,false);
+
+		ChartPanel chartPanel = new ChartPanel( lineChart );
+		chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+		setContentPane( chartPanel );
+	}
 	
 	private DefaultCategoryDataset createDataset( ) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
@@ -56,6 +70,15 @@ public class LineChart_AWT extends ApplicationFrame {
 		
 		return dataset;
 	}
+	
+	public DefaultCategoryDataset createDataset( FVValueSorted list) {
+		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		for(int i=0;i<list.size();i++)
+			dataset.addValue(list.get(i).getValue(), "FREQ", list.get(i).getKey());
+		
+		return dataset;
+	}
+
 	
 	public DefaultCategoryDataset createDataset( Object list) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
