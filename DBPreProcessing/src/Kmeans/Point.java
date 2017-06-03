@@ -1,19 +1,26 @@
 package Kmeans;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
  
 public class Point {
  
 	private ArrayList<Double> cordinates;
     private int cluster_number = 0;
+    private String filename;
  
    public Point (ArrayList<Double> cord){
-    	cordinates = new ArrayList<Double>();
-    	cordinates.addAll(cord);
-    }
     
+    	this.cordinates = cord;
+    	
+    }
+   
+    public String getName(){
+    	return this.filename;}
+    
+   public void setName(String name){
+	   this.filename= name;
+   }
    public void setCordinates(ArrayList<Double> cords){
 	   cordinates.clear();
 	   cordinates.addAll(cords);
@@ -37,7 +44,9 @@ public class Point {
     	int len = cordinate1.size();
     	double sum =0;
     	for(int i=0;i<len; i++)
-    		sum +=Math.sqrt(Math.pow((cordinate1.get(i) - cordinate2.get(i)), 2));
+    		if(cordinate1.get(i)!=0)
+    		sum +=Math.pow((cordinate1.get(i) - cordinate2.get(i)), 2);
+    	sum= Math.sqrt(sum);
       return sum;
     }
     
@@ -52,15 +61,8 @@ public class Point {
     	return new Point(points);
     }
     
-    protected static List<Point> createRandomPoints(int min, int max, int number) {
-    	List<Point> points = new ArrayList<Point>(number);
-    	for(int i = 0; i < number; i++) {
-    		points.add(createRandomPoint(min,max,10));
-    	}
-    	return points;
-    }
     
-    public double max(ArrayList <Double> vec){
+    static double max(ArrayList <Double> vec){
     	double MaxFreq=0;
     	for(int i=0;i<vec.size();i++){
     		double freq = vec.get(i);
@@ -70,7 +72,7 @@ public class Point {
     	return MaxFreq;
     }
     
-    public double min (ArrayList <Double> vec){
+    static double min (ArrayList <Double> vec){
     	double MinFreq = -1;
     	for(int i=0;i<vec.size();i++){
     		double freq = vec.get(i);
@@ -79,7 +81,25 @@ public class Point {
     	}
     	return MinFreq;
     }
-    
+    static int MaximumCordinate(ArrayList<ArrayList<Double>> allvec){
+    	double maximum =0;
+    	for(int i=0;i<allvec.size();i++){
+    		double temp = max(allvec.get(i));
+    		if(temp > maximum)
+    			maximum = temp;
+    	}
+    	return (int)maximum;
+    }
+    static int MinimumCordinate(ArrayList<ArrayList<Double>> allvec){
+    	 double minimum =-1;
+    	 for(int i=0;i<allvec.size();i++){
+     		double temp = min(allvec.get(i));
+     		if(minimum ==-1 || temp < minimum)
+     			minimum = temp;
+     	}
+    	 return (int)minimum;
+     }
+     
     public String toString() {
     	return "("+cordinates.toString()+")";
     }

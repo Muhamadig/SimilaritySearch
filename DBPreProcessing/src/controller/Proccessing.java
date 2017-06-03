@@ -18,7 +18,10 @@ import model.Text;
 public class Proccessing {
 	private XML fvXml;
 	private XML treeMapXML;
+<<<<<<< HEAD
 	private XML fv_ValueSortedXml;
+=======
+>>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
 	
 	public Proccessing(){
 		fvXml=XMLFactory.getXML(XMLFactory.FV);
@@ -54,12 +57,21 @@ public class Proccessing {
 		return 	(FVValueSorted) fv_ValueSortedXml.Import(path);
 
 	}
+<<<<<<< HEAD
 
 	public FVValueSorted getCommonVector(FVValueSorted global,int threshold_index,String export_path){
 		
 		FVValueSorted common=new FVValueSorted();
 		for(int index=0;index<=threshold_index;index++){
 			common.add(global.get(index));
+=======
+	
+	public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){
+		ArrayList<Map.Entry<String,Integer>> res=new ArrayList<>();
+		FVHashMap fv=_fv;
+		for(Map.Entry<String, Integer> map:fv.entrySet()){
+			 res.add(map);
+>>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
 		}
 		File dir=new File(export_path+File.separator+"results");
 		dir.mkdir();
