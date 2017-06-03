@@ -3,7 +3,10 @@ package Kmeans;
 import java.util.ArrayList;
 import java.util.List;
 
+import XML.XML;
+import XML.XMLFactory;
 import model.FVHashMap;
+import model.FVValueSorted;
  
 public class Cluster {
 	
@@ -14,6 +17,7 @@ public class Cluster {
 	public FVHashMap CommonWords;
 	
 	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
+	
 	//Creates a new Cluster
 	public Cluster(int id) {
 		this.id = id;
@@ -22,6 +26,13 @@ public class Cluster {
 	
 	}
  
+	static void SetDBCommonWords(){
+		XML fvxml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+		FVValueSorted CW = (FVValueSorted) fvxml.Import("Expanded/results/common.xml");
+		for(int i=0;i<CW.size();i++)
+			DBCommonWords.add(CW.get(i).getKey());
+	}
+	
 	public double CommonDistnce(FVHashMap text){
 		double dist=0.0;
 		for(String CW : CommonWords.keySet())

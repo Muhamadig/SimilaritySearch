@@ -124,19 +124,17 @@ public class MainApp extends JFrame {
 		upload_info.setBounds(10, 69, 282, 14);
 		panel.add(upload_info);
 
-<<<<<<< HEAD
 		JButton processing1_btn1 = new JButton("Begin Texts Processing");
 
 
 		processing1_btn1.setBounds(253, 142, 174, 23);
 		processing1_btn1.setEnabled(false);
 		panel.add(processing1_btn1);
-=======
 		JButton proc_btn = new JButton("Begin Texts Processing");
 		proc_btn.setBounds(253, 142, 174, 23);
 		proc_btn.setEnabled(false);
 		panel.add(proc_btn);
->>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
+
 
 		JScrollPane fvs_scrl = new JScrollPane();
 		fvs_scrl.setBounds(10, 172, 680, 278);

@@ -37,7 +37,7 @@ public class KMeans {
     }
     
     public void SetPoints(ArrayList<ArrayList<Double>> allpoints){
-    	File dir = new File("SortedFVs/");
+    	File dir = new File("final/");
 		File[] directoryListing = dir.listFiles();
     	for(int i=0;i<allpoints.size();i++){
     		Point toadd = new Point(allpoints.get(i));
@@ -243,14 +243,14 @@ public class KMeans {
     	ArrayList<ArrayList<Double>> allfreq = new ArrayList<ArrayList<Double>>();
     	ArrayList<Double> toadd;
     	XML fvXml = XMLFactory.getXML(XMLFactory.FVSortedMap);
-    	File dir = new File("SortedFVs/");
+    	File dir = new File("final/");
 		File[] directoryListing = dir.listFiles();
 		if (directoryListing == null){
 			System.err.println("no xml files founded");
 			return null;
 		}
 		for(int i=0;i< directoryListing.length ;i++){
-			FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvXml.Import("SortedFVs/"+directoryListing[i].getName());
+			FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvXml.Import("final/"+directoryListing[i].getName());
 			 toadd = new ArrayList<Double>();
 			 for(String key : SortedFreqVec.keySet())
 				 toadd.add(SortedFreqVec.get(key)*1.0);
@@ -303,20 +303,21 @@ public class KMeans {
    
 }
     
-    private void CalculateClusters(){
+    private KMeans CalculateClusters(){
     	System.out.println("Start Clustering...");
  	   long t = System.currentTimeMillis();
  	   ArrayList<ArrayList<Double>> frequencies = KMeans.getAllFrequencies();
- 	  // int NOClusters = KMeans.CalculateNOClusters(frequencies);
+ 	   int NOClusters = KMeans.CalculateNOClusters(frequencies);
 		int len = frequencies.get(0).size();
 		int max = Point.MaximumCordinate(frequencies);
- 	   KMeans km = new KMeans();
+ 	   KMeans km = new KMeans(NOClusters);
  	   km.initCordinates(max, len);
  	   km.init();
  	   km.SetPoints(frequencies);
  	   km.calculate();
  	   
  	   System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000/60) + " Minitues");
+ 	   return km;
     }
     
     private void getClustersFromFile(TreeMap<Integer, ArrayList<String>> res){
@@ -342,7 +343,7 @@ public class KMeans {
 			ArrayList<String> files = res.get(key);
 			fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
 			for(String filename: files){
-				FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvxml.Import("SortedFVs/"+filename);
+				FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvxml.Import("final/"+filename);
 				toadd = new ArrayList<Double>();
 				 for(String freq : SortedFreqVec.keySet())
 					 toadd.add(SortedFreqVec.get(freq)*1.0);
@@ -362,16 +363,17 @@ public class KMeans {
 		System.out.println("Done Clustering ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
     }
     
-    public void Clustering(){
+    public KMeans Clustering(){
     	XML fvxml = XMLFactory.getXML(XMLFactory.HashList);
     	@SuppressWarnings("unchecked")
 		TreeMap<Integer, ArrayList<String>> res = (TreeMap<Integer, ArrayList<String>>) fvxml.Import("Clusters.xml");
     	if(res ==null)
-    		CalculateClusters();
+    		return CalculateClusters();
     	else
     		getClustersFromFile(res);
     	ClusteringResults result = new ClusteringResults(clusters);
     	result.setVisible(true);
+    	return this;
     }
    
     public static void main(String[] args) {
@@ -381,9 +383,13 @@ public class KMeans {
     	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
     //	int NOClusters = KMeans.CalculateNOClusters(freqs);
     	
+   
     	KMeans km = new KMeans();
     	km.init();
     	km.SetPoints(freqs);
-    	km.Clustering();
+    	km = km.Clustering();
+    	List <Cluster> KMClusters = km.getclusters();
+    	for(Cluster c : KMClusters)
+    		System.out.println("Cluster Number: " + c.getId() + " Contains "  + c.getPoints().size() + " Texts");
    }
 }

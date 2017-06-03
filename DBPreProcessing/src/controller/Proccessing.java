@@ -1,12 +1,9 @@
 package controller;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import Utils.Util;
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
@@ -54,26 +51,28 @@ public class Proccessing {
 		return 	(FVValueSorted) fv_ValueSortedXml.Import(path);
 
 	}
-<<<<<<< HEAD
 
 	public FVValueSorted getCommonVector(FVValueSorted global,int threshold_index,String export_path){
 		
 		FVValueSorted common=new FVValueSorted();
 		for(int index=0;index<=threshold_index;index++){
 			common.add(global.get(index));
-=======
+		}
+		
+		File dir=new File(export_path+File.separator+"results");
+		dir.mkdir();
+		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");	
+		return common;
+	}
 	
 	public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){
 		ArrayList<Map.Entry<String,Integer>> res=new ArrayList<>();
 		FVHashMap fv=_fv;
 		for(Map.Entry<String, Integer> map:fv.entrySet()){
 			 res.add(map);
->>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
 		}
-		File dir=new File(export_path+File.separator+"results");
-		dir.mkdir();
-		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");		
-		return common;
+			
+		return res;
 	}
 	
 	public FVValueSorted sortFV_By_Value(FVHashMap _fv){
