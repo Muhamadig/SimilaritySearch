@@ -18,10 +18,7 @@ import model.Text;
 public class Proccessing {
 	private XML fvXml;
 	private XML treeMapXML;
-<<<<<<< HEAD
 	private XML fv_ValueSortedXml;
-=======
->>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
 	
 	public Proccessing(){
 		fvXml=XMLFactory.getXML(XMLFactory.FV);
