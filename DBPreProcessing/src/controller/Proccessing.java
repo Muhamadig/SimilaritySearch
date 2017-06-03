@@ -62,6 +62,9 @@ public class Proccessing {
 		for(int index=0;index<=threshold_index;index++){
 			common.add(global.get(index));
 		}
+		File dir=new File(export_path+File.separator+"results");
+		dir.mkdir();
+		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");		
 		return common;
 	}
 	
@@ -71,10 +74,7 @@ public class Proccessing {
 		for(Map.Entry<String, Integer> map:fv.entrySet()){
 			 res.add(map);
 		}
-		File dir=new File(export_path+File.separator+"results");
-		dir.mkdir();
-		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");		
-		return common;
+		
 	}*/
 	
 	public FVValueSorted sortFV_By_Value(FVHashMap _fv){
