@@ -16,6 +16,7 @@ import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.Icon;
@@ -35,6 +36,7 @@ import com.sun.tools.xjc.gen.Array;
 
 import controller.Proccessing;
 import model.FVHashMap;
+import model.FVValueSorted;
 import model.LangFactory;
 import model.Language;
 import model.Text;
@@ -70,15 +72,22 @@ public class MainApp extends JFrame {
 	private String sortedDirectory;
 	private JTextField files_text2;
 	private File[] xml_files;
-	private JCheckBox chckbx_read;
-	private JCheckBox chckbx_createGlobal;
-	private JCheckBox chckbxExpand;
 	private JTextField textField_import;
 	private JTextField textField_export;
 	private File[] eXml_files2;
 	private boolean import_dir;
 	private boolean export_dir;
-
+	private JTextField textField_expandedFVsPath;
+	private JTextField threshold_word_txt;
+	private String expanded_dir;
+	private String files2_dir;
+	private boolean files2_selected;
+	private final String default_threshold="run a risk";
+	private String threshold;
+	private FVValueSorted global;
+	private FVValueSorted common;
+	private ArrayList<String> fv_paths;
+	
 	public MainApp() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -105,23 +114,23 @@ public class MainApp extends JFrame {
 		files_text.setBounds(10, 38, 282, 20);
 		panel.add(files_text);
 		files_text.setColumns(10);
-		JButton browse_btn = new JButton("Browse Files");
+		JButton browseHtmlFiles_btn1 = new JButton("Browse Files");
 
 
-		browse_btn.setBounds(296, 37, 114, 23);
-		panel.add(browse_btn);
+		browseHtmlFiles_btn1.setBounds(296, 37, 114, 23);
+		panel.add(browseHtmlFiles_btn1);
 
 		JLabel upload_info = new JLabel("");
 		upload_info.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		upload_info.setBounds(10, 69, 282, 14);
 		panel.add(upload_info);
 
-		JButton proc_btn = new JButton("Begin Texts Processing");
+		JButton processing1_btn1 = new JButton("Begin Texts Processing");
 
 
-		proc_btn.setBounds(253, 142, 174, 23);
-		proc_btn.setEnabled(false);
-		panel.add(proc_btn);
+		processing1_btn1.setBounds(253, 142, 174, 23);
+		processing1_btn1.setEnabled(false);
+		panel.add(processing1_btn1);
 
 		JScrollPane fvs_scrl = new JScrollPane();
 		fvs_scrl.setBounds(10, 172, 680, 278);
@@ -149,10 +158,10 @@ public class MainApp extends JFrame {
 		lblTextsLanguage.setBounds(10, 112, 100, 14);
 		panel.add(lblTextsLanguage);
 
-		JButton btnSelectDirectory = new JButton("Select Directory");
+		JButton btnSelectDirectoryForSimpleFVs_btn1 = new JButton("Select Directory");
 
-		btnSelectDirectory.setBounds(539, 108, 146, 23);
-		panel.add(btnSelectDirectory);
+		btnSelectDirectoryForSimpleFVs_btn1.setBounds(539, 108, 146, 23);
+		panel.add(btnSelectDirectoryForSimpleFVs_btn1);
 
 		directory_txt = new JTextField();
 		directory_txt.setBackground(Color.WHITE);
@@ -170,24 +179,24 @@ public class MainApp extends JFrame {
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Expand All Frequency Vectors", null, panel_1, "Expand All Frequency Vectors");
 		panel_1.setLayout(null);
-		
+
 		files_text2 = new JTextField();
-		files_text2.setBounds(10, 173, 424, 20);
+		files_text2.setBounds(10, 151, 424, 20);
 		panel_1.add(files_text2);
 		files_text2.setColumns(10);
-		
-		JButton browse_xmlFolder = new JButton("Select Xml Files");
-		
-		browse_xmlFolder.setBounds(444, 172, 223, 23);
-		panel_1.add(browse_xmlFolder);
-		
-		JButton Proccess2_btn = new JButton("Process");
-		
-		Proccess2_btn.setBounds(211, 224, 223, 23);
-		Proccess2_btn.setEnabled(false);
 
-		panel_1.add(Proccess2_btn);
-		
+		JButton selectSimpleFVs_btn2 = new JButton("Import Initial Frequency Vectors");
+
+		selectSimpleFVs_btn2.setBounds(444, 150, 223, 23);
+		panel_1.add(selectSimpleFVs_btn2);
+
+		JButton Proccess2_btn2 = new JButton("Create Global FV");
+
+		Proccess2_btn2.setBounds(444, 218, 223, 23);
+		Proccess2_btn2.setEnabled(false);
+
+		panel_1.add(Proccess2_btn2);
+
 		JTextArea txtrStepCreating = new JTextArea();
 		txtrStepCreating.setBackground(SystemColor.info);
 		txtrStepCreating.setTabSize(2);
@@ -198,64 +207,77 @@ public class MainApp extends JFrame {
 		txtrStepCreating.setEditable(false);
 		txtrStepCreating.setBounds(0, 0, 695, 140);
 		panel_1.add(txtrStepCreating);
-		
-		chckbx_read = new JCheckBox("Read Files");
-		chckbx_read.setForeground(SystemColor.desktop);
-		chckbx_read.setBounds(10, 270, 300, 23);
-		panel_1.add(chckbx_read);
-		
-		chckbx_createGlobal = new JCheckBox("Create Global Frequency Vector");
-		chckbx_createGlobal.setForeground(SystemColor.desktop);
-		chckbx_createGlobal.setBounds(10, 296, 300, 23);
-		panel_1.add(chckbx_createGlobal);
-		
-		chckbxExpand = new JCheckBox("Expand All Vectors");
-		chckbxExpand.setForeground(SystemColor.desktop);
-		chckbxExpand.setBounds(10, 322, 300, 23);
-		panel_1.add(chckbxExpand);
-		
+
 		JLabel upload_info2 = new JLabel("");
-		upload_info2.setBounds(10, 199, 424, 14);
+		upload_info2.setBounds(10, 171, 424, 14);
 		panel_1.add(upload_info2);
+
+		textField_expandedFVsPath = new JTextField();
+		textField_expandedFVsPath.setColumns(10);
+		textField_expandedFVsPath.setBounds(10, 184, 424, 20);
+		panel_1.add(textField_expandedFVsPath);
+
+		JButton selectPathToSaveExpandedVectors_btn2 = new JButton("Select Directory To Save Expanded Vectors");
+
+		selectPathToSaveExpandedVectors_btn2.setBounds(444, 184, 223, 23);
+		panel_1.add(selectPathToSaveExpandedVectors_btn2);
+
+		JLabel upload_info2_2 = new JLabel("");
+		upload_info2_2.setBounds(10, 205, 424, 14);
+		panel_1.add(upload_info2_2);
+
+		JLabel thresholdWord_lbl = new JLabel("Enter The Treshold Word");
+		thresholdWord_lbl.setBounds(10, 256, 162, 14);
+		panel_1.add(thresholdWord_lbl);
+
+		threshold_word_txt = new JTextField();
+		threshold_word_txt.setBounds(167, 253, 260, 20);
+		panel_1.add(threshold_word_txt);
+		threshold_word_txt.setColumns(10);
+
+		JButton check_threshold_btn2 = new JButton("Process");
+		
+		check_threshold_btn2.setBounds(444, 252, 223, 23);
+		panel_1.add(check_threshold_btn2);
 
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Clustering Preparation", null, panel_2,"Create a sorted FVs by keys");
 		panel_2.setLayout(null);
-		
+
 		textField_import = new JTextField();
 		textField_import.setColumns(10);
 		textField_import.setBounds(10, 64, 424, 20);
 		panel_2.add(textField_import);
-		
-		JButton btnSelectExpanded = new JButton("Select Expanded Vectors");
-		
-		btnSelectExpanded.setBounds(444, 63, 223, 23);
-		panel_2.add(btnSelectExpanded);
-		
+
+		JButton btnSelectExpanded_btn3 = new JButton("Select Expanded Vectors");
+
+		btnSelectExpanded_btn3.setBounds(444, 63, 223, 23);
+		panel_2.add(btnSelectExpanded_btn3);
+
 		JLabel label1 = new JLabel("");
 		label1.setBounds(10, 95, 424, 14);
 		panel_2.add(label1);
-		
+
 		textField_export = new JTextField();
 		textField_export.setColumns(10);
 		textField_export.setBounds(10, 120, 424, 20);
 		panel_2.add(textField_export);
-		
-		JButton btnSelectExportDirectory = new JButton("Select Export Directory");
-		
-		btnSelectExportDirectory.setBounds(444, 119, 223, 23);
-		panel_2.add(btnSelectExportDirectory);
-		
+
+		JButton btnSelectExportDirectory_btn3 = new JButton("Select Export Directory");
+
+		btnSelectExportDirectory_btn3.setBounds(444, 119, 223, 23);
+		panel_2.add(btnSelectExportDirectory_btn3);
+
 		JLabel label2 = new JLabel("");
 		label2.setBounds(10, 151, 424, 14);
 		panel_2.add(label2);
-		
-		JButton btnPrepare = new JButton("Prepare Clustering");
-		
-		btnPrepare.setBounds(333, 174, 186, 23);
-		btnPrepare.setEnabled(false);
-		panel_2.add(btnPrepare);
-		
+
+		JButton prepareClustering_btn3 = new JButton("Prepare Clustering");
+
+		prepareClustering_btn3.setBounds(333, 174, 186, 23);
+		prepareClustering_btn3.setEnabled(false);
+		panel_2.add(prepareClustering_btn3);
+
 		JTextArea Message = new JTextArea("");
 		Message.setWrapStyleWord(true);
 		Message.setLineWrap(true);
@@ -265,61 +287,35 @@ public class MainApp extends JFrame {
 		Message.setBounds(10, 216, 675, 42);
 		Message.setVisible(false);
 		panel_2.add(Message);
-		
+
 
 		setBounds(0, 0, 1000, 500);
 		this.setLocationRelativeTo(null);
-		
+
 		import_dir=false;
 		export_dir=false;
+
+		files2_selected=false;
+		selectPathToSaveExpandedVectors_btn2.setEnabled(false);
+		check_threshold_btn2.setEnabled(false);
+
 		
-		btnPrepare.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Message.setVisible(false);
-				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-				Proccessing proc=new Proccessing();
-				ArrayList<String> fv_paths=new ArrayList<>();
-				ArrayList<String> fv_names=new ArrayList<>();
-
-				for(File file:eXml_files2){
-					if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml"))){
-						fv_paths.add(file.getAbsolutePath());
-						fv_names.add(file.getName());
-					}
-				}
-				
-				proc.sortFV(fv_paths,fv_names,sortedDirectory);
-				setCursor(null);
-				Message.setText("The texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys ,"
-						+ " you can find your xml files in: "+ sortedDirectory);
-				Message.setVisible(true);
-
-			}
-		});
+		threshold_word_txt.setText(default_threshold);
 		
-		btnSelectExportDirectory.addActionListener(new ActionListener() {
+		JTextArea text_area = new JTextArea();
+		text_area.setBackground(SystemColor.inactiveCaption);
+		text_area.setEditable(false);
+		text_area.setBounds(10, 281, 272, 169);
+		panel_1.add(text_area);
+		/*-----------------------------------------------------------------------------------
+		 * Handlers For Tab 1
+		 */
+		//Browse the html - Texts Files and select thim. 
+		browseHtmlFiles_btn1.addActionListener(new ActionListener() {//Ready
 			public void actionPerformed(ActionEvent e) {
-				btnPrepare.setEnabled(false);
-				export_dir=false;
-				sortedDirectory=selectDirectory();
-				if(sortedDirectory!= null) {
-					textField_export.setText(sortedDirectory);
-					export_dir=true;
-					lastPathDir=sortedDirectory;
-
-				}
-				else{
-					textField_export.setText("No Directory Selected");
-					export_dir=false;
-				}
-				if(export_dir && import_dir) btnPrepare.setEnabled(true);
-			}
-		});
-		browse_btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				proc_btn.setEnabled(false);
+				processing1_btn1.setEnabled(false);
 				files_selected=false;
-				
+
 				ArrayList<String> types=new ArrayList<>();
 				types.add("doc");
 				types.add("docx");
@@ -332,7 +328,7 @@ public class MainApp extends JFrame {
 				int files_size=files.length;
 				if(files_size==0){
 					upload_info.setText("Warning :No files was uploaded");
-					proc_btn.setEnabled(false);
+					processing1_btn1.setEnabled(false);
 					files_selected=false;
 
 				}else if(files_size>0){
@@ -344,10 +340,11 @@ public class MainApp extends JFrame {
 			}
 		});
 
-		btnSelectDirectory.addActionListener(new ActionListener() {
+		//Select Directory To save simple FVs 
+		btnSelectDirectoryForSimpleFVs_btn1.addActionListener(new ActionListener() {//Ready
 
 			public void actionPerformed(ActionEvent e) {
-				proc_btn.setEnabled(false);
+				processing1_btn1.setEnabled(false);
 				dir_selected=false;
 				directory=selectDirectory();
 				if(directory!= null) {
@@ -360,12 +357,14 @@ public class MainApp extends JFrame {
 					directory_txt.setText("No Directory Selected");
 					dir_selected=false;
 				}
-				if(dir_selected && files_selected) proc_btn.setEnabled(true);
+				if(dir_selected && files_selected) processing1_btn1.setEnabled(true);
 
 			}
 
 		});
-		proc_btn.addActionListener(new ActionListener() {
+
+		//Create simple FVs
+		processing1_btn1.addActionListener(new ActionListener() {//Ready
 			public void actionPerformed(ActionEvent e) {
 				Proccessing proc =new Proccessing();
 				Language lang=LangFactory.getLang(String.valueOf(langbox.getSelectedItem()));
@@ -384,12 +383,17 @@ public class MainApp extends JFrame {
 				}
 			}
 		});
-		browse_xmlFolder.addActionListener(new ActionListener() {
+
+		/*-------------------------------------------------------------------------------------
+		 * Handlers For Tab 2
+		 */
+
+		//import simple FVs
+		selectSimpleFVs_btn2.addActionListener(new ActionListener() {//Ready
 			public void actionPerformed(ActionEvent arg0) {
-				Proccess2_btn.setEnabled(false);
-				chckbx_read.setSelected(false);
-				chckbx_createGlobal.setSelected(false);
-				chckbxExpand.setSelected(false);
+				files2_selected=false;
+				selectPathToSaveExpandedVectors_btn2.setEnabled(false);
+				Proccess2_btn2.setEnabled(false);
 
 				ArrayList<String> types=new ArrayList<>();
 				types.add("xml");
@@ -399,29 +403,134 @@ public class MainApp extends JFrame {
 				int files_size=xml_files.length;
 				if(files_size==0){
 					upload_info2.setText("Warning :No files was uploaded");
-					Proccess2_btn.setEnabled(false);
-					files_selected=false;
+					files2_selected=false;
+					selectPathToSaveExpandedVectors_btn2.setEnabled(false);
+					Proccess2_btn2.setEnabled(false);
+
 
 				}else if(files_size>0){
 					upload_info2.setText("Done :Number of uploaded files: "+files_size );
-					Proccess2_btn.setEnabled(true);
-					
+					files2_dir=xml_files[0].getParentFile().toString();
+					files2_selected=true;
+					selectPathToSaveExpandedVectors_btn2.setEnabled(true);
+
 
 				}
 			}
 		});
-		
-		Proccess2_btn.addActionListener(new ActionListener() {
+
+		//Process 2
+		Proccess2_btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				process2(xml_files);
+				check_threshold_btn2.setEnabled(true);
 			}
 		});
-		btnSelectExpanded.addActionListener(new ActionListener() {
+
+		selectPathToSaveExpandedVectors_btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				expanded_dir=selectDirectory();
+				if(expanded_dir==null){
+					upload_info2_2.setText("No Directory Was Selected");
+					textField_expandedFVsPath.setText("");
+					Proccess2_btn2.setEnabled(false);
+				}
+
+				else if(expanded_dir.equals(files2_dir)) {
+
+					JOptionPane.showMessageDialog(null, "Can't save the expanded vectors at the same directory of the initial frequency vectors", "Error Directory", JOptionPane.ERROR_MESSAGE);
+					textField_expandedFVsPath.setText("");
+
+					Proccess2_btn2.setEnabled(false);
+				}
+				else{
+					textField_expandedFVsPath.setText(expanded_dir);
+					Proccess2_btn2.setEnabled(true);
+				}
+
+			}
+		});
+		check_threshold_btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+				Proccessing proc=new Proccessing();
+				
+				HashMap<String, Integer> result=proc.checkThresholdWord(threshold_word_txt.getText(),expanded_dir+File.separator+"results"+File.separator+"global.xml");
+				if(result==null) JOptionPane.showMessageDialog(null, "Word not exist in the global vector", "Word Not Exist", JOptionPane.ERROR_MESSAGE);
+				else{
+					text_area.setText("Threshold word: "+threshold_word_txt.getText()+"\nword index:"+result.get("word place")+"\nword frequency:"+result.get("word FR")+
+							"\n# of common words:"+result.get("num of common words")+"\nFR of common words: "+result.get("commonFR")+
+							"\n# of sig words:"+result.get("num of sig words")+"\nFr of sig words:"+result.get("sigFR"));
+					
+					common=proc.getCommonVector(global, result.get("word place"), expanded_dir);
+					
+					ArrayList<String> names=new ArrayList<>();
+					for(File file:xml_files){
+						names.add(file.getName());
+					}
+					proc.expandAll(fv_paths, global, common,expanded_dir,names);
+					
+				}
+				setCursor(null);
+			}
+		});
+		/*----------------------------------------------------------------------------------
+		 * Handlers For Tab 3
+		 */
+
+		//Prepare
+		prepareClustering_btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Message.setVisible(false);
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+				Proccessing proc=new Proccessing();
+				ArrayList<String> fv_paths=new ArrayList<>();
+				ArrayList<String> fv_names=new ArrayList<>();
+
+				for(File file:eXml_files2){
+					if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml"))){
+						fv_paths.add(file.getAbsolutePath());
+						fv_names.add(file.getName());
+					}
+				}
+
+				proc.sortFV_BY_Key_Export(fv_paths,fv_names,sortedDirectory);
+				setCursor(null);
+				Message.setText("The texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys ,"
+						+ " you can find your xml files in: "+ sortedDirectory);
+				Message.setVisible(true);
+
+			}
+		});
+
+		//Select Directory for save the Final Results
+		btnSelectExportDirectory_btn3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				prepareClustering_btn3.setEnabled(false);
+				export_dir=false;
+				sortedDirectory=selectDirectory();
+				if(sortedDirectory!= null) {
+					textField_export.setText(sortedDirectory);
+					export_dir=true;
+					lastPathDir=sortedDirectory;
+
+				}
+				else{
+					textField_export.setText("No Directory Selected");
+					export_dir=false;
+				}
+				if(export_dir && import_dir) prepareClustering_btn3.setEnabled(true);
+			}
+		});
+
+		//import expanded FVs
+		btnSelectExpanded_btn3.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
 				import_dir=false;
-				btnPrepare.setEnabled(false);
+				prepareClustering_btn3.setEnabled(false);
 				ArrayList<String> types=new ArrayList<>();
 				types.add("xml");
 				eXml_files2=BrowseFiles(types);
@@ -430,7 +539,7 @@ public class MainApp extends JFrame {
 				int files_size=eXml_files2.length;
 				if(files_size==0){
 					label1.setText("Warning :No files was uploaded");
-					btnPrepare.setEnabled(false);
+					prepareClustering_btn3.setEnabled(false);
 					import_dir=false;
 
 				}else if(files_size>0){
@@ -444,24 +553,22 @@ public class MainApp extends JFrame {
 	protected void process2(File[] xml_files2) {
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		Proccessing proc=new Proccessing();
-		ArrayList<String> fv_paths=new ArrayList<>();
+		fv_paths=new ArrayList<>();
 		for(File file:xml_files2){
 			if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml"))){
 				fv_paths.add(file.getAbsolutePath());
 			}
 		}
-		chckbx_read.setSelected(true);
 		//the fvs names ready
-		
+
 		//find global vector
-		FVHashMap global=proc.createGlobal(fv_paths, xml_files2[0].getParent());
-		chckbx_createGlobal.setSelected(true);
-		//find common words vector
-		FVHashMap common=proc.getCommonVector(fv_paths, xml_files2[0].getParent(), fv_paths.size(), xml_files2[0].getParent()+File.separator+"global.xml");
+		global=proc.createGlobal(fv_paths, expanded_dir);
+
+
 		
-		proc.expandAll(fv_paths,global,common);
-		chckbxExpand.setSelected(true);
+//		proc.expandAll(fv_paths,global,common);
 		setCursor(null);
+		
 	}
 
 	protected String selectDirectory() {
@@ -523,14 +630,14 @@ public class MainApp extends JFrame {
 
 	public static void run(){
 		//Schedule a job for the event dispatch thread:
-				//creating and showing this application's GUI.
-				SwingUtilities.invokeLater(new Runnable() {
-					public void run() {
-						//Turn off metal's use of bold fonts
-						UIManager.put("swing.boldMetal", Boolean.FALSE);
-						new MainApp().setVisible(true);
-					}
-				});
+		//creating and showing this application's GUI.
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				//Turn off metal's use of bold fonts
+				UIManager.put("swing.boldMetal", Boolean.FALSE);
+				new MainApp().setVisible(true);
+			}
+		});
 	}
 	public static void main(String[] args) {
 		//Schedule a job for the event dispatch thread:

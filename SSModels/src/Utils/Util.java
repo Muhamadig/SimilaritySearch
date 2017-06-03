@@ -1,4 +1,4 @@
-package utils;
+package Utils;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -30,14 +30,14 @@ public class Util {
 		return map;
 		
 	}
-	public static FVValueSorted sortByValues(FVKeySortedMap fv){  
-		FVValueSorted sorted=new FVValueSorted(fv);
-		FVComparatorByValue comparator =new FVComparatorByValue();
-	
-		Collections.sort(sorted, comparator);
-		return sorted;
-		
-    }
+//	public static FVValueSorted sortByValues(FVKeySortedMap fv){  
+//		FVValueSorted sorted=new FVValueSorted(fv);
+//		FVComparatorByValue comparator =new FVComparatorByValue();
+//	
+//		Collections.sort(sorted, comparator);
+//		return sorted;
+//		
+//    }
 	
 	public static String toString(FVHashMap vec)
 	{
