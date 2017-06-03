@@ -2,6 +2,8 @@ package Kmeans;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import model.FVHashMap;
  
 public class Cluster {
 	
@@ -9,29 +11,33 @@ public class Cluster {
 	public Point centroid; // the center point of the cluster
 	public int id;
 	private double aggDist;
-	public ArrayList<String> CommonWords;
-	public ArrayList<Cluster> subClusters;
-	static ArrayList<String>DBCommonWords = new ArrayList<String>();
+	public FVHashMap CommonWords;
+	
+	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
 	//Creates a new Cluster
 	public Cluster(int id) {
 		this.id = id;
 		this.points = new ArrayList<Point>();
 		this.centroid = null;
-		subClusters = new ArrayList<Cluster>();
+	
 	}
  
-	
-	public void setCommonWords(ArrayList<String> CW){
+	public double CommonDistnce(FVHashMap text){
+		double dist=0.0;
+		for(String CW : CommonWords.keySet())
+			if(text.containsKey(CW))
+				dist += Math.pow((text.get(CW) - CommonWords.get(CW)), 2);
+		dist= Math.sqrt(dist);
+	return dist;	
+	}
+	public void setCommonWords(FVHashMap CW){
 		this.CommonWords = CW;
 	}
 	
-	public ArrayList<String> getCommonWords(){
+	public FVHashMap getCommonWords(){
 		return this.CommonWords;
 	}
 	
-	public ArrayList<Cluster> getSubClusters(){
-		return this.subClusters;
-	}
 	
 	public ArrayList<Point> getPoints() {
 		return points;
@@ -63,15 +69,6 @@ public class Cluster {
 	}
 	
 
-	public void plotCluster() {
-		System.out.println("[Cluster: " + id+"]");
-		System.out.println("[Centroid: " + centroid + "]");
-		System.out.println("[Points: \n");
-		for(Point p : points) {
-			System.out.println(p);
-		}
-		System.out.println("]");
-	}
 	
     private double AggregateDistance(){
     	if(aggDist != 0)
@@ -95,17 +92,5 @@ public class Cluster {
     	return aggdists;
     }
     
-    public void NextStepCluster(){
-    	ArrayList<ArrayList<Double>> data = new ArrayList<ArrayList<Double>>();
-    	for(Point p : points)
-    		data.add(p.getCordinates());
-    	int NOClusters=KMeans.CalculateNOClusters(data);
-    	if(NOClusters >1){
-    	KMeans km = new KMeans(NOClusters);
-    	km.init();
-    	km.SetPoints(data);
-    	km.calculate();
-    	
-    	}
-    }
+  
 }

@@ -30,7 +30,8 @@ public class LineChart_AWT extends ApplicationFrame {
 		chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
 		setContentPane( chartPanel );
 	}
-	public LineChart_AWT(String applicationTitle , String chartTitle , ArrayList<Double> vec){
+	
+	public LineChart_AWT(String applicationTitle , String chartTitle , Object vec){
 		super(applicationTitle);
 		JFreeChart lineChart = ChartFactory.createLineChart(
 				chartTitle,
@@ -56,15 +57,34 @@ public class LineChart_AWT extends ApplicationFrame {
 		return dataset;
 	}
 	
-	public DefaultCategoryDataset createDataset(ArrayList<Double> data) {
+	public DefaultCategoryDataset createDataset( Object list) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		ArrayList<Object> data = (ArrayList<Object>) list;
 		for(int i=0;i<data.size();i++){
-			Double dist = data.get(i);
+			if(data.get(i) instanceof Double){
+			Double dist = (Double) data.get(i);
 			dataset.addValue(dist, "Aggregate Distance", i+"");
+			}
+			else{
+				Integer freq = ((WeightClass)data.get(i)).getFreq();
+				Integer wight = ((WeightClass)data.get(i)).getWeight();
+				dataset.addValue(freq, "Wight", wight+"");
+			}
 		}
 		return dataset;
 	}
 
+//	public DefaultCategoryDataset createDataset( ArrayList<WeightClass> data) {
+//		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//		for(int i=0;i<data.size();i++){
+//			Integer freq = data.get(i).getFreq();
+//			Integer wight = data.get(i).getWeight();
+//			//String word = 
+//			dataset.addValue(freq, "Aggregate Distance", wight+"");
+//		}
+//		return dataset;
+//	}
+	
 	public static void main( String[ ] args ) {
 		LineChart_AWT chart = new LineChart_AWT(
 				"" ,

@@ -9,11 +9,11 @@ import model.FVHashMap;
 import model.FVKeySortedMap;
 import model.Language;
 import model.Text;
-import utils.Util;
 
 public class Proccessing {
 	private XML fvXml;
 	private XML treeMapXML;
+	
 	public Proccessing(){
 		fvXml=XMLFactory.getXML(XMLFactory.FV);
 		treeMapXML=XMLFactory.getXML(XMLFactory.FVSortedMap);
@@ -61,6 +61,7 @@ public class Proccessing {
 		fvXml.export(commmonFV, exportPath+File.separator+"common.xml");
 		return commmonFV;		
 	}
+	
 	public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){
 		ArrayList<Map.Entry<String,Integer>> res=new ArrayList<>();
 		FVHashMap fv=_fv;

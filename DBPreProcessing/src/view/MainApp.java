@@ -2,47 +2,27 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.KeyEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
-
-import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 
-import com.sun.tools.xjc.gen.Array;
-
 import controller.Proccessing;
 import model.FVHashMap;
 import model.LangFactory;
 import model.Language;
 import model.Text;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
-import javax.swing.JDesktopPane;
 import javax.swing.JFileChooser;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -54,7 +34,6 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
-import javax.swing.JTextPane;
 import javax.swing.JCheckBox;
 
 public class MainApp extends JFrame {
@@ -117,8 +96,6 @@ public class MainApp extends JFrame {
 		panel.add(upload_info);
 
 		JButton proc_btn = new JButton("Begin Texts Processing");
-
-
 		proc_btn.setBounds(253, 142, 174, 23);
 		proc_btn.setEnabled(false);
 		panel.add(proc_btn);

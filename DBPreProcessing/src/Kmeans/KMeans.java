@@ -238,7 +238,7 @@ public class KMeans {
         }
     }
     
-    static ArrayList<ArrayList<Double>> getAllFrequencies(){
+    public static ArrayList<ArrayList<Double>> getAllFrequencies(){
 
     	ArrayList<ArrayList<Double>> allfreq = new ArrayList<ArrayList<Double>>();
     	ArrayList<Double> toadd;
