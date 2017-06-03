@@ -37,7 +37,7 @@ public class ShowFV extends Application {
     	toShow=(FVHashMap) global.clone();
     	
     	Proccessing proc=new Proccessing();
-    	sorted= proc.sortFVHashMap(toShow);
+//    	sorted= proc.sortFVHashMap(toShow);
 //		try {
 //			writer1 = new PrintWriter("Diff_with_ID_2.txt" , "UTF-8");
 //		} catch (FileNotFoundException | UnsupportedEncodingException e) {

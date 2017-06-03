@@ -31,7 +31,7 @@ public class CommonTest {
 			if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml")))
 				fv_paths.add(file.getAbsolutePath());
 		Proccessing proc = new Proccessing();
-		FVHashMap global=proc.createGlobal(fv_paths, files[0].getParent());
+//		FVHashMap global=proc.createGlobal(fv_paths, files[0].getParent());
 		ArrayList<Map.Entry<String,Integer>> SortedGlobal = proc.sortFVHashMap(global);
 //		XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
 //		fvxml.export(SortedGlobal, "SortedGlobal.xml");

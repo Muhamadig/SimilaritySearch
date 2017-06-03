@@ -7,11 +7,10 @@ public class XMLFactory {
 	public final static int RepWordMap=2;
 	public final static int FV=3;
 	public final static int FVSortedMap=4;
-<<<<<<< HEAD
 	public final static int FV_ValueSorted=5;
-=======
-	public final static int HashList =5;
->>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
+
+	public final static int HashList =6;
+
 
 
 	public static XML getXML(int type){
@@ -26,13 +25,10 @@ public class XMLFactory {
 			return new FVXML();
 		case FVSortedMap:
 			return new TreeMap();
-<<<<<<< HEAD
 		case FV_ValueSorted:
 			return new FV_ValueSorted_XML();
-=======
 		case HashList:
 			return new HashList();
->>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
 		}
 		return null;
 	}
