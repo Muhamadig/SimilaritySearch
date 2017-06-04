@@ -30,6 +30,7 @@ public class Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
 		connect();
+		System.out.println("test");
 		MainApp.run();
 	}
 }
