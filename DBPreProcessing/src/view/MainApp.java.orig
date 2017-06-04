@@ -20,7 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.Icon;
+<<<<<<< HEAD
 
+=======
+>>>>>>> no message
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

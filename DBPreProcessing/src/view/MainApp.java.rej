@@ -1,0 +1,54 @@
+diff a/DBPreProcessing/src/view/MainApp.java b/DBPreProcessing/src/view/MainApp.java	(rejected hunks)
+@@ -2,49 +2,35 @@
+ 
+ import java.awt.BorderLayout;
+ import java.awt.Color;
+-import java.awt.Component;
+ import java.awt.Cursor;
+ import java.awt.Dimension;
+ import java.awt.Font;
+-import java.awt.GridBagConstraints;
+-import java.awt.GridBagLayout;
+-import java.awt.Insets;
+-import java.awt.event.KeyEvent;
+-import java.beans.PropertyChangeEvent;
+-import java.beans.PropertyChangeListener;
+-import java.beans.PropertyChangeSupport;
+ import java.io.File;
+-import java.io.IOException;
+ import java.util.ArrayList;
++<<<<<<< HEAD
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+ import javax.swing.Icon;
++=======
++>>>>>>> 867acacb83cc245d62e9fb2d18a8580035a303b4
+ import javax.swing.JFrame;
+ import javax.swing.JLabel;
+-import javax.swing.JOptionPane;
+ import javax.swing.JPanel;
+ import javax.swing.JTabbedPane;
+-import javax.swing.SwingConstants;
+ import javax.swing.SwingUtilities;
+ import javax.swing.UIManager;
+ import javax.swing.border.TitledBorder;
+ import javax.swing.filechooser.FileFilter;
+ import javax.swing.table.DefaultTableModel;
+ 
+-import com.sun.tools.xjc.gen.Array;
+-
+ import controller.Proccessing;
+ import model.FVHashMap;
+ import model.FVValueSorted;
+ import model.LangFactory;
+ import model.Language;
+ import model.Text;
+-
+-import javax.swing.JInternalFrame;
+-import javax.swing.JToolBar;
+ import javax.swing.ListSelectionModel;
+-import javax.swing.JDesktopPane;
+ import javax.swing.JFileChooser;
+ import javax.swing.JButton;
+ import javax.swing.JTextField;
