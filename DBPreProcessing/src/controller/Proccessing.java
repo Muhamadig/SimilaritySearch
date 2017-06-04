@@ -1,11 +1,9 @@
 package controller;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import Utils.Util;
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
@@ -62,10 +60,21 @@ public class Proccessing {
 		for(int index=0;index<=threshold_index;index++){
 			common.add(global.get(index));
 		}
+		
 		File dir=new File(export_path+File.separator+"results");
 		dir.mkdir();
-		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");		
+		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");	
 		return common;
+	}
+	
+	public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){
+		ArrayList<Map.Entry<String,Integer>> res=new ArrayList<>();
+		FVHashMap fv=_fv;
+		for(Map.Entry<String, Integer> map:fv.entrySet()){
+			 res.add(map);
+		}
+			
+		return res;
 	}
 	
 	/*public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){

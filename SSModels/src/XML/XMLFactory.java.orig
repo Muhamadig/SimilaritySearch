@@ -12,9 +12,10 @@ public class XMLFactory {
 
 	public final static int HashList =6;
 
-=======
->>>>>>> no message
 
+=======
+	public final static int HashList=6;
+>>>>>>> 671ff7efdcfb487654bb23f16cb273a630ae0515
 
 	public static XML getXML(int type){
 		switch(type){
@@ -28,10 +29,15 @@ public class XMLFactory {
 			return new FVXML();
 		case FVSortedMap:
 			return new TreeMap();
+
 		case FV_ValueSorted:
 			return new FV_ValueSorted_XML();
 		case HashList:
 			return new HashList();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 671ff7efdcfb487654bb23f16cb273a630ae0515
 		}
 		return null;
 	}

@@ -1,6 +1,10 @@
 package view;
 
 import java.awt.Color;
+<<<<<<< HEAD
+import java.awt.Cursor;
+=======
+>>>>>>> 671ff7efdcfb487654bb23f16cb273a630ae0515
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -34,7 +38,10 @@ import controller.Pareto;
 import controller.Proccessing;
 import model.FVHashMap;
 import model.FVKeySortedMap;
+<<<<<<< HEAD
+=======
 import model.FVValueSorted;
+>>>>>>> 671ff7efdcfb487654bb23f16cb273a630ae0515
 import model.Language;
 import model.Language.Langs;
 import model.Text;
@@ -223,11 +230,19 @@ public class ClientApp extends JFrame {
     	int cluster = getCluster();
     	
     	//Get the specific cluster Common words
+<<<<<<< HEAD
+    	FVHashMap ClusterCW = clusters.get(cluster).getCommonWords();
+    	
+    	ArrayList<String> CW= new ArrayList<String>();
+    	for(String key : ClusterCW.keySet())
+    		CW.add(key);
+=======
     	FVValueSorted ClusterCW = clusters.get(cluster).getCommonWords();
     	
     	ArrayList<String> CW= new ArrayList<String>();
     	for(int i=0;i<ClusterCW.size();i++)
     		CW.add(ClusterCW.get(i).getKey());
+>>>>>>> 671ff7efdcfb487654bb23f16cb273a630ae0515
     	
     	// Remove the Cluster Common Words
     	text = Remove(text , CW);
