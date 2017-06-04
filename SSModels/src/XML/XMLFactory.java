@@ -9,7 +9,6 @@ public class XMLFactory {
 	public final static int FVSortedMap=4;
 	public final static int FV_ValueSorted=5;
 	public final static int HashList=6;
-	public final static int HashList =6;
 
 
 
