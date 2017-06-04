@@ -135,7 +135,10 @@ public class MainApp extends JFrame {
 		proc_btn.setBounds(253, 142, 174, 23);
 		proc_btn.setEnabled(false);
 		panel.add(proc_btn);
+<<<<<<< HEAD
+=======
 
+>>>>>>> 671ff7efdcfb487654bb23f16cb273a630ae0515
 
 		JScrollPane fvs_scrl = new JScrollPane();
 		fvs_scrl.setBounds(10, 172, 680, 278);
