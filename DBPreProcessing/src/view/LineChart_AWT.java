@@ -18,20 +18,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class LineChart_AWT extends ApplicationFrame {
 
-	public LineChart_AWT( String applicationTitle , String chartTitle ) {
-		super(applicationTitle);
-		JFreeChart lineChart = ChartFactory.createLineChart(
-				chartTitle,
-				"Words","Frquencies",
-				createDataset(),
-				PlotOrientation.VERTICAL,
-				true,true,false);
 
-		ChartPanel chartPanel = new ChartPanel( lineChart );
-		chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-		setContentPane( chartPanel );
-	}
-	
 	public LineChart_AWT(String applicationTitle , String chartTitle , Object vec){
 		super(applicationTitle);
 		JFreeChart lineChart = ChartFactory.createLineChart(
@@ -60,16 +47,7 @@ public class LineChart_AWT extends ApplicationFrame {
 		setContentPane( chartPanel );
 	}
 	
-	private DefaultCategoryDataset createDataset( ) {
-		DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-		Proccessing proc=new Proccessing();
-		ArrayList<Map.Entry<String,Integer>> map=proc.sortGlobal();
-		for(Map.Entry<String,Integer> entry:map){
-			if(entry.getValue()<=1000) dataset.addValue(entry.getValue(), "Frequency", entry.getKey());
-		}
-		
-		return dataset;
-	}
+	
 	
 	public DefaultCategoryDataset createDataset( FVValueSorted list) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -108,13 +86,13 @@ public class LineChart_AWT extends ApplicationFrame {
 //		return dataset;
 //	}
 	
-	public static void main( String[ ] args ) {
-		LineChart_AWT chart = new LineChart_AWT(
-				"" ,
-				"");
-
-		chart.pack( );
-		RefineryUtilities.centerFrameOnScreen( chart );
-		chart.setVisible( true );
-	}
+//	public static void main( String[ ] args ) {
+//		LineChart_AWT chart = new LineChart_AWT(
+//				"" ,
+//				"");
+//
+//		chart.pack( );
+//		RefineryUtilities.centerFrameOnScreen( chart );
+//		chart.setVisible( true );
+//	}
 }
