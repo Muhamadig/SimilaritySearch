@@ -1,14 +1,23 @@
 package Kmeans;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import org.jfree.ui.RefineryUtilities;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
 import model.FVKeySortedMap;
+import model.FVValueSorted;
 import view.LineChart_AWT;
 
 public class KMeans {
@@ -371,8 +380,8 @@ public class KMeans {
     		return CalculateClusters();
     	else
     		getClustersFromFile(res);
-    	ClusteringResults result = new ClusteringResults(clusters);
-    	result.setVisible(true);
+//    	ClusteringResults result = new ClusteringResults(clusters);
+//    	result.setVisible(true);
     	return this;
     }
    
@@ -390,9 +399,33 @@ public class KMeans {
     	km = km.Clustering();
     	List <Cluster> KMClusters = km.getclusters();
     	for(Cluster c : KMClusters){
+    		c.CalculateCW();
     		System.out.println("Cluster Number: " + c.getId() + " Contains "  + c.getPoints().size() + " Texts");
-    		c.CreateChart(c.ClaculateCW());
+    		FVValueSorted calc = c.CalculateDiffCW();
+    		CreatePDF(calc , c.getId());
+    		c.CreateChart(calc);
     	}
     	
    }
+    
+    private static void CreatePDF(FVValueSorted CW, int id){
+    	 try
+	      {
+	    		  Document document = new Document();
+	    		 
+	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(id+"_CW_Diff.pdf"));
+	         document.open();
+	         for(int j=0;j<CW.size();j++)
+	        	 document.add(new Paragraph((j+1) +")          " + CW.get(j).getKey() +"  =  " + CW.get(j).getValue()));
+	    	  
+	         document.close();
+	         writer.close();
+	      } catch (DocumentException e)
+	      {
+	         e.printStackTrace();
+	      } catch (FileNotFoundException e)
+	      {
+	         e.printStackTrace();
+	      }
+    }
 }

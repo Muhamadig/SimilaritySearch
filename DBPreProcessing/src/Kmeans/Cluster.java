@@ -2,6 +2,7 @@ package Kmeans;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.jfree.ui.RefineryUtilities;
 
@@ -27,6 +28,7 @@ public class Cluster {
 		this.id = id;
 		this.points = new ArrayList<Point>();
 		this.centroid = null;
+		CommonWords = new FVValueSorted();
 	
 	}
  
@@ -107,7 +109,8 @@ public class Cluster {
     	return aggdists;
     }
     
-    public FVValueSorted ClaculateCW(){
+    
+    public FVValueSorted CalculateCW(){
     	XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
     	ArrayList<FVKeySortedMap> texts = new ArrayList<FVKeySortedMap>();
     	FVHashMap freqs = new FVHashMap();
@@ -119,11 +122,21 @@ public class Cluster {
     	}
     	XML SortedXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
     	FVValueSorted SortedCW = new FVValueSorted(freqs);
+    	CommonWords = (FVValueSorted) SortedCW.clone();
     	SortedXML.export(SortedCW,"CW/"+ id+"_CW.xml");
     	return SortedCW ;
     
     }
     
+    public FVValueSorted CalculateDiffCW(){
+
+    	FVHashMap _result = new FVHashMap();
+    	for(int i=0;i<CommonWords.size()-1;i++)
+    		_result.put("["+CommonWords.get(i).getKey() +"," + CommonWords.get(i+1).getKey()+"]" , CommonWords.get(i).getValue() - CommonWords.get(i+1).getValue() );
+    	
+    	FVValueSorted results = new FVValueSorted(_result);
+    	return results;
+    }
     public void CreateChart(FVValueSorted data){
     	LineChart_AWT chart = new LineChart_AWT("" ,id+"" , data);
 		chart.pack( );
