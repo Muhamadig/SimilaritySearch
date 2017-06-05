@@ -415,7 +415,7 @@ public class KMeans {
 	    		 
 	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(id+"_CW_Diff.pdf"));
 	         document.open();
-	         for(int j=0;j<CW.size();j++)
+	         for(int j=0;j<100;j++)
 	        	 document.add(new Paragraph((j+1) +")          " + CW.get(j).getKey() +"  =  " + CW.get(j).getValue()));
 	    	  
 	         document.close();
