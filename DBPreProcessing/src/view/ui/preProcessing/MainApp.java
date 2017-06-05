@@ -1,4 +1,4 @@
-package view;
+package view.ui.preProcessing;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -41,6 +41,7 @@ import model.FVValueSorted;
 import model.LangFactory;
 import model.Language;
 import model.Text;
+import view.MyTableModel;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JToolBar;
