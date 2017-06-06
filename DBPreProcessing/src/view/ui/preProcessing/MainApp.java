@@ -6,47 +6,27 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.KeyEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-
-import javax.swing.Icon;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
-
-import com.sun.tools.xjc.gen.Array;
-
 import controller.Proccessing;
-import model.FVHashMap;
 import model.FVValueSorted;
 import model.LangFactory;
 import model.Language;
 import model.Text;
-import view.MyTableModel;
+import view.ui.utils.MyTableModel;
 
-import javax.swing.JInternalFrame;
-import javax.swing.JToolBar;
 import javax.swing.ListSelectionModel;
-import javax.swing.JDesktopPane;
 import javax.swing.JFileChooser;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -58,37 +38,43 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
-import javax.swing.JCheckBox;
+
 
 public class MainApp extends JFrame {
-	private JTextField files_text;
-	private String lastPathFiles;
-	private String lastPathDir;
-	private JTable FVs_table;
-	private File[] files;
-	private JTextField directory_txt;
-	private boolean files_selected;
-	private boolean dir_selected;
-	private String directory;
-	private String sortedDirectory;
-	private JTextField files_text2;
-	private File[] xml_files;
-	private JTextField textField_import;
-	private JTextField textField_export;
-	private File[] eXml_files2;
-	private boolean import_dir;
-	private boolean export_dir;
-	private JTextField textField_expandedFVsPath;
-	private JTextField threshold_word_txt;
-	private String expanded_dir;
-	private String files2_dir;
-	private boolean files2_selected;
-	private final String default_threshold="run a risk";
-	private String threshold;
-	private FVValueSorted global;
-	private FVValueSorted common;
-	private ArrayList<String> fv_paths;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected JTextField textsDir_txt1;
+	protected String lastPathFiles;
+	protected String lastPathDir;
+	protected JTable FVs_table1;
+	protected File[] files;
+	protected JTextField initialFVsDir_txt1;
+	protected boolean files_selected;
+	protected boolean dir_selected;
+	protected String directory;
+	protected String sortedDirectory;
+	protected JTextField files_text2;
+	protected File[] xml_files;
+	protected JTextField textField_import;
+	protected JTextField textField_export;
+	protected File[] eXml_files2;
+	protected boolean import_dir;
+	protected boolean export_dir;
+	protected JTextField textField_expandedFVsPath;
+	protected JTextField threshold_word_txt;
+	protected String expanded_dir;
+	protected String files2_dir;
+	protected boolean files2_selected;
+	protected final String default_threshold="run a risk";
+	protected String threshold;
+	protected FVValueSorted global;
+	protected FVValueSorted common;
+	protected ArrayList<String> fv_paths;
+	protected JButton tab1_proc_btn1;
+
+
 	public MainApp() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -101,87 +87,112 @@ public class MainApp extends JFrame {
 		tabbedPane.setBackground(Color.WHITE);
 		getContentPane().add(tabbedPane, BorderLayout.WEST);
 
+		/*
+		 * Tab 1
+		 */
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(new Dimension(700, 500));
-		//		panel.setBounds(tabWidth, 0, this.getWidth()-tabWidth, 400);
 		tabbedPane.addTab("Process All Texts", null, panel,"Build Frequency Vectors for All Texts");
 		panel.setLayout(null);
 		lastPathFiles=".";
 		lastPathDir=".";
 
-		files_text = new JTextField();
-		files_text.setEditable(false);
-		files_text.setBackground(Color.WHITE);
-		files_text.setBounds(10, 38, 282, 20);
-		panel.add(files_text);
-		files_text.setColumns(10);
-		JButton browseHtmlFiles_btn1 = new JButton("Browse Files");
+		textsDir_txt1 = new JTextField();
+		textsDir_txt1.setEditable(false);
+		textsDir_txt1.setBackground(Color.WHITE);
+		textsDir_txt1.setBounds(10, 38, 282, 20);
+		panel.add(textsDir_txt1);
+		textsDir_txt1.setColumns(10);
 
+		JButton browseTextsFiles_btn1 = new JButton("Browse Files");
+		browseTextsFiles_btn1.setBounds(296, 37, 114, 23);
+		panel.add(browseTextsFiles_btn1);
 
-		browseHtmlFiles_btn1.setBounds(296, 37, 114, 23);
-		panel.add(browseHtmlFiles_btn1);
-
-		JLabel upload_info = new JLabel("");
-		upload_info.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		upload_info.setBounds(10, 69, 282, 14);
-		panel.add(upload_info);
-
-		JButton processing1_btn1 = new JButton("Begin Texts Processing");
-
-
-		processing1_btn1.setBounds(253, 142, 174, 23);
-		processing1_btn1.setEnabled(false);
-		panel.add(processing1_btn1);
-		JButton proc_btn = new JButton("Begin Texts Processing");
-		proc_btn.setBounds(253, 142, 174, 23);
-		proc_btn.setEnabled(false);
-		panel.add(proc_btn);
-
-
-		JScrollPane fvs_scrl = new JScrollPane();
-		fvs_scrl.setBounds(10, 172, 680, 278);
-		panel.add(fvs_scrl);
-
-		String[] columnNames = {"#", "Text Name", "# of Rep. Words", "# of frequencies","# stop words" };
-		Object[][] texts_tabel = {};
-		FVs_table = new JTable();
-		FVs_table.setModel(new MyTableModel(columnNames, texts_tabel));
-		FVs_table.setFillsViewportHeight(true);
-		FVs_table.setSurrendersFocusOnKeystroke(true);
-		FVs_table.setShowVerticalLines(false);
-		FVs_table.setRowHeight(30);
-		FVs_table.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		fvs_scrl.setViewportView(FVs_table);
-		FVs_table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		FVs_table.setBackground(Color.WHITE);
-
-		JComboBox langbox = new JComboBox();
-		langbox.setModel(new DefaultComboBoxModel(new String[] {"English"}));
-		langbox.setBounds(106, 109, 70, 20);
-		panel.add(langbox);
+		JLabel textsDir_info1 = new JLabel("");
+		textsDir_info1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textsDir_info1.setBounds(10, 69, 282, 14);
+		panel.add(textsDir_info1);
 
 		JLabel lblTextsLanguage = new JLabel("Texts Language:");
 		lblTextsLanguage.setBounds(10, 112, 100, 14);
 		panel.add(lblTextsLanguage);
 
-		JButton btnSelectDirectoryForSimpleFVs_btn1 = new JButton("Select Directory");
+		JComboBox<String> langbox1 = new JComboBox<String>();
+		langbox1.setModel(new DefaultComboBoxModel<String>(new String[] {"English"}));
+		langbox1.setBounds(106, 109, 70, 20);
+		panel.add(langbox1);
 
-		btnSelectDirectoryForSimpleFVs_btn1.setBounds(539, 108, 146, 23);
-		panel.add(btnSelectDirectoryForSimpleFVs_btn1);
+		initialFVsDir_txt1 = new JTextField();
+		initialFVsDir_txt1.setBackground(Color.WHITE);
+		initialFVsDir_txt1.setEditable(false);
+		initialFVsDir_txt1.setText("Save XML Files Into...");
+		initialFVsDir_txt1.setBounds(186, 109, 343, 20);
+		panel.add(initialFVsDir_txt1);
+		initialFVsDir_txt1.setColumns(10);
 
-		directory_txt = new JTextField();
-		directory_txt.setBackground(Color.WHITE);
-		directory_txt.setEditable(false);
-		directory_txt.setText("Save XML Files Into...");
-		directory_txt.setBounds(186, 109, 343, 20);
-		panel.add(directory_txt);
-		directory_txt.setColumns(10);
-		FVs_table.getColumnModel().getColumn(0).setPreferredWidth(30);
-		FVs_table.getColumnModel().getColumn(1).setPreferredWidth(380);
-		FVs_table.getColumnModel().getColumn(2).setPreferredWidth(90);
-		FVs_table.getColumnModel().getColumn(3).setPreferredWidth(90);
-		FVs_table.getColumnModel().getColumn(4).setPreferredWidth(90);
+		JButton SelectDirectory_SimpleFVs_btn1 = new JButton("Select Directory");
 
+		SelectDirectory_SimpleFVs_btn1.setBounds(539, 108, 146, 23);
+		panel.add(SelectDirectory_SimpleFVs_btn1);
+
+		//Select Directory To save simple FVs 
+		SelectDirectory_SimpleFVs_btn1.addActionListener(new ActionListener() {//Ready
+
+
+			public void actionPerformed(ActionEvent e) {
+				tab1_proc_btn1.setEnabled(false);
+				dir_selected=false;
+				directory=selectDirectory();
+				if(directory!= null) {
+					initialFVsDir_txt1.setText(directory);
+					dir_selected=true;
+					lastPathDir=directory;
+
+				}
+				else{
+					initialFVsDir_txt1.setText("No Directory Selected");
+					dir_selected=false;
+				}
+				if(dir_selected && files_selected) tab1_proc_btn1.setEnabled(true);
+
+			}
+
+		});
+
+		tab1_proc_btn1 = new JButton("Begin Texts Processing");
+
+
+		tab1_proc_btn1.setBounds(253, 142, 174, 23);
+		tab1_proc_btn1.setEnabled(false);
+		panel.add(tab1_proc_btn1);
+
+
+		JScrollPane fvs_scrl1 = new JScrollPane();
+		fvs_scrl1.setBounds(10, 172, 680, 278);
+		panel.add(fvs_scrl1);
+
+		String[] columnNames = {"#", "Text Name", "# of Rep. Words", "# of frequencies","# stop words" };
+		Object[][] texts_tabel = {};
+		FVs_table1 = new JTable();
+		FVs_table1.setModel(new MyTableModel(columnNames, texts_tabel));
+		FVs_table1.setFillsViewportHeight(true);
+		FVs_table1.setSurrendersFocusOnKeystroke(true);
+		FVs_table1.setShowVerticalLines(false);
+		FVs_table1.setRowHeight(30);
+		FVs_table1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		fvs_scrl1.setViewportView(FVs_table1);
+		FVs_table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		FVs_table1.setBackground(Color.WHITE);
+		FVs_table1.getColumnModel().getColumn(0).setPreferredWidth(30);
+		FVs_table1.getColumnModel().getColumn(1).setPreferredWidth(380);
+		FVs_table1.getColumnModel().getColumn(2).setPreferredWidth(90);
+		FVs_table1.getColumnModel().getColumn(3).setPreferredWidth(90);
+		FVs_table1.getColumnModel().getColumn(4).setPreferredWidth(90);
+
+		
+		/*
+		 * Tab2
+		 */
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Expand All Frequency Vectors", null, panel_1, "Expand All Frequency Vectors");
 		panel_1.setLayout(null);
@@ -242,7 +253,7 @@ public class MainApp extends JFrame {
 		threshold_word_txt.setColumns(10);
 
 		JButton check_threshold_btn2 = new JButton("Process");
-		
+
 		check_threshold_btn2.setBounds(444, 252, 223, 23);
 		panel_1.add(check_threshold_btn2);
 
@@ -305,9 +316,9 @@ public class MainApp extends JFrame {
 		selectPathToSaveExpandedVectors_btn2.setEnabled(false);
 		check_threshold_btn2.setEnabled(false);
 
-		
+
 		threshold_word_txt.setText(default_threshold);
-		
+
 		JTextArea text_area = new JTextArea();
 		text_area.setBackground(SystemColor.inactiveCaption);
 		text_area.setEditable(false);
@@ -317,9 +328,9 @@ public class MainApp extends JFrame {
 		 * Handlers For Tab 1
 		 */
 		//Browse the html - Texts Files and select thim. 
-		browseHtmlFiles_btn1.addActionListener(new ActionListener() {//Ready
+		browseTextsFiles_btn1.addActionListener(new ActionListener() {//Ready
 			public void actionPerformed(ActionEvent e) {
-				processing1_btn1.setEnabled(false);
+				tab1_proc_btn1.setEnabled(false);
 				files_selected=false;
 
 				ArrayList<String> types=new ArrayList<>();
@@ -329,16 +340,16 @@ public class MainApp extends JFrame {
 				types.add("html");
 				files=BrowseFiles(types);
 
-				if(files.length>0)files_text.setText(lastPathFiles=files[0].getParentFile().toString());
+				if(files.length>0)textsDir_txt1.setText(lastPathFiles=files[0].getParentFile().toString());
 
 				int files_size=files.length;
 				if(files_size==0){
-					upload_info.setText("Warning :No files was uploaded");
-					processing1_btn1.setEnabled(false);
+					textsDir_info1.setText("Warning :No files was uploaded");
+					tab1_proc_btn1.setEnabled(false);
 					files_selected=false;
 
 				}else if(files_size>0){
-					upload_info.setText("Done :Number of uploaded files: "+files_size );
+					textsDir_info1.setText("Done :Number of uploaded files: "+files_size );
 					files_selected=true;
 
 				}
@@ -346,35 +357,12 @@ public class MainApp extends JFrame {
 			}
 		});
 
-		//Select Directory To save simple FVs 
-		btnSelectDirectoryForSimpleFVs_btn1.addActionListener(new ActionListener() {//Ready
-
-			public void actionPerformed(ActionEvent e) {
-				processing1_btn1.setEnabled(false);
-				dir_selected=false;
-				directory=selectDirectory();
-				if(directory!= null) {
-					directory_txt.setText(directory);
-					dir_selected=true;
-					lastPathDir=directory;
-
-				}
-				else{
-					directory_txt.setText("No Directory Selected");
-					dir_selected=false;
-				}
-				if(dir_selected && files_selected) processing1_btn1.setEnabled(true);
-
-			}
-
-		});
-
 		//Create simple FVs
-		processing1_btn1.addActionListener(new ActionListener() {//Ready
+		tab1_proc_btn1.addActionListener(new ActionListener() {//Ready
 			public void actionPerformed(ActionEvent e) {
 				Proccessing proc =new Proccessing();
-				Language lang=LangFactory.getLang(String.valueOf(langbox.getSelectedItem()));
-				DefaultTableModel dm = (DefaultTableModel) FVs_table.getModel();
+				Language lang=LangFactory.getLang(String.valueOf(langbox1.getSelectedItem()));
+				DefaultTableModel dm = (DefaultTableModel) FVs_table1.getModel();
 				int counter=0;
 				if(lang!=null){
 					setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -462,22 +450,22 @@ public class MainApp extends JFrame {
 				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
 				Proccessing proc=new Proccessing();
-				
+
 				HashMap<String, Integer> result=proc.checkThresholdWord(threshold_word_txt.getText(),expanded_dir+File.separator+"results"+File.separator+"global.xml");
 				if(result==null) JOptionPane.showMessageDialog(null, "Word not exist in the global vector", "Word Not Exist", JOptionPane.ERROR_MESSAGE);
 				else{
 					text_area.setText("Threshold word: "+threshold_word_txt.getText()+"\nword index:"+result.get("word place")+"\nword frequency:"+result.get("word FR")+
 							"\n# of common words:"+result.get("num of common words")+"\nFR of common words: "+result.get("commonFR")+
 							"\n# of sig words:"+result.get("num of sig words")+"\nFr of sig words:"+result.get("sigFR"));
-					
+
 					common=proc.getCommonVector(global, result.get("word place"), expanded_dir);
-					
+
 					ArrayList<String> names=new ArrayList<>();
 					for(File file:xml_files){
 						names.add(file.getName());
 					}
 					proc.expandAll(fv_paths, global, common,expanded_dir,names);
-					
+
 				}
 				setCursor(null);
 			}
@@ -571,10 +559,10 @@ public class MainApp extends JFrame {
 		global=proc.createGlobal(fv_paths, expanded_dir);
 
 
-		
-//		proc.expandAll(fv_paths,global,common);
+
+		//		proc.expandAll(fv_paths,global,common);
 		setCursor(null);
-		
+
 	}
 
 	protected String selectDirectory() {

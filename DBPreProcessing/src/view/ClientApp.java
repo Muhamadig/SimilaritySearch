@@ -37,6 +37,7 @@ import model.FVKeySortedMap;
 import model.FVValueSorted;
 import model.Language;
 import model.Language.Langs;
+import view.ui.utils.MyTableModel;
 import model.Text;
 
 import javax.swing.JLabel;
