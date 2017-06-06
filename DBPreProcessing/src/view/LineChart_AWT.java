@@ -51,8 +51,8 @@ public class LineChart_AWT extends ApplicationFrame {
 	
 	public DefaultCategoryDataset createDataset( FVValueSorted list) {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		for(int i=0;i<list.size();i++)
-			dataset.addValue(list.get(i).getValue(), "FREQ", list.get(i).getKey());
+		for(int i=0;i<100;i++)
+			dataset.addValue(list.get(i).getValue(), "FREQ", i+"");
 		
 		return dataset;
 	}
