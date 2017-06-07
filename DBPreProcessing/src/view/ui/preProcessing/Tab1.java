@@ -44,17 +44,12 @@ public class Tab1 extends JPanel{
 	private JButton SelectDirectory_SimpleFVs_btn1;
 	private  boolean files_selected;
 	private File[] files;
-	private String lastPathFiles;
 	private boolean dir_selected;
 	private String directory;
-	private String lastPathDir;
 
 
 
 	public Tab1() {
-
-		lastPathFiles=".";
-		lastPathDir=".";
 
 		setLayout(null);
 		setPreferredSize(new Dimension(700, 500));
@@ -172,7 +167,7 @@ public class Tab1 extends JPanel{
 		if(directory!= null) {
 			initialFVsDir_txt1.setText(directory);
 			dir_selected=true;
-			lastPathDir=directory;
+			Browse.lastPath=directory;
 
 		}
 		else{
@@ -194,7 +189,7 @@ public class Tab1 extends JPanel{
 		types.add("html");
 		files=Browse.BrowseFiles(types);
 
-		if(files.length>0)textsDir_txt1.setText(lastPathFiles=files[0].getParentFile().toString());
+		if(files.length>0)textsDir_txt1.setText(files[0].getParentFile().toString());
 
 		int files_size=files.length;
 		if(files_size==0){
