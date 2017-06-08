@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import view.MyTableModel;
+import view.ui.utils.MyTableModel;
 
 public class ClusteringResults extends JFrame{
 	private JTable Clusters_table;
