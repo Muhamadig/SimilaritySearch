@@ -76,7 +76,7 @@ public class Tab3 extends JPanel{
 		add(label2);
 
 		prepareClustering_btn3 = new JButton("Prepare Clustering");
-		prepareClustering_btn3.setBackground(SystemColor.inactiveCaption);
+		prepareClustering_btn3.setBorder(null);
 
 		prepareClustering_btn3.setBounds(444, 168, 223, 23);
 		prepareClustering_btn3.setEnabled(false);
