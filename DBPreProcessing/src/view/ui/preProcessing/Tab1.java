@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -27,6 +26,7 @@ import model.Language;
 import model.Text;
 import view.ui.utils.Browse;
 import view.ui.utils.MyTableModel;
+import java.awt.SystemColor;
 
 public class Tab1 extends JPanel{
 	/**
@@ -50,6 +50,7 @@ public class Tab1 extends JPanel{
 
 
 	public Tab1() {
+		setBackground(Color.WHITE);
 
 		setLayout(null);
 		setPreferredSize(new Dimension(700, 500));
@@ -61,48 +62,50 @@ public class Tab1 extends JPanel{
 		textsDir_txt1.setColumns(10);
 
 		browseTextsFiles_btn1 = new JButton("Browse Files");
-		browseTextsFiles_btn1.setBounds(296, 37, 114, 23);
+		browseTextsFiles_btn1.setBounds(302, 37, 174, 23);
 		add(browseTextsFiles_btn1);
 
 		textsDir_info1 = new JLabel("");
+		textsDir_info1.setBackground(Color.WHITE);
 		textsDir_info1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textsDir_info1.setBounds(10, 69, 282, 14);
+		textsDir_info1.setBounds(10, 58, 282, 14);
 		add(textsDir_info1);
 
 
 		lblTextsLanguage = new JLabel("Texts Language:");
-		lblTextsLanguage.setBounds(10, 112, 100, 14);
+		lblTextsLanguage.setBounds(10, 84, 120, 14);
 		add(lblTextsLanguage);
 
 		langbox1 = new JComboBox<String>();
 		langbox1.setModel(new DefaultComboBoxModel<String>(new String[] {"English"}));
-		langbox1.setBounds(106, 109, 70, 20);
+		langbox1.setBounds(140, 81, 109, 20);
 		add(langbox1);
 
 		initialFVsDir_txt1 = new JTextField();
 		initialFVsDir_txt1.setBackground(Color.WHITE);
 		initialFVsDir_txt1.setEditable(false);
 		initialFVsDir_txt1.setText("Save XML Files Into...");
-		initialFVsDir_txt1.setBounds(186, 109, 343, 20);
+		initialFVsDir_txt1.setBounds(10, 127, 282, 20);
 		add(initialFVsDir_txt1);
 		initialFVsDir_txt1.setColumns(10);
 
 		SelectDirectory_SimpleFVs_btn1 = new JButton("Select Directory");
 
-		SelectDirectory_SimpleFVs_btn1.setBounds(539, 108, 146, 23);
+		SelectDirectory_SimpleFVs_btn1.setBounds(302, 126, 174, 23);
 		add(SelectDirectory_SimpleFVs_btn1);
 
 
 		tab1_proc_btn1 = new JButton("Begin Texts Processing");
+		tab1_proc_btn1.setBackground(SystemColor.inactiveCaption);
 
 
-		tab1_proc_btn1.setBounds(253, 142, 174, 23);
+		tab1_proc_btn1.setBounds(302, 175, 174, 23);
 		tab1_proc_btn1.setEnabled(false);
 		add(tab1_proc_btn1);
 
 
 		JScrollPane fvs_scrl1 = new JScrollPane();
-		fvs_scrl1.setBounds(10, 172, 680, 278);
+		fvs_scrl1.setBounds(10, 211, 680, 278);
 		add(fvs_scrl1);	
 
 		String[] columnNames = {"#", "Text Name", "Rep. Words", "Frequencies","Stop Words" };
@@ -203,14 +206,4 @@ public class Tab1 extends JPanel{
 
 		}		
 	}
-
-
-	public static void main(String[] args){
-		JFrame frame=new JFrame();
-
-		frame.add(new Tab1());
-		frame.setSize(new Dimension(800, 600));
-		frame.setVisible(true);
-	}
-
 }

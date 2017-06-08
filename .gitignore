@@ -1,2 +1,8 @@
 DBPreProcessing/libraries/stanford-english-corenlp-2016-10-31-models.jar
 DBPreProcessing/libraries/stanford-english-kbp-corenlp-2016-10-31-models.jar
+/OCSF/nbproject/private/
+/DBPreProcessing/nbproject/private/
+/SSModels/nbproject/private/
+/DBPreProcessing/build/
+/OCSF/build/
+/SSModels/build/

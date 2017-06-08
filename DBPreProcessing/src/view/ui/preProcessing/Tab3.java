@@ -11,12 +11,14 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controller.Proccessing;
 import view.ui.utils.Browse;
+import java.awt.Color;
 
 public class Tab3 extends JPanel{
 
@@ -38,6 +40,7 @@ public class Tab3 extends JPanel{
 	private JTextArea Message;
 	
 	public Tab3() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setPreferredSize(new Dimension(700, 500));
 		
@@ -52,6 +55,7 @@ public class Tab3 extends JPanel{
 		add(btnSelectExpanded_btn3);
 
 		label1 = new JLabel("");
+		label1.setBackground(Color.WHITE);
 		label1.setBounds(10, 95, 424, 14);
 		add(label1);
 		
@@ -67,12 +71,14 @@ public class Tab3 extends JPanel{
 		add(btnSelectExportDirectory_btn3);
 
 		label2 = new JLabel("");
+		label2.setBackground(Color.WHITE);
 		label2.setBounds(10, 151, 424, 14);
 		add(label2);
 
 		prepareClustering_btn3 = new JButton("Prepare Clustering");
+		prepareClustering_btn3.setBackground(SystemColor.inactiveCaption);
 
-		prepareClustering_btn3.setBounds(333, 174, 186, 23);
+		prepareClustering_btn3.setBounds(444, 168, 223, 23);
 		prepareClustering_btn3.setEnabled(false);
 		add(prepareClustering_btn3);
 
@@ -166,8 +172,7 @@ public class Tab3 extends JPanel{
 
 		proc.sortFV_BY_Key_Export(fv_paths,fv_names,sortedDirectory);
 		setCursor(null);
-		Message.setText("The texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys ,"
-				+ " you can find your xml files in: "+ sortedDirectory);
-		Message.setVisible(true);
+		JOptionPane.showMessageDialog(null,"DONE.\nThe texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys .\n"
+				+ " you can find your xml files at:\n "+ sortedDirectory);
 	}
 }
