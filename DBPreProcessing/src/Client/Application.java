@@ -9,6 +9,7 @@ import controller.SuperSteps;
 import model.FVHashMap;
 import model.Language;
 import model.Language.Langs;
+import view.ClientApp;
 import view.ui.preProcessing.MainApp;
 
 public class Application {
@@ -29,7 +30,9 @@ public class Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
 		connect();
-		System.out.println("test");
-		MainApp.run();
+		//System.out.println("test");
+		//MainApp.run();
+		//   <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value> cluster 0
+		ClientApp.run();
 	}
 }

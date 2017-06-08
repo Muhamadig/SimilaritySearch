@@ -15,7 +15,6 @@ import model.Text;
 public class Proccessing {
 	private XML fvXml;
 	private XML treeMapXML;
-
 	private XML fv_ValueSortedXml;
 
 	

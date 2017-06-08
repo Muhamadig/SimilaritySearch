@@ -20,16 +20,19 @@ public class Cluster {
 	public int id;
 	private double aggDist;
 	public FVValueSorted CommonWords;
-	
+	private FVValueSorted DiffCW=null;
+	private static final int [] thresholds={88,64,69,85,119,52};
+	//private static final String [] thresholds={"[frand,1996]","[sculptural relief,16]","[shower down,mistreat]","[likewise,protective]","[detention,barricade]","[amy,dec]"};
 	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
-	
+	private ArrayList<String> ClusterCW;
 	//Creates a new Cluster
+
 	public Cluster(int id) {
 		this.id = id;
 		this.points = new ArrayList<Point>();
 		this.centroid = null;
 		CommonWords = new FVValueSorted();
-	
+		ClusterCW = new ArrayList<String>();
 	}
  
 	static void SetDBCommonWords(){
@@ -45,8 +48,11 @@ public class Cluster {
 			String CW = CommonWords.get(i).getKey();
 			if(text.containsKey(CW))
 				dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
+			else
+				dist+=Math.pow((CommonWords.get(i).getValue()), 2);
 		}
 		dist= Math.sqrt(dist);
+		System.out.println("Cluster number: "+id + " CW Distance is: " + dist);
 	return dist;	
 	}
 	
@@ -109,7 +115,6 @@ public class Cluster {
     	return aggdists;
     }
     
-    
     public FVValueSorted CalculateCW(){
     	XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
     	ArrayList<FVKeySortedMap> texts = new ArrayList<FVKeySortedMap>();
@@ -135,8 +140,32 @@ public class Cluster {
     		_result.put("["+CommonWords.get(i).getKey() +"," + CommonWords.get(i+1).getKey()+"]" , CommonWords.get(i).getValue() - CommonWords.get(i+1).getValue() );
     	
     	FVValueSorted results = new FVValueSorted(_result);
+    	DiffCW = results;
     	return results;
     }
+    
+    public ArrayList<String> GetClusterCW(){
+    	return this.ClusterCW;
+    	}
+    
+    public void GetCW(){
+    	int threshold = thresholds[id];
+    	if(DiffCW == null)
+    		DiffCW=CalculateCW();
+    	int i=1;
+    	String words;
+    	while(i < threshold){
+    		words = DiffCW.get(i).getKey();
+    		words = words.replace("]", "");
+    		words = words.replace("[", "");
+    		String[] Splitted = words.split(",");
+    		for(int j=0;j<Splitted.length;j++)
+    			ClusterCW.add(Splitted[j]);
+    		i++;
+    	}
+    	CommonWords = DiffCW;
+    }
+    
     public void CreateChart(FVValueSorted data){
     	LineChart_AWT chart = new LineChart_AWT("" ,id+"" , data);
 		chart.pack( );

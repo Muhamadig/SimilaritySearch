@@ -61,5 +61,27 @@ public class Stam {
 	         e.printStackTrace();
 	      }
 	}
+	
+	
+	  private static void CreatePDF(FVValueSorted CW, int id){
+	    	 try
+		      {
+		    		  Document document = new Document();
+		    		 
+		         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(id+"_CW_Diff.pdf"));
+		         document.open();
+		         for(int j=0;j<100;j++)
+		        	 document.add(new Paragraph((j+1) +")          " + CW.get(j).getKey() +"  =  " + CW.get(j).getValue()));
+		    	  
+		         document.close();
+		         writer.close();
+		      } catch (DocumentException e)
+		      {
+		         e.printStackTrace();
+		      } catch (FileNotFoundException e)
+		      {
+		         e.printStackTrace();
+		      }
+	    }
 
 }

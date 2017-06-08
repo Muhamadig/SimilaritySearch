@@ -21,6 +21,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 import Client.Client;
@@ -34,11 +36,9 @@ import controller.Pareto;
 import controller.Proccessing;
 import model.FVHashMap;
 import model.FVKeySortedMap;
-import model.FVValueSorted;
 import model.Language;
 import model.Language.Langs;
 import model.Text;
-
 import javax.swing.JLabel;
 
 public class ClientApp extends JFrame {
@@ -51,17 +51,17 @@ public class ClientApp extends JFrame {
 	private JLabel upload_info;
 	private JButton proc_btn;
 	private File[] files;
-	private Text inputVect;
+	private FVHashMap inputVect;
 	public static Client client = null;
 	private List<Cluster> clusters;
 	private JTable ResTbl;
-	
+	private JLabel Resultslbl;
 	public ClientApp(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setTitle("Searching");
-		setBounds(0, 0, 550, 500);
-		 panel = new JPanel();
+		setBounds(0, 0, 550, 420);
+		panel = new JPanel();
 		panel.setPreferredSize(new Dimension(500, 500));
 		panel.setLayout(null);
 		getContentPane().add(panel);
@@ -83,8 +83,6 @@ public class ClientApp extends JFrame {
 		browse_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				proc_btn.setEnabled(false);
-				
-				
 				ArrayList<String> types=new ArrayList<>();
 				types.add("doc");
 				types.add("docx");
@@ -128,28 +126,46 @@ public class ClientApp extends JFrame {
 		panel.add(proc_btn);
 		proc_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Proccessing proc =new Proccessing();
+				Text input = proc.process(files[0], files[0].getParentFile().toString(), new Language(Langs.ENGLISH));
+				inputVect = input.getFv();
+				XML fvxml = XMLFactory.getXML(XMLFactory.FV);
+				FVHashMap global = (FVHashMap) fvxml.Import("Expanded/results/global.xml");
+				inputVect = Expand(inputVect , global);
+				fvxml.export(inputVect, "after.xml");
 				Calculate();
-					setCursor(null);
+				setCursor(null);
 			}
 		});
 		
 		ResTbl = new JTable();
+		ResTbl.setVisible(false);
 		String[] columnNames = {"#", "Text Name"};
 		Object[][] texts_tabel = {};
+		ResTbl.setBounds(43, 181, 448, 170);
 		ResTbl.setModel(new MyTableModel(columnNames, texts_tabel));
 		ResTbl.setFillsViewportHeight(true);
 		ResTbl.setSurrendersFocusOnKeystroke(true);
 		ResTbl.setShowVerticalLines(false);
 		ResTbl.setRowHeight(30);
 		ResTbl.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		ResTbl.getColumnModel().getColumn(0).setPreferredWidth(30);
+		ResTbl.getColumnModel().getColumn(1).setPreferredWidth(400);
 		panel.add(ResTbl);
 		
+		 Resultslbl = new JLabel("The result's files are in Results folder on your Desktop");
+		Resultslbl.setBounds(41, 363, 450, 16);
+		Resultslbl.setVisible(false);
+		Resultslbl.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
+		panel.add(Resultslbl);
 	}
 	
 	private void FillTbl(ArrayList<String> files){
 		DefaultTableModel dm = (DefaultTableModel) ResTbl.getModel();
 		for(int i=0;i<files.size();i++)
-		dm.addRow(new Object[] {i+1, files.get(i)});
+			dm.addRow(new Object[] {i+1, files.get(i).replace(".html.xml", "")});
+		Resultslbl.setVisible(true);
 	}
 	
 	
@@ -193,7 +209,7 @@ public class ClientApp extends JFrame {
 		return files;
 	}
 	
-	public Text getInputVector(){
+	public FVHashMap getInputVector(){
 		return this.inputVect;}
 	
 	public static void connect() {
@@ -208,49 +224,47 @@ public class ClientApp extends JFrame {
 	}
 	
 	private void Calculate(){
-		
+		System.out.println("Start Searching ...");
+		long t = System.currentTimeMillis();
     	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies();
     	KMeans km = new KMeans();
     	km.init();
     	km.SetPoints(freqs);
     	km.Clustering();
-    	FVHashMap text = inputVect.getFv();
-    	
+    	//FVHashMap text = inputVect.getFv();
+    	FVHashMap copyinput = (FVHashMap) inputVect.clone();
     	// Remove all the database Common Words
-    	text = Remove(text,Cluster.DBCommonWords);
+    	copyinput = Remove(inputVect,Cluster.DBCommonWords);
     	
     	this.clusters = km.getclusters();
     	int cluster = getCluster();
-    	
+    	System.out.println("Cluster number is: "+cluster);
     	//Get the specific cluster Common words
-    	FVValueSorted ClusterCW = clusters.get(cluster).getCommonWords();
     	
-    	ArrayList<String> CW= new ArrayList<String>();
-    	for(int i=0;i<ClusterCW.size();i++)
-    		CW.add(ClusterCW.get(i).getKey());
+    	ArrayList<String> CW= clusters.get(cluster).GetClusterCW();
     	
     	// Remove the Cluster Common Words
-    	text = Remove(text , CW);
+    	copyinput = Remove(copyinput , CW);
     	
-    	FVKeySortedMap sortedText = new FVKeySortedMap(text);
+    	FVKeySortedMap sortedText = new FVKeySortedMap(copyinput);
     	ArrayList<FVKeySortedMap> candidates = new ArrayList<FVKeySortedMap>();
     	XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
     	List<Point> Cpoints = clusters.get(cluster).getPoints();
     	HashMap<String, FVKeySortedMap> ClusterText = new HashMap<String, FVKeySortedMap>();
     	for(Point p : Cpoints){
-    		FVKeySortedMap toadd = (FVKeySortedMap) fvxml.Import("SortedFVs" +System.lineSeparator()+p.getName());
+    		FVKeySortedMap toadd = (FVKeySortedMap) fvxml.Import("final/"+p.getName());
     		candidates.add(toadd);
     		ClusterText.put(p.getName(), toadd);
     	}
-    	
     	Pareto pat = new Pareto(candidates , sortedText);
     	ArrayList<FVKeySortedMap> results = pat.ParetoCalculate();
     	ArrayList<String> filesnames = new ArrayList<String>();
     	for(FVKeySortedMap file : results)
     		filesnames.add(getKey(ClusterText,file));
+    	ResTbl.setVisible(true);
     	FillTbl(filesnames);
     	CopyFiles(filesnames);
-    	
+    	System.out.println("Done ... " +((System.currentTimeMillis() - t)/1000) + " Seconds");
 	}
 
 	private void CopyFiles(ArrayList<String> fnames){ 
@@ -264,7 +278,7 @@ public class ClientApp extends JFrame {
 		
 		List<File> files = new ArrayList<File>();
 		for(String name : fnames)
-			files.add(new File("SortedFVs"+System.lineSeparator() + name));
+			files.add(new File("HTMLs/"+ name.replace(".xml", "")));
 		for(File f : files)
 			try {
 				Files.copy(f.toPath(),
@@ -278,8 +292,11 @@ public class ClientApp extends JFrame {
 	}
 	private String getKey(HashMap<String, FVKeySortedMap> texts ,FVKeySortedMap file){
 		for(String key : texts.keySet())
-			if(texts.get(key).equals(file))
+			if(texts.get(key).equals(file)){
+				System.out.println(key);
 				return key;
+			}
+				
 		return null;
 	}
 	
@@ -288,7 +305,7 @@ public class ClientApp extends JFrame {
 		double min =Double.MAX_VALUE;
 		double dist;
 		for(Cluster c: clusters){
-			dist = c.CommonDistnce(inputVect.getFv());
+			dist = c.CommonDistnce(inputVect);
 			if(dist<min){
 				min=dist;
 				cluster=c.getId();
@@ -303,10 +320,22 @@ public class ClientApp extends JFrame {
 		return original;
 	}
 	
-	public static void main(String[] args) {
-		Config.getConfig().readTextConfig();
-		connect();
-		ClientApp temp = new ClientApp();
-		temp.setVisible(true);
+	private FVHashMap Expand(FVHashMap vec , FVHashMap global){
+		for(String key : global.keySet())
+			if(!vec.containsKey(key))
+				vec.put(key, 0);
+		return vec;
+	}
+	
+	public static void run(){
+		//Schedule a job for the event dispatch thread:
+		//creating and showing this application's GUI.
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				//Turn off metal's use of bold fonts
+				UIManager.put("swing.boldMetal", Boolean.FALSE);
+				new ClientApp().setVisible(true);
+			}
+		});
 	}
 }

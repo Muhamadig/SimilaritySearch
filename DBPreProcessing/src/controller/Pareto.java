@@ -10,12 +10,13 @@ public class Pareto {
 	private ArrayList<FVKeySortedMap> candidates;
 	private FVKeySortedMap inputText;
 	private ArrayList<ArrayList<Integer>> ObjectiveVectors;
-	private ArrayList<ArrayList<Integer>> Dominates;
+	private ArrayList<Integer> Dominated;
 	
 	public Pareto(ArrayList<FVKeySortedMap> vectors , FVKeySortedMap text){
 		candidates = vectors;
 		inputText = text;
 		ObjectiveVectors = new ArrayList<ArrayList<Integer>>();
+		Dominated = new ArrayList<Integer>();
 	}
 	
 	private void CalculateObjectiveVectors(){
@@ -23,40 +24,28 @@ public class Pareto {
 		for(FVKeySortedMap candidate : candidates){
 			ObjectiveVector = new ArrayList<Integer>();
 			for(String key : inputText.keySet())
-				ObjectiveVector.add(Math.abs(inputText.get(key) - candidate.get(key)));
+				if(candidate.containsKey(key))
+				 ObjectiveVector.add(Math.abs(inputText.get(key) - candidate.get(key)));
+				 else
+					 ObjectiveVector.add(inputText.get(key));
 			ObjectiveVectors.add(ObjectiveVector);
-		}	
+		}
 	}
 	
 	private int CheckDominates(ArrayList<Integer> ObjVec1 , ArrayList<Integer> ObjVec2){
-		int Dominates =0;
-		int len = ObjVec1.size();
-		for(int i=0;i<len;i++){
-			int value1 = ObjVec1.get(i);
-			int value2 = ObjVec2.get(i);
-			if(value1 <= value2){
-				if(Dominates == 2)
-					return 0;
-				Dominates =1;
-			}
-			else
-				if(Dominates==1)
-					return 0;
-				Dominates =2;
-		}
-		return Dominates;
+		
+		return (Dominates(ObjVec1 , ObjVec2) ? 1 : (Dominates(ObjVec2 , ObjVec1) ? 2 : 0));
+
 	}
 	
-	private void InitArrayLists (){
-		int len = ObjectiveVectors.size();
-		Dominates = new ArrayList<ArrayList<Integer>>(len);
-		ArrayList<Integer> init;
-		for(int i=0;i<len;i++){
-			init = new ArrayList<Integer>();
-			Dominates.add(init);
-		}
-			
+	private boolean Dominates(ArrayList<Integer> ObjVec1 , ArrayList<Integer> ObjVec2){
+		
+		for (int i=0;i<ObjVec1.size();i++)
+				if(ObjVec1.get(i) > ObjVec2.get(i))
+					return false;
+		return true;
 	}
+	
 	
 	private void CalculateDominates(){
 		int len = ObjectiveVectors.size();
@@ -64,69 +53,68 @@ public class Pareto {
 			for(int j=i+1; j<len;j++){
 				int dom = CheckDominates(ObjectiveVectors.get(i),ObjectiveVectors.get(j));
 				switch (dom){
-				case 1: Dominates.get(i).add(j); break;
-				case 2: Dominates.get(j).add(i); break;
+				case 1: if(!Dominated.contains(j)) Dominated.add(j); break;
+					
+				case 2: if(!Dominated.contains(i)) Dominated.add(i);break;
 				}
 			}
 	}
 	}
 	
-	@SuppressWarnings("unchecked")
+
+
 	private ArrayList<Integer> RemoveDominates(){
-		int i;
-		ArrayList<Integer> NotOptimals = new ArrayList<Integer>();
-		ArrayList<ArrayList<Integer>> CopyDominates = (ArrayList<ArrayList<Integer>>) Dominates.clone();
-		int size = CopyDominates.size();
-		for( i=0;i<size;i++){
-			ArrayList<Integer> Doms = Dominates.get(i);
-			for(int j=0;j<Doms.size();j++){
-				CopyDominates.remove(Doms.get(j));
-				if(!(NotOptimals.contains(j)))
-					NotOptimals.add(j);
-			}
-		}
 		ArrayList<Integer> Optimal = new ArrayList<Integer>();
-		for(i=0;i<size;i++)
-			if(!(NotOptimals.contains(i)))
+		for(int i=0;i<ObjectiveVectors.size();i++)
+			if(!Dominated.contains(i))
 				Optimal.add(i);
 		return Optimal;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private ArrayList<Integer> CalculateNResults(ArrayList<Integer> optimal){
-		ArrayList<Integer> Closest = new ArrayList<Integer>();
+		
 		if(optimal.size() <= NO_Results)
 			return optimal;
+		ArrayList<Integer> Closest = new ArrayList<Integer>();
 		
+		ArrayList<ArrayList<Integer>> CopyObjVec = (ArrayList<ArrayList<Integer>>) ObjectiveVectors.clone();
 		for(int i=0;i<NO_Results;i++){
-			int min = MinIndex(optimal);
+			int min = MinIndex(optimal,CopyObjVec);
+			System.out.println(min);
 			if(min!=Integer.MAX_VALUE){
+				CopyObjVec.remove(min);
 				optimal.remove(min);
 				Closest.add(min);
 			}
 			else
 				return null;
 		}
+	
+		
 		return Closest;
 	}
 	
-	private int MinIndex(ArrayList<Integer> optimal){
+	private int MinIndex(ArrayList<Integer> optimal,ArrayList<ArrayList<Integer>> CopyObjVec){
 		int min = Integer.MAX_VALUE;
 		double minAvg = Double.MAX_VALUE;
+		ArrayList<Integer> IndextoRet = new ArrayList<Integer>();
 		for(int i=0;i<optimal.size();i++){
-			Double avg = Average(i);
+			IndextoRet = CopyObjVec.get(i);
+			Double avg = Average(IndextoRet);
 			if(avg < minAvg){
 				min =i;
 				minAvg = avg;
 			}
 		}
+		min = ObjectiveVectors.indexOf(IndextoRet);
 		return min;
 	}
 	
-	private Double Average(int index){
+	private Double Average(ArrayList<Integer> calc){
 		int sum=0;
-		ArrayList<Integer> calc = ObjectiveVectors.get(index);
 		for(Integer value : calc)
-			sum+=value;
+				sum+=value;
 		return (double) (sum/calc.size());
 	}
 	
@@ -136,17 +124,17 @@ public class Pareto {
 		
 		CalculateObjectiveVectors();
 		
-		InitArrayLists();
+		//InitArrayLists();
 		
 		CalculateDominates();
-		
+
 		ArrayList<Integer> optimal = RemoveDominates();
 		
 		ArrayList<Integer> ClosestResults = CalculateNResults(optimal);
 		
 		for(Integer index : ClosestResults)
-			results.add(candidates.get(ClosestResults.get(index)));
-		
+			results.add(candidates.get(index));
+
 		return results;
 	}
 }
