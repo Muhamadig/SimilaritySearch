@@ -30,9 +30,8 @@ public class Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Config.getConfig().readTextConfig();
 		connect();
-		//System.out.println("test");
-		//MainApp.run();
+		MainApp.run();
 		//   <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value> cluster 0
-		ClientApp.run();
+//		ClientApp.run();
 	}
 }

@@ -76,14 +76,6 @@ public class Proccessing {
 		return res;
 	}
 	
-	/*public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){
-		ArrayList<Map.Entry<String,Integer>> res=new ArrayList<>();
-		FVHashMap fv=_fv;
-		for(Map.Entry<String, Integer> map:fv.entrySet()){
-			 res.add(map);
-		}
-		
-	}*/
 	
 	public FVValueSorted sortFV_By_Value(FVHashMap _fv){
 		return new FVValueSorted(_fv);
@@ -100,8 +92,6 @@ public class Proccessing {
 		for(Entry<String ,Integer> entry:common_sorted){
 			common.put(entry.getKey(), entry.getValue());
 		}
-		System.out.println(global.size() +" "+ global.getSum());
-		System.out.println(common.size() +" "+ common.getSum());
 
 		FVHashMap reducedGlobal=reduceFV(global,common);
 		for (String path : fv_paths) {
