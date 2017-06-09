@@ -89,6 +89,7 @@ public class KMeans {
         while(!finish) {
         	//Clear cluster state
         	clearClusters();
+        	
         	List<Point> lastCentroids = getCentroids();
         	
         	//Assign points to the closer cluster
@@ -139,30 +140,7 @@ public class KMeans {
     	fvXml.export(data, "Clusters.xml");
     	fvXml.export(centroid, "Centroids.xml");
     }
-    /*  private void plotClusters() {
-    	PrintWriter out;
-		try {
-			out = new PrintWriter("Clustering.txt","UTF-8");
-	    	for (int i = 0; i < NUM_CLUSTERS; i++) {
-	    		Cluster c = clusters.get(i);
-	    		out.write("[Cluster: " + c.getId()+"]\n" +  "[Points: \n");
-	    		System.out.println("\n\n[Cluster: " + c.getId()+"]\n" +  "[Points: \n");
-	    		List<Point> Cpoints = c.getPoints();
-	    		for(Point p : Cpoints){
-	    			out.write(p.getName().replace(".html.xml", "") + "\n");
-	    			System.out.println(p.getName().replace(".html.xml", "") + "\n");
-	    		}
-	    		
-	    		out.write("]\n");
-	    		System.out.println("]\n");
-	    	}
-	    	out.close();
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }*/
-
+   
     private void clearClusters() {
     	for(Cluster cluster : clusters) {
     		cluster.clear();
@@ -380,8 +358,9 @@ public class KMeans {
     		return CalculateClusters();
     	else
     		getClustersFromFile(res);
-//    	ClusteringResults result = new ClusteringResults(clusters);
-//    	result.setVisible(true);
+
+    	for(Cluster c : clusters)
+    		c.GetCW();
     	return this;
     }
    
@@ -392,40 +371,16 @@ public class KMeans {
     	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
     //	int NOClusters = KMeans.CalculateNOClusters(freqs);
     	
-   
-    	KMeans km = new KMeans();
+		int len = freqs.get(0).size();
+		int max = Point.MaximumCordinate(freqs);
+    	KMeans km = new KMeans(6);
+    	km.initCordinates(max, len);
     	km.init();
     	km.SetPoints(freqs);
-    	km = km.Clustering();
-    	List <Cluster> KMClusters = km.getclusters();
-    	for(Cluster c : KMClusters){
-    		c.CalculateCW();
-    		System.out.println("Cluster Number: " + c.getId() + " Contains "  + c.getPoints().size() + " Texts");
-    		FVValueSorted calc = c.CalculateDiffCW();
-    		CreatePDF(calc , c.getId());
-    		c.CreateChart(calc);
-    	}
+    	km.calculate();
+
     	
    }
     
-    private static void CreatePDF(FVValueSorted CW, int id){
-    	 try
-	      {
-	    		  Document document = new Document();
-	    		 
-	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(id+"_CW_Diff.pdf"));
-	         document.open();
-	         for(int j=0;j<100;j++)
-	        	 document.add(new Paragraph((j+1) +")          " + CW.get(j).getKey() +"  =  " + CW.get(j).getValue()));
-	    	  
-	         document.close();
-	         writer.close();
-	      } catch (DocumentException e)
-	      {
-	         e.printStackTrace();
-	      } catch (FileNotFoundException e)
-	      {
-	         e.printStackTrace();
-	      }
-    }
+  
 }
