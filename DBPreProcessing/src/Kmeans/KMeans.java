@@ -248,12 +248,12 @@ public class KMeans {
 		return allfreq;
     }
     
-    public void CreateChart(ArrayList<Double> data){
-    	LineChart_AWT chart = new LineChart_AWT("" ,"" , data);
-		chart.pack( );
-		RefineryUtilities.centerFrameOnScreen( chart );
-		chart.setVisible( true );
-    }
+//    public void CreateChart(ArrayList<Double> data){
+////    	LineChart_AWT chart = new LineChart_AWT("" ,"" , data);
+//		chart.pack( );
+//		RefineryUtilities.centerFrameOnScreen( chart );
+//		chart.setVisible( true );
+//    }
     
     static int CalculateNOClusters(ArrayList<ArrayList<Double>> FreqPoints){
     	int ClustersNumber; 
@@ -276,7 +276,7 @@ public class KMeans {
         	data.add(dist);
         	System.out.println("Number of Clusters: " + ClustersNumber + " , Distance: "+ dist);
     	}
-    	kmeans.CreateChart(data);
+//    	kmeans.CreateChart(data);
     	for(int i=1;i<data.size();i++){
     		double dist1 = data.get(i-1);
     		double dist2 = data.get(i);
