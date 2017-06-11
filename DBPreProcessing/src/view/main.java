@@ -1,25 +1,29 @@
 package view;
 
-import java.io.File;
-import java.util.Map.Entry;
 
 import XML.XML;
 import XML.XMLFactory;
-import controller.SuperSteps;
 import model.FVHashMap;
-import model.FVValueSorted;
-import model.Language;
-import model.Language.Langs;
-import model.MyEntry;
+import model.FVKeySortedMap;
 
 public class main {
 
 	public static void main(String[] args){
-		boolean dir=new File("dir").mkdir();
+		String initial_Path="";
+		String final_path="";
 		
+		XML iFV=XMLFactory.getXML(XMLFactory.FV);
+		XML fFV=XMLFactory.getXML(XMLFactory.FVSortedMap);
 		
+		FVHashMap fv=(FVHashMap) iFV.Import(initial_Path+"");
+		FVKeySortedMap finalFV=(FVKeySortedMap) fFV.Import(final_path+"");
+		FVHashMap test=new FVHashMap();
+		for(String key:finalFV.keySet()){
+			if(finalFV.get(key).compareTo(0)!=0) test.put(key, finalFV.get(key));
+		}
 		
-
+		iFV.export(test, "test.xml");
+		System.out.println(fv.equals(test));
 	}
 }
 
