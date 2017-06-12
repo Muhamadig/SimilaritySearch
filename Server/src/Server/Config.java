@@ -20,7 +20,7 @@ public class Config {
 
 	private int port = 9000;
 	private String dbUrl = "jdbc:mysql://localhost/test";
-	private String dbUser = "SSProject";
+	private String dbUser = "root";
 	private String dbPassword = "root";
 	private Logger logger = new Logger(isDebug);
 	private DbHandler handler;
