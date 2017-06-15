@@ -13,6 +13,7 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import DBModels.DBCluster;
 import DBModels.DBText;
 import Server.Config;
 import sun.misc.IOUtils;
@@ -34,6 +35,8 @@ public class DbHandler {
 //	public Dao<Treatment, Integer> treatments;
 	
 	public Dao<DBText,String> texts;
+	
+	public Dao<DBCluster,Integer> clusters;
 
 	/**
 	 * need to provide url , user ,pass to conenct to database
@@ -47,7 +50,7 @@ public class DbHandler {
 			connection = new JdbcConnectionSource(url, username, password);
 			createAllTables();
 			initializeDao();
-			fillDataBase();
+//			fillDataBase();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -60,7 +63,6 @@ public class DbHandler {
 	 */
 	public void fillDataBase() throws Exception {
 		DataFiller df = new DataFiller(this);
-		df.test();
 		
 	}
 
@@ -69,24 +71,24 @@ public class DbHandler {
 	 * 
 	 * @throws Exception
 	 */
-	public void initializeDao() throws Exception {
-//		patients = DaoManager.createDao(connection, Patient.class);
-		
+	public void initializeDao() throws Exception {		
 		texts=DaoManager.createDao(connection, DBText.class);
-		
+		clusters=DaoManager.createDao(connection, DBCluster.class);
 	}
 
+	
+	
 	/**
 	 * creates all the tables using ORM, it also drops the tables first
 	 * 
 	 * @throws Exception
 	 */
 	public void createAllTables() throws Exception {
-//		TableUtils.dropTable(connection, MODEL.class, true);
 		TableUtils.dropTable(connection, DBText.class, true);
-		TableUtils.createTable(connection, DBText.class);
+		TableUtils.dropTable(connection, DBCluster.class, true);
 
-		
+		TableUtils.createTable(connection, DBCluster.class);
+		TableUtils.createTable(connection, DBText.class);
 		
 	}
 }

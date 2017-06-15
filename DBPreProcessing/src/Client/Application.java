@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import XML.XML;
 import XML.XMLFactory;
+import controller.DBController;
 import controller.Proccessing;
 import controller.SuperSteps;
 import model.FVHashMap;
@@ -14,24 +15,39 @@ import view.ui.preProcessing.MainApp;
 
 public class Application {
 
+	public static Client WN_Client = null;
 	public static Client client = null;
+
 	
 	public static void connect() {
-		Config cfg = Config.getConfig();
+		WNSConfig cfg = WNSConfig.getConfig();
+		if (WN_Client != null) {
+			WN_Client.close();
+			WN_Client = null;
+		}
+		WN_Client = new Client(cfg.getHost(), cfg.getPort());
+//		WNSConfig.getConfig().writeTextConfig();
+		WN_Client.open();
+		
+		ServerConfig s_cfg = ServerConfig.getConfig();
 		if (client != null) {
 			client.close();
 			client = null;
 		}
-		client = new Client(cfg.getHost(), cfg.getPort());
-		Config.getConfig().writeTextConfig();
+		client = new Client(s_cfg.getHost(), s_cfg.getPort());
+//		ServerConfig.getConfig().writeTextConfig();
 		client.open();
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		Config.getConfig().readTextConfig();
+//		WNSConfig.getConfig().readTextConfig();
+//		ServerConfig.getConfig().readTextConfig();
 		connect();
-		MainApp.run();
+		MainApp.run(WN_Client,client);
+//		DBController dbc=DBController.getInstance();
+////		dbc.createClusters();
+//		dbc.createTexts();
 		//   <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value> cluster 0
-		//ClientApp.run();
+//		ClientApp.run();
 	}
 }

@@ -32,6 +32,6 @@ public class SuperSteps {
 		//step 4: reduce the frequency vector by Stemming and Synonyms (Request from WordNet Server)
 		Request request=new Request("FV/fv");
 		request.addParam("fv", removedSWFV);
-		return (FVHashMap) Application.client.sendRequest(request);
+		return (FVHashMap) Application.WN_Client.sendRequest(request);
 	}
 }

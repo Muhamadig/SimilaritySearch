@@ -14,10 +14,11 @@ import model.FVKeySortedMap;
 public class main {
 
 	public static void main(String[] args) throws FileNotFoundException{
-		File file = new File("A.O. -v- Refugee Appeals Tribunal & ors.html.xml");
-		FileInputStream inputS=new FileInputStream(file);
-		
-		System.out.println();
+		String text="Ó Gríanna & ors -v- An Bord Pleanála & ors.html.xml";
+		System.out.println(text);
+		text=text.substring(0,text.indexOf(".html.xml"))+"_1"+text.substring(text.indexOf(".html.xml"), text.length());
+
+		System.out.println(text);
 	}
 }
 

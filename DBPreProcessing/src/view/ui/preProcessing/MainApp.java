@@ -8,13 +8,21 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import Client.Client;
+import controller.DBController;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 
@@ -22,8 +30,12 @@ public class MainApp extends JFrame {
 	
 	
 	private static final long serialVersionUID = 1L;
-	
-	public MainApp() {
+	private Client wN_Client;
+	private Client client;
+	protected DBController dbc;
+	public MainApp(Client wN_Client, Client client) {
+		this.wN_Client=wN_Client;
+		this.client=client;
 		getContentPane().setFont(new Font("Arial", Font.BOLD, 36));
 		setBackground(SystemColor.inactiveCaptionBorder);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,23 +60,73 @@ public class MainApp extends JFrame {
 		lblNewLabel_1.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 14));
 		lblNewLabel_1.setForeground(SystemColor.controlLtHighlight);
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.BOTTOM);
+		
+		JLabel lblNewLabel_2 = new JLabel("Word Net Server ");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2.setForeground(SystemColor.controlLtHighlight);
+		
+		JLabel lblNewLabel_3 = new JLabel("Similarity Search Server");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_3.setForeground(SystemColor.controlLtHighlight);
+		
+		JButton db_update_btn = new JButton("Update DataBase");
+		db_update_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if(!MainApp.this.client.isConnected()){
+					JOptionPane.showMessageDialog(null, "The Server is not Connected!", "Server Offline", ERROR);
+					return;
+				}
+				
+				dbc=DBController.getInstance();
+				dbc.createClusters();
+				dbc.createTexts();
+			}
+		});
+		db_update_btn.setBackground(SystemColor.inactiveCaptionBorder);
+		if(!client.isConnected()) db_update_btn.setEnabled(false);
+		
+		JLabel wnStatus = new JLabel(this.wN_Client.isConnected()?"Connected":"Not Connected");
+		wnStatus.setForeground(SystemColor.inactiveCaptionBorder);
+		
+		JLabel serverStatus = new JLabel(this.client.isConnected()?"Connected":"Not Connected");
+		serverStatus.setForeground(SystemColor.inactiveCaptionBorder);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
+			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(52)
+					.addContainerGap()
 					.addComponent(lblNewLabel)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel_1)
-					.addContainerGap(730, Short.MAX_VALUE))
+					.addGap(54)
+					.addComponent(lblNewLabel_2)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(wnStatus)
+					.addGap(44)
+					.addComponent(lblNewLabel_3)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(serverStatus)
+					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+					.addComponent(db_update_btn)
+					.addGap(101))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(lblNewLabel_1))
-					.addContainerGap(25, Short.MAX_VALUE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+							.addComponent(lblNewLabel)
+							.addComponent(lblNewLabel_1))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblNewLabel_2)
+								.addComponent(lblNewLabel_3)
+								.addComponent(db_update_btn)
+								.addComponent(wnStatus)
+								.addComponent(serverStatus))))
+					.addContainerGap(14, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		
@@ -82,7 +144,7 @@ public class MainApp extends JFrame {
 		/**
 		 * Tab1:
 		 */
-		JPanel tab1=new Tab1();
+		JPanel tab1=new Tab1(this.wN_Client);
 		tab1.setBackground(Color.WHITE);
 		tabbedPane.addTab("Process All Texts", tab, tab1,"Build Frequency Vectors for All Texts");
 		
@@ -103,9 +165,10 @@ public class MainApp extends JFrame {
 	
 	}
 
-	public static void run(){
+	public static void run(Client wN_Client, Client client){
 		//Schedule a job for the event dispatch thread:
 		//creating and showing this application's GUI.
+		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
@@ -118,9 +181,8 @@ public class MainApp extends JFrame {
 			public void run() {
 				//Turn off metal's use of bold fonts
 				UIManager.put("swing.boldMetal", Boolean.FALSE);
-				new MainApp().setVisible(true);
+				new MainApp(wN_Client,client).setVisible(true);
 			}
 		});
 	}
-
 }

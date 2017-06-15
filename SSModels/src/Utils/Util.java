@@ -20,6 +20,11 @@ public class Util {
 	public static String cutExtension(String fileName){
 		return fileName.replaceAll(".*\\.(html|pdf|docx|doc|xml)","$0");
 	}
+	
+	public static String get_XmlFile_Name(String fullName){
+		return fullName.substring(0, fullName.indexOf(".xml"));
+
+	}
 	public static  Map<String, Integer> sortByKeys(Map fv){
 		FVHashMap res= new FVHashMap();
 		Map<String, Integer> map= new TreeMap<String,Integer>(fv);
@@ -30,14 +35,6 @@ public class Util {
 		return map;
 		
 	}
-//	public static FVValueSorted sortByValues(FVKeySortedMap fv){  
-//		FVValueSorted sorted=new FVValueSorted(fv);
-//		FVComparatorByValue comparator =new FVComparatorByValue();
-//	
-//		Collections.sort(sorted, comparator);
-//		return sorted;
-//		
-//    }
 	
 	public static String toString(FVHashMap vec)
 	{

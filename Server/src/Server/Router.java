@@ -10,10 +10,10 @@ import Views.*;
  *
  */
 public class Router {
-//	Doctors doctors = new Doctors();
 	
-	Users users = new Users();
+	Texts texts=new Texts();
 	
+	Clusters clusters=new Clusters();
 
 	/**
 	 * Router constructor.
@@ -29,8 +29,11 @@ public class Router {
 	 */
 	public Object resolve(Request request) {
 		switch (request.getView()) {
-//		case "doctors":
-//			return doctors.resolve(request);
+		case "texts":
+			return texts.resolve(request);
+		
+		case "clusters":
+			return clusters.resolve(request);
 		}
 		return null;
 	}

@@ -17,7 +17,7 @@ public class Client extends AbstractClient {
 		try {
 			return this.sendToServer(request);
 		} catch (ClassNotFoundException | IOException e) {
-			Config.getConfig().getLogger().exception(e);
+			WNSConfig.getConfig().getLogger().exception(e);
 			return null;
 		}
 	}
@@ -30,7 +30,7 @@ public class Client extends AbstractClient {
 		try {
 			openConnection();
 		} catch (IOException e) {
-			Config.getConfig().getLogger().exception(e);
+			WNSConfig.getConfig().getLogger().exception(e);
 		}
 	}
 
@@ -38,7 +38,7 @@ public class Client extends AbstractClient {
 		try {
 			closeConnection();
 		} catch (IOException e) {
-			Config.getConfig().getLogger().exception(e);
+			WNSConfig.getConfig().getLogger().exception(e);
 
 		}
 	}
