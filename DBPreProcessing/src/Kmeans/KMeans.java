@@ -1,29 +1,17 @@
 package Kmeans;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-import org.jfree.ui.RefineryUtilities;
-
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-
 import XML.XML;
 import XML.XMLFactory;
-import model.FVHashMap;
 import model.FVKeySortedMap;
-import model.FVValueSorted;
-import view.LineChart_AWT;
 
 public class KMeans {
  
 	//Number of Clusters. This metric should be related to the number of points
-    private int NUM_CLUSTERS;   
+    private int NUM_CLUSTERS=-1;   
     
     //Number of Points
     private static int NUM_CORDINATES;
@@ -32,21 +20,25 @@ public class KMeans {
     private static  int MAX_COORDINATE=19343;
     private List<Point> points;
     private List<Cluster> clusters;
-    
-    public KMeans(){
+    private String dir;
+    public KMeans(String directory){
     	this.points = new ArrayList<Point>();
     	this.clusters = new ArrayList<Cluster>();  
+    	dir = directory;
     }
     
-    public KMeans(int NOClusters){
+    public KMeans(int NOClusters,String directory){
     	this.NUM_CLUSTERS = NOClusters;
     	this.points = new ArrayList<Point>();
     	this.clusters = new ArrayList<Cluster>();  
-    	
+    	dir = directory;
     }
     
+    public int GetNOClusters(){
+    	return this.NUM_CLUSTERS;
+    }
     public void SetPoints(ArrayList<ArrayList<Double>> allpoints){
-    	File dir = new File("final/");
+    	File dir = new File(this.dir+"/");
 		File[] directoryListing = dir.listFiles();
     	for(int i=0;i<allpoints.size();i++){
     		Point toadd = new Point(allpoints.get(i));
@@ -116,11 +108,11 @@ public class KMeans {
         		finish = true;
         	}
         }
-        plotClusters();
+        //plotClusters();
       //  System.out.println("Done ... " + ((System.currentTimeMillis()-t)/1000/60) + " Minutes");
     }
     
-    private void plotClusters(){
+    public void plotClusters(){
     	TreeMap <Integer ,ArrayList<String>> data = new TreeMap <Integer ,ArrayList<String>>();
     	TreeMap <Integer , ArrayList<String>> centroid = new TreeMap<Integer,ArrayList<String>>(); 
     	XML fvXml = XMLFactory.getXML(XMLFactory.HashList);
@@ -225,19 +217,19 @@ public class KMeans {
         }
     }
     
-    public static ArrayList<ArrayList<Double>> getAllFrequencies(){
+    public static ArrayList<ArrayList<Double>> getAllFrequencies(String directory){
 
     	ArrayList<ArrayList<Double>> allfreq = new ArrayList<ArrayList<Double>>();
     	ArrayList<Double> toadd;
     	XML fvXml = XMLFactory.getXML(XMLFactory.FVSortedMap);
-    	File dir = new File("final/");
+    	File dir = new File(directory+"/");
 		File[] directoryListing = dir.listFiles();
 		if (directoryListing == null){
 			System.err.println("no xml files founded");
 			return null;
 		}
 		for(int i=0;i< directoryListing.length ;i++){
-			FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvXml.Import("final/"+directoryListing[i].getName());
+			FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvXml.Import(dir+"/"+directoryListing[i].getName());
 			 toadd = new ArrayList<Double>();
 			 for(String key : SortedFreqVec.keySet())
 				 toadd.add(SortedFreqVec.get(key)*1.0);
@@ -255,7 +247,7 @@ public class KMeans {
 //		chart.setVisible( true );
 //    }
     
-    static int CalculateNOClusters(ArrayList<ArrayList<Double>> FreqPoints){
+    public static int CalculateNOClusters(ArrayList<ArrayList<Double>> FreqPoints){
     	int ClustersNumber; 
     	KMeans kmeans =null;
     	double dist = 0;
@@ -265,8 +257,8 @@ public class KMeans {
     		int len = FreqPoints.get(0).size();
     		int max = Point.MaximumCordinate(FreqPoints);
     	
-    	for(ClustersNumber =1 ; ClustersNumber < 31;ClustersNumber++){
-    		kmeans= new KMeans(ClustersNumber);
+    	for(ClustersNumber =1 ; ClustersNumber < 15;ClustersNumber++){
+    		kmeans= new KMeans(ClustersNumber,"final");
     		KMeans.initCordinates(max, len);
         	kmeans.init();
         	kmeans.SetPoints(FreqPoints);
@@ -280,7 +272,7 @@ public class KMeans {
     	for(int i=1;i<data.size();i++){
     		double dist1 = data.get(i-1);
     		double dist2 = data.get(i);
-    		if(dist1/dist2 < 1.2){
+    		if(dist1/dist2 < 1.15){
     			System.out.println("Optimal Clusters NUmber is: " +i);
     			return i;
     		}
@@ -291,20 +283,27 @@ public class KMeans {
 }
     
     private KMeans CalculateClusters(){
-    	System.out.println("Start Clustering...");
- 	   long t = System.currentTimeMillis();
- 	   ArrayList<ArrayList<Double>> frequencies = KMeans.getAllFrequencies();
+    	 KMeans km;
+     	System.out.println("Start Clustering...");
+  	   long t = System.currentTimeMillis(); 
+  	   
+    	 ArrayList<ArrayList<Double>> frequencies = KMeans.getAllFrequencies(this.dir);
+    	 
+    	if(NUM_CLUSTERS ==-1){
+	   
  	   int NOClusters = KMeans.CalculateNOClusters(frequencies);
-		int len = frequencies.get(0).size();
-		int max = Point.MaximumCordinate(frequencies);
- 	   KMeans km = new KMeans(NOClusters);
- 	   km.initCordinates(max, len);
- 	   km.init();
- 	   km.SetPoints(frequencies);
- 	   km.calculate();
- 	   
- 	   System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000/60) + " Minitues");
- 	   return km;
+
+ 	  km = new KMeans(NOClusters,this.dir);
+    	}
+    	else
+       km = new KMeans(NUM_CLUSTERS , dir);
+       km.init();
+  	   km.SetPoints(frequencies);
+  	   km.calculate();
+  	   
+  	   System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000/60) + " Minitues");
+  	   return km;
+    		
     }
     
     private void getClustersFromFile(TreeMap<Integer, ArrayList<String>> res){
@@ -313,9 +312,11 @@ public class KMeans {
     	XML fvxml = XMLFactory.getXML(XMLFactory.HashList);
 
     	ArrayList<Double> toadd;
+    	
     	clearClusters();
     	@SuppressWarnings("unchecked")
 		TreeMap <Integer,ArrayList<String>> Centerpoint = (TreeMap<Integer, ArrayList<String>>) fvxml.Import("Centroids.xml");
+    	
 		for(Integer key : res.keySet()){
 			Cluster c = new Cluster(key);
 			ArrayList<String> cent = Centerpoint.get(key);
@@ -324,13 +325,10 @@ public class KMeans {
 				cordinates.add(Double.parseDouble(cordinate)); 
 			Point centroid = new Point(cordinates);
 			c.setCentroid(centroid);
-			//Point temp = c.getCentroid();
-			//System.out.println(temp.toString());
-			//System.out.println("Cluster number : " + key);
 			ArrayList<String> files = res.get(key);
 			fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
 			for(String filename: files){
-				FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvxml.Import("final/"+filename);
+				FVKeySortedMap SortedFreqVec  =  (FVKeySortedMap) fvxml.Import(dir+"/"+filename);
 				toadd = new ArrayList<Double>();
 				 for(String freq : SortedFreqVec.keySet())
 					 toadd.add(SortedFreqVec.get(freq)*1.0);
@@ -347,6 +345,7 @@ public class KMeans {
 		for(String key : words.keySet())
 		CW.add(key);
 		Cluster.DBCommonWords = CW;*/
+		this.NUM_CLUSTERS = clusters.size();
 		System.out.println("Done Clustering ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
     }
     
@@ -355,26 +354,28 @@ public class KMeans {
     	@SuppressWarnings("unchecked")
 		TreeMap<Integer, ArrayList<String>> res = (TreeMap<Integer, ArrayList<String>>) fvxml.Import("Clusters.xml");
     	if(res ==null)
-    		return CalculateClusters();
+    		this.clusters = CalculateClusters().getclusters();
     	else
     		getClustersFromFile(res);
 
+    	Cluster.SetDBCommonWords();
     	for(Cluster c : clusters)
     		c.GetCW();
+    	
     	return this;
     }
    
     public static void main(String[] args) {
     	System.out.println("Calculating frequencies ... ");
     	long t = System.currentTimeMillis();
-    	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies();
+    	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies("final");
     	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
     //	int NOClusters = KMeans.CalculateNOClusters(freqs);
     	
-		int len = freqs.get(0).size();
-		int max = Point.MaximumCordinate(freqs);
-    	KMeans km = new KMeans(6);
-    	km.initCordinates(max, len);
+//		int len = freqs.get(0).size();
+//		int max = Point.MaximumCordinate(freqs);
+    	KMeans km = new KMeans(6,"final");
+    	//km.initCordinates(max, len);
     	km.init();
     	km.SetPoints(freqs);
     	km.calculate();

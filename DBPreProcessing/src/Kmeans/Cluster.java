@@ -2,7 +2,6 @@ package Kmeans;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.jfree.ui.RefineryUtilities;
 
@@ -25,14 +24,16 @@ public class Cluster {
 	//private static final String [] thresholds={"[frand,1996]","[sculptural relief,16]","[shower down,mistreat]","[likewise,protective]","[detention,barricade]","[amy,dec]"};
 	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
 	private ArrayList<String> ClusterCW;
+	public static ArrayList<String> GlobalCW=new ArrayList<String>();
+	
 	//Creates a new Cluster
-
 	public Cluster(int id) {
 		this.id = id;
 		this.points = new ArrayList<Point>();
 		this.centroid = null;
 		CommonWords = new FVValueSorted();
 		ClusterCW = new ArrayList<String>();
+		
 	}
  
 	static void SetDBCommonWords(){
@@ -41,6 +42,17 @@ public class Cluster {
 		for(int i=0;i<CW.size();i++)
 			DBCommonWords.add(CW.get(i).getKey());
 	}
+	
+//	public double CommonDistnce(FVHashMap text){
+//		double dist = 0.0;
+//		for(String CW : GlobalCW)
+//			if(text.containsKey(CW))
+//				dist += Math.pow((text.get(CW) - CommonWords.getByKey(CW)), 2);
+//			else
+//				dist+=Math.pow(CommonWords.getByKey(CW), 2);
+//		System.out.println("Cluster number: "+id + " CW Distance is: " + dist);
+//		return dist;
+//	}
 	
 	public double CommonDistnce(FVHashMap text){
 		double dist=0.0;
@@ -135,12 +147,14 @@ public class Cluster {
     
     public FVValueSorted CalculateDiffCW(){
 
+    	if(CommonWords.isEmpty())
+    		CalculateCW();
     	FVHashMap _result = new FVHashMap();
     	for(int i=0;i<CommonWords.size()-1;i++)
     		_result.put("["+CommonWords.get(i).getKey() +"," + CommonWords.get(i+1).getKey()+"]" , CommonWords.get(i).getValue() - CommonWords.get(i+1).getValue() );
     	
     	FVValueSorted results = new FVValueSorted(_result);
-    	DiffCW = results;
+    	DiffCW = (FVValueSorted) results.clone();
     	return results;
     }
     
@@ -151,7 +165,7 @@ public class Cluster {
     public void GetCW(){
     	int threshold = thresholds[id];
     	if(DiffCW == null)
-    		DiffCW=CalculateCW();
+    		DiffCW = CalculateDiffCW();
     	int i=1;
     	String words;
     	while(i < threshold){

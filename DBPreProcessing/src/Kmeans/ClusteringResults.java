@@ -14,10 +14,14 @@ import javax.swing.ListSelectionModel;
 import view.ui.utils.MyTableModel;
 
 public class ClusteringResults extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTable Clusters_table;
 	//private ContentPane content;
 	public ClusteringResults(List<Cluster> data){
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setTitle("Clusters");
 		setBounds(0, 0, 600, 450);

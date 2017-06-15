@@ -133,7 +133,7 @@ public class MainApp extends JFrame {
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
 		tabbedPane.setBounds(0, 46, 1000, 500);
-		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 		tabbedPane.setFont(new Font("Microsoft New Tai Lue", Font.PLAIN, 18));
 		tabbedPane.setBorder(null);
 		tabbedPane.setBackground(Color.WHITE);

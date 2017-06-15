@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -36,6 +37,7 @@ import controller.Pareto;
 import controller.Proccessing;
 import model.FVHashMap;
 import model.FVKeySortedMap;
+import model.FVValueSorted;
 import model.Language;
 import model.Language.Langs;
 import view.ui.utils.MyTableModel;
@@ -43,7 +45,11 @@ import model.Text;
 import javax.swing.JLabel;
 
 public class ClientApp extends JFrame {
-//	private JTextField files_text;
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	//	private JTextField files_text;
 	private String lastPathFiles;
 	private JLabel lblUploadYourFile;
 	private JPanel panel;
@@ -134,7 +140,7 @@ public class ClientApp extends JFrame {
 				XML fvxml = XMLFactory.getXML(XMLFactory.FV);
 				FVHashMap global = (FVHashMap) fvxml.Import("Expanded/results/global.xml");
 				inputVect = Expand(inputVect , global);
-				fvxml.export(inputVect, "after.xml");
+			
 				Calculate();
 				setCursor(null);
 			}
@@ -227,8 +233,8 @@ public class ClientApp extends JFrame {
 	private void Calculate(){
 		System.out.println("Start Searching ...");
 		long t = System.currentTimeMillis();
-    	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies();
-    	KMeans km = new KMeans();
+    	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies("final");
+    	KMeans km = new KMeans("final/");
     	km.init();
     	km.SetPoints(freqs);
     	km.Clustering();
@@ -238,6 +244,20 @@ public class ClientApp extends JFrame {
     	copyinput = Remove(inputVect,Cluster.DBCommonWords);
     	
     	this.clusters = km.getclusters();
+//    	FVHashMap AllCW = new FVHashMap();
+//    	for(Cluster c : clusters){
+//    		ArrayList<String> temp = c.GetClusterCW();
+//    		
+//    		for(String e : temp)
+//    			
+//    				AllCW.put(e, 1);
+//    	}
+//    	for(String word : AllCW.keySet())
+//    		if(AllCW.get(word) == km.GetNOClusters()){
+//    			System.out.println(word);
+//    			Cluster.GlobalCW.add(word);
+//    		}
+    	
     	int cluster = getCluster();
     	System.out.println("Cluster number is: "+cluster);
     	//Get the specific cluster Common words
@@ -317,7 +337,8 @@ public class ClientApp extends JFrame {
 	
 	private FVHashMap Remove(FVHashMap original , ArrayList<String> DBCW){
 		for(String CW : DBCW)
-			original.remove(CW);
+			if(original.containsKey(CW))
+				original.remove(CW);
 		return original;
 	}
 	
