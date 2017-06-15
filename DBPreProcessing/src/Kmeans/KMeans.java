@@ -108,7 +108,7 @@ public class KMeans {
         		finish = true;
         	}
         }
-        //plotClusters();
+        plotClusters();
       //  System.out.println("Done ... " + ((System.currentTimeMillis()-t)/1000/60) + " Minutes");
     }
     
@@ -372,15 +372,13 @@ public class KMeans {
     	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
     //	int NOClusters = KMeans.CalculateNOClusters(freqs);
     	
-//		int len = freqs.get(0).size();
-//		int max = Point.MaximumCordinate(freqs);
+		int len = freqs.get(0).size();
+		int max = Point.MaximumCordinate(freqs);
     	KMeans km = new KMeans(6,"final");
-    	//km.initCordinates(max, len);
+    	km.initCordinates(max, len);
     	km.init();
     	km.SetPoints(freqs);
     	km.calculate();
-
-    	
    }
     
   
