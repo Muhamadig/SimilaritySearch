@@ -36,9 +36,9 @@ public class Cluster {
 		
 	}
  
-	static void SetDBCommonWords(){
+	static void SetDBCommonWords(String dir){
 		XML fvxml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
-		FVValueSorted CW = (FVValueSorted) fvxml.Import("Expanded/results/common.xml");
+		FVValueSorted CW = (FVValueSorted) fvxml.Import(dir+"/results/common.xml");
 		for(int i=0;i<CW.size();i++)
 			DBCommonWords.add(CW.get(i).getKey());
 	}
@@ -132,7 +132,7 @@ public class Cluster {
     	ArrayList<FVKeySortedMap> texts = new ArrayList<FVKeySortedMap>();
     	FVHashMap freqs = new FVHashMap();
     	for(Point p : points){
-    		FVKeySortedMap text = (FVKeySortedMap) fvxml.Import("final/"+p.getName());
+    		FVKeySortedMap text = (FVKeySortedMap) fvxml.Import("FinalFVs/"+p.getName());
     		  texts.add(text);
     		  for(String key : text.keySet())
     			  freqs.put(key, text.get(key));
