@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,8 +17,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import com.itextpdf.text.DocumentException;
 import model.FVHashMap;
-import model.Language;
-import model.Language.Langs;
+
 
 
 public class DB {
