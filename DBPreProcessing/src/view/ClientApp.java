@@ -235,7 +235,7 @@ public class ClientApp extends JFrame {
 		System.out.println("Start Searching ...");
 		long t = System.currentTimeMillis();
     	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies("final");
-    	KMeans km = new KMeans("final/");
+    	KMeans km = new KMeans("final/",null);
     	km.init();
     	km.SetPoints(freqs);
     	km.Clustering();

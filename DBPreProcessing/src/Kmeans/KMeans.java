@@ -21,10 +21,12 @@ public class KMeans {
     private List<Point> points;
     private List<Cluster> clusters;
     private String dir;
-    public KMeans(String directory){
+    private String CWdir;
+    public KMeans(String directory, String CW){
     	this.points = new ArrayList<Point>();
     	this.clusters = new ArrayList<Cluster>();  
     	dir = directory;
+    	CWdir = CW;
     }
     
     public KMeans(int NOClusters,String directory){
@@ -358,9 +360,9 @@ public class KMeans {
     	else
     		getClustersFromFile(res);
 
-    	Cluster.SetDBCommonWords();
-    	for(Cluster c : clusters)
-    		c.GetCW();
+//    	Cluster.SetDBCommonWords(CWdir);
+//    	for(Cluster c : clusters)
+//    		c.GetCW();
     	
     	return this;
     }

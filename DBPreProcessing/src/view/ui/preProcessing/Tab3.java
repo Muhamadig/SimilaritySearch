@@ -8,17 +8,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
+import Kmeans.Cluster;
 import Kmeans.ClusteringResults;
 import Kmeans.KMeans;
+import Kmeans.Point;
 import controller.Proccessing;
-import view.ProgressBar;
 import view.ui.utils.Browse;
+import view.ui.utils.MyTableModel;
+
 import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 
 public class Tab3 extends JPanel{
@@ -41,12 +51,12 @@ public class Tab3 extends JPanel{
 	private JPanel clustering;
 	private KMeans km;
 	private ClusteringResults res;
-	private ProgressBar loading;
+	private JTable table;
 	public Tab3() {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		setPreferredSize(new Dimension(700, 500));
-		
+
 		textField_import = new JTextField();
 		textField_import.setColumns(10);
 		textField_import.setBounds(10, 64, 424, 20);
@@ -61,8 +71,8 @@ public class Tab3 extends JPanel{
 		label1.setBackground(Color.WHITE);
 		label1.setBounds(10, 95, 424, 14);
 		add(label1);
-		
-		
+
+
 		textField_export = new JTextField();
 		textField_export.setColumns(10);
 		textField_export.setBounds(10, 120, 424, 20);
@@ -85,38 +95,65 @@ public class Tab3 extends JPanel{
 		prepareClustering_btn3.setBounds(444, 168, 223, 23);
 		prepareClustering_btn3.setEnabled(false);
 		add(prepareClustering_btn3);
-		
-		 clustering = new JPanel();
-		clustering.setBounds(44, 232, 514, 76);
+
+		clustering = new JPanel();
+		clustering.setBounds(10, 202, 657, 287);
 		add(clustering);
 		clustering.setLayout(null);
-		
-		JLabel lblYourFilesAre = new JLabel("Your files are ready , to start the clustering process click the button");
-		lblYourFilesAre.setBounds(20, 6, 488, 16);
-		lblYourFilesAre.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		clustering.add(lblYourFilesAre);
-		
-		JButton btnClustering = new JButton("Clustering");
+
+		JButton btnClustering = new JButton("Show Clusters");
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				loading = new ProgressBar();
-				km = new KMeans(sortedDirectory);
+				km = new KMeans(sortedDirectory,textField_import.getText());
 				km.init();
 				km.Clustering();
-				loading.done();
+				List<Cluster> clusters=km.getclusters();
+				int count=1;
+				DefaultTableModel dm = (DefaultTableModel) table.getModel();
+
+				for(int i=0;i<clusters.size();i++){
+					List<Point> cpoints = clusters.get(i).getPoints();
+					for(Point p: cpoints){
+						dm.addRow(new Object[]{count,clusters.get(i).getId(),p.getName().replace(".html.xml", "")});
+						count++;
+					}
+				}
 				res = new ClusteringResults(km.getclusters());
 				res.setVisible(true);
 				
 			}
 		});
-		btnClustering.setBounds(187, 34, 117, 29);
-		 clustering.add(btnClustering);
-	    
-		clustering.setVisible(false);
+		btnClustering.setBounds(254, 11, 117, 29);
+		clustering.add(btnClustering);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 47, 650, 240);
+		clustering.add(scrollPane);
+
+
+		String[] columnNames = {"#", "Cluster","Text Name"};
+		Object[][] texts_tabel = {};
+		table = new JTable();
+		table.setModel(new MyTableModel(columnNames, texts_tabel));
+		table.setFillsViewportHeight(true);
+		table.setSurrendersFocusOnKeystroke(true);
+		table.setShowVerticalLines(false);
+		table.setRowHeight(30);
+		table.setFont(new Font("Tahoma", Font.PLAIN, 16));		
+		
+		scrollPane.setViewportView(table);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setBackground(Color.WHITE);
+		table.getColumnModel().getColumn(0).setPreferredWidth(50);
+		table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		table.getColumnModel().getColumn(2).setPreferredWidth(500);
+		
+
+		clustering.setVisible(true);
 
 		import_dir=false;
 		export_dir=false;
-	
+
 		prepareClustering_btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				prepareClustering_handler();
@@ -137,7 +174,7 @@ public class Tab3 extends JPanel{
 				select_expandedFiles_handler();
 			}
 		});
-		
+
 	}
 
 	private void select_expandedFiles_handler() {
@@ -179,7 +216,6 @@ public class Tab3 extends JPanel{
 	}
 
 	private void prepareClustering_handler() {
-	ProgressBar load = new ProgressBar();
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		Proccessing proc=new Proccessing();
 		ArrayList<String> fv_paths=new ArrayList<>();
@@ -194,7 +230,6 @@ public class Tab3 extends JPanel{
 
 		proc.sortFV_BY_Key_Export(fv_paths,fv_names,sortedDirectory);
 		setCursor(null);
-		load.done();
 		JOptionPane.showMessageDialog(null,"DONE.\nThe texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys .\n"
 				+ " you can find your xml files at:\n "+ sortedDirectory);
 	}

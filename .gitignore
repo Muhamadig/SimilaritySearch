@@ -6,3 +6,4 @@ DBPreProcessing/libraries/stanford-english-kbp-corenlp-2016-10-31-models.jar
 /DBPreProcessing/build/
 /OCSF/build/
 /SSModels/build/
+*.xml
