@@ -1,96 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Frequecny_Vector>
   <Map>
-    <key>sufficiently</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>allowed</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>c12909</key>
+    <key>functions</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>building</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>via</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>properly</key>
+    <key>withdrawn</key>
     <value>2</value>
+  </Map>
+  <Map>
+    <key>nowadays</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>explanation</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>remote</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>asserts</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>approved</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>protected</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>gaskin</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>ten</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>farm</key>
-    <value>36</value>
-  </Map>
-  <Map>
-    <key>pedantic</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>agreement</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>inviting</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>tew</key>
+    <key>conjunctive</key>
     <value>1</value>
   </Map>
   <Map>
     <key>neutral</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>competent</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>analysis</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>boxus</key>
+    <key>circular</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>planning</key>
-    <value>28</value>
+    <key>require</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>baker</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>1</key>
-    <value>7</value>
+    <value>10</value>
   </Map>
   <Map>
     <key>2</key>
-    <value>5</value>
+    <value>9</value>
   </Map>
   <Map>
     <key>3</key>
-    <value>2</value>
+    <value>11</value>
   </Map>
   <Map>
     <key>4</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>size</key>
-    <value>1</value>
+    <key>5</key>
+    <value>4</value>
   </Map>
   <Map>
-    <key>5</key>
-    <value>2</value>
+    <key>left</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>6</key>
@@ -98,7 +90,7 @@
   </Map>
   <Map>
     <key>7</key>
-    <value>3</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>8</key>
@@ -109,131 +101,107 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>extracts</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>eia</key>
-    <value>28</value>
-  </Map>
-  <Map>
-    <key>wind</key>
-    <value>40</value>
-  </Map>
-  <Map>
-    <key>appropriate</key>
-    <value>14</value>
-  </Map>
-  <Map>
-    <key>newspaper</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>chapter</key>
+    <key>statute</key>
     <value>1</value>
   </Map>
   <Map>
     <key>entitled</key>
-    <value>3</value>
+    <value>8</value>
   </Map>
   <Map>
-    <key>12th</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>providing</key>
+    <key>accessible</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>role</key>
+    <key>turf</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>independent</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>concluded</key>
-    <value>3</value>
+    <value>5</value>
   </Map>
   <Map>
-    <key>achieve</key>
+    <key>tribunal</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>alleged</key>
+    <key>example</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>eis</key>
-    <value>17</value>
+    <key>result</key>
+    <value>9</value>
   </Map>
   <Map>
-    <key>245082</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>refuse</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>variations</key>
+    <key>opposition</key>
     <value>1</value>
   </Map>
   <Map>
     <key>procedures</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>commission</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>aspect</key>
+    <key>rational</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>hand</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>agreed</key>
-    <value>1</value>
+    <key>resolved</key>
+    <value>5</value>
   </Map>
   <Map>
     <key>policy</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>mitigate</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>namely</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
     <key>union</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>faced</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>andor</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>consisting</key>
+    <key>blood</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>rathgaskig</key>
+    <key>entering</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>consultant</key>
-    <value>2</value>
+    <key>impartial</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>procedurally</key>
+    <key>obvious</key>
     <value>1</value>
   </Map>
   <Map>
     <key>information</key>
-    <value>16</value>
+    <value>65</value>
   </Map>
   <Map>
-    <key>combined</key>
+    <key>illustration</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>ancillary</key>
+    <key>treacys</key>
     <value>1</value>
   </Map>
   <Map>
@@ -241,396 +209,308 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>purposive</key>
-    <value>3</value>
+    <key>discuss</key>
+    <value>4</value>
   </Map>
   <Map>
-    <key>standard</key>
+    <key>reports</key>
     <value>1</value>
   </Map>
   <Map>
     <key>november</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>screening</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>correct</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>evidence</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>emphasising</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>kerry</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>red</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>analyses</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>assessment</key>
-    <value>18</value>
-  </Map>
-  <Map>
-    <key>ref</key>
+    <key>resolve</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>act</key>
-    <value>11</value>
+    <key>correct</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>completeness</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>wish</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>amounts</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>reconsideration</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>generated</key>
+    <key>avers</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>tim</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>export</key>
+    <key>invitation</key>
     <value>1</value>
   </Map>
   <Map>
     <key>european</key>
-    <value>7</value>
+    <value>8</value>
   </Map>
   <Map>
-    <key>originally</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>remedy</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>consent</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>8th</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>respect</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>article</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>lack</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>sharpston</key>
+    <key>characterised</key>
     <value>2</value>
   </Map>
   <Map>
     <key>authority</key>
-    <value>6</value>
+    <value>7</value>
   </Map>
   <Map>
-    <key>603</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>useful</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>applied</key>
+    <key>permitting</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>oleary</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>precisely</key>
+    <key>regional</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>vol</key>
+    <key>provided</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>reasoned</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>previously</key>
+    <key>embody</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>envisage</key>
+    <key>expanded</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>society</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>provider</key>
     <value>1</value>
   </Map>
   <Map>
     <key>provides</key>
-    <value>1</value>
+    <value>7</value>
   </Map>
   <Map>
-    <key>scope</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>ensuring</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>hare</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>effectiveness</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>identify</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>authorise</key>
+    <key>bhrc</key>
     <value>2</value>
+  </Map>
+  <Map>
+    <key>hard</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>618</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>live</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>definitively</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>citation</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>env</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>noted</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>special</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>amended</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>modify</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>environment</key>
-    <value>10</value>
-  </Map>
-  <Map>
-    <key>berkeley</key>
+    <key>approval</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>referenced</key>
-    <value>1</value>
+    <key>expose</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>service</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>21st</key>
-    <value>2</value>
+    <value>39</value>
   </Map>
   <Map>
     <key>permit</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>handling</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>115km</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>referred</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>taking</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>named</key>
-    <value>1</value>
-  </Map>
-  <Map>
     <key>considered</key>
-    <value>5</value>
+    <value>6</value>
   </Map>
   <Map>
     <key>delivered</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>entire</key>
+    <key>kenny</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>prohibits</key>
     <value>1</value>
   </Map>
   <Map>
     <key>approach</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>variation</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>ultra</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>632</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>proceedings</key>
-    <value>8</value>
-  </Map>
-  <Map>
-    <key>judge</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>coomataggart</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>similar</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>proceed</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>inter</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>impacts</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>642</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>connector</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>643</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>406</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>partial</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>engaged</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>indicated</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>city</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>protection</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>matter</key>
     <value>7</value>
   </Map>
   <Map>
-    <key>instant</key>
+    <key>struck</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>accommodate</key>
+    <key>ceased</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>13509</key>
+    <key>period</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>advertised</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>noise</key>
+    <key>considering</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>decisions</key>
+    <key>corporation</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>assertion</key>
+    <key>schaffung</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>understand</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>custody</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>propose</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reform</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>assisted</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>remit</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>bringing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>arrogance</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>prohibited</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>restriction</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>meetings</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>outcome</key>
+    <key>engaged</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>tender</key>
+    <key>wait</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>consequence</key>
+    <key>circuit</key>
+    <value>13</value>
+  </Map>
+  <Map>
+    <key>toa</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>discussed</key>
+    <key>save</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>2nd</key>
+    <key>protection</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>matter</key>
+    <value>18</value>
+  </Map>
+  <Map>
+    <key>mandatory</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>frankly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>restricting</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>conjunction</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>653</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>irelands</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>imperative</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>avail</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>accordingly</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>particularly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>question</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>affidavits</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>names</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>alternations</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>crosan</key>
+    <key>framework</key>
     <value>2</value>
-  </Map>
-  <Map>
-    <key>cumulative</key>
-    <value>8</value>
   </Map>
   <Map>
     <key>requiring</key>
@@ -638,10 +518,10 @@
   </Map>
   <Map>
     <key>regard</key>
-    <value>3</value>
+    <value>10</value>
   </Map>
   <Map>
-    <key>overly</key>
+    <key>undoubtedly</key>
     <value>1</value>
   </Map>
   <Map>
@@ -649,167 +529,147 @@
     <value>1</value>
   </Map>
   <Map>
+    <key>predecessors</key>
+    <value>1</value>
+  </Map>
+  <Map>
     <key>imposed</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>minor</key>
-    <value>5</value>
+    <key>30th</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>242223</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>findings</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>precision</key>
+    <key>equally</key>
     <value>2</value>
   </Map>
   <Map>
     <key>manner</key>
-    <value>5</value>
+    <value>4</value>
   </Map>
   <Map>
-    <key>construing</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>crossan</key>
+    <key>identical</key>
     <value>1</value>
   </Map>
   <Map>
     <key>judgment</key>
-    <value>12</value>
+    <value>38</value>
   </Map>
   <Map>
-    <key>115245</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>substation</key>
-    <value>8</value>
+    <key>earlier</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>function</key>
-    <value>3</value>
+    <value>10</value>
   </Map>
   <Map>
-    <key>implemented</key>
+    <key>representative</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>cable</key>
-    <value>6</value>
+    <key>frontiers</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>circumstances</key>
-    <value>11</value>
+    <value>5</value>
   </Map>
   <Map>
     <key>including</key>
-    <value>12</value>
+    <value>5</value>
   </Map>
   <Map>
     <key>law</key>
-    <value>3</value>
+    <value>29</value>
   </Map>
   <Map>
-    <key>conducted</key>
+    <key>liability</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>4th</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>applicable</key>
+    <key>omalley</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>wales</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>indiscriminate</key>
+    <key>constitutes</key>
     <value>1</value>
   </Map>
   <Map>
     <key>basis</key>
-    <value>3</value>
+    <value>4</value>
   </Map>
   <Map>
-    <key>c13109</key>
+    <key>affected</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>condition</key>
-    <value>6</value>
-  </Map>
-  <Map>
-    <key>sullivan</key>
+    <key>institutions</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>alan</key>
-    <value>1</value>
+    <key>obligation</key>
+    <value>10</value>
   </Map>
   <Map>
-    <key>substantive</key>
-    <value>6</value>
+    <key>205</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>individually</key>
-    <value>1</value>
+    <key>violation</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>october</key>
-    <value>3</value>
+    <value>15</value>
+  </Map>
+  <Map>
+    <key>209</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>constituted</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>boundary</key>
-    <value>3</value>
+    <key>cause</key>
+    <value>12</value>
   </Map>
   <Map>
-    <key>facilitate</key>
+    <key>gconn</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>mandate</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>influenced</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>running</key>
+    <key>shorthand</key>
     <value>1</value>
   </Map>
   <Map>
     <key>effective</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>similarly</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>215</key>
+    <key>times</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>debtor</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>intended</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>217</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>construction</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>01182017</key>
+    <key>land</key>
     <value>1</value>
   </Map>
   <Map>
@@ -817,196 +677,156 @@
     <value>1</value>
   </Map>
   <Map>
+    <key>imposing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>chief</key>
+    <value>1</value>
+  </Map>
+  <Map>
     <key>plc</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>adjacent</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>requirement</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>specific</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>despite</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>followed</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>rated</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>application</key>
-    <value>26</value>
-  </Map>
-  <Map>
-    <key>conduct</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>objectives</key>
     <value>5</value>
   </Map>
   <Map>
-    <key>drainage</key>
+    <key>aforementioned</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>academics</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>leander</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>conduct</key>
+    <value>11</value>
+  </Map>
+  <Map>
+    <key>activities</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>maintenance</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>refusing</key>
     <value>2</value>
-  </Map>
-  <Map>
-    <key>aroo</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>forms</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>500m</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>reason</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>developments</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>pl04240801</key>
-    <value>1</value>
   </Map>
   <Map>
     <key>discussion</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>incidental</key>
+    <key>creditworthiness</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>wherein</key>
+    <key>concern</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>professional</key>
+    <key>230</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>apb</key>
+    <key>231</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>integrity</key>
+    <key>oversight</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>237</key>
+    <key>press</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>meeting</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>element</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>peart</key>
-    <value>13</value>
-  </Map>
-  <Map>
-    <key>construe</key>
+    <key>undue</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>nis</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>defined</key>
+    <key>concealment</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>mitigation</key>
-    <value>6</value>
-  </Map>
-  <Map>
-    <key>environmental</key>
-    <value>6</value>
-  </Map>
-  <Map>
-    <key>derragh</key>
-    <value>12</value>
-  </Map>
-  <Map>
-    <key>runoff</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>completed</key>
+    <key>242</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>noncompliance</key>
+    <key>difference</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>complied</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>framores</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>impermissible</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>248</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>letter</key>
+    <key>creditor</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>reality</key>
-    <value>2</value>
+    <key>mckenna</key>
+    <value>3</value>
   </Map>
   <Map>
-    <key>dublin</key>
+    <key>safeguard</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>argued</key>
+    <key>jurisdiction</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>document</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>constitutional</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>facto</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>availability</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>scrutiny</key>
     <value>2</value>
   </Map>
   <Map>
     <key>giving</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>251</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>hungary</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>permitted</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>scenario</key>
+    <key>promote</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>supplemental</key>
+    <key>currency</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>attach</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>situation</key>
-    <value>1</value>
+    <key>limits</key>
+    <value>4</value>
   </Map>
   <Map>
     <key>legislation</key>
@@ -1014,34 +834,54 @@
   </Map>
   <Map>
     <key>receive</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>refused</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>occurred</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>correspondence</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>services</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>withdrawal</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>plenary</key>
+    <value>20</value>
+  </Map>
+  <Map>
+    <key>declaration</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>art</key>
-    <value>5</value>
-  </Map>
-  <Map>
     <key>entirely</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>standing</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>1926</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>notices</key>
+    <key>contrived</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>speech</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>absolute</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>resulted</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>okeeffe</key>
+    <key>representatives</key>
     <value>1</value>
   </Map>
   <Map>
@@ -1049,143 +889,175 @@
     <value>6</value>
   </Map>
   <Map>
-    <key>incorporate</key>
+    <key>attend</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>view</key>
+    <key>registering</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>importantly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>nationals</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>source</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>275</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>277</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>late</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>residences</key>
+    <key>continue</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>cater</key>
+    <key>basically</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>town</key>
+    <key>1937</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>acquired</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>involves</key>
+    <key>ecthr</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>actual</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>pronounced</key>
     <value>2</value>
   </Map>
   <Map>
     <key>judgments</key>
+    <value>33</value>
+  </Map>
+  <Map>
+    <key>prosecute</key>
     <value>1</value>
   </Map>
   <Map>
     <key>doubt</key>
-    <value>3</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>merit</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>significant</key>
-    <value>6</value>
+    <key>develop</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>alia</key>
+    <key>centralisation</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>parties</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>cleanrath</key>
-    <value>14</value>
-  </Map>
-  <Map>
-    <key>overall</key>
-    <value>6</value>
-  </Map>
-  <Map>
-    <key>distance</key>
+    <key>involved</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>submit</key>
-    <value>4</value>
+    <key>district</key>
+    <value>11</value>
   </Map>
   <Map>
-    <key>absence</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>conclusion</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>nor</key>
+    <key>mallak</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>impose</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>statement</key>
+    <key>statutory</key>
     <value>8</value>
   </Map>
   <Map>
+    <key>overall</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>injurious</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>297</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>298</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>stark</key>
+    <value>1</value>
+  </Map>
+  <Map>
     <key>construed</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>convention</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>commissioners</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>delivery</key>
+    <key>refusal</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>start</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>contentious</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>elizabeth</key>
+    <key>advised</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>9243eec</key>
+    <key>1965</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>learned</key>
+    <key>paid</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>radically</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>furthermore</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>accumulative</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>typical</key>
+    <key>short</key>
     <value>1</value>
   </Map>
   <Map>
     <key>time</key>
-    <value>3</value>
+    <value>25</value>
+  </Map>
+  <Map>
+    <key>anor</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>applications</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>forming</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>bernadette</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>categorised</key>
     <value>1</value>
   </Map>
   <Map>
@@ -1193,147 +1065,115 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>issues</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>17th</key>
-    <value>2</value>
-  </Map>
-  <Map>
     <key>required</key>
-    <value>11</value>
-  </Map>
-  <Map>
-    <key>bord</key>
     <value>8</value>
   </Map>
   <Map>
-    <key>measures</key>
-    <value>7</value>
-  </Map>
-  <Map>
     <key>identified</key>
-    <value>5</value>
+    <value>8</value>
   </Map>
   <Map>
-    <key>broad</key>
-    <value>2</value>
+    <key>enshrines</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>issued</key>
+    <key>specifically</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>controversial</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>plaintiff</key>
     <value>3</value>
-  </Map>
-  <Map>
-    <key>plan</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>partthe</key>
-    <value>1</value>
   </Map>
   <Map>
     <key>iehc</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>comprising</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>conclusions</key>
-    <value>3</value>
+    <value>6</value>
   </Map>
   <Map>
     <key>supreme</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>judicial</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>consequential</key>
-    <value>5</value>
+    <key>judicial</key>
+    <value>34</value>
   </Map>
   <Map>
-    <key>1986</key>
+    <key>provide</key>
+    <value>13</value>
+  </Map>
+  <Map>
+    <key>light</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>1981</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>rely</key>
+    <key>reckoned</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>determined</key>
+    <key>1989</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>farms</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>consultation</key>
+    <key>1988</key>
     <value>2</value>
   </Map>
   <Map>
     <key>primary</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>participation</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>differences</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>irish</key>
+    <key>enterprise</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>exercise</key>
-    <value>2</value>
+    <key>1998</key>
+    <value>4</value>
   </Map>
   <Map>
-    <key>offends</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>merits</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>overreached</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>receiving</key>
+    <key>1997</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>pdraig</key>
+    <key>1996</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>1992</key>
+    <key>merely</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>protect</key>
+    <key>meant</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>ledger</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>electricity</key>
+    <key>means</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>disclosure</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>organs</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>happened</key>
+    <key>consistent</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>drafting</key>
+    <key>performed</key>
     <value>1</value>
   </Map>
   <Map>
@@ -1341,144 +1181,128 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>grid</key>
-    <value>40</value>
-  </Map>
-  <Map>
-    <key>board</key>
-    <value>67</value>
-  </Map>
-  <Map>
-    <key>caoimhghn</key>
+    <key>03282017</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>applicants</key>
-    <value>26</value>
+    <key>chan</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>section</key>
-    <value>2</value>
+    <key>facility</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>15th</key>
-    <value>2</value>
+    <key>speedy</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>possession</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>outlined</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>dar</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>major</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>gearagh</key>
-    <value>2</value>
-  </Map>
-  <Map>
     <key>shown</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>inappropriate</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>worldwide</key>
     <value>1</value>
   </Map>
   <Map>
     <key>consider</key>
-    <value>1</value>
+    <value>10</value>
   </Map>
   <Map>
     <key>day</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>potential</key>
+    <key>geoghegan</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>dhuinnn</key>
-    <value>3</value>
+    <key>awaited</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>combination</key>
+    <key>fixing</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>turbine</key>
-    <value>13</value>
-  </Map>
-  <Map>
-    <key>licence</key>
+    <key>imports</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>england</key>
+    <key>created</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>discriminatory</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>recital</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>king</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>stresses</key>
+    <key>pleaded</key>
     <value>1</value>
   </Map>
   <Map>
     <key>particular</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>history</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>cliodhna</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>371b</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>effects</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>refers</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>kelleher</key>
-    <value>1</value>
+    <key>formal</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>overriding</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>effect</key>
-    <value>5</value>
+    <key>managing</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>interference</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>entertain</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>request</key>
-    <value>3</value>
+    <value>6</value>
   </Map>
   <Map>
-    <key>relocated</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>interactions</key>
+    <key>critical</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>177v</key>
+    <key>relied</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>candidate</key>
-    <value>2</value>
+    <key>judiciary</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>september</key>
-    <value>5</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>para</key>
@@ -1486,362 +1310,346 @@
   </Map>
   <Map>
     <key>relies</key>
+    <value>12</value>
+  </Map>
+  <Map>
+    <key>discontinuance</key>
     <value>1</value>
   </Map>
   <Map>
     <key>dated</key>
-    <value>4</value>
+    <value>1</value>
   </Map>
   <Map>
     <key>relief</key>
-    <value>1</value>
+    <value>11</value>
   </Map>
   <Map>
-    <key>mentioned</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>accompanying</key>
+    <key>affirmed</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>breach</key>
-    <value>2</value>
+    <key>ltd</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>requirements</key>
-    <value>9</value>
+    <key>park</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>applying</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>process</key>
+    <value>12</value>
+  </Map>
+  <Map>
+    <key>restore</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>alternative</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>confining</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>businesspro</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>seeking</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>debts</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>third</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>original</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>comply</key>
+    <key>mean</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>turbines</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>unreported</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>relocation</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>heavily</key>
+    <key>earn</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>increase</key>
+    <key>interfere</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>recommended</key>
+    <key>courtsand</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>contained</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>matters</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>various</key>
+    <key>sometime</key>
     <value>1</value>
-  </Map>
-  <Map>
-    <key>administrative</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>latter</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>determining</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>account</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>extent</key>
-    <value>4</value>
   </Map>
   <Map>
     <key>13th</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>projects</key>
-    <value>9</value>
-  </Map>
-  <Map>
-    <key>record</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>interrelationship</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>aa</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>24th</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>ac</key>
+    <key>evolved</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>conducting</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>record</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>strict</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reflects</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>knowledge</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>limitations</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>fictitious</key>
     <value>1</value>
   </Map>
   <Map>
     <key>impact</key>
-    <value>11</value>
-  </Map>
-  <Map>
-    <key>documentation</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>july</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>opportunity</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>court</key>
-    <value>18</value>
+    <value>124</value>
   </Map>
   <Map>
-    <key>am</key>
+    <key>senior</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>domain</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>oconnor</key>
+    <key>deals</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>former</key>
+    <key>dealt</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>extend</key>
+    <key>adopting</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>submitted</key>
-    <value>7</value>
+    <key>hoc</key>
+    <value>4</value>
   </Map>
   <Map>
-    <key>route</key>
+    <key>relative</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>interpretation</key>
+    <key>inappropriateness</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>plans</key>
-    <value>3</value>
+    <key>ryans</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>submissions</key>
-    <value>6</value>
+    <key>bodies</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>interdependent</key>
+    <key>existed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>characteristic</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>involvement</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>inspectors</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>consideration</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>competitive</key>
+    <key>pave</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>granna</key>
+    <key>adduced</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>c12809</key>
+    <key>weighty</key>
     <value>1</value>
-  </Map>
-  <Map>
-    <key>affect</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>138mw</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>onerous</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>thereto</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>peter</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>integral</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>consisted</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>national</key>
-    <value>13</value>
   </Map>
   <Map>
     <key>hearing</key>
-    <value>1</value>
+    <value>18</value>
   </Map>
   <Map>
-    <key>screeningnatura</key>
-    <value>2</value>
+    <key>iesc</key>
+    <value>4</value>
   </Map>
   <Map>
-    <key>set</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>incorrect</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>joined</key>
-    <value>1</value>
+    <key>business</key>
+    <value>17</value>
   </Map>
   <Map>
     <key>involve</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>procedure</key>
+    <key>obiter</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>co</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>applicant</key>
-    <value>3</value>
+    <key>march</key>
+    <value>4</value>
   </Map>
   <Map>
     <key>june</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>answer</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>kilgarven</key>
-    <value>1</value>
+    <key>meet</key>
+    <value>5</value>
   </Map>
   <Map>
     <key>stage</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>maximum</key>
+    <key>regulates</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>20mw</key>
+    <key>series</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>beg</key>
+    <key>publications</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>parte</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>sites</key>
-    <value>8</value>
-  </Map>
-  <Map>
-    <key>furnish</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>meaningful</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>prior</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>legal</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>reply</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>twomey</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>alterations</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>2001</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>2000</key>
-    <value>11</value>
-  </Map>
-  <Map>
-    <key>regarding</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>granting</key>
+    <key>ryan</key>
     <value>9</value>
   </Map>
   <Map>
-    <key>eu</key>
-    <value>4</value>
+    <key>sometimes</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>ex</key>
+    <key>questions</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>thereof</key>
+    <key>hold</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>kenedi</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>correctly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>brings</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>directorate</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>legal</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>club</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reply</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>parcel</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>test</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>enactment</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>finally</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>remained</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>enforcement</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>2001</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>agreements</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>publicly</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>interfered</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>regarding</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>month</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>final</key>
     <value>1</value>
   </Map>
   <Map>
@@ -1853,331 +1661,203 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>carry</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>hse</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>csac</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>party</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>carrying</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>sources</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>requesting</key>
+    <key>proportionate</key>
     <value>1</value>
   </Map>
   <Map>
     <key>importance</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>additional</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>2012</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>henderson</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>h1</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>capable</key>
+    <key>2012</key>
     <value>3</value>
+  </Map>
+  <Map>
+    <key>2011</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>2010</key>
+    <value>24</value>
   </Map>
   <Map>
     <key>title</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>content</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>telecommunications</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>2008</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>related</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>2004</key>
+    <key>papers</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>2003</key>
+    <key>primarily</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>ballingeary</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>contend</key>
+    <key>2009</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>views</key>
+    <key>2008</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>proportionality</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>2007</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>2005</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>2003</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>ignore</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>company</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>human</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>continuation</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>seisin</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>respects</key>
     <value>1</value>
   </Map>
   <Map>
     <key>notice</key>
-    <value>22</value>
-  </Map>
-  <Map>
-    <key>six</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>interpretative</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>length</key>
+    <key>sole</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>permission</key>
-    <value>23</value>
+    <key>interconnection</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>und</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>concerns</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>schedule</key>
+    <key>strictly</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>considerations</key>
     <value>1</value>
   </Map>
   <Map>
     <key>2017</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>2016</key>
-    <value>3</value>
+    <value>4</value>
   </Map>
   <Map>
     <key>approximately</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>form</key>
-    <value>7</value>
+    <value>1</value>
   </Map>
   <Map>
     <key>material</key>
-    <value>3</value>
+    <value>1</value>
   </Map>
   <Map>
     <key>2015</key>
-    <value>15</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>2014</key>
-    <value>4</value>
+    <key>owned</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>2013</key>
-    <value>2</value>
+    <value>27</value>
   </Map>
   <Map>
-    <key>201192eu</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>developer</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>avoid</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>unreasonableness</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>grant</key>
+    <key>articles</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>fresh</key>
+    <key>contracting</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>keegan</key>
+    <key>memo</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>pleanla</key>
-    <value>8</value>
-  </Map>
-  <Map>
-    <key>recommendation</key>
+    <key>attempt</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>invoke</key>
+    <key>soon</key>
     <value>1</value>
-  </Map>
-  <Map>
-    <key>output</key>
-    <value>2</value>
   </Map>
   <Map>
     <key>executive</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>striking</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>balance</key>
-    <value>3</value>
+    <key>action</key>
+    <value>14</value>
   </Map>
   <Map>
-    <key>context</key>
+    <key>anticipated</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>model</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>influencing</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>ii</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>reduce</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>issue</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>50a</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>satisfied</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>adversely</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>illium</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>ir</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>iv</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>reapplication</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>removing</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>altered</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>50m</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>accompanied</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>conservation</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>operate</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>pl04</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>acted</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>underground</key>
+    <key>inspection</key>
     <value>8</value>
   </Map>
   <Map>
-    <key>contents</key>
+    <key>sense</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>served</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>alteration</key>
+    <key>operative</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>reconsider</key>
+    <key>broadcasting</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>whereby</key>
+    <key>reached</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>legitimate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>doe</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>status</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>445m</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>lawful</key>
+    <key>trading</key>
     <value>1</value>
   </Map>
   <Map>
@@ -2185,80 +1865,56 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>jr</key>
+    <key>underlines</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>disseminate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>summer</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>government</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>530</key>
+    <key>exemptions</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>1km</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>sphere</key>
+    <key>dpp</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>prejudice</key>
+    <key>brhc</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>modifications</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>change</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>strike</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>allege</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>5th</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>health</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>expressly</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>mbc</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>contended</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>able</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>report</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>powers</key>
+    <key>positive</key>
     <value>6</value>
   </Map>
   <Map>
-    <key>complete</key>
-    <value>3</value>
+    <key>agents</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>instance</key>
+    <key>entities</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>deriving</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>mend</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>hogan</key>
+    <value>8</value>
   </Map>
   <Map>
     <key>concerned</key>
@@ -2266,283 +1922,243 @@
   </Map>
   <Map>
     <key>subject</key>
-    <value>8</value>
+    <value>5</value>
   </Map>
   <Map>
-    <key>lr</key>
+    <key>recognition</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>serve</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>importing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>mcd</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>subrule</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>revenue</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>sterreichische</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>judicially</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>monopoly</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>pursuant</key>
-    <value>10</value>
-  </Map>
-  <Map>
-    <key>british</key>
+    <key>therefrom</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>sufficient</key>
+    <key>credit</key>
+    <value>18</value>
+  </Map>
+  <Map>
+    <key>international</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>insofar</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>regardless</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>claim</key>
+    <key>citizen</key>
     <value>1</value>
-  </Map>
-  <Map>
-    <key>reviewed</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>expressed</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>brian</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>cabling</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>communication</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>grousemount</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>alter</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>combine</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>cables</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>discretion</key>
-    <value>2</value>
   </Map>
   <Map>
     <key>bearing</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>author</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>follows</key>
+    <key>includes</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>equipment</key>
+    <key>establishment</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>definitive</key>
+    <key>ideas</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>preserve</key>
+    <key>2084</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>relevant</key>
-    <value>1</value>
+    <key>convenient</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>110kv</key>
+    <key>directions</key>
     <value>2</value>
   </Map>
   <Map>
     <key>background</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>principles</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>consents</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>attached</key>
+    <key>true</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>principles</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>328</key>
     <value>1</value>
   </Map>
   <Map>
     <key>position</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>formalism</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>concurred</key>
+    <key>constitution</key>
+    <value>9</value>
+  </Map>
+  <Map>
+    <key>335</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>total</key>
+    <key>338</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>336</key>
+    <key>rooted</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>proposition</key>
+    <key>justification</key>
     <value>1</value>
-  </Map>
-  <Map>
-    <key>authorised</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>troubled</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>included</key>
-    <value>3</value>
   </Map>
   <Map>
     <key>met</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>natura</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>determine</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>nature</key>
-    <value>8</value>
-  </Map>
-  <Map>
-    <key>raised</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>rochdale</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>control</key>
+    <key>heard</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>sought</key>
-    <value>4</value>
+    <key>attempting</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>c13009</key>
+    <key>processes</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>sought</key>
+    <value>19</value>
+  </Map>
+  <Map>
+    <key>coolock</key>
     <value>1</value>
   </Map>
   <Map>
     <key>341</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>100</key>
-    <value>1</value>
+    <key>hearings</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>concerning</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>dietacaron</key>
+    <key>regulation</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>lands</key>
+    <key>due</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>mere</key>
+    <key>opinions</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>pl</key>
+    <key>lodge</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>oconnell</key>
+    <key>dun</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>purported</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>properties</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>reliefs</key>
+    <key>interpreting</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>irrationality</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>county</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>dwelling</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>respondent</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>onsite</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>behalf</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>objective</key>
+    <key>inform</key>
     <value>1</value>
   </Map>
   <Map>
     <key>granted</key>
-    <value>2</value>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>observed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>352</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>quoted</key>
     <value>1</value>
   </Map>
   <Map>
+    <key>bank</key>
+    <value>7</value>
+  </Map>
+  <Map>
     <key>character</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>10</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>proposal</key>
+    <key>ongoing</key>
     <value>3</value>
   </Map>
   <Map>
+    <key>meaning</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>interpretations</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>10</key>
+    <value>7</value>
+  </Map>
+  <Map>
     <key>11</key>
-    <value>2</value>
+    <value>4</value>
   </Map>
   <Map>
     <key>12</key>
@@ -2550,43 +2166,31 @@
   </Map>
   <Map>
     <key>based</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
     <key>13</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
-    <key>deny</key>
-    <value>2</value>
+    <key>injunction</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>14</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>framore</key>
-    <value>20</value>
-  </Map>
-  <Map>
     <key>15</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>trench</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>august</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
     <key>16</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>17</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>18</key>
@@ -2594,55 +2198,23 @@
   </Map>
   <Map>
     <key>19</key>
-    <value>2</value>
+    <value>1</value>
   </Map>
   <Map>
     <key>received</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>substantial</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>quality</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>accept</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>requested</key>
-    <value>1</value>
+    <key>allied</key>
+    <value>5</value>
   </Map>
   <Map>
     <key>thereby</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
-    <key>adopt</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>milne</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>swale</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>interpreted</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>conditions</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>t1</key>
-    <value>7</value>
+    <key>afresh</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>20</key>
@@ -2650,31 +2222,23 @@
   </Map>
   <Map>
     <key>21</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>opentextured</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
     <key>22</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>23</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>24</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>access</key>
-    <value>5</value>
-  </Map>
-  <Map>
     <key>25</key>
-    <value>2</value>
+    <value>1</value>
   </Map>
   <Map>
     <key>26</key>
@@ -2685,10 +2249,6 @@
     <value>2</value>
   </Map>
   <Map>
-    <key>outset</key>
-    <value>1</value>
-  </Map>
-  <Map>
     <key>28</key>
     <value>1</value>
   </Map>
@@ -2697,63 +2257,43 @@
     <value>2</value>
   </Map>
   <Map>
-    <key>overzealous</key>
-    <value>1</value>
-  </Map>
-  <Map>
     <key>fundamental</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>seek</key>
     <value>3</value>
   </Map>
   <Map>
+    <key>collecting</key>
+    <value>1</value>
+  </Map>
+  <Map>
     <key>impugned</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>132</key>
-    <value>14</value>
-  </Map>
-  <Map>
-    <key>fell</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>1b</key>
+    <key>pieces</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>entitle</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>current</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>secretary</key>
-    <value>2</value>
+    <key>1st</key>
+    <value>6</value>
   </Map>
   <Map>
     <key>unless</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>origins</key>
-    <value>1</value>
+    <key>free</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>equality</key>
+    <value>5</value>
   </Map>
   <Map>
     <key>30</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>31</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>ought</key>
     <value>1</value>
   </Map>
   <Map>
@@ -2766,23 +2306,27 @@
   </Map>
   <Map>
     <key>34</key>
-    <value>1</value>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>impacted</key>
+    <value>4</value>
   </Map>
   <Map>
     <key>35</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>expression</key>
+    <key>controller</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>expression</key>
+    <value>6</value>
   </Map>
   <Map>
     <key>36</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>decision</key>
-    <value>27</value>
+    <value>3</value>
   </Map>
   <Map>
     <key>37</key>
@@ -2790,11 +2334,7 @@
   </Map>
   <Map>
     <key>accordance</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>appraised</key>
-    <value>1</value>
+    <value>2</value>
   </Map>
   <Map>
     <key>38</key>
@@ -2805,23 +2345,7 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>coordinates</key>
-    <value>1</value>
-  </Map>
-  <Map>
     <key>appeal</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>aoife</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>connected</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>single</key>
     <value>2</value>
   </Map>
   <Map>
@@ -2829,36 +2353,32 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>stardust</key>
+    <key>appear</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>extensive</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>simon</key>
+    <key>evolve</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>geraldine</key>
-    <value>1</value>
+    <key>impart</key>
+    <value>4</value>
   </Map>
   <Map>
     <key>associated</key>
-    <value>6</value>
+    <value>1</value>
   </Map>
   <Map>
-    <key>consequent</key>
+    <key>holds</key>
     <value>1</value>
   </Map>
   <Map>
     <key>40</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>adverse</key>
-    <value>1</value>
+    <key>operation</key>
+    <value>3</value>
   </Map>
   <Map>
     <key>41</key>
@@ -2869,12 +2389,20 @@
     <value>1</value>
   </Map>
   <Map>
+    <key>seeks</key>
+    <value>2</value>
+  </Map>
+  <Map>
     <key>43</key>
-    <value>1</value>
+    <value>7</value>
   </Map>
   <Map>
     <key>44</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>adjudicative</key>
+    <value>3</value>
   </Map>
   <Map>
     <key>45</key>
@@ -2882,150 +2410,242 @@
   </Map>
   <Map>
     <key>46</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>47</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>separate</key>
-    <value>5</value>
+    <key>conditional</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>reasonable</key>
+    <key>48</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>49</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>38kv</key>
-    <value>7</value>
+    <key>ascertainment</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>obligations</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>independence</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>project</key>
-    <value>9</value>
+    <key>tfeu</key>
+    <value>3</value>
   </Map>
   <Map>
-    <key>advocate</key>
-    <value>2</value>
+    <key>mandamus</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>restrain</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>50</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>buachalla</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>tromans</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>xak</key>
+    <key>51</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>ensure</key>
-    <value>7</value>
+    <key>52</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>53</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>54</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>55</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>56</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>57</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>58</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>59</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>complaints</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>collection</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>sections</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>effected</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>ilrm</key>
     <value>1</value>
   </Map>
   <Map>
     <key>grounds</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>extends</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>60</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>61</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>extract</key>
+    <key>vital</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>proposals</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>recognises</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>allow</key>
+    <key>62</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>assessed</key>
+    <key>63</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>64</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>65</key>
     <value>3</value>
+  </Map>
+  <Map>
+    <key>66</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>67</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>68</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>reasons</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>69</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>lord</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>changes</key>
-    <value>10</value>
+    <key>scheduled</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>rule</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>quo</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>jurisprudence</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>18th</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>172</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>life</key>
-    <value>2</value>
-  </Map>
-  <Map>
     <key>recognised</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>drawings</key>
-    <value>1</value>
+    <key>judgements</key>
+    <value>4</value>
   </Map>
   <Map>
-    <key>mcgovern</key>
+    <key>decrees</key>
     <value>2</value>
+  </Map>
+  <Map>
+    <key>common</key>
+    <value>4</value>
   </Map>
   <Map>
     <key>themselves</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>70</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>cotter</key>
+    <key>71</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>virtue</key>
+    <key>72</key>
     <value>1</value>
   </Map>
   <Map>
     <key>73</key>
-    <value>4</value>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>74</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>75</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>76</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>summary</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>c13409</key>
+    <key>77</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>registry</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>78</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>akin</key>
     <value>1</value>
   </Map>
   <Map>
@@ -3033,63 +2653,99 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>previous</key>
+    <key>strasbourg</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>apply</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>argue</key>
-    <value>4</value>
+    <key>recently</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>commend</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>indeed</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>exempted</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>directive</key>
-    <value>24</value>
-  </Map>
-  <Map>
-    <key>voltage</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>antoine</key>
+    <key>lodged</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>ors</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>1843</key>
+    <key>money</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>deficiency</key>
+    <key>disagree</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>conditioned</key>
+    <key>80</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>location</key>
-    <value>2</value>
+    <key>81</key>
+    <value>1</value>
   </Map>
   <Map>
-    <key>held</key>
-    <value>3</value>
+    <key>step</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>comment</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>82</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>83</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>84</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>85</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>86</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ireland</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>87</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>88</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>89</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>contends</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>reasoning</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>reach</key>
+    <key>discussions</key>
     <value>1</value>
   </Map>
   <Map>
@@ -3097,59 +2753,2611 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>courts</key>
+    <key>fair</key>
     <value>3</value>
-  </Map>
-  <Map>
-    <key>type</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>beyond</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>april</key>
-    <value>1</value>
   </Map>
   <Map>
     <key>relation</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>preparation</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>quirke</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>road</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>terms</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>review</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>enable</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>connection</key>
-    <value>38</value>
+    <key>relate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>enable</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>lost</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>90</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>liabilities</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>91</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>92</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>93</key>
+    <value>1</value>
   </Map>
   <Map>
     <key>94</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>attempts</key>
+    <key>preliminary</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>95</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>96</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>97</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>98</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>99</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>relating</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>arise</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>constitute</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>doors</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>unresolved</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>1622</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>books</key>
+    <value>16</value>
+  </Map>
+  <Map>
+    <key>registration</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>ascertained</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>disproportionately</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>stated</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>internal</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>hoped</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>damages</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>secret</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>2965</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>naturally</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>identity</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>event</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>established</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>include</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>agency</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>pleads</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>gathering</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>opinion</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>juveniles</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>appearance</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>evolving</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>regulations</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>exists</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>prepared</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>existence</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>freedoms</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>defendant</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>brendan</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>inferred</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>publicity</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>commitment</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>o84</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>subrules</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>provision</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>szabadsgjogokrt</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>determinations</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>commence</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>advice</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>holding</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>prescribed</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>operations</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>public</key>
+    <value>63</value>
+  </Map>
+  <Map>
+    <key>austrian</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>conferring</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>traded</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>trades</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>instead</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>controversy</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>locus</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>unjustifiably</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>sufficiently</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>accuracy</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>overbearing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>resolution</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>branch</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>absent</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>nongovernmental</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ran</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>mahon</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>dealing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>handwriting</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>authorities</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>persons</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>science</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>happening</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>detail</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>appropriate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>firmly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>providing</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>subsequently</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>laffoy</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>refuse</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>prohibition</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>close</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>rationale</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>trials</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>unrelated</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>precedent</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>827</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>register</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>persuasive</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>notes</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>communicate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>evidence</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>assessment</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>act</key>
+    <value>24</value>
+  </Map>
+  <Map>
+    <key>post</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>generated</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>leave</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>zur</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>discrimination</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>minister</key>
+    <value>9</value>
+  </Map>
+  <Map>
+    <key>wrote</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>newspapers</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>insist</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>users</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>article</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>respect</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>tests</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>materials</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>trust</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>private</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>production</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>united</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>morals</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>choose</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>prevent</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>euimf</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>democratic</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>recorded</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>noted</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>special</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>undertaking</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>arises</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>antimoney</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>enjoyed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>referred</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>oireachtas</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>called</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>charter</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>release</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>overlooked</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>occurs</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>property</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>narrow</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>judge</key>
+    <value>9</value>
+  </Map>
+  <Map>
+    <key>proceedings</key>
+    <value>40</value>
+  </Map>
+  <Map>
+    <key>businesses</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>similar</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>resorts</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>impacts</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>system</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>403</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>aid</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>formalistic</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>characterise</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>representations</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>local</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>rights</key>
+    <value>21</value>
+  </Map>
+  <Map>
+    <key>promptly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>decisions</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>television</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>rests</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>historian</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>satisfaction</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>movement</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>cent</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>rating</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>transfusion</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>body</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>commenced</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>trial</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>mode</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>bradstreet</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>maintained</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>pronouncement</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>subjected</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>read</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>avoids</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>soundly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>conducted</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>admission</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>real</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>registrars</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>substantive</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>collect</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>facilitate</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>mandate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>financial</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>roe</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ukregistered</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>respective</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>favour</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>running</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>summarised</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>construction</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>saying</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>subjective</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>requirement</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>specific</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>application</key>
+    <value>25</value>
+  </Map>
+  <Map>
+    <key>engage</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>communicated</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>reversed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>multiplicity</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reason</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>developments</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>concession</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>accurate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>echr</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>prosecution</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>acts</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>companies</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>peart</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>demur</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>represented</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>encompass</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>using</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>containing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>demand</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>argues</key>
+    <value>15</value>
+  </Map>
+  <Map>
+    <key>impermissible</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>proofs</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>letter</key>
+    <value>13</value>
+  </Map>
+  <Map>
+    <key>referencing</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>argued</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>handed</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>default</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>permitted</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>broader</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>coyle</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>art</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>structures</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>call</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>classic</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>watchdog</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>absolute</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>penalties</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>documents</key>
+    <value>24</value>
+  </Map>
+  <Map>
+    <key>officer</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>administration</key>
+    <value>16</value>
+  </Map>
+  <Map>
+    <key>offices</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>organisation</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>run</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>remains</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>individuals</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>research</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>view</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>incomplete</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>openly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>helpful</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>results</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>aggrieved</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>whatever</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>prosecuted</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>overlap</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>sued</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>name</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>parties</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>unlawful</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>import</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>absence</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>book</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>vested</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>nor</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>conclusion</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>vigilance</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>central</key>
+    <value>9</value>
+  </Map>
+  <Map>
+    <key>factor</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>derived</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>ensures</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>delivery</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>learned</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>effectively</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>summons</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>detailed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>furthermore</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>duty</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>risk</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>excludes</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>uncontroverted</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>issues</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>contested</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>excluded</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>bord</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>broad</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>officials</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>1960s</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>instituted</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>28th</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>determined</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>suit</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>care</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>denial</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>damage</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>direct</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>irish</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>exercise</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>gain</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>receiving</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>freedom</key>
+    <value>19</value>
+  </Map>
+  <Map>
+    <key>licensing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>enables</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reliance</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>borrowers</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>inaccurate</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>indebted</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>board</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>declaratory</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>applicants</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>section</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>vests</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>starkung</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>15th</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>originated</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>prudently</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>stressed</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>unsuitable</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>described</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>otherwise</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>marked</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>framers</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>stubbs</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>entitlement</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>exceptions</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>tracey</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>refers</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>effect</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>explaining</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>conventions</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>erroneous</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>option</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>transpired</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>breach</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>amount</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>disclosed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>discontinued</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>kingdom</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>contained</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>variance</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>administrative</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>decisionmaking</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>denied</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>simply</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>disproportionate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>extent</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>inhabitants</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>bring</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reflected</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>cinema</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>24th</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>ad</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>personal</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>am</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>accurately</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>extend</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>interpretation</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>submissions</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>consideration</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>wlr</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>deal</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>abuse</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>miscellaneous</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>scheme</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>affect</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>correspondents</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>timeframe</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>tenor</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>furnished</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>laundering</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>responsibility</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>civil</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>whom</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>national</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>erhantung</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>scarcely</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>customers</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>pleadings</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>innovation</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>scoring</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>set</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>contain</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>charge</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>incorrect</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>keeping</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>joined</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>entered</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>procedure</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reiterated</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>practices</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>applicant</key>
+    <value>86</value>
+  </Map>
+  <Map>
+    <key>withdrew</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>essential</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>performs</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>11th</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>admits</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>orally</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>parte</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>finnegan</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>developed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>unsatisfied</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>defamation</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>contact</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>artane</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>nonparty</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>commissioner</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>ed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>eg</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>breslin</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>ex</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>961</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>piece</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>helps</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>arose</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>debt</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>party</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>duties</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>relates</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>origin</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>capable</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>explained</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>content</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>trsasg</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>related</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>await</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>class</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>reporting</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>digital</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>directed</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>living</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>7th</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>form</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>management</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>publish</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>withdraw</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>practice</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>placed</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>legislative</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>transcribe</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>enjoins</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>warranto</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>context</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>warranty</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>majority</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ii</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>issue</key>
+    <value>9</value>
+  </Map>
+  <Map>
+    <key>satisfied</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>director</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>lower</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ir</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>transactions</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>decree</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>acted</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>john</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>compromised</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>wider</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>judgement</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>lawful</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>brought</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>jr</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>thinking</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>disposal</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>prejudice</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>december</key>
+    <value>11</value>
+  </Map>
+  <Map>
+    <key>ability</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>camera</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>programme</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>italy</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>creditors</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>vereinigung</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>expressly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>likewise</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>contended</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>discovery</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>oral</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>facilities</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>complete</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>powers</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>pursuant</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>office</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>enterprises</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>suggests</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>morgan</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>publication</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>sufficient</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>limit</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>imposition</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>claim</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>credibility</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>expressed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>directly</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>communication</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>administered</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>alvis</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>standi</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>lenders</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>mp</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>discretion</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>ms</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>longstanding</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>follows</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>restrictions</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>establish</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>relevant</key>
+    <value>14</value>
+  </Map>
+  <Map>
+    <key>na</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>displace</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>head</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>proposition</key>
+    <value>7</value>
+  </Map>
+  <Map>
+    <key>hear</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>affidavit</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>chance</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>determine</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>nature</key>
+    <value>11</value>
+  </Map>
+  <Map>
+    <key>social</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>control</key>
+    <value>11</value>
+  </Map>
+  <Map>
+    <key>restive</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>corollary</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>100</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>101</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>ipso</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>102</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>declined</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>103</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>104</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>105</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>106</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>treacy</key>
+    <value>12</value>
+  </Map>
+  <Map>
+    <key>107</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>108</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>109</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>oconnell</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>pp</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>exercised</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>stood</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>registered</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>respondent</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>determination</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>behalf</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>walsh</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>110</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>111</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>112</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>113</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>114</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>inevitably</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>115</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>116</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>recent</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>trends</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>informally</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>4061</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>accept</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>requested</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>123</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>re</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>126</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>attorney</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>adopt</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>invoked</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>obtained</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>clarke</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>austria</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>access</key>
+    <value>46</value>
+  </Map>
+  <Map>
+    <key>kearns</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>activity</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>apprehension</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>grounded</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>seek</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>crossexamine</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>extended</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>mcdonald</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>134</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>current</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>actively</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>email</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>decision</key>
+    <value>49</value>
+  </Map>
+  <Map>
+    <key>makes</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>maker</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>ta</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>fourth</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>country</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>commercial</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>reasonable</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>willing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>available</key>
+    <value>19</value>
+  </Map>
+  <Map>
+    <key>unequal</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>rules</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>rulings</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>express</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>certiorari</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>uk</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>details</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>written</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>generate</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>14b</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>authoritative</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ensure</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>degree</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>reasonably</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>infliction</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>purchased</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>failure</key>
+    <value>4</value>
+  </Map>
+  <Map>
+    <key>1828</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>support</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>suggesting</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>doing</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>records</key>
+    <value>40</value>
+  </Map>
+  <Map>
+    <key>pending</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>privacy</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>vehicles</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>life</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>exits</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>examination</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>throughout</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>dicta</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>unregistered</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>virtue</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>successful</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>criticised</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>wide</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>previous</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>reading</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>argue</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>technology</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>concomitant</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>1844</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>functioning</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>ors</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>premature</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>superior</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>litigation</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>location</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>held</key>
+    <value>14</value>
+  </Map>
+  <Map>
+    <key>courts</key>
+    <value>64</value>
+  </Map>
+  <Map>
+    <key>bpsg</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>type</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>april</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>beyond</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>commencement</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>199</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>positively</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>terms</key>
+    <value>6</value>
+  </Map>
+  <Map>
+    <key>review</key>
+    <value>18</value>
+  </Map>
+  <Map>
+    <key>justify</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>proof</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>presence</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>threemonth</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>exhibited</key>
     <value>1</value>
   </Map>
   <Map>
@@ -3158,22 +5366,22 @@
   </Map>
   <Map>
     <key>quashed</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>lending</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>remittal</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>relating</key>
+    <key>envisages</key>
     <value>1</value>
   </Map>
   <Map>
     <key>arising</key>
-    <value>1</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>arise</key>
+    <key>conclude</key>
     <value>2</value>
   </Map>
   <Map>
@@ -3181,59 +5389,43 @@
     <value>1</value>
   </Map>
   <Map>
-    <key>agree</key>
-    <value>2</value>
+    <key>mckeogh</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>exist</key>
+    <value>3</value>
   </Map>
   <Map>
     <key>provisions</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>following</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>substantially</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>stated</key>
     <value>10</value>
   </Map>
   <Map>
-    <key>internal</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>habitats</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>south</key>
+    <key>following</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>iii</key>
+    <key>james</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>sensibly</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>gazette</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>hoffman</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>16th</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>specified</key>
-    <value>1</value>
-  </Map>
-  <Map>
     <key>capacity</key>
-    <value>2</value>
+    <value>1</value>
   </Map>
   <Map>
-    <key>polices</key>
+    <key>transcript</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>operators</key>
     <value>1</value>
   </Map>
   <Map>
@@ -3242,274 +5434,226 @@
   </Map>
   <Map>
     <key>course</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>lacunae</key>
-    <value>1</value>
+    <value>10</value>
   </Map>
   <Map>
     <key>power</key>
-    <value>9</value>
+    <value>3</value>
   </Map>
   <Map>
-    <key>precise</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>bloomsbury</key>
+    <key>copy</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>established</key>
-    <value>1</value>
+    <key>informed</key>
+    <value>3</value>
   </Map>
   <Map>
-    <key>agency</key>
-    <value>1</value>
+    <key>dispute</key>
+    <value>3</value>
   </Map>
   <Map>
-    <key>observation</key>
-    <value>1</value>
+    <key>continued</key>
+    <value>4</value>
   </Map>
   <Map>
     <key>suggest</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>opinion</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>site</key>
-    <value>7</value>
-  </Map>
-  <Map>
-    <key>assess</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>regulations</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>submission</key>
-    <value>11</value>
-  </Map>
-  <Map>
-    <key>minimum</key>
+    <key>litigants</key>
     <value>1</value>
   </Map>
   <Map>
     <key>date</key>
+    <value>10</value>
+  </Map>
+  <Map>
+    <key>argument</key>
+    <value>17</value>
+  </Map>
+  <Map>
+    <key>addresses</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>gloucester</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>passage</key>
-    <value>2</value>
+    <key>data</key>
+    <value>17</value>
   </Map>
   <Map>
     <key>adequate</key>
-    <value>5</value>
-  </Map>
-  <Map>
-    <key>obliged</key>
     <value>2</value>
   </Map>
   <Map>
     <key>own</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>begun</key>
     <value>2</value>
-  </Map>
-  <Map>
-    <key>amendments</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>cork</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>ecj</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>reference</key>
-    <value>1</value>
   </Map>
   <Map>
     <key>justice</key>
-    <value>1</value>
+    <value>31</value>
   </Map>
   <Map>
-    <key>avoiding</key>
-    <value>1</value>
+    <key>create</key>
+    <value>3</value>
   </Map>
   <Map>
-    <key>spell</key>
-    <value>1</value>
+    <key>criminal</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>development</key>
-    <value>49</value>
-  </Map>
-  <Map>
-    <key>failed</key>
+    <key>officers</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>constrain</key>
+    <key>justiciable</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>edn</key>
+    <key>indirect</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>revision</key>
+    <key>individual</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>depended</key>
     <value>1</value>
+  </Map>
+  <Map>
+    <key>sent</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>competences</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>respondents</key>
+    <value>9</value>
   </Map>
   <Map>
     <key>addressed</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>proposed</key>
-    <value>30</value>
+    <key>addressee</key>
+    <value>2</value>
   </Map>
   <Map>
-    <key>council</key>
+    <key>interim</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>purposes</key>
+    <value>3</value>
+  </Map>
+  <Map>
+    <key>person</key>
+    <value>5</value>
+  </Map>
+  <Map>
+    <key>enforce</key>
+    <value>1</value>
+  </Map>
+  <Map>
+    <key>files</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>judges</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>provision</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>techniques</key>
+    <key>thereupon</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>remitted</key>
-    <value>8</value>
-  </Map>
-  <Map>
-    <key>quash</key>
+    <key>expenses</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>vires</key>
-    <value>3</value>
-  </Map>
-  <Map>
-    <key>14th</key>
+    <key>indicia</key>
     <value>1</value>
-  </Map>
-  <Map>
-    <key>acknowledged</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>rgion</key>
-    <value>2</value>
   </Map>
   <Map>
     <key>purpose</key>
-    <value>1</value>
+    <value>5</value>
   </Map>
   <Map>
-    <key>line</key>
+    <key>rejected</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>penalty</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>fennelly</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>scientific</key>
+    <key>aware</key>
+    <value>8</value>
+  </Map>
+  <Map>
+    <key>engaging</key>
     <value>3</value>
   </Map>
   <Map>
-    <key>distinct</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>public</key>
-    <value>6</value>
+    <key>security</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>challenged</key>
     <value>2</value>
   </Map>
   <Map>
-    <key>observations</key>
+    <key>considers</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>appraisal</key>
+    <key>costs</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>track</key>
-    <value>4</value>
-  </Map>
-  <Map>
-    <key>carried</key>
-    <value>8</value>
-  </Map>
-  <Map>
-    <key>distances</key>
-    <value>1</value>
+    <key>motion</key>
+    <value>2</value>
   </Map>
   <Map>
     <key>limited</key>
-    <value>4</value>
+    <value>7</value>
   </Map>
   <Map>
-    <key>implementation</key>
+    <key>confidence</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>stephen</key>
+    <key>arbitrary</key>
     <value>1</value>
   </Map>
   <Map>
-    <key>martyn</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>astute</key>
+    <key>guerra</key>
     <value>1</value>
   </Map>
   <Map>
     <key>response</key>
-    <value>6</value>
+    <value>1</value>
   </Map>
   <Map>
-    <key>compliance</key>
+    <key>treaty</key>
+    <value>2</value>
+  </Map>
+  <Map>
+    <key>challenge</key>
     <value>4</value>
   </Map>
   <Map>
-    <key>stages</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>wallonne</key>
+    <key>arguments</key>
     <value>2</value>
-  </Map>
-  <Map>
-    <key>eias</key>
-    <value>2</value>
-  </Map>
-  <Map>
-    <key>independently</key>
-    <value>1</value>
-  </Map>
-  <Map>
-    <key>revised</key>
-    <value>15</value>
-  </Map>
-  <Map>
-    <key>kilgarvan</key>
-    <value>1</value>
   </Map>
 </Frequecny_Vector>
