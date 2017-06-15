@@ -13,6 +13,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -20,6 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import Client.Client;
 import controller.Proccessing;
 import model.LangFactory;
 import model.Language;
@@ -46,10 +48,11 @@ public class Tab1 extends JPanel{
 	private File[] files;
 	private boolean dir_selected;
 	private String directory;
+	private Client wN_Client;
 
 
-
-	public Tab1() {
+	public Tab1(Client wN_Client) {
+		this.wN_Client=wN_Client;
 		setBackground(Color.WHITE);
 
 		setLayout(null);
@@ -147,6 +150,11 @@ public class Tab1 extends JPanel{
 
 	private void processTextsHandler() {
 
+		if(!wN_Client.isConnected()) {
+
+			JOptionPane.showMessageDialog(null, "The WordNet Server is not Connected!", "WordNet Server Offline", ERROR);
+			return;
+		}
 		Proccessing proc =new Proccessing();
 		Language lang=LangFactory.getLang(String.valueOf(langbox1.getSelectedItem()));
 		DefaultTableModel dm = (DefaultTableModel) FVs_table1.getModel();

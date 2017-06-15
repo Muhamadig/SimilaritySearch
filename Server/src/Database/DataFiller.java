@@ -28,7 +28,7 @@ public class DataFiller {
 	}
 	
 	
-	public void test() throws IOException {
+	/*public void test() throws IOException {
 		File textFile=new File("A.O. -v- Refugee Appeals Tribunal & ors.html");
 		File fv=new File("A.O. -v- Refugee Appeals Tribunal & ors.html.xml");
 		
@@ -36,24 +36,15 @@ public class DataFiller {
 		byte[] bytesArray = new byte[(int) textFile.length()];
 
 		FileInputStream file1=null;
-		try {
+		
 			file1 = new FileInputStream(textFile);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
+		
+		
 			file1.read(bytesArray);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} //read file into bytes[]
-		try {
+		
+		
 			file1.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 		try {
 			Blob blob1= new SerialBlob(bytesArray);
@@ -73,6 +64,6 @@ public class DataFiller {
 		
 		FileOutputStream f=new FileOutputStream("output.html");
 		f.write(bytesArray);
-	}
+	}*/
 
 }

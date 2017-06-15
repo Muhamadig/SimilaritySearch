@@ -30,6 +30,9 @@ public class Request implements Serializable {
 	 */
 	private HashMap<String, Object> params;
 
+	public Request() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param url : full url

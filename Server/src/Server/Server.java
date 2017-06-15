@@ -102,7 +102,7 @@ public class Server extends AbstractServer {
 	protected void handleMessageFromClient(Object message, ConnectionToClient client) {
 		Request request = (Request) message;
 		request.addParam("ip", client.getInetAddress().getHostAddress());
-		logger.info("[REQUEST] from " + client.getInetAddress() + " : " + request.getUrl() + " "
+		logger.info("\n[REQUEST] from " + client.getInetAddress() + " : " + request.getUrl() + " "
 				+ request.getParams().toString());
 		try {
 			client.sendToClient(router.resolve((Request) request));

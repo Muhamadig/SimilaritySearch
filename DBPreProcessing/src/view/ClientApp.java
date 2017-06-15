@@ -26,7 +26,7 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 import Client.Client;
-import Client.Config;
+import Client.WNSConfig;
 import Kmeans.Cluster;
 import Kmeans.KMeans;
 import Kmeans.Point;
@@ -214,13 +214,13 @@ public class ClientApp extends JFrame {
 		return this.inputVect;}
 	
 	public static void connect() {
-		Config cfg = Config.getConfig();
+		WNSConfig cfg = WNSConfig.getConfig();
 		if (client != null) {
 			client.close();
 			client = null;
 		}
 		client = new Client(cfg.getHost(), cfg.getPort());
-		Config.getConfig().writeTextConfig();
+//		WNSConfig.getConfig().writeTextConfig();
 		client.open();
 	}
 	

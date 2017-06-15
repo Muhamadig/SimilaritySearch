@@ -18,7 +18,7 @@ public class Config {
 		this.isDebug = isDebug;
 	}
 
-	private int port = 9000;
+	private int port = 10000;
 	private String dbUrl = "jdbc:mysql://localhost/test";
 	private String dbUser = "root";
 	private String dbPassword = "root";
