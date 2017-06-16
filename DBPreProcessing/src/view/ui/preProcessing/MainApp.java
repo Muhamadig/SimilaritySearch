@@ -1,6 +1,7 @@
 package view.ui.preProcessing;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -77,10 +78,11 @@ public class MainApp extends JFrame {
 					JOptionPane.showMessageDialog(null, "The Server is not Connected!", "Server Offline", ERROR);
 					return;
 				}
-				
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 				dbc=DBController.getInstance();
 				dbc.createClusters();
 				dbc.createTexts();
+				setCursor(null);
 			}
 		});
 		db_update_btn.setBackground(SystemColor.inactiveCaptionBorder);

@@ -19,7 +19,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import Kmeans.Cluster;
-import Kmeans.ClusteringResults;
 import Kmeans.KMeans;
 import Kmeans.Point;
 import UIUtils.Browse;
@@ -50,7 +49,6 @@ public class Tab3 extends JPanel{
 	private JButton prepareClustering_btn3;
 	private JPanel clustering;
 	private KMeans km;
-	private ClusteringResults res;
 	private JTable table;
 	public Tab3() {
 		setBackground(Color.WHITE);
@@ -118,8 +116,6 @@ public class Tab3 extends JPanel{
 						count++;
 					}
 				}
-				res = new ClusteringResults(km.getclusters());
-				res.setVisible(true);
 				
 			}
 		});
@@ -149,7 +145,7 @@ public class Tab3 extends JPanel{
 		table.getColumnModel().getColumn(2).setPreferredWidth(500);
 		
 
-		clustering.setVisible(true);
+		clustering.setVisible(false);
 
 		import_dir=false;
 		export_dir=false;
