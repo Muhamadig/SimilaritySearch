@@ -23,6 +23,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 
 
@@ -71,20 +72,7 @@ public class MainApp extends JFrame {
 		lblNewLabel_3.setForeground(SystemColor.controlLtHighlight);
 		
 		JButton db_update_btn = new JButton("Update DataBase");
-		db_update_btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				if(!MainApp.this.client.isConnected()){
-					JOptionPane.showMessageDialog(null, "The Server is not Connected!", "Server Offline", ERROR);
-					return;
-				}
-				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-				dbc=DBController.getInstance();
-				dbc.createClusters();
-				dbc.createTexts();
-				setCursor(null);
-			}
-		});
+		
 		db_update_btn.setBackground(SystemColor.inactiveCaptionBorder);
 		if(!client.isConnected()) db_update_btn.setEnabled(false);
 		
@@ -164,6 +152,21 @@ public class MainApp extends JFrame {
 
 		setBounds(0, 0, 1006, 591);
 		this.setLocationRelativeTo(null);
+		db_update_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if(!MainApp.this.client.isConnected()){
+					JOptionPane.showMessageDialog(null, "The Server is not Connected!", "Server Offline", ERROR);
+					return;
+				}
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+				dbc=DBController.getInstance();
+//				dbc.createClusters();
+//				dbc.createTexts();
+				dbc.createGlobals(((Tab2) tab2).getGlobalPath()+File.separator+"results");
+				setCursor(null);
+			}
+		});
 	
 	}
 

@@ -8,6 +8,7 @@ import com.sun.tools.xjc.gen.Array;
 
 import Client.Application;
 import DBModels.DBCluster;
+import DBModels.DBGlobal;
 import DBModels.DBText;
 import XML.XML;
 import XML.XMLFactory;
@@ -17,6 +18,8 @@ public class DBController {
 	public static DBController instance=new DBController();
 	XML hashListXML=XMLFactory.getXML(XMLFactory.HashList);
 	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashListXML.Import("Clusters.xml");
+
+	XML globalXML=XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 
 	ArrayList<String> all_texts;
 	private DBController() {
@@ -82,6 +85,31 @@ public class DBController {
 		return res;
 	}
 
+	
+	public boolean createGlobals(String path){
+		boolean res=true;
+		byte[] globalFV;
+		byte[] commonFV;
+		globalFV=Serialization.toByteArray(new File(path+File.separator+"global.xml"));
+		commonFV=Serialization.toByteArray(new File(path+File.separator+"common.xml"));
+		
+		DBGlobal globalRow=new DBGlobal("globalFV", globalFV,false);
+		DBGlobal commonRow=new DBGlobal("commonFV", commonFV,false);
+		
+		Request r=new Request("global/create");
+		r.addParam("globalRow", globalRow);
+
+		if((int)Application.client.sendRequest(r)>0) res=res && true;
+		else res=false;
+		
+		r.addParam("globalRow", commonRow);
+
+		if((int)Application.client.sendRequest(r)>0) res=res && true;
+		else res=false;
+
+		return res;
+		
+	}
 	private String filter(String name){
 		return name.replaceAll("\\'", "");
 	}

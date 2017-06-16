@@ -14,6 +14,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import DBModels.DBCluster;
+import DBModels.DBGlobal;
 import DBModels.DBText;
 import Server.Config;
 import sun.misc.IOUtils;
@@ -29,14 +30,12 @@ import sun.misc.IOUtils;
 public class DbHandler {
 
 	private ConnectionSource connection;
-
-//	public Dao<Doctor, String> doctors;
-
-//	public Dao<Treatment, Integer> treatments;
 	
 	public Dao<DBText,String> texts;
 	
 	public Dao<DBCluster,Integer> clusters;
+	
+	public Dao<DBGlobal, String> global;
 
 	/**
 	 * need to provide url , user ,pass to conenct to database
@@ -74,6 +73,8 @@ public class DbHandler {
 	public void initializeDao() throws Exception {		
 		texts=DaoManager.createDao(connection, DBText.class);
 		clusters=DaoManager.createDao(connection, DBCluster.class);
+		global=DaoManager.createDao(connection, DBGlobal.class);
+
 	}
 
 	
@@ -84,11 +85,14 @@ public class DbHandler {
 	 * @throws Exception
 	 */
 	public void createAllTables() throws Exception {
-		TableUtils.dropTable(connection, DBText.class, true);
-		TableUtils.dropTable(connection, DBCluster.class, true);
+//		TableUtils.dropTable(connection, DBText.class, true);
+//		TableUtils.dropTable(connection, DBCluster.class, true);
+//		TableUtils.dropTable(connection, DBGlobal.class, true);
+//
+//		TableUtils.createTable(connection, DBCluster.class);
+//		TableUtils.createTable(connection, DBText.class);
+		TableUtils.createTable(connection, DBGlobal.class);
 
-		TableUtils.createTable(connection, DBCluster.class);
-		TableUtils.createTable(connection, DBText.class);
 		
 	}
 }

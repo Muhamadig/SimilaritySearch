@@ -359,4 +359,9 @@ public class Tab2 extends JPanel {
 
 
 	}
+	
+	public String getGlobalPath(){
+		return expanded_dir;
+		
+	}
 }

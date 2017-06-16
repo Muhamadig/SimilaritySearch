@@ -15,6 +15,9 @@ public class Router {
 	
 	Clusters clusters=new Clusters();
 
+	Global global=new Global();
+	
+	Search search=new Search();
 	/**
 	 * Router constructor.
 	 */
@@ -34,6 +37,10 @@ public class Router {
 		
 		case "clusters":
 			return clusters.resolve(request);
+		case "global":
+			return global.resolve(request);
+		case "search":
+			return search.resolve(request);
 		}
 		return null;
 	}
