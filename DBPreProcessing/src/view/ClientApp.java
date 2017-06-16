@@ -31,6 +31,7 @@ import Client.WNSConfig;
 import Kmeans.Cluster;
 import Kmeans.KMeans;
 import Kmeans.Point;
+import UIUtils.MyTableModel;
 import XML.XML;
 import XML.XMLFactory;
 import controller.Pareto;
@@ -40,7 +41,6 @@ import model.FVKeySortedMap;
 import model.FVValueSorted;
 import model.Language;
 import model.Language.Langs;
-import view.ui.utils.MyTableModel;
 import model.Text;
 import javax.swing.JLabel;
 

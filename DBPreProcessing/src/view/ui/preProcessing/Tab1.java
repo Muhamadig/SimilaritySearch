@@ -22,12 +22,13 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import Client.Client;
+import UIUtils.Browse;
+import UIUtils.MyTableModel;
 import controller.Proccessing;
 import model.LangFactory;
 import model.Language;
 import model.Text;
-import view.ui.utils.Browse;
-import view.ui.utils.MyTableModel;
+
 import java.awt.SystemColor;
 
 public class Tab1 extends JPanel{

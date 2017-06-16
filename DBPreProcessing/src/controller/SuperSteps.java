@@ -1,6 +1,8 @@
 package controller;
 
 import Client.Application;
+import Controller.ReadFile;
+import Controller.StopWordsFiltering;
 import Utils.Request;
 import XML.XML;
 import XML.XMLFactory;
@@ -26,8 +28,7 @@ public class SuperSteps {
 		
 		//step 3:remove the stop words from the initial Frequency Victor
 		FVHashMap removedSWFV=StopWordsFiltering.RemoveSW(initialFV, lang,stopWords_num);
-		XML fvxml = XMLFactory.getXML(XMLFactory.FV);
-		fvxml.export(removedSWFV, "before.xml");
+		
 		
 		//step 4: reduce the frequency vector by Stemming and Synonyms (Request from WordNet Server)
 		Request request=new Request("FV/fv");

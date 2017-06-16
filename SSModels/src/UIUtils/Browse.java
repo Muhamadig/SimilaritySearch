@@ -1,4 +1,4 @@
-package view.ui.utils;
+package UIUtils;
 
 import java.io.File;
 import java.util.ArrayList;

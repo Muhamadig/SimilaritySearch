@@ -22,9 +22,9 @@ import Kmeans.Cluster;
 import Kmeans.ClusteringResults;
 import Kmeans.KMeans;
 import Kmeans.Point;
+import UIUtils.Browse;
+import UIUtils.MyTableModel;
 import controller.Proccessing;
-import view.ui.utils.Browse;
-import view.ui.utils.MyTableModel;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;

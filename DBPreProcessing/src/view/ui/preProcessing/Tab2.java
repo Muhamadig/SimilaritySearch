@@ -19,9 +19,11 @@ import javax.swing.JTextField;
 
 import controller.Proccessing;
 import model.FVValueSorted;
-import view.ui.utils.Browse;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
+
+import UIUtils.Browse;
 
 public class Tab2 extends JPanel {
 

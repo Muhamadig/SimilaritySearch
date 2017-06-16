@@ -2,22 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="libraries/pdfbox-app-2.0.5.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/SSModels"/>
-	<classpathentry kind="lib" path="libraries/jsoup-1.10.2.jar"/>
-	<classpathentry kind="lib" path="libraries/poi-3.15.jar"/>
-	<classpathentry kind="lib" path="libraries/poi-ooxml-3.15.jar"/>
-	<classpathentry kind="lib" path="libraries/poi-ooxml-schemas-3.15.jar"/>
-	<classpathentry kind="lib" path="libraries/poi-scratchpad-3.15.jar"/>
-	<classpathentry kind="lib" path="libraries/xmlbeans.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
 	<classpathentry kind="lib" path="libraries/itextpdf-5.4.1.jar"/>
-	<classpathentry kind="lib" path="libraries/xmlworker-5.4.1.jar"/>
 	<classpathentry kind="lib" path="libraries/jcommon-1.0.23.jar"/>
 	<classpathentry kind="lib" path="libraries/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="lib" path="libraries/javax.jar"/>
 	<classpathentry kind="lib" path="libraries/org-jdesktop-layout.jar"/>
 	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SSFrameWork"/>
+	<classpathentry kind="lib" path="libraries/jsoup-1.10.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -16,11 +16,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import com.itextpdf.text.DocumentException;
+
+import Controller.ReadFile;
 import model.FVHashMap;
 
 
 
-public class DB {
+public class HTMLsDownload {
 	private static int count=0;
 	private HashMap<String,FVHashMap> texts;
 	private HashMap<ArrayList<String>,String> htmls; // this hashmap contains the texts and there's html code
@@ -43,7 +45,7 @@ public class DB {
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&Start=1.4.9&ExpandView&Seq=15"};
 	
 
-	public DB(){
+	public HTMLsDownload(){
 		tables = new HashMap<String,String>();
 		htmls = new HashMap<ArrayList<String>,String>();
 		texts = new HashMap<String,FVHashMap>();
@@ -198,7 +200,7 @@ public class DB {
 	
 	
 	public static void main(String[] args) throws IOException, DocumentException{
-		DB temp = new DB();
+		HTMLsDownload temp = new HTMLsDownload();
 		//temp.DownloadAllPages();
 		//temp.load();
 		ReadFile read = new ReadFile();

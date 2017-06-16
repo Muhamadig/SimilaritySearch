@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="libraries/ormlite-core-4.49-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="libraries/ormlite-jdbc-4.49-SNAPSHOT.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/SSModels"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SSFrameWork"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

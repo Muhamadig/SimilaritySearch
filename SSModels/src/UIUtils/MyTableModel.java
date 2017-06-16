@@ -1,4 +1,4 @@
-package view.ui.utils;
+package UIUtils;
 
 import javax.swing.table.DefaultTableModel;
 
