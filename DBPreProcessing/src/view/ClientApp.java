@@ -63,6 +63,7 @@ public class ClientApp extends JFrame {
 	private List<Cluster> clusters;
 	private JTable ResTbl;
 	private JLabel Resultslbl;
+	
 	public ClientApp(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);

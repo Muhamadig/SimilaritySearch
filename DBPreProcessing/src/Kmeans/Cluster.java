@@ -20,7 +20,7 @@ public class Cluster {
 	private double aggDist;
 	public FVValueSorted CommonWords;
 	private FVValueSorted DiffCW=null;
-	private static final int [] thresholds={88,64,69,85,119,52};
+	private static final int [] thresholds={43,64,69,60,90,52};
 	//private static final String [] thresholds={"[frand,1996]","[sculptural relief,16]","[shower down,mistreat]","[likewise,protective]","[detention,barricade]","[amy,dec]"};
 	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
 	private ArrayList<String> ClusterCW;
