@@ -31,7 +31,7 @@ public class DBController {
 		return instance;
 	}
 
-	public boolean createClusters(String clusterFileDir){
+	public boolean createClusters(){
 		boolean res=true;
 		DBCluster cluster;
 		byte[] cluster_CW;
@@ -90,8 +90,8 @@ public class DBController {
 		boolean res=true;
 		byte[] globalFV;
 		byte[] commonFV;
-		globalFV=Serialization.toByteArray(new File(path+"global.xml"));
-		commonFV=Serialization.toByteArray(new File(path+"common.xml"));
+		globalFV=Serialization.toByteArray(new File(path+File.separator+"global.xml"));
+		commonFV=Serialization.toByteArray(new File(path+File.separator+"common.xml"));
 		
 		DBGlobal globalRow=new DBGlobal("globalFV", globalFV,false);
 		DBGlobal commonRow=new DBGlobal("commonFV", commonFV,false);

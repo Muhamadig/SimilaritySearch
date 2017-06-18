@@ -335,7 +335,7 @@ public class Tab4 extends JPanel {
 		
 		if(CheckBox2.isSelected()){
 			if(clusterFileDir.endsWith("Clusters.xml")){
-				db.createClusters(clusterFileDir);
+				db.createClusters();
 			}
 			else{
 				JOptionPane.showMessageDialog(null, "The Clusters.xml File not selected", "Error Selection", JOptionPane.ERROR_MESSAGE);
