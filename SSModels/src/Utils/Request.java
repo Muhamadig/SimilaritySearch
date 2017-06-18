@@ -31,7 +31,7 @@ public class Request implements Serializable {
 	private HashMap<String, Object> params;
 
 	public Request() {
-		// TODO Auto-generated constructor stub
+		params = new HashMap<String, Object>();
 	}
 	/**
 	 * 
