@@ -89,6 +89,7 @@ public class Server extends AbstractServer {
 	 * Server stopped hook handler
 	 */
 	protected void serverStopped() {
+		sendToAllClients("Server Closed");
 		logger.error("SERVER STOPPED..");
 		printStatus();
 	}

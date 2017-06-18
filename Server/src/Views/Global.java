@@ -1,13 +1,9 @@
 package Views;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
-
 import com.j256.ormlite.stmt.QueryBuilder;
-import com.sun.xml.internal.bind.v2.util.XmlFactory;
-
 import DBModels.DBGlobal;
 import Database.DbHandler;
 import Server.Config;
@@ -62,7 +58,9 @@ public class Global extends View  {
 			FileOutputStream f=new FileOutputStream("common.xml");
 			f.write(cw);
 			f.close();
-			//to be updated flag
+			
+			res.setUpToDate(true);
+			db.global.update(res);
 		}
 
 		FVValueSorted commonVector=(FVValueSorted) valueSortedXML.Import("common.xml");
@@ -78,8 +76,9 @@ public class Global extends View  {
 			FileOutputStream f=new FileOutputStream("global.xml");
 			f.write(globaW);
 			f.close();
-			//to be updated flag
-		}
+			
+			res.setUpToDate(true);
+			db.global.update(res);		}
 
 		FVValueSorted commonVector=(FVValueSorted) valueSortedXML.Import("global.xml");
 		return commonVector;

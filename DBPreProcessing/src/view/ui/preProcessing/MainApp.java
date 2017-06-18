@@ -35,6 +35,7 @@ public class MainApp extends JFrame {
 	private Client wN_Client;
 	private Client client;
 	protected DBController dbc;
+	
 	public MainApp(Client wN_Client, Client client) {
 		this.wN_Client=wN_Client;
 		this.client=client;
@@ -71,20 +72,15 @@ public class MainApp extends JFrame {
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_3.setForeground(SystemColor.controlLtHighlight);
 		
-		JButton db_update_btn = new JButton("Update DataBase");
-		
-		db_update_btn.setBackground(SystemColor.inactiveCaptionBorder);
-		if(!client.isConnected()) db_update_btn.setEnabled(false);
-		
-		JLabel wnStatus = new JLabel(this.wN_Client.isConnected()?"Connected":"Not Connected");
+		JLabel wnStatus = new JLabel(this.wN_Client.isConnected()?"Online":"Offline");
 		wnStatus.setForeground(SystemColor.inactiveCaptionBorder);
 		
-		JLabel serverStatus = new JLabel(this.client.isConnected()?"Connected":"Not Connected");
+		JLabel serverStatus = new JLabel(this.client.isConnected()?"Online":"Offline");
 		serverStatus.setForeground(SystemColor.inactiveCaptionBorder);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
+				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel)
 					.addPreferredGap(ComponentPlacement.RELATED)
@@ -97,9 +93,7 @@ public class MainApp extends JFrame {
 					.addComponent(lblNewLabel_3)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(serverStatus)
-					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-					.addComponent(db_update_btn)
-					.addGap(101))
+					.addContainerGap(334, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -113,7 +107,6 @@ public class MainApp extends JFrame {
 							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblNewLabel_2)
 								.addComponent(lblNewLabel_3)
-								.addComponent(db_update_btn)
 								.addComponent(wnStatus)
 								.addComponent(serverStatus))))
 					.addContainerGap(14, Short.MAX_VALUE))
@@ -150,25 +143,24 @@ public class MainApp extends JFrame {
 		tab3.setBackground(Color.WHITE);
 		tabbedPane.addTab("Clustering Preparation",tab, tab3,"Create a sorted FVs by keys");
 
+		JPanel tab4=new Tab4(client);
+		tab4.setBackground(Color.WHITE);
+		tabbedPane.addTab("Update Database",tab, tab4,"");
+		
 		setBounds(0, 0, 1006, 591);
 		this.setLocationRelativeTo(null);
-		db_update_btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				if(!MainApp.this.client.isConnected()){
-					JOptionPane.showMessageDialog(null, "The Server is not Connected!", "Server Offline", ERROR);
-					return;
-				}
-				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-				dbc=DBController.getInstance();
-//				dbc.createClusters();
-//				dbc.createTexts();
-				dbc.createGlobals(((Tab2) tab2).getGlobalPath()+File.separator+"results");
-				setCursor(null);
-			}
-		});
 	
 	}
+
+	public Client getwN_Client() {
+		return wN_Client;
+	}
+
+	public void setwN_Client(Client wN_Client) {
+		this.wN_Client = wN_Client;
+	}
+
+	
 
 	public static void run(Client wN_Client, Client client){
 		//Schedule a job for the event dispatch thread:
