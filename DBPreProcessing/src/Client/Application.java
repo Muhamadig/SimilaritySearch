@@ -43,10 +43,11 @@ public class Application {
 //		WNSConfig.getConfig().readTextConfig();
 //		ServerConfig.getConfig().readTextConfig();
 		connect();
-		MainApp.run(WN_Client,client);
-//		DBController dbc=DBController.getInstance();
-////		dbc.createClusters();
+//		MainApp.run(WN_Client,client);
+		DBController dbc=DBController.getInstance();
+//		dbc.createClusters();
 //		dbc.createTexts();
+//		dbc.createGlobals("Expanded/results");
 		//   <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value> cluster 0
 //		ClientApp.run();
 	}
