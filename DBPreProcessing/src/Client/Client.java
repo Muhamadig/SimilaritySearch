@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import Utils.Request;
 import ocsf.client.*;
+import view.ui.preProcessing.MainApp;
 
 public class Client extends AbstractClient {
 	public Client(String host, int port) {
@@ -11,6 +12,9 @@ public class Client extends AbstractClient {
 	}
 
 	public void handleMessageFromServer(Object msg) {
+		if(msg.equals("Server Closed")){
+
+		}
 	}
 
 	public Object sendRequest(Request request) {

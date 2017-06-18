@@ -85,12 +85,12 @@ public class DbHandler {
 	 * @throws Exception
 	 */
 	public void createAllTables() throws Exception {
-//		TableUtils.dropTable(connection, DBText.class, true);
-//		TableUtils.dropTable(connection, DBCluster.class, true);
-//		TableUtils.dropTable(connection, DBGlobal.class, true);
-//
-//		TableUtils.createTable(connection, DBCluster.class);
-//		TableUtils.createTable(connection, DBText.class);
+		TableUtils.dropTable(connection, DBText.class, true);
+		TableUtils.dropTable(connection, DBCluster.class, true);
+		TableUtils.dropTable(connection, DBGlobal.class, true);
+
+		TableUtils.createTable(connection, DBCluster.class);
+		TableUtils.createTable(connection, DBText.class);
 		TableUtils.createTable(connection, DBGlobal.class);
 
 		
