@@ -5,9 +5,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.xml.internal.bind.v2.util.XmlFactory;
+
 import Controller.SearchController;
 import DBModels.DBText;
 import Utils.Request;
+import XML.XMLFactory;
 import model.FVHashMap;
 import model.FVKeySortedMap;
 import model.FVValueSorted;
@@ -48,6 +51,7 @@ public class Search extends View{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		System.out.println(clusterID);
 		
 		List<DBText> CTexts = TextsDao.getByCluster(clusterID);
 		
@@ -59,10 +63,14 @@ public class Search extends View{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for(DBText res : results)
+		for(DBText res : results){
 			texts.add(res.getTextFile());
+			System.out.println(res.getName());
+		}
 		//Step 8: return pareto results.
 		return texts;
 
 	}
+	
+	
 }

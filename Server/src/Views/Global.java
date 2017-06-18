@@ -1,5 +1,6 @@
 package Views;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -50,9 +51,14 @@ public class Global extends View  {
 
 	}
 
-	private FVValueSorted getCommonVector() throws SQLException, IOException {
-		QueryBuilder<DBGlobal, String> q=db.global.queryBuilder();
-		DBGlobal res=db.global.queryForId("commonFV");
+	private FVValueSorted getCommonVector() throws IOException  {
+		DBGlobal res = null;
+		try {
+			res = db.global.queryForId("commonFV");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(!res.isUpToDate()){
 			byte[] cw=res.getVector();
 			FileOutputStream f=new FileOutputStream("common.xml");
@@ -60,7 +66,12 @@ public class Global extends View  {
 			f.close();
 			
 			res.setUpToDate(true);
-			db.global.update(res);
+			try {
+				db.global.update(res);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		FVValueSorted commonVector=(FVValueSorted) valueSortedXML.Import("common.xml");
@@ -69,7 +80,6 @@ public class Global extends View  {
 	}
 
 	private FVValueSorted getGlobalVector() throws SQLException, IOException {
-		QueryBuilder<DBGlobal, String> q=db.global.queryBuilder();
 		DBGlobal res=db.global.queryForId("globalFV");
 		if(!res.isUpToDate()){
 			byte[] globaW=res.getVector();
