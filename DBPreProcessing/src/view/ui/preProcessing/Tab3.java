@@ -18,9 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-import Kmeans.Cluster;
-import Kmeans.KMeans;
-import Kmeans.Point;
+import Controller.KMeans.Cluster;
+import Controller.KMeans.KMeans;
+import Controller.KMeans.Point;
 import UIUtils.Browse;
 import UIUtils.MyTableModel;
 import controller.Proccessing;

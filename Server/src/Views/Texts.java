@@ -144,11 +144,11 @@ public class Texts extends View {
 	 * @return : List<DBText> of  texts Or null.
 	 * @author Muhamad Igbaria
 	 */
-	public Object getByCluster(Request request){
+	public List<DBText> getByCluster(int clusterID){
 		QueryBuilder<DBText, String> qb = db.texts.queryBuilder();
 		List<DBText> res=null;
 		try {
-			res=qb.where().eq("clusterId_id", (int)request.getParam("clusterId")).query();
+			res=qb.where().eq("clusterId_id", clusterID).query();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

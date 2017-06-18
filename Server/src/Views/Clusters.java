@@ -113,7 +113,7 @@ public class Clusters extends View {
 	 * @author Muhamad Igbaria
 	 */
 	
-	public Object getAll(Request request){
+	public List<DBCluster> getAll(){
 		
 		List<DBCluster> clusters_list=null;
 		try {
@@ -122,6 +122,7 @@ public class Clusters extends View {
 			System.err.println("SQL Exception in get All clusters");
 			e.printStackTrace();
 		}
+		
 		
 		return clusters_list;
 	}

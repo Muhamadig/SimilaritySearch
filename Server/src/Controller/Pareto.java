@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,6 @@ public class Pareto {
 		return true;
 	}
 	
-	
 	private void CalculateDominates(){
 		int len = ObjectiveVectors.size();
 		for(int i=0;i<len-1;i++){
@@ -61,8 +60,6 @@ public class Pareto {
 	}
 	}
 	
-
-
 	private ArrayList<Integer> RemoveDominates(){
 		ArrayList<Integer> Optimal = new ArrayList<Integer>();
 		for(int i=0;i<ObjectiveVectors.size();i++)
@@ -90,8 +87,6 @@ public class Pareto {
 			else
 				return null;
 		}
-	
-		
 		return Closest;
 	}
 	

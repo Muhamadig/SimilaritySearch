@@ -1,16 +1,12 @@
-package Kmeans;
+package Controller.KMeans;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jfree.ui.RefineryUtilities;
-
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
 import model.FVKeySortedMap;
 import model.FVValueSorted;
-import view.LineChart_AWT;
  
 public class Cluster {
 	
@@ -178,12 +174,5 @@ public class Cluster {
     		i++;
     	}
     	CommonWords = DiffCW;
-    }
-    
-    public void CreateChart(FVValueSorted data){
-    	LineChart_AWT chart = new LineChart_AWT("" ,id+"" , data);
-		chart.pack( );
-		RefineryUtilities.centerFrameOnScreen( chart );
-		chart.setVisible( true );
     }
 }

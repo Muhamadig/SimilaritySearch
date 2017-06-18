@@ -1,4 +1,4 @@
-package Kmeans;
+package Controller.KMeans;
 
 import java.io.File;
 import java.util.ArrayList;

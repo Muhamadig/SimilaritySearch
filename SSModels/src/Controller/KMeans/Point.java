@@ -1,4 +1,4 @@
-package Kmeans;
+package Controller.KMeans;
 
 import java.util.ArrayList;
 import java.util.Random;
