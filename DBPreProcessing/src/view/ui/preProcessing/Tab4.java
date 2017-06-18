@@ -157,32 +157,18 @@ public class Tab4 extends JPanel {
 		
 		JPanel update_panel = new JPanel();
 		update_panel.setBackground(Color.WHITE);
-		
-		JPanel panel_1 = new JPanel();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel1, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
-						.addComponent(choice_panel, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(update_panel, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+						.addComponent(panel1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+						.addComponent(choice_panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+						.addComponent(panel2, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 678, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panel3, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 678, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(20)
-					.addComponent(update_panel, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(panel3, GroupLayout.PREFERRED_SIZE, 678, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(panel2, GroupLayout.PREFERRED_SIZE, 678, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 663, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(25, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -191,15 +177,13 @@ public class Tab4 extends JPanel {
 					.addComponent(choice_panel, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(panel1, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(panel2, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(panel3, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(update_panel, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addContainerGap(15, Short.MAX_VALUE))
 		);
 		
 		JButton update_btn = new JButton("Update Database");
