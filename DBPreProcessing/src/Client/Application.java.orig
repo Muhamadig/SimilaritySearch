@@ -48,7 +48,11 @@ public class Application {
 		DBController dbc=DBController.getInstance();
 //		dbc.createClusters();
 //		dbc.createTexts();
+<<<<<<< HEAD
 //		dbc.createGlobals("Expanded/results");
+=======
+//		dbc.createGlobals("results/expanded/results");
+>>>>>>> 11da0fefb67e99be4f5f8800a302be1ad99913dc
 		//   <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value> cluster 0
 //		ClientApp.run();
 		
