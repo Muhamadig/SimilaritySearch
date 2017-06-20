@@ -11,6 +11,7 @@ import DBModels.DBCluster;
 import DBModels.DBText;
 import Database.DbHandler;
 import Server.Config;
+import Views.Texts;
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
@@ -20,6 +21,10 @@ import model.FVValueSorted;
 public class SearchController {
 	private static XML xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 	private static DbHandler db = Config.getConfig().getHandler();
+	
+	private static Texts textDao=new Texts();
+	
+	
 	private static FVHashMap reduceFV(FVHashMap fv, FVHashMap common) {
 		FVHashMap reducedFV=(FVHashMap) fv.clone();
 		for(String key:fv.keySet()){
@@ -99,12 +104,12 @@ public class SearchController {
 			db.clusters.update(c);
 		}
 		FVValueSorted CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
-		
+		long text_num=textDao.numOfTexts(c.getId());
 		double dist=0.0;
 		for(int i=0;i<CommonWords.size();i++){
 			String CW = CommonWords.get(i).getKey();
 			if(text.containsKey(CW))
-				dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
+				dist += Math.pow((text.get(CW) - (CommonWords.get(i).getValue()/text_num)), 2);
 		}
 		dist= Math.sqrt(dist);
 		System.out.println("Cluster number: "+c.getId() + " CW Distance is: " + dist);

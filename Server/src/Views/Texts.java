@@ -155,6 +155,13 @@ public class Texts extends View {
 		
 		return res;
 	}
+
+
+	public long numOfTexts(int i) throws SQLException {
+		QueryBuilder<DBText, String> qb = db.texts.queryBuilder();
+		
+		return qb.where().eq("clusterId_id", i).countOf();
+	}
 	
 	
 }
