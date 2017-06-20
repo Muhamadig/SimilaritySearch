@@ -22,7 +22,13 @@ import model.FVValueSorted;
 public class SearchController {
 	private static XML xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 	private static DbHandler db = Config.getConfig().getHandler();
+<<<<<<< HEAD
 	private static Texts TextsDao = new Texts();
+=======
+	
+	private static Texts textDao=new Texts();
+	
+>>>>>>> 25d6dab6bf45383c0b9e8e56c01feb24f5f6bea5
 	
 	private static FVHashMap reduceFV(FVHashMap fv, FVHashMap common) {
 		FVHashMap reducedFV=(FVHashMap) fv.clone();
@@ -124,6 +130,7 @@ public class SearchController {
 			db.clusters.update(c);
 		}
 		FVValueSorted CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
+<<<<<<< HEAD
 		FVKeySortedMap AllWords = AllClusterWords(c);
 		double dist=0.0;
 //		for(int i=0;i<CommonWords.size();i++){
@@ -146,6 +153,15 @@ public class SearchController {
 			if(text.containsKey(word))
 				dist += Math.pow((text.get(word) - SigWord.get(word)), 2);
 		
+=======
+		long text_num=textDao.numOfTexts(c.getId());
+		double dist=0.0;
+		for(int i=0;i<CommonWords.size();i++){
+			String CW = CommonWords.get(i).getKey();
+			if(text.containsKey(CW))
+				dist += Math.pow((text.get(CW) - (CommonWords.get(i).getValue()/text_num)), 2);
+		}
+>>>>>>> 25d6dab6bf45383c0b9e8e56c01feb24f5f6bea5
 		dist= Math.sqrt(dist);
 //		for(String key : AllWords.keySet())
 //			if(!CommonWords.contains(key))
