@@ -16,7 +16,7 @@ public class Cluster {
 	private double aggDist;
 	public FVValueSorted CommonWords;
 	private FVValueSorted DiffCW=null;
-	private static final int [] thresholds={43,64,69,60,90,52};
+	public static final int [] thresholds={45,95,133,43,68,140,251};
 	//private static final String [] thresholds={"[frand,1996]","[sculptural relief,16]","[shower down,mistreat]","[likewise,protective]","[detention,barricade]","[amy,dec]"};
 	public static ArrayList<String>DBCommonWords = new ArrayList<String>();
 	private ArrayList<String> ClusterCW;
@@ -142,7 +142,7 @@ public class Cluster {
     }
     
     public FVValueSorted CalculateDiffCW(){
-
+    	XML SortedXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
     	if(CommonWords.isEmpty())
     		CalculateCW();
     	FVHashMap _result = new FVHashMap();
@@ -151,6 +151,7 @@ public class Cluster {
     	
     	FVValueSorted results = new FVValueSorted(_result);
     	DiffCW = (FVValueSorted) results.clone();
+      	SortedXML.export(results, id+"_CW.xml");
     	return results;
     }
     

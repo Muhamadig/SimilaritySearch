@@ -78,7 +78,6 @@ public class Pareto {
 		ArrayList<ArrayList<Integer>> CopyObjVec = (ArrayList<ArrayList<Integer>>) ObjectiveVectors.clone();
 		for(int i=0;i<NO_Results;i++){
 			int min = MinIndex(optimal,CopyObjVec);
-			System.out.println(min);
 			if(min!=Integer.MAX_VALUE){
 				CopyObjVec.remove(min);
 				optimal.remove(min);

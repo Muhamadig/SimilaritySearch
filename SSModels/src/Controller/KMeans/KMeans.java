@@ -1,12 +1,20 @@
 package Controller.KMeans;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 import XML.XML;
 import XML.XMLFactory;
 import model.FVKeySortedMap;
+import model.FVValueSorted;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 
 public class KMeans {
  
@@ -22,6 +30,7 @@ public class KMeans {
     private List<Cluster> clusters;
     private String dir;
     private String CWdir;
+    
     public KMeans(String directory, String CW){
     	this.points = new ArrayList<Point>();
     	this.clusters = new ArrayList<Cluster>();  
@@ -39,6 +48,7 @@ public class KMeans {
     public int GetNOClusters(){
     	return this.NUM_CLUSTERS;
     }
+    
     public void SetPoints(ArrayList<ArrayList<Double>> allpoints){
     	File dir = new File(this.dir+"/");
 		File[] directoryListing = dir.listFiles();
@@ -242,13 +252,6 @@ public class KMeans {
 		return allfreq;
     }
     
-//    public void CreateChart(ArrayList<Double> data){
-////    	LineChart_AWT chart = new LineChart_AWT("" ,"" , data);
-//		chart.pack( );
-//		RefineryUtilities.centerFrameOnScreen( chart );
-//		chart.setVisible( true );
-//    }
-    
     public static int CalculateNOClusters(ArrayList<ArrayList<Double>> FreqPoints){
     	int ClustersNumber; 
     	KMeans kmeans =null;
@@ -347,7 +350,7 @@ public class KMeans {
 		for(String key : words.keySet())
 		CW.add(key);
 		Cluster.DBCommonWords = CW;*/
-		this.NUM_CLUSTERS = clusters.size();
+	//	this.NUM_CLUSTERS = clusters.size();
 		System.out.println("Done Clustering ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
     }
     
@@ -370,18 +373,39 @@ public class KMeans {
     public static void main(String[] args) {
     	System.out.println("Calculating frequencies ... ");
     	long t = System.currentTimeMillis();
-    	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies("final");
-    	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
+    	ArrayList<ArrayList<Double>> freqs = KMeans.getAllFrequencies("FinalFVs");
+    	
     //	int NOClusters = KMeans.CalculateNOClusters(freqs);
     	
 		int len = freqs.get(0).size();
 		int max = Point.MaximumCordinate(freqs);
-    	KMeans km = new KMeans(6,"final");
+    	KMeans km = new KMeans(7,"FinalFVs");
     	km.initCordinates(max, len);
     	km.init();
     	km.SetPoints(freqs);
-    	km.calculate();
+    	km.Clustering();
+    	
+
+    	for(Cluster c : km.clusters){
+    		System.out.println("Cluster: "+ c.getId() +" Contains:"+ c.getPoints().size() +" texts");
+    		c.CalculateDiffCW();
+    		 try
+   	      {
+   	    	 XML SortXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+   	     Document document = new Document();
+   	    	FVValueSorted sorted = (FVValueSorted) SortXML.Import(c.getId()+"_CW.xml");
+   	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(c.getId()+"_CW.pdf"));
+   	         document.open();
+   	         for(int j=0;j<sorted.size();j++)
+   	        	 document.add(new Paragraph((j+1) +")          " + sorted.get(j).getKey() +"  =  " + sorted.get(j).getValue()));
+   	         document.close();
+   	         writer.close();
+   	      } catch (DocumentException  | FileNotFoundException e)
+   	      {
+   	    	  System.out.println(e.toString());
+   	      }
+
+    	}
+    	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
    }
-    
-  
 }
