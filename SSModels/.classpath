@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="lib/poi-scratchpad-3.15.jar"/>
 	<classpathentry kind="lib" path="lib/xmlbeans.jar"/>
 	<classpathentry kind="lib" path="lib/xmlworker-5.4.1.jar"/>
+	<classpathentry kind="lib" path="/DBPreProcessing/libraries/itextpdf-5.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

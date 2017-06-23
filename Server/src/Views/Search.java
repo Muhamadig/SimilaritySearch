@@ -42,15 +42,11 @@ public class Search extends View{
 		//Step 5: Sort the expanded Vector By Key.
 		FVKeySortedMap finalFV=new FVKeySortedMap(expandedFV);
 		
+		
 		//Step 6: Find the cluster that the Final FV belongs to.
 		int clusterID =0;
-		try {
 			 clusterID = SearchController.getCluster(finalFV, clusterDao.getAll());
 			System.out.println(clusterID);
-		} catch (IOException |SQLException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
 		System.out.println(clusterID);
 		
 		List<DBText> CTexts = TextsDao.getByCluster(clusterID);

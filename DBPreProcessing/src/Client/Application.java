@@ -53,7 +53,7 @@ public class Application {
 //		ClientApp.run();
 		
 		Request r=new Request("search/search");
-		FVHashMap fv=(FVHashMap) XMLFactory.getXML(XMLFactory.FV).Import("results/initialFVs/Bank of Scotland PLC -v- McDermott.html.xml");
+		FVHashMap fv=(FVHashMap) XMLFactory.getXML(XMLFactory.FV).Import("FVs/Cagney -v- Bank of Ireland.html.xml");
 		r.addParam("fv",fv);
 		client.sendRequest(r);
 	}
