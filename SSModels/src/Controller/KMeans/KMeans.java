@@ -384,28 +384,6 @@ public class KMeans {
     	km.init();
     	km.SetPoints(freqs);
     	km.Clustering();
-    	
-
-    	for(Cluster c : km.clusters){
-    		System.out.println("Cluster: "+ c.getId() +" Contains:"+ c.getPoints().size() +" texts");
-    		c.CalculateDiffCW();
-    		 try
-   	      {
-   	    	 XML SortXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
-   	     Document document = new Document();
-   	    	FVValueSorted sorted = (FVValueSorted) SortXML.Import(c.getId()+"_CW.xml");
-   	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(c.getId()+"_CW.pdf"));
-   	         document.open();
-   	         for(int j=0;j<sorted.size();j++)
-   	        	 document.add(new Paragraph((j+1) +")          " + sorted.get(j).getKey() +"  =  " + sorted.get(j).getValue()));
-   	         document.close();
-   	         writer.close();
-   	      } catch (DocumentException  | FileNotFoundException e)
-   	      {
-   	    	  System.out.println(e.toString());
-   	      }
-
-    	}
     	System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000) + " Seconds");
    }
 }

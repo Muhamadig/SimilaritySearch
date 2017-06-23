@@ -17,13 +17,6 @@ public class DBText implements Serializable{
 	@DatabaseField()
 	private String finalFV_name;
 	
-	@DatabaseField()
-	private boolean FV_upToDate;
-	
-	@DatabaseField(dataType = DataType.SERIALIZABLE,columnDefinition="MEDIUMBLOB")
-	private byte[] finalFV;
-	
-	
 	@DatabaseField(foreign=true)
 	private DBCluster clusterId;
 	
@@ -31,14 +24,11 @@ public class DBText implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public DBText(String name, byte[] textFile, String finalFV_name, boolean fV_upToDate, byte[] finalFV,
-			DBCluster clusterId) {
+	public DBText(String name, byte[] textFile, String finalFV_name, DBCluster clusterId) {
 		super();
 		this.name = name;
 		this.textFile = textFile;
 		this.finalFV_name = finalFV_name;
-		FV_upToDate = fV_upToDate;
-		this.finalFV = finalFV;
 		this.clusterId = clusterId;
 	}
 
@@ -66,22 +56,6 @@ public class DBText implements Serializable{
 		this.finalFV_name = finalFV_name;
 	}
 
-	public boolean isFV_upToDate() {
-		return FV_upToDate;
-	}
-
-	public void setFV_upToDate(boolean fV_upToDate) {
-		FV_upToDate = fV_upToDate;
-	}
-
-	public byte[] getFinalFV() {
-		return finalFV;
-	}
-
-	public void setFinalFV(byte[] finalFV) {
-		this.finalFV = finalFV;
-	}
-
 	public DBCluster getClusterId() {
 		return clusterId;
 	}
@@ -90,6 +64,5 @@ public class DBText implements Serializable{
 		this.clusterId = clusterId;
 	}
 
-
-
+	
 }

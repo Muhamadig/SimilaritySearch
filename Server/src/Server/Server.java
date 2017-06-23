@@ -131,6 +131,6 @@ public class Server extends AbstractServer {
 
 		server.listen();
 		
-		SearchController.test(new Clusters().getAll());
+//		SearchController.test(new Clusters().getAll());
 	}
 }

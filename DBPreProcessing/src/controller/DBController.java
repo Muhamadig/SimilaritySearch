@@ -22,6 +22,7 @@ public class DBController {
 	XML globalXML=XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 
 	ArrayList<String> all_texts;
+	
 	private DBController() {
 		all_texts=new ArrayList<>();
 	}
@@ -38,11 +39,12 @@ public class DBController {
 
 		for(Integer key:clusters.keySet()){
 			cluster_CW=Serialization.toByteArray(new File("CW"+File.separator+key+"_CW.xml"));
-			cluster=new DBCluster(key, key+"_CW", false, cluster_CW);
+			cluster=new DBCluster(key, key+"_CW.xml");
 
 
 			Request r=new Request("clusters/create");
 			r.addParam("cluster", cluster);
+			r.addParam("c_CW", cluster_CW);
 			if((int)Application.client.sendRequest(r)>0) res=res && true;
 			else res=false;
 		}

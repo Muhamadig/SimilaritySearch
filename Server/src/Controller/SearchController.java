@@ -98,7 +98,7 @@ public class SearchController {
 		ArrayList<FVValueSorted> commons=new ArrayList<>();
 		System.out.println("1");
 		for(DBCluster cluster:clusters){
-			List<DBText> c_texts=textDao.getByCluster(cluster.getId());
+			List<DBText> c_texts=TextsDao.getByCluster(cluster.getId());
 			clusters_texts.add(c_texts);
 			FVValueSorted CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+cluster.getCommonWords_name()+".xml");
 			commons.add(CommonWords);
@@ -143,30 +143,59 @@ public class SearchController {
 
 		
 	}
-		ArrayList<FVKeySortedMap> candidates = new ArrayList<FVKeySortedMap>();
-		for(DBText text : texts){
-			if(!text.isFV_upToDate()){
-				byte [] fv = text.getFinalFV();
-				FileOutputStream f;
-				try {
-					f = new FileOutputStream("TextFV"+ File.separator+ text.getFinalFV_name());
-					f.write(fv);
-					f.close();
-					text.setFV_upToDate(true);
-					db.texts.update(text);
-				} catch (IOException | SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+	
+	
+			private static ArrayList<FVHashMap> ToHash(List<DBText> texts){
+				ArrayList<FVHashMap> candidates = new ArrayList<FVHashMap>();
+				for(DBText text : texts){
+					if(!text.isFV_upToDate()){
+						byte [] fv = text.getFinalFV();
+						FileOutputStream f;
+						try {
+							f = new FileOutputStream("TextFV"+ File.separator+ text.getFinalFV_name());
+							f.write(fv);
+							f.close();
+							text.setFV_upToDate(true);
+							db.texts.update(text);
+						} catch (IOException | SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					}
+					xml = XMLFactory.getXML(XMLFactory.FV);
+					FVHashMap candidate = (FVHashMap) xml.Import("TextFV"+File.separator+text.getFinalFV_name());
+					candidates.add(candidate);
 				}
-				
+				return candidates;
 			}
-			xml = XMLFactory.getXML(XMLFactory.FVSortedMap);
-			FVKeySortedMap candidate = (FVKeySortedMap) xml.Import("TextFV"+File.separator+text.getFinalFV_name());
-			candidates.add(candidate);
-		}
-		return candidates;
-	}
-
+			
+	
+	
+	private static ArrayList<FVKeySortedMap> ToKeySorted(List<DBText> texts) {
+				ArrayList<FVKeySortedMap> candidates = new ArrayList<FVKeySortedMap>();
+				for(DBText text : texts){
+					if(!text.isFV_upToDate()){
+						byte [] fv = text.getFinalFV();
+						FileOutputStream f;
+						try {
+							f = new FileOutputStream("TextFV"+ File.separator+ text.getFinalFV_name());
+							f.write(fv);
+							f.close();
+							text.setFV_upToDate(true);
+							db.texts.update(text);
+						} catch (IOException | SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					}
+					xml = XMLFactory.getXML(XMLFactory.FVSortedMap);
+					FVKeySortedMap candidate = (FVKeySortedMap) xml.Import("TextFV"+File.separator+text.getFinalFV_name());
+					candidates.add(candidate);
+				}
+				return candidates;
+			}
 	public static double CommonDistnce(FVKeySortedMap text, DBCluster c) throws IOException, SQLException{
 		
 		if(!c.isCommonWords_upToDate()){

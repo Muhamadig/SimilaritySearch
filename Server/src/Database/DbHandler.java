@@ -9,7 +9,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import DBModels.DBCluster;
-import DBModels.DBGlobal;
 import DBModels.DBText;
 
 
@@ -28,7 +27,6 @@ public class DbHandler {
 	
 	public Dao<DBCluster,Integer> clusters;
 	
-	public Dao<DBGlobal, String> global;
 
 	/**
 	 * need to provide url , user ,pass to conenct to database
@@ -40,23 +38,13 @@ public class DbHandler {
 	public DbHandler(String url, String username, String password) {
 		try {
 			connection = new JdbcConnectionSource(url, username, password);
-		//	createAllTables();
+			createAllTables();
 			initializeDao();
-		//	fillDataBase();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * fills the database with random data.
-	 * 
-	 * @throws Exception
-	 */
-	public void fillDataBase() throws Exception {
-		DataFiller df = new DataFiller(this);
-		
-	}
 
 	/**
 	 * initializes all the DAO for ORM usage
@@ -66,7 +54,6 @@ public class DbHandler {
 	public void initializeDao() throws Exception {		
 		texts=DaoManager.createDao(connection, DBText.class);
 		clusters=DaoManager.createDao(connection, DBCluster.class);
-		global=DaoManager.createDao(connection, DBGlobal.class);
 
 	}
 
@@ -80,11 +67,9 @@ public class DbHandler {
 	public void createAllTables() throws Exception {
 		TableUtils.dropTable(connection, DBText.class, true);
 		TableUtils.dropTable(connection, DBCluster.class, true);
-		TableUtils.dropTable(connection, DBGlobal.class, true);
 
 		TableUtils.createTable(connection, DBCluster.class);
 		TableUtils.createTable(connection, DBText.class);
-		TableUtils.createTable(connection, DBGlobal.class);
 
 		
 	}
