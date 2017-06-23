@@ -169,11 +169,12 @@ public class Cluster {
     	return this.ClusterCW;
     	}
     
+<<<<<<< HEAD
 //    public void GetCW(){
 //    	int threshold = thresholds[id];
 //    	if(DiffCW == null)
 //    		DiffCW = CalculateDiffCW();
-    	int i=0;
+//    	int i=1;
 //    	String words;
 //    	while(i < threshold){
 //    		words = DiffCW.get(i).getKey();
@@ -186,4 +187,23 @@ public class Cluster {
 //    	}
 //    	CommonWords = DiffCW;
 //    }
+=======
+    public void GetCW(){
+    	int threshold = thresholds[id];
+    	if(DiffCW == null)
+    		DiffCW = CalculateDiffCW();
+    	int i=0;
+    	String words;
+    	while(i < threshold){
+    		words = DiffCW.get(i).getKey();
+    		words = words.replace("]", "");
+    		words = words.replace("[", "");
+    		String[] Splitted = words.split(",");
+    		for(int j=0;j<Splitted.length;j++)
+    			ClusterCW.add(Splitted[j]);
+    		i++;
+    	}
+    	CommonWords = DiffCW;
+    }
+>>>>>>> f97b82a139b287ac266d46f5142165882da2b9c2
 }
