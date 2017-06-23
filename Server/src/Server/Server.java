@@ -14,9 +14,11 @@ import java.util.Timer;
 import com.j256.ormlite.logger.LocalLog;
 import com.mysql.jdbc.Driver;
 
+import Controller.SearchController;
 import Database.DbHandler;
 import Utils.Logger;
 import Utils.Request;
+import Views.Clusters;
 //import Utils.TimeTask;
 //import Views.Appointments;
 //import Views.Reports;
@@ -128,5 +130,7 @@ public class Server extends AbstractServer {
 		Server server = new Server(cfg.getPort());
 
 		server.listen();
+		
+		SearchController.test(new Clusters().getAll());
 	}
 }
