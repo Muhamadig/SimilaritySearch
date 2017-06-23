@@ -164,7 +164,7 @@ public class Cluster {
     	int threshold = thresholds[id];
     	if(DiffCW == null)
     		DiffCW = CalculateDiffCW();
-    	int i=1;
+    	int i=0;
     	String words;
     	while(i < threshold){
     		words = DiffCW.get(i).getKey();
