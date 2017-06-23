@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
+
+import Controller.KMeans.Cluster;
 import DBModels.DBCluster;
 import DBModels.DBText;
 import Database.DbHandler;
@@ -63,7 +65,6 @@ public class SearchController {
 	private static FVHashMap AllClusterWords(DBCluster c) throws IOException, SQLException{
 		List<DBText> res = TextsDao.getByCluster(c.getId());
 		ArrayList<FVHashMap> texts = ToHash(res);
-		//ArrayList<FVKeySortedMap> texts = ToKeySorted(res);
 		FVHashMap All = new FVHashMap();
 		for(FVHashMap text : texts)
 			All.merge(text);
@@ -75,13 +76,7 @@ public class SearchController {
 		double min =Double.MAX_VALUE;
 		double dist=min;
 		for(DBCluster c: clusters){
-			try {
-			
 				dist = CommonDistnce(finalvec , c);
-			} catch (IOException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			if(dist<min){
 				min=dist;
 				cluster=c.getId();
@@ -140,8 +135,11 @@ public class SearchController {
 		return candidates;
 	}
 
-	public static double CommonDistnce(FVKeySortedMap text, DBCluster c) throws IOException, SQLException{
+	public static double CommonDistnce(FVKeySortedMap text, DBCluster c){
 		
+		FVValueSorted CommonWords=null;
+		FVHashMap AllWords=null;
+		try{
 		if(!c.isCommonWords_upToDate()){
 			byte [] CW = c.getCommonWords();
 			FileOutputStream f=new FileOutputStream("CW"+ File.separator+ c.getCommonWords_name()+".xml");
@@ -152,48 +150,56 @@ public class SearchController {
 			db.clusters.update(c);
 		}
 
-		FVValueSorted CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
-//		FVHashMap AllWords = AllClusterWords(c);
+		CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
+		 AllWords = AllClusterWords(c);
+		 xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+		}catch( IOException | SQLException e){
+			e.printStackTrace();
+		}
 		double dist=0.0;
-//		for(int i=0;i<CommonWords.size();i++){
-//			String CW = CommonWords.get(i).getKey();
-//			if(text.containsKey(CW)){
-//			//	System.out.println("Word: " + CW +" Values: ["+text.get(CW) +","+CommonWords.get(i).getValue()+"]");
-//				if(CommonWords.get(i).getValue()!=0)
-//					dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
-//			}
-//		}
-//		dist= Math.sqrt(dist);
+		int thresholdindex = Cluster.thresholds[c.getId()];
+		for(int i=0;i<thresholdindex;i++){
+			String CW = CommonWords.get(i).getKey();
+			if(CommonWords.get(i).getValue() !=0){
+			//	System.out.println("Word: " + CW +" Values: ["+text.get(CW) +","+CommonWords.get(i).getValue()+"]");
+				if(CommonWords.get(i).getValue()!=0)
+					dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
+			}
+		}
+		dist= Math.sqrt(dist);
 		
 //		FVKeySortedMap SigWord = new FVKeySortedMap();
 //		for(String key : AllWords.keySet())
 //			if(!CommonWords.contains(AllWords.get(key)) || (CommonWords.contains(AllWords.get(key)) && CommonWords.getByKey(key)!=0))
 //				SigWord.put(key, AllWords.get(key));
-//		
-//		System.out.println(SigWord.size());
-//		
-//		System.out.println("Done...");
+//
 //		for(String word : SigWord.keySet())
-//			if(text.containsKey(word))
-//				dist += Math.pow((text.get(word) - SigWord.get(word)), 2);
+//			if(SigWord.get(word)!=0)
+//				dist += Math.sqrt(Math.pow((text.get(word) - SigWord.get(word)), 2));
 //		
+//
+//		
+//		long text_num=0;
+//		try {
+//			text_num = TextsDao.numOfTexts(c.getId());
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		for(int i=0;i<thresholdindex;i++){
+//			String CW = CommonWords.get(i).getKey();
+//			if(text.containsKey(CW) && CommonWords.getByKey(CW)!=0)
+//				dist +=Math.sqrt( Math.pow((text.get(CW) - (CommonWords.get(i).getValue()/text_num)), 2));
+//		}
 
-		long text_num=TextsDao.numOfTexts(c.getId());
-		for(int i=0;i<CommonWords.size();i++){
-			String CW = CommonWords.get(i).getKey();
-			if(CommonWords.getByKey(CW)!=0)
-				dist += Math.pow((text.get(CW) - (CommonWords.get(i).getValue()/text_num)), 2);
-		}
-
-		dist= Math.sqrt(dist);
+	
 		
 
 		System.out.println("Cluster number: "+c.getId() + " CW Distance is: " + dist);
 	return dist;	
 	}
 
-	
-	
 	public static ArrayList<DBText> Pareto(FVKeySortedMap finalfv , List<DBText> texts) throws IOException, SQLException{
 		ArrayList<FVKeySortedMap> candidates = ToKeySorted(texts);
 		ArrayList<FVKeySortedMap> results = new Pareto(candidates,finalfv).ParetoCalculate();

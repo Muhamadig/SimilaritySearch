@@ -45,7 +45,7 @@ public class Application {
 //		ServerConfig.getConfig().readTextConfig();
 		connect();
 //		MainApp.run(WN_Client,client);
-		DBController dbc=DBController.getInstance();
+//		DBController dbc=DBController.getInstance();
 //		dbc.createClusters();
 //		dbc.createTexts();
 //		dbc.createGlobals("Expanded/results");
@@ -53,7 +53,7 @@ public class Application {
 //		ClientApp.run();
 		
 		Request r=new Request("search/search");
-		FVHashMap fv=(FVHashMap) XMLFactory.getXML(XMLFactory.FV).Import("FVs/Cagney -v- Bank of Ireland.html.xml");
+		FVHashMap fv=(FVHashMap) XMLFactory.getXML(XMLFactory.FV).Import("FVs/Director of Public Prosecutions -v- Awode.html.xml");
 		r.addParam("fv",fv);
 		client.sendRequest(r);
 	}
