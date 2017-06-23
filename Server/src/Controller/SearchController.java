@@ -11,6 +11,7 @@ import DBModels.DBCluster;
 import DBModels.DBText;
 import Database.DbHandler;
 import Server.Config;
+import Views.Clusters;
 import Views.Texts;
 import XML.XML;
 import XML.XMLFactory;
@@ -23,7 +24,8 @@ public class SearchController {
 	private static DbHandler db = Config.getConfig().getHandler();
 	
 	private static Texts textDao=new Texts();
-	
+	private static XML keySxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
+
 	
 	private static FVHashMap reduceFV(FVHashMap fv, FVHashMap common) {
 		FVHashMap reducedFV=(FVHashMap) fv.clone();
@@ -74,6 +76,57 @@ public class SearchController {
 		return cluster;
 	}
 	
+	
+	public static void test(List<DBCluster> clusters) throws IOException, SQLException{
+		ArrayList<List<DBText>> clusters_texts=new ArrayList<>();
+		ArrayList<FVValueSorted> commons=new ArrayList<>();
+		System.out.println("1");
+		for(DBCluster cluster:clusters){
+			List<DBText> c_texts=textDao.getByCluster(cluster.getId());
+			clusters_texts.add(c_texts);
+			FVValueSorted CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+cluster.getCommonWords_name()+".xml");
+			commons.add(CommonWords);
+		}
+		ArrayList<ArrayList<FVKeySortedMap>> fvs=new ArrayList<>();
+		System.out.println("2");
+
+		for(List<DBText> cluster_list:clusters_texts){
+			fvs.add(ToKeySorted(cluster_list));
+		}
+		ArrayList<FVKeySortedMap> globals=new ArrayList<>();
+		
+		System.out.println("3");
+
+		for(ArrayList<FVKeySortedMap> c_fvs:fvs){
+			FVKeySortedMap curr=new FVKeySortedMap();
+			for(FVKeySortedMap fv:c_fvs){
+				curr.merge(fv);
+			}
+			globals.add(curr);
+		}
+		
+		//globals fsor each cluster the global vec
+		//common for each cluster the common
+		//fvs for each cluster the texts fvs
+		
+		ArrayList<FVKeySortedMap> sig=new ArrayList<>();
+		if((globals.size()==commons.size())&& globals.size()==fvs.size()){
+			System.out.println("4");
+			for(int i=0;i<globals.size();i++){
+				FVKeySortedMap currSig=new FVKeySortedMap();
+				for(String key:globals.get(i).keySet()){
+					if(!commons.get(i).contains(key)) currSig.put(key, globals.get(i).get(key));
+				}
+				keySxml.export(currSig, "sig"+i);
+//				sig.add(currSig);
+				currSig=null;
+			}
+		}
+		
+		
+
+		
+	}
 	private static ArrayList<FVKeySortedMap> ToKeySorted(List<DBText> texts) throws IOException, SQLException{
 		ArrayList<FVKeySortedMap> candidates = new ArrayList<FVKeySortedMap>();
 		for(DBText text : texts){
@@ -126,4 +179,6 @@ public class SearchController {
 		}
 		return ResultsToReturn;		
 	}
+	
+	
 }
