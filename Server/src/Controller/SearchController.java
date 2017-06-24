@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.TreeMap;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import Controller.KMeans.Cluster;
 import DBModels.DBCluster;
@@ -27,8 +30,9 @@ public class SearchController {
 
 	private static Texts TextsDao = new Texts();
 	private static XML keySxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
-
-
+	private static XML fvxml = XMLFactory.getXML(XMLFactory.FV);
+	private static XML hashlist = XMLFactory.getXML(XMLFactory.HashList);
+	
 	private static FVHashMap reduceFV(FVHashMap fv, FVHashMap common) {
 		FVHashMap reducedFV=(FVHashMap) fv.clone();
 		for(String key:fv.keySet()){
@@ -77,16 +81,22 @@ public class SearchController {
 		int cluster =-1;
 		double min =Double.MAX_VALUE;
 		double dist=min;
-		for(DBCluster c: clusters){
-				dist = CommonDistnce(finalvec , c);
+		ArrayList<String> GlobalCW = CommonGlobal();
+		for(int i =0;i<6;i++){
+				dist = CommonDistance(finalvec , GlobalCW , i);
 			if(dist<min){
 				min=dist;
-				cluster=c.getId();
+				cluster=i;
 			}
 		}
 		return cluster;
 	}
 	
+	@SuppressWarnings("unchecked")
+	private static int NOTexts(int cluster){
+		TreeMap<Integer, ArrayList<String>> res = (TreeMap<Integer, ArrayList<String>>) hashlist.Import("clusters.xml");
+		return res.get(cluster).size();
+	}
 	
 	public static void test(List<DBCluster> clusters) throws IOException, SQLException{
 		ArrayList<List<DBText>> clusters_texts=new ArrayList<>();
@@ -140,7 +150,7 @@ public class SearchController {
 	}
 	
 	
-		private static ArrayList<FVHashMap> ToHash(List<DBText> texts){
+	private static ArrayList<FVHashMap> ToHash(List<DBText> texts){
 				ArrayList<FVHashMap> candidates = new ArrayList<FVHashMap>();
 				for(DBText text : texts){
 					if(!text.isFV_upToDate()){
@@ -165,8 +175,6 @@ public class SearchController {
 				return candidates;
 			}
 			
-	
-	
 	private static ArrayList<FVKeySortedMap> ToKeySorted(List<DBText> texts) {
 				ArrayList<FVKeySortedMap> candidates = new ArrayList<FVKeySortedMap>();
 				for(DBText text : texts){
@@ -256,6 +264,19 @@ public class SearchController {
 	return dist;	
 	}
 
+	public static double CommonDistance(FVKeySortedMap finalvec , ArrayList<String> Global , int cluster){
+		double dist = 0.0;
+		FVHashMap CommonWords = (FVHashMap) fvxml.Import("clusters"+File.separator+cluster+"_common.xml");
+		CommonWords = ExpandedCW(CommonWords, Global);
+		int numtexts = NOTexts(cluster);
+		for(String cw : CommonWords.keySet())
+			if(finalvec.get(cw)!=0)
+			dist+=Math.pow((finalvec.get(cw) - (CommonWords.get(cw)/numtexts)), 2);
+		dist = Math.sqrt(dist);
+		System.out.println("Cluster "+ cluster +" = "+ dist);
+		return dist;
+	}
+	
 	public static ArrayList<DBText> Pareto(FVKeySortedMap finalfv , List<DBText> texts) throws IOException, SQLException{
 		ArrayList<FVKeySortedMap> candidates = ToKeySorted(texts);
 		ArrayList<FVKeySortedMap> results = new Pareto(candidates,finalfv).ParetoCalculate();
@@ -267,5 +288,30 @@ public class SearchController {
 		return ResultsToReturn;		
 	}
 	
+	private static ArrayList<String> CommonGlobal(){
+		
+		ArrayList<String> Global = new ArrayList<String>();
+		FVHashMap cw;
+		for(int i=0;i<6;i++){
+			cw = (FVHashMap) fvxml.Import("clusters"+File.separator+i+"_common.xml");
+			for(String key: cw.keySet())
+				if(!Global.contains(key))
+					Global.add(key);
+		}
+		return Global;
+	}
+
+	private static FVHashMap ExpandedCW(FVHashMap OriginalCW , ArrayList<String> global){
+		FVHashMap copy = (FVHashMap) OriginalCW.clone();
+		for(String key : global)
+			if(!OriginalCW.containsKey(key))
+				copy.put(key, 0);
+		return copy;
+	}
 	
+	public static void main(String[] args) {
+		FVKeySortedMap finalfv = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+"ACC Loan Management -v- Dooley.html.xml");
+		int res = getCluster(finalfv, null);
+		System.out.println("Res = "+res);
+	}
 }

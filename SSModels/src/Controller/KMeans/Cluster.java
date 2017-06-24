@@ -153,14 +153,14 @@ public class Cluster {
     		int th_index=currGlobal.getByKey(thresholds.get(i));
     		sigWords=new FVHashMap();
     		commonWords=new FVHashMap();
-    		
-    		for(int j=0;j<=th_index;j++){
+    		int j=0;
+    		for(;j<=th_index;j++){
 				commonWords.put(currGlobal.get(j).getKey(), currGlobal.get(j).getValue());
 				
 			}
 			
 			
-			for(int j=th_index+1;j<currGlobal.size();j++){
+			for(;j<currGlobal.size();j++){
 				sigWords.put(currGlobal.get(j).getKey(), currGlobal.get(j).getValue());
 
 			}
