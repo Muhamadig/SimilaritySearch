@@ -32,6 +32,9 @@ public class Cluster {
 	XML fvXML=XMLFactory.getXML(XMLFactory.FV);
 	XML valueSortedXML=XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 
+	public Cluster(){
+		
+	}
 	//Creates a new Cluster
 	public Cluster(int id) {
 		this.id = id;
@@ -123,7 +126,8 @@ public class Cluster {
     
     
     public void findC_global_fv(String export_path,String clusters_path,String fvs_path){
-    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+"clusters.xml");
+    	
+    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+File.separator+"clusters.xml");
     	
     	FVHashMap currGlobal;
     	for(Integer key:clusters.keySet()){
@@ -136,7 +140,7 @@ public class Cluster {
     }
     
     public int get_clusters_num(String clusters_path){
-    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+"clusters.xml");
+    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+File.separator+"clusters.xml");
     	return clusters.size();
     }
     public void find_CW_Sig(String export_path,String clusters_path,String globals_path,HashMap<Integer,String> thresholds){
@@ -150,13 +154,13 @@ public class Cluster {
     		sigWords=new FVHashMap();
     		commonWords=new FVHashMap();
     		
-    		for(int j=0;j<=th_index;i++){
+    		for(int j=0;j<=th_index;j++){
 				commonWords.put(currGlobal.get(j).getKey(), currGlobal.get(j).getValue());
 				
 			}
 			
 			
-			for(int j=th_index+1;j<currGlobal.size();i++){
+			for(int j=th_index+1;j<currGlobal.size();j++){
 				sigWords.put(currGlobal.get(j).getKey(), currGlobal.get(j).getValue());
 
 			}

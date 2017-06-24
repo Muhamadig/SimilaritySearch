@@ -140,7 +140,7 @@ public class SearchController {
 	}
 	
 	
-			private static ArrayList<FVHashMap> ToHash(List<DBText> texts){
+		private static ArrayList<FVHashMap> ToHash(List<DBText> texts){
 				ArrayList<FVHashMap> candidates = new ArrayList<FVHashMap>();
 				for(DBText text : texts){
 					if(!text.isFV_upToDate()){
@@ -191,37 +191,37 @@ public class SearchController {
 				}
 				return candidates;
 			}
+	
 	public static double CommonDistnce(FVKeySortedMap text, DBCluster c){
 		
 		FVValueSorted CommonWords=null;
 		FVHashMap AllWords=null;
-		try{
-		if(!c.isCommonWords_upToDate()){
-			byte [] CW = c.getCommonWords();
-			FileOutputStream f=new FileOutputStream("CW"+ File.separator+ c.getCommonWords_name()+".xml");
-			f.write(CW);
-			f.close();
-			
-			c.setCommonWords_upToDate(true);
-			db.clusters.update(c);
-		}
-
-		CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
-		 AllWords = AllClusterWords(c);
-		 xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
-		}catch( IOException | SQLException e){
-			e.printStackTrace();
-		}
+//		try{
+//		if(!c.isCommonWords_upToDate()){
+//			byte [] CW = c.getCommonWords();
+//			FileOutputStream f=new FileOutputStream("CW"+ File.separator+ c.getCommonWords_name()+".xml");
+//			f.write(CW);
+//			f.close();
+//			
+//			c.setCommonWords_upToDate(true);
+//			db.clusters.update(c);
+//		}
+//
+//		CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
+//		 AllWords = AllClusterWords(c);
+//		 xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+//		}catch( IOException | SQLException e){
+//			e.printStackTrace();
+//		}
+		xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+		CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getId()+"_common.xml");
 		double dist=0.0;
-		int thresholdindex = Cluster.thresholds[c.getId()];
-		for(int i=0;i<thresholdindex;i++){
+	//	int thresholdindex = Cluster.thresholds[c.getId()];
+		for(int i=0;i<CommonWords.size();i++){
 			String CW = CommonWords.get(i).getKey();
-			if(CommonWords.get(i).getValue() !=0){
-			//	System.out.println("Word: " + CW +" Values: ["+text.get(CW) +","+CommonWords.get(i).getValue()+"]");
-				if(CommonWords.get(i).getValue()!=0)
-					dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
+			dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
 			}
-		}
+		
 		dist= Math.sqrt(dist);
 		
 //		FVKeySortedMap SigWord = new FVKeySortedMap();
