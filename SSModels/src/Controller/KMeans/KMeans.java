@@ -178,7 +178,6 @@ public class KMeans {
                     cluster = i;
                 }
             }
-          //  Recorder.write(point.getName() + " is in cluster number "+ cluster+"\n");
             point.setCluster(cluster);
             clusters.get(cluster).addPoint(point);
         }

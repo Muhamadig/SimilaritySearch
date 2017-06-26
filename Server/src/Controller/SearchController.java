@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -92,13 +94,40 @@ public class SearchController {
 		return cluster;
 	}
 	
+	public static int getCluster(FVKeySortedMap finalvec){
+		int cluster =-1;
+		double min =Double.MAX_VALUE;
+		double dist=min;
+		
+//		TreeMap <Integer ,ArrayList<String>> centorids = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Centroids.xml");
+//		for(Integer key : centorids.keySet()){
+//			ArrayList<String> copy = (ArrayList<String>) centorids.get(key).clone();
+//			Collections.sort(copy);
+//			dist = CentroidDistance(copy, finalvec);
+//			if(dist<min){
+//				min= dist;
+//				cluster = key;
+//			}
+//		}
+		
+		TreeMap <Integer ,ArrayList<String>> clusters = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Clusters.xml");
+		for(Integer key : clusters.keySet()){
+			dist = ClusterAvgDistance(clusters.get(key),finalvec);
+			if(dist < min){
+				min = dist;
+				cluster = key;
+			}
+		}
+		return cluster;
+	}
+	
 	@SuppressWarnings("unchecked")
 	private static int NOTexts(int cluster){
 		TreeMap<Integer, ArrayList<String>> res = (TreeMap<Integer, ArrayList<String>>) hashlist.Import("clusters.xml");
 		return res.get(cluster).size();
 	}
 	
-	public static void test(List<DBCluster> clusters) throws IOException, SQLException{
+/*	public static void test(List<DBCluster> clusters) throws IOException, SQLException{
 		ArrayList<List<DBText>> clusters_texts=new ArrayList<>();
 		ArrayList<FVValueSorted> commons=new ArrayList<>();
 		System.out.println("1");
@@ -148,7 +177,7 @@ public class SearchController {
 
 		
 	}
-	
+	*/
 	
 	private static ArrayList<FVHashMap> ToHash(List<DBText> texts){
 				ArrayList<FVHashMap> candidates = new ArrayList<FVHashMap>();
@@ -309,9 +338,45 @@ public class SearchController {
 		return copy;
 	}
 	
+	private static double CentroidDistance(ArrayList<String> ClusterCentorid , FVKeySortedMap finalvec){
+		double dist = 0.0;
+		
+		ArrayList<Double> vector = new ArrayList<Double>();
+		
+		for(String key : finalvec.keySet())
+			vector.add(finalvec.get(key)*1.0);
+		Collections.sort(vector);
+		
+		for(int i=0;i<ClusterCentorid.size();i++)
+			if(vector.get(i)!=0)
+				dist+= Math.sqrt(Math.pow(Double.parseDouble(ClusterCentorid.get(i)) - vector.get(i), 2));
+	
+		return dist;
+	}
+	
+	private static double ClusterAvgDistance(ArrayList<String> Ctexts , FVKeySortedMap finalvec){
+		double dist=0.0;
+		FVKeySortedMap vec;
+		for(String text : Ctexts){
+			vec = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+text);
+			dist+=TwoTextsDistance(finalvec , vec);
+		}
+		
+		return dist/Ctexts.size();
+	}
+	
+	private static double TwoTextsDistance(FVKeySortedMap newtext , FVKeySortedMap clustertext){
+		double dist =0.0;
+		for(String key : newtext.keySet())
+				dist+=Math.pow(newtext.get(key) - clustertext.get(key), 2);
+
+		dist = Math.sqrt(dist);
+		return dist;
+	}
+	
 	public static void main(String[] args) {
-		FVKeySortedMap finalfv = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+"ACC Loan Management -v- Dooley.html.xml");
-		int res = getCluster(finalfv, null);
-		System.out.println("Res = "+res);
+		FVKeySortedMap finalvec = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+"Director of Public Prosecutions -v- R.McC..html.xml");
+		int res = getCluster(finalvec);
+		System.out.println("Result = "+ res);
 	}
 }
