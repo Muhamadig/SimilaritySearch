@@ -99,25 +99,25 @@ public class SearchController {
 		double min =Double.MAX_VALUE;
 		double dist=min;
 		
-//		TreeMap <Integer ,ArrayList<String>> centorids = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Centroids.xml");
-//		for(Integer key : centorids.keySet()){
-//			ArrayList<String> copy = (ArrayList<String>) centorids.get(key).clone();
-//			Collections.sort(copy);
-//			dist = CentroidDistance(copy, finalvec);
-//			if(dist<min){
-//				min= dist;
-//				cluster = key;
-//			}
-//		}
-		
-		TreeMap <Integer ,ArrayList<String>> clusters = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Clusters.xml");
-		for(Integer key : clusters.keySet()){
-			dist = ClusterAvgDistance(clusters.get(key),finalvec);
-			if(dist < min){
-				min = dist;
+		TreeMap <Integer ,ArrayList<String>> centorids = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Centroids.xml");
+		for(Integer key : centorids.keySet()){
+			ArrayList<String> copy = (ArrayList<String>) centorids.get(key).clone();
+			Collections.sort(copy);
+			dist = CentroidDistance(copy, finalvec);
+			if(dist<min){
+				min= dist;
 				cluster = key;
 			}
 		}
+		
+//		TreeMap <Integer ,ArrayList<String>> clusters = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Clusters.xml");
+//		for(Integer key : clusters.keySet()){
+//			dist = ClusterAvgDistance(clusters.get(key),finalvec);
+//			if(dist < min){
+//				min = dist;
+//				cluster = key;
+//			}
+//		}
 		return cluster;
 	}
 	
@@ -375,7 +375,7 @@ public class SearchController {
 	}
 	
 	public static void main(String[] args) {
-		FVKeySortedMap finalvec = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+"Director of Public Prosecutions -v- R.McC..html.xml");
+		FVKeySortedMap finalvec = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+"Muwema -v- Facebook Ireland Limited.html.xml`x");
 		int res = getCluster(finalvec);
 		System.out.println("Result = "+ res);
 	}
