@@ -370,7 +370,7 @@ public class KMeans {
 		
 		for(String curr:files_aL){//actual files
 			if(!allFiles.contains(curr)){
-				addToClusters(Final_FVS_dir+File.separator+curr,res);
+//				addToClusters(Final_FVS_dir+File.separator+curr,res);
 			}
 		}
 		/*FVKeySortedMap words = (FVKeySortedMap) fvxml.Import("FVs/common.xml");
@@ -382,30 +382,30 @@ public class KMeans {
 		System.out.println("Done Clustering ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
 	}
 
-	private void addToClusters(String string, TreeMap<Integer, ArrayList<String>> res) {
-
-		int cluster =-1;
-		double min =Double.MAX_VALUE;
-		double dist=min;
-		for(Integer key : res.keySet()){
-			double currdist=0.0;
-			FVHashMap CommonWords = (FVHashMap) fvXML.Import();
-			
-			int num_of_texts=clusters.get(i).size();
-			for(String key : CommonWords.keySet()){
-				
-					dist += Math.pow((finalvec.get(key) - (CommonWords.get(key))), 2);
-//					if(CommonWords.get(key).compareTo(0)!=0)
-//					dist +=Math.abs(finalvec.get(key) - (CommonWords.get(key)/num_of_texts));
-
-				}
-			
-			dist= Math.sqrt(dist);			if(dist<min){
-				min=dist;
-				cluster=key;
-			}
-		}
-	}
+//	private void addToClusters(String string, TreeMap<Integer, ArrayList<String>> res) {
+//
+//		int cluster =-1;
+//		double min =Double.MAX_VALUE;
+//		double dist=min;
+//		for(Integer key : res.keySet()){
+//			double currdist=0.0;
+//			FVHashMap CommonWords = (FVHashMap) fvXML.Import();
+//			
+//			int num_of_texts=clusters.get(i).size();
+//			for(String key : CommonWords.keySet()){
+//				
+//					dist += Math.pow((finalvec.get(key) - (CommonWords.get(key))), 2);
+////					if(CommonWords.get(key).compareTo(0)!=0)
+////					dist +=Math.abs(finalvec.get(key) - (CommonWords.get(key)/num_of_texts));
+//
+//				}
+//			
+//			dist= Math.sqrt(dist);			if(dist<min){
+//				min=dist;
+//				cluster=key;
+//			}
+//		}
+//	}
 
 	public KMeans Clustering(){
 		XML fvxml = XMLFactory.getXML(XMLFactory.HashList);
