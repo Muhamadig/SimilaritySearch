@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -14,6 +15,9 @@ import java.util.TreeMap;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.util.Map.Entry;
+import java.util.TreeMap;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import Controller.KMeans.Cluster;
 import DBModels.DBCluster;
@@ -44,7 +48,7 @@ public class SearchController {
 	
 			
 			
-
+	
 	private static FVHashMap reduceFV(FVHashMap fv, FVHashMap common) {
 		FVHashMap reducedFV=(FVHashMap) fv.clone();
 		for(String key:fv.keySet()){
@@ -107,6 +111,7 @@ public class SearchController {
 		double dist=min;
 		for(int i=0;i<6;i++){
 			dist = CommonDistnce(finalvec , i);
+				dist = CommonDistance(finalvec , GlobalCW , i);
 			if(dist<min){
 				min=dist;
 				cluster=i;
@@ -117,9 +122,13 @@ public class SearchController {
 
 	}
 
+	public static int getCluster(FVKeySortedMap finalvec){
+		int cluster =-1;
+		double min =Double.MAX_VALUE;
 	private static double CommonDistnce(FVKeySortedMap finalvec, int i) {
 		double dist=0.0;
 		FVHashMap CommonWords = (FVHashMap) fvXML.Import("FinalFVs/Director of Public Prosecutions -v- O'Dea.html.xml");
+		double dist=min;
 		
 		int num_of_texts=clusters.get(i).size();
 		for(String key : CommonWords.keySet()){
@@ -138,6 +147,18 @@ public class SearchController {
 
 
 	/*public static void test(List<DBCluster> clusters) throws IOException, SQLException{
+//			}
+//		}
+		return cluster;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static int NOTexts(int cluster){
+		TreeMap<Integer, ArrayList<String>> res = (TreeMap<Integer, ArrayList<String>>) hashlist.Import("clusters.xml");
+		return res.get(cluster).size();
+	}
+	
+/*	public static void test(List<DBCluster> clusters) throws IOException, SQLException{
 		ArrayList<List<DBText>> clusters_texts=new ArrayList<>();
 		ArrayList<FVValueSorted> commons=new ArrayList<>();
 		System.out.println("1");
@@ -245,7 +266,7 @@ public class SearchController {
 
 		FVValueSorted CommonWords=null;
 		FVHashMap AllWords=null;
-		try{
+//		try{
 			if(!c.isCommonWords_upToDate()){
 				byte [] CW = c.getCommonWords();
 				FileOutputStream f=new FileOutputStream("CW"+ File.separator+ c.getCommonWords_name()+".xml");
@@ -255,23 +276,23 @@ public class SearchController {
 				c.setCommonWords_upToDate(true);
 				db.clusters.update(c);
 			}
-
+//
 			CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getCommonWords_name()+".xml");
 			AllWords = AllClusterWords(c);
+//		 xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+//		}catch( IOException | SQLException e){
+//			e.printStackTrace();
+//		}
 			xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
-		}catch( IOException | SQLException e){
-			e.printStackTrace();
-		}
+		CommonWords = (FVValueSorted) xml.Import("CW"+File.separator+c.getId()+"_common.xml");
 		double dist=0.0;
-		int thresholdindex = Cluster.thresholds[c.getId()];
-		for(int i=0;i<thresholdindex;i++){
+	//	int thresholdindex = Cluster.thresholds[c.getId()];
+		for(int i=0;i<CommonWords.size();i++){
 			String CW = CommonWords.get(i).getKey();
-			if(CommonWords.get(i).getValue() !=0){
 				//	System.out.println("Word: " + CW +" Values: ["+text.get(CW) +","+CommonWords.get(i).getValue()+"]");
-				if(CommonWords.get(i).getValue()!=0)
-					dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
+			dist += Math.pow((text.get(CW) - CommonWords.get(i).getValue()), 2);
 			}
-		}
+		
 		dist= Math.sqrt(dist);
 
 		//		FVKeySortedMap SigWord = new FVKeySortedMap();
@@ -306,6 +327,19 @@ public class SearchController {
 		return dist;	
 	}
 
+	public static double CommonDistance(FVKeySortedMap finalvec , ArrayList<String> Global , int cluster){
+		double dist = 0.0;
+		FVHashMap CommonWords = (FVHashMap) fvxml.Import("clusters"+File.separator+cluster+"_common.xml");
+		CommonWords = ExpandedCW(CommonWords, Global);
+		int numtexts = NOTexts(cluster);
+		for(String cw : CommonWords.keySet())
+			if(finalvec.get(cw)!=0)
+			dist+=Math.pow((finalvec.get(cw) - (CommonWords.get(cw)/numtexts)), 2);
+		dist = Math.sqrt(dist);
+		System.out.println("Cluster "+ cluster +" = "+ dist);
+		return dist;
+	}
+	
 	public static ArrayList<DBText> Pareto(FVKeySortedMap finalfv , List<DBText> texts) throws IOException, SQLException{
 		ArrayList<FVKeySortedMap> candidates = ToKeySorted(texts);
 		ArrayList<FVKeySortedMap> results = new Pareto(candidates,finalfv).ParetoCalculate();
@@ -422,4 +456,64 @@ public class SearchController {
 		System.out.println("res="+res);
 	}
 
+		ArrayList<String> Global = new ArrayList<String>();
+		FVHashMap cw;
+		for(int i=0;i<6;i++){
+			cw = (FVHashMap) fvxml.Import("clusters"+File.separator+i+"_common.xml");
+			for(String key: cw.keySet())
+				if(!Global.contains(key))
+					Global.add(key);
+		}
+		return Global;
+	}
+
+	private static FVHashMap ExpandedCW(FVHashMap OriginalCW , ArrayList<String> global){
+		FVHashMap copy = (FVHashMap) OriginalCW.clone();
+		for(String key : global)
+			if(!OriginalCW.containsKey(key))
+				copy.put(key, 0);
+		return copy;
+	}
+	
+	private static double CentroidDistance(ArrayList<String> ClusterCentorid , FVKeySortedMap finalvec){
+		double dist = 0.0;
+		
+		ArrayList<Double> vector = new ArrayList<Double>();
+		
+		for(String key : finalvec.keySet())
+			vector.add(finalvec.get(key)*1.0);
+		Collections.sort(vector);
+		
+		for(int i=0;i<ClusterCentorid.size();i++)
+			if(vector.get(i)!=0)
+				dist+= Math.sqrt(Math.pow(Double.parseDouble(ClusterCentorid.get(i)) - vector.get(i), 2));
+	
+		return dist;
+	}
+	
+	private static double ClusterAvgDistance(ArrayList<String> Ctexts , FVKeySortedMap finalvec){
+		double dist=0.0;
+		FVKeySortedMap vec;
+		for(String text : Ctexts){
+			vec = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+text);
+			dist+=TwoTextsDistance(finalvec , vec);
+		}
+		
+		return dist/Ctexts.size();
+	}
+	
+	private static double TwoTextsDistance(FVKeySortedMap newtext , FVKeySortedMap clustertext){
+		double dist =0.0;
+		for(String key : newtext.keySet())
+				dist+=Math.pow(newtext.get(key) - clustertext.get(key), 2);
+
+		dist = Math.sqrt(dist);
+		return dist;
+	}
+	
+	public static void main(String[] args) {
+		FVKeySortedMap finalvec = (FVKeySortedMap) keySxml.Import("FinalFVs"+File.separator+"Muwema -v- Facebook Ireland Limited.html.xml`x");
+		int res = getCluster(finalvec);
+		System.out.println("Result = "+ res);
+	}
 }

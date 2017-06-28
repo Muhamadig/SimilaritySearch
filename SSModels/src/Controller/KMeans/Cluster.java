@@ -28,6 +28,9 @@ public class Cluster {
 	XML fvXML=XMLFactory.getXML(XMLFactory.FV);
 	XML valueSortedXML=XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 
+	public Cluster(){
+		
+	}
 	//Creates a new Cluster
 	public Cluster(int id) {
 		this.id = id;
@@ -118,6 +121,7 @@ public class Cluster {
     }
     
     
+    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+File.separator+"clusters.xml");
     
     
 //    public FVValueSorted CalculateSig(String finalFVs_path,String Sig_path){
