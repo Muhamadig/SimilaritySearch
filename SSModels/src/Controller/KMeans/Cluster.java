@@ -121,7 +121,7 @@ public class Cluster {
     }
     
     
-   // 	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+File.separator+"clusters.xml");
+//    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+File.separator+"clusters.xml");
     
     
 //    public FVValueSorted CalculateSig(String finalFVs_path,String Sig_path){
