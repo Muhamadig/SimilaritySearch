@@ -8,20 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.KMeans.Cluster;
+import Controller.KMeans.Clusters;
 import Controller.KMeans.KMeans;
 import Controller.KMeans.Point;
-import UIUtils.Browse;
 import UIUtils.MyTableModel;
 import controller.Proccessing;
 
@@ -36,73 +35,43 @@ public class Tab3 extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String sortedDirectory;
-	private JTextField textField_import;
-	private JTextField textField_export;
-	private File[] eXml_files2;
-	private boolean import_dir;
-	private boolean export_dir;
-	private JButton btnSelectExpanded_btn3;
-	private JLabel label1;
-	private JButton btnSelectExportDirectory_btn3;
-	private JLabel label2;
+	private static boolean done=false;
+	private File[] eXml_files;
 	private JButton prepareClustering_btn3;
 	private JPanel clustering;
 	private KMeans km;
 	private JTable table;
+	private JButton btnClustering;
 	public Tab3() {
 		setBackground(Color.WHITE);
 		setLayout(null);
-		setPreferredSize(new Dimension(700, 500));
-
-		textField_import = new JTextField();
-		textField_import.setColumns(10);
-		textField_import.setBounds(10, 64, 424, 20);
-		add(textField_import);
-
-		btnSelectExpanded_btn3 = new JButton("Select Expanded Vectors");
-
-		btnSelectExpanded_btn3.setBounds(444, 63, 223, 23);
-		add(btnSelectExpanded_btn3);
-
-		label1 = new JLabel("");
-		label1.setBackground(Color.WHITE);
-		label1.setBounds(10, 95, 424, 14);
-		add(label1);
-
-
-		textField_export = new JTextField();
-		textField_export.setColumns(10);
-		textField_export.setBounds(10, 120, 424, 20);
-		add(textField_export);
-
-		btnSelectExportDirectory_btn3 = new JButton("Select Export Directory");
-
-		btnSelectExportDirectory_btn3.setBounds(444, 119, 223, 23);
-		add(btnSelectExportDirectory_btn3);
-
-		label2 = new JLabel("");
-		label2.setBackground(Color.WHITE);
-		label2.setBounds(10, 151, 424, 14);
-		add(label2);
+		setPreferredSize(new Dimension(700, 450));
 
 		prepareClustering_btn3 = new JButton("Prepare Clustering");
 		prepareClustering_btn3.setBackground(SystemColor.inactiveCaption);
 		//prepareClustering_btn3.setBorder(null);
 
-		prepareClustering_btn3.setBounds(444, 168, 223, 23);
-		prepareClustering_btn3.setEnabled(false);
+		prepareClustering_btn3.setBounds(240, 34, 223, 23);
 		add(prepareClustering_btn3);
 
 		clustering = new JPanel();
-		clustering.setBounds(10, 202, 657, 287);
+		clustering.setBackground(Color.WHITE);
+		clustering.setBounds(10, 103, 657, 336);
 		add(clustering);
 		clustering.setLayout(null);
+		
 
-		JButton btnClustering = new JButton("Show Clusters");
+		btnClustering = new JButton("Clustering");
+		btnClustering.setEnabled(false);
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				km = new KMeans(sortedDirectory,textField_import.getText());
+				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+				String clusters_path=MainApp.getWS()+File.separator+"clustering";
+				
+				//(exported files directory,expanded files directory)
+				km = new KMeans(MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs",
+						MainApp.getWS()+File.separator+"DB FV Files",clusters_path);
 				km.init();
 				km.Clustering();
 				List<Cluster> clusters=km.getclusters();
@@ -117,9 +86,15 @@ public class Tab3 extends JPanel{
 					}
 				}
 				
+				
+				create_Clusters_CW_global();
+				
+				setCursor(null);
+
+				
 			}
 		});
-		btnClustering.setBounds(254, 11, 117, 29);
+		btnClustering.setBounds(291, 11, 117, 29);
 		clustering.add(btnClustering);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -143,90 +118,61 @@ public class Tab3 extends JPanel{
 		table.getColumnModel().getColumn(0).setPreferredWidth(50);
 		table.getColumnModel().getColumn(1).setPreferredWidth(100);
 		table.getColumnModel().getColumn(2).setPreferredWidth(500);
-		
 
-		clustering.setVisible(false);
-
-		import_dir=false;
-		export_dir=false;
 
 		prepareClustering_btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				prepareClustering_handler();
-				clustering.setVisible(true);
-			}
-		});
-
-		//Select Directory for save the Final Results
-		btnSelectExportDirectory_btn3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				select_export_dir_handler();
-			}
-		});
-
-		//import expanded FVs
-		btnSelectExpanded_btn3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				select_expandedFiles_handler();
 			}
 		});
 
 	}
 
-	private void select_expandedFiles_handler() {
-		import_dir=false;
-		prepareClustering_btn3.setEnabled(false);
-		ArrayList<String> types=new ArrayList<>();
-		types.add("xml");
-		eXml_files2=Browse.BrowseFiles(types);
-		if(eXml_files2.length>0)textField_import.setText(eXml_files2[0].getParentFile().toString());
+	protected void create_Clusters_CW_global() {
 
-		int files_size=eXml_files2.length;
-		if(files_size==0){
-			label1.setText("Warning :No files was uploaded");
-			prepareClustering_btn3.setEnabled(false);
-			import_dir=false;
-
-		}else if(files_size>0){
-			label1.setText("Done :Number of uploaded files: "+files_size );
-			import_dir=true;
-		}		
-	}
-
-	private void select_export_dir_handler() {
-		prepareClustering_btn3.setEnabled(false);
-		export_dir=false;
-		sortedDirectory=Browse.selectDirectory(Tab3.this);
-		if(sortedDirectory!= null) {
-			sortedDirectory = sortedDirectory.replace("./", "");
-			textField_export.setText(sortedDirectory);
-			export_dir=true;
-			Browse.lastPath=sortedDirectory;
-
-		}
-		else{
-			textField_export.setText("No Directory Selected");
-			export_dir=false;
-		}
-		if(export_dir && import_dir) prepareClustering_btn3.setEnabled(true);		
+		String path=MainApp.getWS()+File.separator+"clustering";
+		Clusters c=new Clusters(path);
+		HashMap<Integer, String> thresholds=new HashMap<>();
+		thresholds.put(0, "1996");
+		thresholds.put(1, "16");
+		thresholds.put(2, "mistreat");
+		thresholds.put(3, "protective");
+		thresholds.put(4, "barricade");
+		thresholds.put(5, "dec");
+		
+		c.findC_global_fv(path+File.separator+"Clusters Global FVs", MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
+		c.find_CW_Sig(path+File.separator+"Clusters CW_Sig FVs", path+File.separator+"Clusters Global FVs", thresholds);
+		
+		done=true;
+		MainApp.changeNext("tab3", "Update DataBase");
 	}
 
 	private void prepareClustering_handler() {
+		done=false;
+		MainApp.changeNext("tab3", "Update DataBase");
+		btnClustering.setEnabled(false);
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 		Proccessing proc=new Proccessing();
 		ArrayList<String> fv_paths=new ArrayList<>();
 		ArrayList<String> fv_names=new ArrayList<>();
-
-		for(File file:eXml_files2){
+		File expandedfvs=new File(MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"expanded FVs");
+		eXml_files=expandedfvs.listFiles();
+		for(File file:eXml_files){
 			if((!file.getName().equals("global.xml")) && (!file.getName().equals("common.xml"))){
 				fv_paths.add(file.getAbsolutePath());
 				fv_names.add(file.getName());
 			}
 		}
 
-		proc.sortFV_BY_Key_Export(fv_paths,fv_names,sortedDirectory);
+		proc.sortFV_BY_Key_Export(fv_paths,fv_names,MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
 		setCursor(null);
 		JOptionPane.showMessageDialog(null,"DONE.\nThe texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys .\n"
-				+ " you can find your xml files at:\n "+ sortedDirectory);
+				+ " you can find your xml files at:\n "+ MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
+		
+		btnClustering.setEnabled(true);
+	}
+
+	public static boolean isDone() {
+		return done;
 	}
 }

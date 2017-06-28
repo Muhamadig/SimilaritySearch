@@ -1,5 +1,8 @@
 package controller;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +21,6 @@ public class Proccessing {
 	private XML treeMapXML;
 	private XML fv_ValueSortedXml;
 
-	
 	public Proccessing(){
 		fvXml=XMLFactory.getXML(XMLFactory.FV);
 		treeMapXML=XMLFactory.getXML(XMLFactory.FVSortedMap);
@@ -26,70 +28,73 @@ public class Proccessing {
 	}
 
 	public Text process(File file,String exportDirectory,Language lang){
-		Integer[] stopWords_num = {0}; 
+		Integer[] stopWords_num = {0};
+		File export=new File(exportDirectory);
+		export.mkdirs();
 		String type=Utils.Util.getFileExtension(file.getName());
 		FVHashMap fv=SuperSteps.buildFrequencyVector(file.getAbsolutePath().toString(), type, lang,stopWords_num);
 		fvXml.export(fv, exportDirectory+File.separator+file.getName()+".xml");
-		
-		Text text=new Text(file.getName(), fv, stopWords_num[0], fv.size(), fv.getSum(), exportDirectory+""+file.getName()+".xml",type);
+
+		Text text=new Text(file.getName(), fv, stopWords_num[0], fv.size(), fv.getSum(), exportDirectory+File.separator+file.getName()+".xml",type);
 		return text;
 	}
-	
-	
-	
+
+
+
 	public FVValueSorted createGlobal(ArrayList<String> fv_paths,String exportPath){
 		FVHashMap globalFV=new FVHashMap();
+		File export=new File(exportPath);
+		export.mkdir();
 		for (String path : fv_paths) {
 			globalFV.merge((FVHashMap) fvXml.Import(path));	
 		}
 		FVValueSorted sorted_Global=sortFV_By_Value(globalFV);
-		File dir=new File(exportPath+File.separator+"results");
-		dir.mkdir();
-		fv_ValueSortedXml.export(sorted_Global, exportPath+File.separator+"results"+File.separator+"global.xml");
+		fv_ValueSortedXml.export(sorted_Global, exportPath+File.separator+"global.xml");
 		return sorted_Global;
 	}
-	
+
 	public FVValueSorted importGlobal(String path){
 		return 	(FVValueSorted) fv_ValueSortedXml.Import(path);
 
 	}
 
 	public FVValueSorted getCommonVector(FVValueSorted global,int threshold_index,String export_path){
-		
+		File export=new File(export_path);
+		export.mkdir();
 		FVValueSorted common=new FVValueSorted();
 		for(int index=0;index<=threshold_index;index++){
 			common.add(global.get(index));
 		}
-		
-		File dir=new File(export_path+File.separator+"results");
-		dir.mkdir();
-		fv_ValueSortedXml.export(common, export_path+File.separator+"results"+File.separator+"common.xml");	
+
+		fv_ValueSortedXml.export(common, export_path+File.separator+"common.xml");	
 		return common;
 	}
-	
+
 	public ArrayList<Map.Entry<String,Integer>> sortFVHashMap(FVHashMap _fv){
 		ArrayList<Map.Entry<String,Integer>> res=new ArrayList<>();
 		FVHashMap fv=_fv;
 		for(Map.Entry<String, Integer> map:fv.entrySet()){
-			 res.add(map);
+			res.add(map);
 		}
-			
+
 		return res;
 	}
-	
-	
+
+
 	public FVValueSorted sortFV_By_Value(FVHashMap _fv){
 		return new FVValueSorted(_fv);
 	}
-	
+
 	public void expandAll(ArrayList<String> fv_paths, FVValueSorted global_sorted, FVValueSorted common_sorted,String export_dir, ArrayList<String> names) {
 		FVHashMap currFV;
 		FVHashMap global=new FVHashMap();
 		FVHashMap common=new FVHashMap();
+		File export=new File(export_dir);
+		export.mkdirs();
 		for(Entry<String ,Integer> entry:global_sorted){
 			global.put(entry.getKey(), entry.getValue());
 		}
-		
+
 		for(Entry<String ,Integer> entry:common_sorted){
 			common.put(entry.getKey(), entry.getValue());
 		}
@@ -102,8 +107,8 @@ public class Proccessing {
 			}
 			fvXml.export(currFV,export_dir+File.separator+names.get(fv_paths.indexOf(path)));
 		}
-		
-		
+
+
 	}
 
 	public FVHashMap reduceFV(FVHashMap fv, FVHashMap common) {
@@ -115,9 +120,12 @@ public class Proccessing {
 	}
 
 	public void sortFV_BY_Key_Export(ArrayList<String> fv_paths,ArrayList<String> fv_names, String sortedDirectory) {
-		
+
 		FVHashMap currFV;
 		FVKeySortedMap currSorted;
+
+		File sorted=new File(sortedDirectory);
+		sorted.mkdirs();
 		for(String path:fv_paths){
 			currFV=(FVHashMap) fvXml.Import(path);
 			currSorted=new FVKeySortedMap(currFV);
@@ -125,19 +133,19 @@ public class Proccessing {
 			currFV=null;
 			currSorted=null;
 		}
-		
+
 	}
 
 	public HashMap<String, Integer> checkThresholdWord(String threshold, String commonWordsPath) {
 		HashMap<String, Integer> res=new HashMap<>();
-		
+
 		FVValueSorted global=importGlobal(commonWordsPath);
-		
+
 		if(global.containsKey(threshold)){
 			int index=global.getByKey(threshold);
 			res.put("word place", index);
 			res.put("word FR", global.get(index).getValue());
-			
+
 			res.put("num of common words", index+1);
 			res.put("num of sig words", (global.size()-1)-index);
 			int sum=0;
@@ -153,7 +161,19 @@ public class Proccessing {
 
 			return res;
 		}
-		
+
 		return null;
+	}
+
+	public void uploadClusters(String path){
+
+		XML hashlist=XMLFactory.getXML(XMLFactory.HashList);
+		File clusters=new File("Clusters.xml");
+		File centroids=new File("Centroids.xml");
+		if(clusters.exists())
+			hashlist.export(hashlist.Import("Clusters.xml"),path+File.separator+"Clusters.xml");
+		if(centroids.exists())
+			hashlist.export(hashlist.Import("Centroids.xml"),path+File.separator+"Centroids.xml");
+
 	}
 }

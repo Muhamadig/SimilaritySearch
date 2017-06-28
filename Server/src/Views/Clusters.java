@@ -1,5 +1,8 @@
 package Views;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -29,10 +32,32 @@ public class Clusters extends View {
 	 * @return if success return 1 ,else 0;
 	 * @author Muhamad Igbaria
 	 */
+//	r.addParam("cluster", cluster);
+//	r.addParam("c_CW", cluster_CW);
+//	r.addParam("c_global", cluster_global);
+	
 	public Object create(Request request){
 	
 		DBCluster cluster=(DBCluster) request.getParam("cluster");
 		QueryBuilder<DBCluster, Integer> q=db.clusters.queryBuilder();
+		
+		byte[] cluster_CW=(byte[]) request.getParam("c_CW");
+		byte[] cluster_Global=(byte[]) request.getParam("c_global");
+
+		
+		FileOutputStream f;
+		try {
+			f = new FileOutputStream("clusters"+ File.separator+ cluster.getCommonWordsFV_name());
+			f.write(cluster_CW);
+			f.close();
+			
+			f = new FileOutputStream("clusters"+ File.separator+ cluster.getGlobalWordsFV_name());
+			f.write(cluster_Global);
+			f.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			if(q.where().idEq(cluster.getId()).countOf()>0) return db.clusters.update(cluster);
 			return db.clusters.create(cluster);
@@ -62,44 +87,6 @@ public class Clusters extends View {
 		return null;
 	}
 
-	/**
-	 * update exists cluster
-	 * @param request
-	 * @return :if success return 1 ,else 0;
-	 * @author Muhamad Igbaria
-	 */
-	public Object update(Request request){
-
-		
-		DBCluster cluster=new DBCluster((int)request.getParam("id"),(String)request.getParam("commonWords_name") ,
-				(boolean)request.getParam("commonWords_upToDate"),(byte[])request.getParam("commonWords") );
-		
-		try {
-			return db.clusters.update(cluster);
-		} catch (SQLException e) {
-			System.err.println("SQL Exception in cluster update");
-			e.printStackTrace();
-		}
-		return 0;
-	}
-
-	
-	/**
-	 * delete cluster by id
-	 * @param request: param name=id
-	 * @return if success return 1 ,else 0;
-	 * @author Muhamad Igbaria
-	 */
-	public Object delete(Request request){
-		
-		try {
-			return db.clusters.deleteById((int) request.getParam("id"));
-		} catch (SQLException e) {
-			System.err.println("SQL Exception in cluster delete");
-			e.printStackTrace();
-		}
-		return 0;
-	}
 	
 	/*
 	 * Other Methods:

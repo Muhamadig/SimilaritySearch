@@ -16,16 +16,29 @@ public class DBCluster implements Serializable {
 	@DatabaseField()
 	private String commonWordsFV_name;
 	
+	@DatabaseField()
+	private String globalWordsFV_name;
 	
+	public String getGlobalWordsFV_name() {
+		return globalWordsFV_name;
+	}
+
+
+	public void setGlobalWordsFV_name(String globalWordsFV_name) {
+		this.globalWordsFV_name = globalWordsFV_name;
+	}
+
+
 	public DBCluster() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public DBCluster(int id, String commonWordsFV_name) {
+	public DBCluster(int id, String commonWordsFV_name,String globalWordsFV_name) {
 		super();
 		this.id = id;
 		this.commonWordsFV_name = commonWordsFV_name;
+		this.globalWordsFV_name=globalWordsFV_name;
 	}
 
 

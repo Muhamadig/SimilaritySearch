@@ -19,7 +19,7 @@ public class Search extends View{
 	
 	private Clusters clusterDao = new Clusters();
 	private Texts TextsDao = new Texts();
-	Global globalDao=new Global();
+	Global DBGlobals=new Global();
 	
 	public Object search(Request request){
 		
@@ -30,10 +30,10 @@ public class Search extends View{
 		FVHashMap textFV=(FVHashMap) request.getParam("fv");
 		
 		//Step 2: get the database common words frequency vector.
-		FVValueSorted cWVector=globalDao.getVector("common");
+		FVValueSorted cWVector=DBGlobals.getCommonVector();
 		
 		//Step 3: get the database global frequency vector.
-		FVValueSorted globalVector=globalDao.getVector("global");
+		FVValueSorted globalVector=DBGlobals.getGlobalVector();
 
 		//Step 4: remove the common words from the initial FV and then expand the vector.
 		FVHashMap expandedFV=SearchController.expandFV(textFV, globalVector, cWVector);

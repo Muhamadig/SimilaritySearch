@@ -1,16 +1,12 @@
 package Controller.KMeans;
 
-import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import XML.XML;
 import XML.XMLFactory;
-import model.FVHashMap;
 import model.FVKeySortedMap;
 import model.FVValueSorted;
  
@@ -122,68 +118,7 @@ public class Cluster {
     }
     
     
-    public void findC_global_fv(String export_path,String clusters_path,String fvs_path){
-    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+"clusters.xml");
-    	
-    	FVHashMap currGlobal;
-    	for(Integer key:clusters.keySet()){
-    		currGlobal=new FVHashMap();
-    		for(String text:clusters.get(key)){
-    			currGlobal.merge((FVHashMap) fvXML.Import(fvs_path+File.separator+text));
-    		}
-    		valueSortedXML.export(new FVValueSorted(currGlobal), export_path+File.separator+key+"_global.xml");
-    	}
-    }
     
-    public int get_clusters_num(String clusters_path){
-    	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashList.Import(clusters_path+"clusters.xml");
-    	return clusters.size();
-    }
-    public void find_CW_Sig(String export_path,String clusters_path,String globals_path,HashMap<Integer,String> thresholds){
-    	
-    	FVHashMap sigWords;
-    	FVHashMap commonWords;
-    	int clusters_num=get_clusters_num(clusters_path);
-    	for(int i=0;i<clusters_num;i++){
-    		FVValueSorted currGlobal=(FVValueSorted) valueSortedXML.Import(globals_path+File.separator+i+"_global.xml");
-    		int th_index=currGlobal.getByKey(thresholds.get(i));
-    		sigWords=new FVHashMap();
-    		commonWords=new FVHashMap();
-    		
-    		for(int j=0;j<=th_index;i++){
-				commonWords.put(currGlobal.get(j).getKey(), currGlobal.get(j).getValue());
-				
-			}
-			
-			
-			for(int j=th_index+1;j<currGlobal.size();i++){
-				sigWords.put(currGlobal.get(j).getKey(), currGlobal.get(j).getValue());
-
-			}
-			
-			fvXML.export(commonWords, export_path+File.separator+i+"_common.xml");
-			fvXML.export(sigWords, export_path+File.separator+i+"_sig.xml");
-
-
-    	}
-    }
-//    public FVValueSorted CalculateCW(String finalFVs_path,String CW_path){
-//    	XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
-//    	ArrayList<FVKeySortedMap> texts = new ArrayList<FVKeySortedMap>();
-//    	FVHashMap freqs = new FVHashMap();
-//    	for(Point p : points){
-//    		FVKeySortedMap text = (FVKeySortedMap) fvxml.Import(finalFVs_path+File.separator+p.getName());
-//    		  texts.add(text);
-//    		  for(String key : text.keySet())
-//    			  freqs.put(key, text.get(key));
-//    	}
-//    	XML SortedXML = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
-//    	FVValueSorted SortedCW = new FVValueSorted(freqs);
-//    	CommonWords = (FVValueSorted) SortedCW.clone();
-//    	SortedXML.export(SortedCW,CW_path+File.separator+ id+"_CW.xml");
-//    	return SortedCW ;
-//    
-//    }
     
 //    public FVValueSorted CalculateSig(String finalFVs_path,String Sig_path){
 //    	XML fvxml = XMLFactory.getXML(XMLFactory.FVSortedMap);

@@ -30,6 +30,9 @@ import model.Language;
 import model.Text;
 
 import java.awt.SystemColor;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Tab1 extends JPanel{
 	/**
@@ -38,79 +41,43 @@ public class Tab1 extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JTextField textsDir_txt1;
 	private JTable FVs_table1;
-	private JTextField initialFVsDir_txt1;
 	private JButton tab1_proc_btn1;
 	private JButton browseTextsFiles_btn1;
 	private JLabel textsDir_info1;
 	private JLabel lblTextsLanguage ;
 	private JComboBox<String> langbox1; 
-	private JButton SelectDirectory_SimpleFVs_btn1;
-	private  boolean files_selected;
 	private File[] files;
-	private boolean dir_selected;
-	private String directory;
 	private Client wN_Client;
-
+	private boolean done=false;
 
 	public Tab1(Client wN_Client) {
 		this.wN_Client=wN_Client;
 		setBackground(Color.WHITE);
-
-		setLayout(null);
-		setPreferredSize(new Dimension(700, 500));
+		setPreferredSize(new Dimension(700, 450));
 		textsDir_txt1 = new JTextField();
 		textsDir_txt1.setEditable(false);
 		textsDir_txt1.setBackground(Color.WHITE);
-		textsDir_txt1.setBounds(10, 38, 282, 20);
-		add(textsDir_txt1);
 		textsDir_txt1.setColumns(10);
 
 		browseTextsFiles_btn1 = new JButton("Browse Files");
-		browseTextsFiles_btn1.setBounds(302, 37, 174, 23);
-		add(browseTextsFiles_btn1);
 
 		textsDir_info1 = new JLabel("");
 		textsDir_info1.setBackground(Color.WHITE);
 		textsDir_info1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textsDir_info1.setBounds(10, 58, 282, 14);
-		add(textsDir_info1);
 
 
 		lblTextsLanguage = new JLabel("Texts Language:");
-		lblTextsLanguage.setBounds(10, 84, 120, 14);
-		add(lblTextsLanguage);
 
 		langbox1 = new JComboBox<String>();
 		langbox1.setModel(new DefaultComboBoxModel<String>(new String[] {"English"}));
-		langbox1.setBounds(140, 81, 109, 20);
-		add(langbox1);
-
-		initialFVsDir_txt1 = new JTextField();
-		initialFVsDir_txt1.setBackground(Color.WHITE);
-		initialFVsDir_txt1.setEditable(false);
-		initialFVsDir_txt1.setText("Save XML Files Into...");
-		initialFVsDir_txt1.setBounds(10, 127, 282, 20);
-		add(initialFVsDir_txt1);
-		initialFVsDir_txt1.setColumns(10);
-
-		SelectDirectory_SimpleFVs_btn1 = new JButton("Select Directory");
-
-		SelectDirectory_SimpleFVs_btn1.setBounds(302, 126, 174, 23);
-		add(SelectDirectory_SimpleFVs_btn1);
 
 
 		tab1_proc_btn1 = new JButton("Begin Texts Processing");
 		tab1_proc_btn1.setBackground(SystemColor.inactiveCaption);
-
-
-		tab1_proc_btn1.setBounds(302, 175, 174, 23);
 		tab1_proc_btn1.setEnabled(false);
-		add(tab1_proc_btn1);
 
 
 		JScrollPane fvs_scrl1 = new JScrollPane();
-		fvs_scrl1.setBounds(10, 211, 680, 278);
-		add(fvs_scrl1);	
 
 		String[] columnNames = {"#", "Text Name", "Rep. Words", "Frequencies","Stop Words" };
 		Object[][] texts_tabel = {};
@@ -124,6 +91,48 @@ public class Tab1 extends JPanel{
 		fvs_scrl1.setViewportView(FVs_table1);
 		FVs_table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		FVs_table1.setBackground(Color.WHITE);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(10)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(lblTextsLanguage, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
+								.addComponent(textsDir_info1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 282, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textsDir_txt1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 346, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addComponent(browseTextsFiles_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(247)
+							.addComponent(tab1_proc_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
+						.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(20, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(38)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textsDir_txt1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(browseTextsFiles_btn1))
+					.addComponent(textsDir_info1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTextsLanguage)
+						.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(17)
+					.addComponent(tab1_proc_btn1)
+					.addGap(18)
+					.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 278, GroupLayout.PREFERRED_SIZE)
+					.addGap(58))
+		);
+		setLayout(groupLayout);
 		FVs_table1.getColumnModel().getColumn(0).setPreferredWidth(30);
 		FVs_table1.getColumnModel().getColumn(1).setPreferredWidth(380);
 		FVs_table1.getColumnModel().getColumn(2).setPreferredWidth(90);
@@ -133,12 +142,6 @@ public class Tab1 extends JPanel{
 		browseTextsFiles_btn1.addActionListener(new ActionListener() {//Ready
 			public void actionPerformed(ActionEvent e) {
 				selectTextsHandler();
-			}
-		});
-
-		SelectDirectory_SimpleFVs_btn1.addActionListener(new ActionListener() {//Ready
-			public void actionPerformed(ActionEvent e) {
-				select_FVs_Directory();
 			}
 		});
 
@@ -165,34 +168,23 @@ public class Tab1 extends JPanel{
 
 			for(File file:files){
 				counter++;
-				Text text=proc.process(file, directory, lang);
+				Text text=proc.process(file, Tab0.getWorkSpace()+File.separator+"Frequency Vectors"+File.separator+"initial FVs", lang);
 				dm.addRow(new Object[] {counter,text.getName(),text.getWords_num(),text.getFrequecny_num(),text.getSW_num()});
 			}
 			setCursor(null);
+			done=true;
+			MainApp.changeNext("tab1", "Next");
+			MainApp.changePrev("tab1", "Previous");
 		}
 	}
 
-	private void select_FVs_Directory() {
-		tab1_proc_btn1.setEnabled(false);
-		dir_selected=false;
-		directory=Browse.selectDirectory(Tab1.this);
-		if(directory!= null) {
-			initialFVsDir_txt1.setText(directory);
-			dir_selected=true;
-			Browse.lastPath=directory;
-
-		}
-		else{
-			initialFVsDir_txt1.setText("No Directory Selected");
-			dir_selected=false;
-		}
-		if(dir_selected && files_selected) tab1_proc_btn1.setEnabled(true);
-
+	
+	public boolean isStatus() {
+		return done;
 	}
 
 	private void selectTextsHandler() {
 		tab1_proc_btn1.setEnabled(false);
-		files_selected=false;
 
 		ArrayList<String> types=new ArrayList<>();
 		types.add("doc");
@@ -207,12 +199,10 @@ public class Tab1 extends JPanel{
 		if(files_size==0){
 			textsDir_info1.setText("Warning :No files was uploaded");
 			tab1_proc_btn1.setEnabled(false);
-			files_selected=false;
-
+			done=false;
 		}else if(files_size>0){
 			textsDir_info1.setText("Done :Number of uploaded files: "+files_size );
-			files_selected=true;
-
+			tab1_proc_btn1.setEnabled(true);
 		}		
 	}
 }

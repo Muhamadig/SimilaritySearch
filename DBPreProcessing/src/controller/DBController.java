@@ -8,7 +8,6 @@ import com.sun.tools.xjc.gen.Array;
 
 import Client.Application;
 import DBModels.DBCluster;
-import DBModels.DBGlobal;
 import DBModels.DBText;
 import XML.XML;
 import XML.XMLFactory;
@@ -22,7 +21,7 @@ public class DBController {
 	XML globalXML=XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 
 	ArrayList<String> all_texts;
-	
+
 	private DBController() {
 		all_texts=new ArrayList<>();
 	}
@@ -36,15 +35,19 @@ public class DBController {
 		boolean res=true;
 		DBCluster cluster;
 		byte[] cluster_CW;
+		byte[] cluster_global;
 
 		for(Integer key:clusters.keySet()){
-			cluster_CW=Serialization.toByteArray(new File("CW"+File.separator+key+"_CW.xml"));
-			cluster=new DBCluster(key, key+"_CW.xml");
+			cluster_CW=Serialization.toByteArray(new File("clusters"+File.separator+key+"_CW.xml"));
+			cluster_global=Serialization.toByteArray(new File("clusters"+File.separator+key+"_global.xml"));
+			cluster=new DBCluster(key, key+"_CW.xml",key+"_global.xml");
 
 
 			Request r=new Request("clusters/create");
 			r.addParam("cluster", cluster);
 			r.addParam("c_CW", cluster_CW);
+			r.addParam("c_global", cluster_global);
+
 			if((int)Application.client.sendRequest(r)>0) res=res && true;
 			else res=false;
 		}
@@ -70,15 +73,13 @@ public class DBController {
 				textCount=contain(text);
 				if(textCount>1){
 					text=text.substring(0,text.indexOf(".html.xml"))+"_"+textCount+text.substring(text.indexOf(".html.xml"), text.length());
-					dbText=new DBText(Util.get_XmlFile_Name(text), textFile,text, false, finalFV, null);
 				}
-				else{
-					dbText=new DBText(Util.get_XmlFile_Name(text), textFile,text, false, finalFV, null);
-				}
+				dbText=new DBText(Util.get_XmlFile_Name(text), textFile, text, null);
+
 				Request r=new Request("texts/create");
 				r.addParam("text", dbText);
 				r.addParam("clusterID", key);
-
+				r.addParam("fv", finalFV);
 				if((int)Application.client.sendRequest(r)>0) res=res && true;
 				else res=false;
 			}
@@ -87,30 +88,25 @@ public class DBController {
 		return res;
 	}
 
-	
+
 	public boolean createGlobals(String path){
 		boolean res=true;
 		byte[] globalFV;
 		byte[] commonFV;
 		globalFV=Serialization.toByteArray(new File(path+File.separator+"global.xml"));
 		commonFV=Serialization.toByteArray(new File(path+File.separator+"common.xml"));
-		
-		DBGlobal globalRow=new DBGlobal("globalFV", globalFV,false);
-		DBGlobal commonRow=new DBGlobal("commonFV", commonFV,false);
-		
-		Request r=new Request("global/create");
-		r.addParam("globalRow", globalRow);
 
-		if((int)Application.client.sendRequest(r)>0) res=res && true;
-		else res=false;
-		
-		r.addParam("globalRow", commonRow);
+
+		Request r=new Request("global/create");
+		r.addParam("DBGlobalFV", globalFV);
+		r.addParam("DBCommonFV", commonFV);
+
 
 		if((int)Application.client.sendRequest(r)>0) res=res && true;
 		else res=false;
 
 		return res;
-		
+
 	}
 	private String filter(String name){
 		return name.replaceAll("\\'", "");

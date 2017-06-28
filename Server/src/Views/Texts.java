@@ -1,5 +1,8 @@
 package Views;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -31,9 +34,16 @@ public class Texts extends View {
 	 * @return : if success return 1 ,else 0;
 	 * @author Muhamad Igbaria
 	 */
+	
+	/*
+	 * r.addParam("text", dbText);
+				r.addParam("clusterID", key);
+				r.addParam("fv", finalFV);
+	 */
 	public Object create(Request request){
 		DBText text=(DBText) request.getParam("text");
 		int clusterID=(int) request.getParam("clusterID");
+		byte[] finalFV=(byte[]) request.getParam("fv");
 		
 		Clusters clustersView=new Clusters();
 		request.addParam("id", clusterID);
@@ -43,6 +53,15 @@ public class Texts extends View {
 		
 		QueryBuilder<DBText, String> q=db.texts.queryBuilder();
 		
+		FileOutputStream f;
+		try {
+			f = new FileOutputStream("TextFV"+ File.separator+ text.getFinalFV_name());
+			f.write(finalFV);
+			f.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			if(q.where().idEq(text.getName()).countOf()>0) return db.texts.update(text);
 			return db.texts.create(text);
@@ -70,46 +89,6 @@ public class Texts extends View {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	/**
-	 * update exists text
-	 * @param request
-	 * @return :if success return 1 ,else 0;
-	 * @author Muhamad Igbaria
-	 */
-	public Object update(Request request){
-
-		
-		DBText text=new DBText((String)request.getParam("name"),(byte[]) request.getParam("textFile"), 
-				(String)request.getParam("finalFV_name"),(boolean)request.getParam("fV_upToDate") ,
-				(byte[])request.getParam("finalFV"),(DBCluster) request.getParam("clusterId"));
-		
-		try {
-			return db.texts.update(text);
-		} catch (SQLException e) {
-			System.err.println("SQL Exception in text update");
-			e.printStackTrace();
-		}
-		return 0;
-	}
-
-	
-	/**
-	 * delete text by id
-	 * @param request: param name=id
-	 * @return if success return 1 ,else 0;
-	 * @author Muhamad Igbaria
-	 */
-	public Object delete(Request request){
-		
-		try {
-			return db.texts.deleteById((String) request.getParam("id"));
-		} catch (SQLException e) {
-			System.err.println("SQL Exception in text delete");
-			e.printStackTrace();
-		}
-		return 0;
 	}
 	
 	

@@ -44,7 +44,7 @@ public class Application {
 //		WNSConfig.getConfig().readTextConfig();
 //		ServerConfig.getConfig().readTextConfig();
 		connect();
-//		MainApp.run(WN_Client,client);
+		MainApp.run(WN_Client,client);
 //		DBController dbc=DBController.getInstance();
 //		dbc.createClusters();
 //		dbc.createTexts();
@@ -52,9 +52,9 @@ public class Application {
 		//   <value>PD -v- The Minister for Justice and Equality &amp; Ors.html.xml</value> cluster 0
 //		ClientApp.run();
 		
-		Request r=new Request("search/search");
-		FVHashMap fv=(FVHashMap) XMLFactory.getXML(XMLFactory.FV).Import("FVs/Director of Public Prosecutions -v- Awode.html.xml");
-		r.addParam("fv",fv);
-		client.sendRequest(r);
+//		Request r=new Request("search/search");
+//		FVHashMap fv=(FVHashMap) XMLFactory.getXML(XMLFactory.FV).Import("FVs/Director of Public Prosecutions -v- Awode.html.xml");
+//		r.addParam("fv",fv);
+//		client.sendRequest(r);
 	}
 }
