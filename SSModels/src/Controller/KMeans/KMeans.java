@@ -129,7 +129,7 @@ public class KMeans {
 		//  System.out.println("Done ... " + ((System.currentTimeMillis()-t)/1000/60) + " Minutes");
 	}
 
-	public void plotClusters(){
+	public void plotClusters(String SecPath){
 		TreeMap <Integer ,ArrayList<String>> data = new TreeMap <Integer ,ArrayList<String>>();
 		TreeMap <Integer , ArrayList<String>> centroid = new TreeMap<Integer,ArrayList<String>>(); 
 		XML fvXml = XMLFactory.getXML(XMLFactory.HashList);
@@ -148,6 +148,10 @@ public class KMeans {
 		}
 		fvXml.export(data, "Clusters.xml");
 		fvXml.export(centroid, "Centroids.xml");
+		
+		fvXml.export(data, SecPath+File.separator+"Clusters.xml");
+		fvXml.export(centroid,SecPath+File.separator+"Centroids.xml");
+		
 	}
 
 	private void clearClusters() {
@@ -312,7 +316,7 @@ public class KMeans {
 		km.init();
 		km.SetPoints(frequencies);
 		km.calculate();
-		km.plotClusters();
+		km.plotClusters(clusters_path);
 		System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000/60) + " Minitues");
 		return km;
 
