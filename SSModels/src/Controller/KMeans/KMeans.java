@@ -125,7 +125,7 @@ public class KMeans {
 				finish = true;
 			}
 		}
-		plotClusters();
+		//plotClusters();
 		//  System.out.println("Done ... " + ((System.currentTimeMillis()-t)/1000/60) + " Minutes");
 	}
 
@@ -268,7 +268,7 @@ public class KMeans {
 			int max = Point.MaximumCordinate(FreqPoints);
 
 			for(ClustersNumber =1 ; ClustersNumber < 15;ClustersNumber++){
-				kmeans= new KMeans(ClustersNumber,"final");
+				kmeans= new KMeans(ClustersNumber,Final_FVS_dir);
 				KMeans.initCordinates(max, len);
 				kmeans.init();
 				kmeans.SetPoints(FreqPoints);
@@ -278,6 +278,7 @@ public class KMeans {
 				data.add(dist);
 				System.out.println("Number of Clusters: " + ClustersNumber + " , Distance: "+ dist);
 			}
+			
 			//    	kmeans.CreateChart(data);
 			for(int i=1;i<data.size();i++){
 				double dist1 = data.get(i-1);
@@ -288,7 +289,7 @@ public class KMeans {
 				}
 			}
 		}catch(Exception e){e.printStackTrace();}
-		return 0;
+		return 1;
 
 	}
 
@@ -311,7 +312,7 @@ public class KMeans {
 		km.init();
 		km.SetPoints(frequencies);
 		km.calculate();
-
+		km.plotClusters();
 		System.out.println("Done ... " + ((System.currentTimeMillis() - t)/1000/60) + " Minitues");
 		return km;
 
@@ -364,16 +365,16 @@ public class KMeans {
 			clusters.add(c);
 		}
 		
-		ArrayList<String> allFiles=new ArrayList<>();
-		for(Integer key : res.keySet()){
-			allFiles.addAll(res.get(key));
-		}
+//		ArrayList<String> allFiles=new ArrayList<>();
+//		for(Integer key : res.keySet()){
+//			allFiles.addAll(res.get(key));
+//		}
 		
-		for(String curr:files_aL){//actual files
-			if(!allFiles.contains(curr)){
-//				addToClusters(Final_FVS_dir+File.separator+curr,res);
-			}
-		}
+//		for(String curr:files_aL){//actual files
+//			if(!allFiles.contains(curr)){
+////				addToClusters(Final_FVS_dir+File.separator+curr,res);
+//			}
+//		}
 		/*FVKeySortedMap words = (FVKeySortedMap) fvxml.Import("FVs/common.xml");
 		ArrayList<String> CW  =new ArrayList<String>();
 		for(String key : words.keySet())

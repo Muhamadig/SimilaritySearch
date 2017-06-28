@@ -29,8 +29,8 @@ public class main {
 	thresholds.put(4, "barricade");
 	thresholds.put(5, "dec");
 
-	cluster.findC_global_fv("clusters", ".", "FinalFVs");
-	cluster.find_CW_Sig("clusters", ".", "clusters",thresholds);
+//	cluster.findC_global_fv("clusters", ".", "FinalFVs");
+//	cluster.find_CW_Sig("clusters", ".", "clusters",thresholds);
 	}
 	
 }
