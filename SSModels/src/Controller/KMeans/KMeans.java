@@ -368,11 +368,11 @@ public class KMeans {
 			allFiles.addAll(res.get(key));
 		}
 		
-		for(String curr:files_aL){//actual files
-			if(!allFiles.contains(curr)){
-				addToClusters(Final_FVS_dir+File.separator+curr,res);
-			}
-		}
+//		for(String curr:files_aL){//actual files
+//			if(!allFiles.contains(curr)){
+//				addToClusters(Final_FVS_dir+File.separator+curr,res);
+//			}
+//		}
 		/*FVKeySortedMap words = (FVKeySortedMap) fvxml.Import("FVs/common.xml");
 		ArrayList<String> CW  =new ArrayList<String>();
 		for(String key : words.keySet())
