@@ -307,6 +307,7 @@ public class KMeans {
 		}
 		else
 			km = new KMeans(NUM_CLUSTERS , Final_FVS_dir);
+		
 		km.init();
 		km.SetPoints(frequencies);
 		km.calculate();
