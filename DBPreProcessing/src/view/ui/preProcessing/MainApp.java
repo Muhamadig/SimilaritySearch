@@ -127,8 +127,7 @@ public class MainApp extends JFrame {
 		tabbedPane.setBackground(SystemColor.textInactiveText);
 		tabbedPane.setForeground(SystemColor.windowBorder);
 
-		tabbedPane.setEnabled(false);
-		UIManager.put("JTabbedPane.disabledBackground", Color.BLACK);
+//		tabbedPane.setEnabled(false);
 		ImageIcon tab=new ImageIcon("img/tabs.png");
 
 
