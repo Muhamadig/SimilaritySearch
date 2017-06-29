@@ -19,7 +19,7 @@ public class Config {
 	}
 
 	private int port = 10000;
-	private String dbUrl = "jdbc:mysql://localhost/test";
+	private String dbUrl = "jdbc:mysql://localhost/ssdb";
 	private String dbUser = "root";
 	private String dbPassword = "root";
 	private Logger logger = new Logger(isDebug);

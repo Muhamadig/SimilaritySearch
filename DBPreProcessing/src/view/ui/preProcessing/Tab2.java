@@ -7,6 +7,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.attribute.FileAttribute;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controller.DBController;
 import controller.Proccessing;
 import model.FVValueSorted;
 
@@ -274,6 +276,15 @@ public class Tab2 extends JPanel {
 			proc.expandAll(fv_paths, global, common,MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"expanded FVs",names);
 
 		}
+		
+		DBController dbc=DBController.getInstance();
+		if(!dbc.createGlobals(MainApp.getWS()+File.separator+"DB FV Files"))
+			try {
+				throw new Exception("Error occured on writing DB globals in database");
+			} catch (Exception e) {
+
+				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			}
 		setCursor(null);
 		done=true;
 		MainApp.changeNext("tab2", "Next");

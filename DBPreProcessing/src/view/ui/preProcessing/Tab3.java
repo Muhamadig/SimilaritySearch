@@ -22,6 +22,7 @@ import Controller.KMeans.Clusters;
 import Controller.KMeans.KMeans;
 import Controller.KMeans.Point;
 import UIUtils.MyTableModel;
+import controller.DBController;
 import controller.Proccessing;
 
 import java.awt.Color;
@@ -86,9 +87,17 @@ public class Tab3 extends JPanel{
 					}
 				}
 				
-				
+				System.out.println(count);
 				create_Clusters_CW_global();
-				
+			
+				DBController dbc=DBController.getInstance();
+				if(!dbc.createClusters(MainApp.getWS()+File.separator+"clustering"))
+					try {
+						throw new Exception("Error occured on writing Clusters globals and common words in database");
+					} catch (Exception ex) {
+
+						JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+					}
 				setCursor(null);
 
 				
