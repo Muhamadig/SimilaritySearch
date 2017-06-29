@@ -44,14 +44,15 @@ public class Clusters extends View {
 		byte[] cluster_CW=(byte[]) request.getParam("c_CW");
 		byte[] cluster_Global=(byte[]) request.getParam("c_global");
 
-		
+		File clustering=new File("Clustering Data Files");
+		clustering.mkdirs();
 		FileOutputStream f;
 		try {
-			f = new FileOutputStream("clusters"+ File.separator+ cluster.getCommonWordsFV_name());
+			f = new FileOutputStream("Clustering Data Files"+ File.separator+ cluster.getCommonWordsFV_name());
 			f.write(cluster_CW);
 			f.close();
 			
-			f = new FileOutputStream("clusters"+ File.separator+ cluster.getGlobalWordsFV_name());
+			f = new FileOutputStream("Clustering Data Files"+ File.separator+ cluster.getGlobalWordsFV_name());
 			f.write(cluster_Global);
 			f.close();
 		} catch (IOException e) {

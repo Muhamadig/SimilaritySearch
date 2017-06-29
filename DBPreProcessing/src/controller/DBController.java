@@ -31,15 +31,14 @@ public class DBController {
 		return instance;
 	}
 
-	public boolean createClusters(){
+	public boolean createClusters(String path){
 		boolean res=true;
 		DBCluster cluster;
 		byte[] cluster_CW;
 		byte[] cluster_global;
-
 		for(Integer key:clusters.keySet()){
-			cluster_CW=Serialization.toByteArray(new File("clusters"+File.separator+key+"_CW.xml"));
-			cluster_global=Serialization.toByteArray(new File("clusters"+File.separator+key+"_global.xml"));
+			cluster_CW=Serialization.toByteArray(new File(path+File.separator+"Clusters CW_Sig FVs"+File.separator+key+"_common.xml"));
+			cluster_global=Serialization.toByteArray(new File(path+File.separator+"Clusters Global FVs"+File.separator+key+"_global.xml"));
 			cluster=new DBCluster(key, key+"_CW.xml",key+"_global.xml");
 
 
@@ -54,34 +53,43 @@ public class DBController {
 		return res;
 	}
 
-	public boolean createTexts(){
+	public boolean createTexts(String path,String texts_path){
 		boolean res=true;
 		ArrayList<String> clusterTexts;
 		DBText dbText;
 		byte[] textFile;
 		byte[] finalFV;
 		int textCount;
+
+		File actual_texts_dir=new File(path);
+		File[] fvs=actual_texts_dir.listFiles();
+		ArrayList<String> actual=new ArrayList<>();
+		for(File curr:fvs){
+			actual.add(curr.getName());
+		}
 		for(Integer key:clusters.keySet()){
 			clusterTexts=clusters.get(key);
 
 			for(String text:clusterTexts){
-				textFile=Serialization.toByteArray(new File("HTMLs"+File.separator+Util.get_XmlFile_Name(text)));
-				finalFV=Serialization.toByteArray(new File("FinalFVs"+File.separator+text));
+				if(actual.contains(text)){
+					textFile=Serialization.toByteArray(new File(texts_path+File.separator+Util.get_XmlFile_Name(text)));
+					finalFV=Serialization.toByteArray(new File(path+File.separator+text));
 
-				text=filter(text);
-				all_texts.add(text);
-				textCount=contain(text);
-				if(textCount>1){
-					text=text.substring(0,text.indexOf(".html.xml"))+"_"+textCount+text.substring(text.indexOf(".html.xml"), text.length());
+					text=filter(text);
+					all_texts.add(text);
+					textCount=contain(text);
+					if(textCount>1){
+						text=text.substring(0,text.indexOf(".html.xml"))+"_"+textCount+text.substring(text.indexOf(".html.xml"), text.length());
+					}
+					dbText=new DBText(Util.get_XmlFile_Name(text), textFile, text, null);
+
+					Request r=new Request("texts/create");
+					r.addParam("text", dbText);
+					r.addParam("clusterID", key);
+					r.addParam("fv", finalFV);
+					if((int)Application.client.sendRequest(r)>0) res=res && true;
+					else res=false;
 				}
-				dbText=new DBText(Util.get_XmlFile_Name(text), textFile, text, null);
-
-				Request r=new Request("texts/create");
-				r.addParam("text", dbText);
-				r.addParam("clusterID", key);
-				r.addParam("fv", finalFV);
-				if((int)Application.client.sendRequest(r)>0) res=res && true;
-				else res=false;
 			}
 		}
 

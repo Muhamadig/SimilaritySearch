@@ -1,6 +1,7 @@
 package view.ui.preProcessing;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +15,7 @@ import controller.DBController;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.GroupLayout;
@@ -21,6 +23,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 
 
@@ -121,9 +124,11 @@ public class MainApp extends JFrame {
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 		tabbedPane.setFont(new Font("Microsoft New Tai Lue", Font.PLAIN, 18));
 		tabbedPane.setBorder(null);
-		tabbedPane.setBackground(SystemColor.inactiveCaption);
+		tabbedPane.setBackground(SystemColor.textInactiveText);
 		tabbedPane.setForeground(SystemColor.windowBorder);
 
+		tabbedPane.setEnabled(false);
+		UIManager.put("JTabbedPane.disabledBackground", Color.BLACK);
 		ImageIcon tab=new ImageIcon("img/tabs.png");
 
 
@@ -205,7 +210,18 @@ public class MainApp extends JFrame {
 
 			break;
 		case 3:
-			//update
+			setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+			DBController dbc=DBController.getInstance();
+			if(!dbc.createTexts(getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs",tab1.getTextsDir_txt1().getText()))
+				try {
+					throw new Exception("Error occured on writing texts in database");
+				} catch (Exception ex) {
+
+					JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			setCursor(null);
+
 			break;
 		}
 

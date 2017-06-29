@@ -40,6 +40,8 @@ public class Tab1 extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textsDir_txt1;
+	
+
 	private JTable FVs_table1;
 	private JButton tab1_proc_btn1;
 	private JButton browseTextsFiles_btn1;
@@ -204,5 +206,8 @@ public class Tab1 extends JPanel{
 			textsDir_info1.setText("Done :Number of uploaded files: "+files_size );
 			tab1_proc_btn1.setEnabled(true);
 		}		
+	}
+	public JTextField getTextsDir_txt1() {
+		return textsDir_txt1;
 	}
 }

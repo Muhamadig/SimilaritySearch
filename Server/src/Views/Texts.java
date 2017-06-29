@@ -53,9 +53,11 @@ public class Texts extends View {
 		
 		QueryBuilder<DBText, String> q=db.texts.queryBuilder();
 		
+		File finalTexts_dir=new File("Texts Final Fvs");
+		finalTexts_dir.mkdirs();
 		FileOutputStream f;
 		try {
-			f = new FileOutputStream("TextFV"+ File.separator+ text.getFinalFV_name());
+			f = new FileOutputStream("Texts Final Fvs"+ File.separator+ text.getFinalFV_name());
 			f.write(finalFV);
 			f.close();
 		} catch (IOException e) {

@@ -19,13 +19,15 @@ public class Global extends View  {
 		byte[] globalFV=(byte[]) request.getParam("DBGlobalFV");
 		byte[] commonFV=(byte[]) request.getParam("DBCommonFV");
 		
+		File dbfv=new File("DB Data Files");
+		dbfv.mkdirs();
 		FileOutputStream f;
 		try {
-			f = new FileOutputStream("DBFVs"+ File.separator+ "globalFV.xml");
+			f = new FileOutputStream("DB Data Files"+ File.separator+ "globalFV.xml");
 			f.write(globalFV);
 			f.close();
 			
-			f = new FileOutputStream("DBFVs"+ File.separator+ "commonFV.xml");
+			f = new FileOutputStream("DB Data Files"+ File.separator+ "commonFV.xml");
 			f.write(commonFV);
 			f.close();
 			return 1;
@@ -43,14 +45,14 @@ public class Global extends View  {
 		
 		
 
-		FVValueSorted commonVector=(FVValueSorted) valueSortedXML.Import("DBFVs"+ File.separator+ "commonFV.xml");
+		FVValueSorted commonVector=(FVValueSorted) valueSortedXML.Import("DB Data Files"+ File.separator+ "commonFV.xml");
 		return commonVector;
 
 	}
 
 	public FVValueSorted getGlobalVector() throws SQLException, IOException {
 		
-		FVValueSorted globalVector=(FVValueSorted) valueSortedXML.Import("DBFVs"+ File.separator+ "globalFV.xml");
+		FVValueSorted globalVector=(FVValueSorted) valueSortedXML.Import("DB Data Files"+ File.separator+ "globalFV.xml");
 		return globalVector;
 
 	}
