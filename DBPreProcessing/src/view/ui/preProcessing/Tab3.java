@@ -88,7 +88,6 @@ public class Tab3 extends JPanel{
 					List<Point> cpoints = clusters.get(i).getPoints();
 					for(Point p: cpoints){
 						dm.addRow(new Object[]{count,clusters.get(i).getId(),p.getName().replace(".html.xml", "")});
-						
 						count++;
 					}
 				}
