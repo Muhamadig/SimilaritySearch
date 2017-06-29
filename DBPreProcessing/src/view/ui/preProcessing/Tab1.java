@@ -213,10 +213,7 @@ public class Tab1 extends JPanel{
 			tab1_proc_btn1.setEnabled(true);
 		}		
 	}
-	private String filter(String name) {
-
-		return name.replaceAll("\\?", " ");
-	}
+	
 
 	public JTextField getTextsDir_txt1() {
 		return textsDir_txt1;
