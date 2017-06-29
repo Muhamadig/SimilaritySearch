@@ -7,6 +7,8 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,6 +67,7 @@ public class Tab3 extends JPanel{
 		btnClustering = new JButton("Clustering");
 		btnClustering.setEnabled(false);
 		btnClustering.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
@@ -78,14 +81,23 @@ public class Tab3 extends JPanel{
 				List<Cluster> clusters=km.getclusters();
 				int count=1;
 				DefaultTableModel dm = (DefaultTableModel) table.getModel();
+				PrintWriter writer = null;
 
+				try {
+					writer=new PrintWriter("C:/Users/MASTER/Desktop/fromGui.txt");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				for(int i=0;i<clusters.size();i++){
 					List<Point> cpoints = clusters.get(i).getPoints();
 					for(Point p: cpoints){
 						dm.addRow(new Object[]{count,clusters.get(i).getId(),p.getName().replace(".html.xml", "")});
+						writer.println(p.getName().replace(".html.xml", ""));
 						count++;
 					}
 				}
+				writer.close();
 				
 				System.out.println(count);
 				create_Clusters_CW_global();
@@ -107,7 +119,7 @@ public class Tab3 extends JPanel{
 		clustering.add(btnClustering);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 47, 650, 240);
+		scrollPane.setBounds(0, 47, 650, 289);
 		clustering.add(scrollPane);
 
 

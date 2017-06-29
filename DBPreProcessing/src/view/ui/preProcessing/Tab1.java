@@ -40,7 +40,7 @@ public class Tab1 extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textsDir_txt1;
-	
+
 
 	private JTable FVs_table1;
 	private JButton tab1_proc_btn1;
@@ -95,45 +95,45 @@ public class Tab1 extends JPanel{
 		FVs_table1.setBackground(Color.WHITE);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+				groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(10)
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(lblTextsLanguage, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
-								.addComponent(textsDir_info1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 282, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textsDir_txt1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 346, GroupLayout.PREFERRED_SIZE))
-							.addGap(18)
-							.addComponent(browseTextsFiles_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(247)
-							.addComponent(tab1_proc_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
-						.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(20, Short.MAX_VALUE))
-		);
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+										.addGap(10)
+										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+												.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+														.addPreferredGap(ComponentPlacement.RELATED)
+														.addComponent(lblTextsLanguage, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+														.addPreferredGap(ComponentPlacement.RELATED)
+														.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
+												.addComponent(textsDir_info1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 282, GroupLayout.PREFERRED_SIZE)
+												.addComponent(textsDir_txt1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 346, GroupLayout.PREFERRED_SIZE))
+										.addGap(18)
+										.addComponent(browseTextsFiles_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createSequentialGroup()
+										.addGap(247)
+										.addComponent(tab1_proc_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
+								.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE))
+						.addContainerGap(20, Short.MAX_VALUE))
+				);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+				groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(38)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textsDir_txt1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(browseTextsFiles_btn1))
-					.addComponent(textsDir_info1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblTextsLanguage)
-						.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(17)
-					.addComponent(tab1_proc_btn1)
-					.addGap(18)
-					.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 278, GroupLayout.PREFERRED_SIZE)
-					.addGap(58))
-		);
+						.addGap(38)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textsDir_txt1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(browseTextsFiles_btn1))
+						.addComponent(textsDir_info1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblTextsLanguage)
+								.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGap(17)
+						.addComponent(tab1_proc_btn1)
+						.addGap(18)
+						.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 278, GroupLayout.PREFERRED_SIZE)
+						.addGap(58))
+				);
 		setLayout(groupLayout);
 		FVs_table1.getColumnModel().getColumn(0).setPreferredWidth(30);
 		FVs_table1.getColumnModel().getColumn(1).setPreferredWidth(380);
@@ -180,7 +180,7 @@ public class Tab1 extends JPanel{
 		}
 	}
 
-	
+
 	public boolean isStatus() {
 		return done;
 	}
@@ -194,7 +194,13 @@ public class Tab1 extends JPanel{
 		types.add("pdf");
 		types.add("html");
 		files=Browse.BrowseFiles(types);
-
+//		String currName;
+//		File currFile;
+//		for(File file:files){
+//			currName=filter(file.getName());
+//			currFile=new File(file.getParent()+File.separator+currName);
+//			file.renameTo(currFile);
+//		}
 		if(files.length>0)textsDir_txt1.setText(files[0].getParentFile().toString());
 
 		int files_size=files.length;
@@ -207,6 +213,11 @@ public class Tab1 extends JPanel{
 			tab1_proc_btn1.setEnabled(true);
 		}		
 	}
+	private String filter(String name) {
+
+		return name.replaceAll("\\?", " ");
+	}
+
 	public JTextField getTextsDir_txt1() {
 		return textsDir_txt1;
 	}

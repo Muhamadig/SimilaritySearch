@@ -274,20 +274,23 @@ public class Tab2 extends JPanel {
 				names.add(file.getName());
 			}
 			proc.expandAll(fv_paths, global, common,MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"expanded FVs",names);
+			DBController dbc=DBController.getInstance();
 
+			if(!dbc.createGlobals(MainApp.getWS()+File.separator+"DB FV Files")){
+				try {
+					throw new Exception("Error occured on writing DB globals in database");
+				} catch (Exception e) {
+
+					JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			done=true;
+			MainApp.changeNext("tab2", "Next");
 		}
 		
-		DBController dbc=DBController.getInstance();
-		if(!dbc.createGlobals(MainApp.getWS()+File.separator+"DB FV Files"))
-			try {
-				throw new Exception("Error occured on writing DB globals in database");
-			} catch (Exception e) {
-
-				JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-			}
+		
 		setCursor(null);
-		done=true;
-		MainApp.changeNext("tab2", "Next");
+		
 	}
 
 

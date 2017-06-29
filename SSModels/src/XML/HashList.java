@@ -65,7 +65,7 @@ public class HashList implements XML {
 			document = saxBuilder.build(inputFile);
 		} catch (JDOMException | IOException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 			return null;
 		}
 
