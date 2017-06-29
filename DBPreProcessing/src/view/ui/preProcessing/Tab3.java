@@ -81,23 +81,18 @@ public class Tab3 extends JPanel{
 				List<Cluster> clusters=km.getclusters();
 				int count=1;
 				DefaultTableModel dm = (DefaultTableModel) table.getModel();
-				PrintWriter writer = null;
+			
 
-				try {
-					writer=new PrintWriter("C:/Users/MASTER/Desktop/fromGui.txt");
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
 				for(int i=0;i<clusters.size();i++){
 					List<Point> cpoints = clusters.get(i).getPoints();
 					for(Point p: cpoints){
 						dm.addRow(new Object[]{count,clusters.get(i).getId(),p.getName().replace(".html.xml", "")});
-						writer.println(p.getName().replace(".html.xml", ""));
+						
 						count++;
 					}
 				}
-				writer.close();
+	
 				
 				System.out.println(count);
 				create_Clusters_CW_global();
