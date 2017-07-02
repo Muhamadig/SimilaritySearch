@@ -3,7 +3,6 @@ package Controller;
 
 
 import java.util.ArrayList;
-
 import model.FVHashMap;
 import model.Language;
 public class StopWordsFiltering {
@@ -32,6 +31,7 @@ public class StopWordsFiltering {
 	
 	public static ArrayList<String> RemoveSW(ArrayList <String> words, Language language)
 	{
+		@SuppressWarnings("unchecked")
 		ArrayList<String> temp = (ArrayList<String>) words.clone();
 		int sum =0;
 		ArrayList<String> SW = language.getSW();

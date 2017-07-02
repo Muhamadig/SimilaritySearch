@@ -2,9 +2,6 @@ package Utils;
 
 import java.util.Comparator;
 import java.util.Map.Entry;
-
-import model.FVHashMap;
-
 public class FVComparatorByValue implements Comparator<Entry<String, Integer>> {
 
 	

@@ -1,6 +1,5 @@
 package Utils;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -8,8 +7,7 @@ import java.util.TreeMap;
 
 
 import model.FVHashMap;
-import model.FVKeySortedMap;
-import model.FVValueSorted;
+
 
 public class Util {
 
@@ -27,6 +25,7 @@ public class Util {
 	}
 	public static  Map<String, Integer> sortByKeys(Map fv){
 		FVHashMap res= new FVHashMap();
+		@SuppressWarnings("unchecked")
 		Map<String, Integer> map= new TreeMap<String,Integer>(fv);
 		for(String key:map.keySet()){
 			res.put(key, map.get(key));

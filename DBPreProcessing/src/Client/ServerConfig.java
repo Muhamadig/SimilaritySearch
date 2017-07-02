@@ -1,7 +1,5 @@
 package Client;
 
-import java.util.ArrayList;
-
 import Utils.FileManager;
 import Utils.Logger;
 
@@ -20,29 +18,6 @@ public class ServerConfig {
 	public static ServerConfig getConfig() {
 		return instance;
 	}
-
-//	public void readTextConfig() {
-//		try {
-//			ArrayList<String> lines = fileManager.readFile("config.txt");
-//			String[] ip = lines.get(0).split(":");
-//			host = ip[0];
-//			port = Integer.parseInt(ip[1]);
-//		} catch (Exception e) {
-//			host = "localhost";
-//			port = 10000;
-//			ServerConfig.getConfig().getLogger().exception(e);
-//		}
-//
-//	}
-
-//	public void writeTextConfig() {
-//		try {
-//			String ip = host + ":" + port;
-//			fileManager.writeFile("config.txt", ip);
-//		} catch (Exception e) {
-//			ServerConfig.getConfig().getLogger().exception(e);
-//		}
-//	}
 
 	public int getPort() {
 		return port;

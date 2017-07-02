@@ -8,6 +8,11 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName="texts")
 public class DBText implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@DatabaseField(id=true)
 	private String name;
 	

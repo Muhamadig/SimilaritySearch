@@ -1,7 +1,6 @@
 package UI;
 
 import javax.swing.JFrame;
-import javax.print.attribute.ResolutionSyntax;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
@@ -9,16 +8,13 @@ import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Font;
-
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-import javax.swing.LookAndFeel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
-
 import Client.Client;
 import Controllers.SearchController;
 import DBModels.Result;
@@ -26,7 +22,6 @@ import UIUtils.Browse;
 import UIUtils.MyTableModel;
 import model.Language;
 import model.Language.Langs;
-
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -35,7 +30,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;

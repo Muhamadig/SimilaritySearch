@@ -3,9 +3,6 @@ package controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeMap;
-
-import com.sun.tools.xjc.gen.Array;
-
 import Client.Application;
 import DBModels.DBCluster;
 import DBModels.DBText;

@@ -2,8 +2,6 @@ package UIUtils;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;

@@ -3,9 +3,7 @@ package XML;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -14,7 +12,6 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 import model.FVHashMap;
-import model.SynSetMap;
 
 public class FVXML implements XML {
 

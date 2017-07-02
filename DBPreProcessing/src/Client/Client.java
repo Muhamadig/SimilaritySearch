@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import Utils.Request;
 import ocsf.client.*;
-import view.ui.preProcessing.MainApp;
 
 public class Client extends AbstractClient {
 	public Client(String host, int port) {

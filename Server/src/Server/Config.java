@@ -1,7 +1,6 @@
 package Server;
 
 import Database.DbHandler;
-import Utils.FileManager;
 import Utils.Logger;
 /**
  * Class Config, the configuration of the server.

@@ -7,13 +7,12 @@ import Controller.ReadFile;
 import Controller.StopWordsFiltering;
 import DBModels.Result;
 import Utils.Request;
-import XML.XML;
-import XML.XMLFactory;
 import model.FVHashMap;
 import model.Language;
 
 public class SearchController {
 
+	@SuppressWarnings("unchecked")
 	public static ArrayList<Result> search(String pathAndName,String fileType,Language lang){
 		FVHashMap initialFV=toInitialFV(pathAndName,fileType,lang);
 		Request request=new Request("search/search");

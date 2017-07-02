@@ -1,7 +1,5 @@
 package Client;
 
-import java.util.ArrayList;
-
 import Utils.FileManager;
 import Utils.Logger;
 

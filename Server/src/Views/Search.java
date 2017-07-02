@@ -1,19 +1,10 @@
 package Views;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
-
-import com.sun.xml.internal.bind.v2.util.XmlFactory;
-
 import Controller.SearchController;
 import Controller.SearchController.Method;
 import DBModels.DBText;
-import DBModels.Result;
 import Utils.Request;
 import XML.XML;
 import XML.XMLFactory;
@@ -23,7 +14,6 @@ import model.FVValueSorted;
 
 public class Search extends View{
 
-	private Clusters clusterDao = new Clusters();
 	private Texts TextsDao = new Texts();
 	Global DBGlobals=new Global();
 

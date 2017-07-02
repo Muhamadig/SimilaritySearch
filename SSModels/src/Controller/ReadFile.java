@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.hwpf.HWPFDocument;
@@ -63,6 +62,7 @@ public class ReadFile {
 		return text.toLowerCase();
 	}
 
+	@SuppressWarnings("resource")
 	private static String docRead (String fileDest) {
 		String text = null;
 		FileInputStream fis;

@@ -8,8 +8,6 @@ import java.util.TreeMap;
 import DBModels.DBCluster;
 import DBModels.DBText;
 import DBModels.Result;
-import Database.DbHandler;
-import Server.Config;
 import Views.Clusters;
 import Views.Texts;
 import XML.XML;
@@ -24,12 +22,10 @@ public class SearchController {
 		EUCLIDEAN,
 		ONES;
 	}
-	private static XML xml = XMLFactory.getXML(XMLFactory.FV_ValueSorted);
 	private static XML keySxml = XMLFactory.getXML(XMLFactory.FVSortedMap);
 	private static XML fvxml = XMLFactory.getXML(XMLFactory.FV);
 	private static XML hashlist = XMLFactory.getXML(XMLFactory.HashList);
 	
-	private static DbHandler db = Config.getConfig().getHandler();
 
 	private static Texts TextsDao = new Texts();
 	private static Clusters ClustersDao=new Clusters();
@@ -117,8 +113,10 @@ public class SearchController {
 		double min =Double.MAX_VALUE;
 		double dist=min;
 		
+		@SuppressWarnings("unchecked")
 		TreeMap <Integer ,ArrayList<String>> centorids = (TreeMap <Integer ,ArrayList<String>>) hashlist.Import("Centroids.xml");
 		for(Integer key : centorids.keySet()){
+			@SuppressWarnings("unchecked")
 			ArrayList<String> copy = (ArrayList<String>) centorids.get(key).clone();
 			dist = CentroidDistance(copy, finalvec);
 			if(dist<min){

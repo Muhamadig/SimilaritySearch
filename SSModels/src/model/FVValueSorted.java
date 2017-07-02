@@ -7,6 +7,10 @@ import java.util.Map.Entry;
 import Utils.FVComparatorByValue;
 
 public class FVValueSorted extends ArrayList<Entry<String,Integer>> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int Sum;
 	
 	public FVValueSorted(){

@@ -1,19 +1,7 @@
 package Views;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
-//import models.Dispatcher;
-//import models.Doctor;
-//import models.Labratorian;
-//import models.Manager;
-//import models.Secretary;
-//import models.User;
-import Database.DbHandler;
 import Server.Config;
-import Utils.Request;
 
 public class Users extends View {
 	/**

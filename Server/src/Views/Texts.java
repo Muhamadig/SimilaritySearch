@@ -15,22 +15,11 @@ import DBModels.DBText;
 import Database.DbHandler;
 import Server.Config;
 import Utils.Request;
-import XML.XML;
-import XML.XMLFactory;
-import model.FVKeySortedMap;
 
 public class Texts extends View {
 
 
 	DbHandler db = Config.getConfig().getHandler();
-
-	/*
-	 * CRUD:
-	 * Create
-	 * Read
-	 * Update
-	 * Delete
-	 */
 
 	/**
 	 * Add new Text to database or update it if exist
