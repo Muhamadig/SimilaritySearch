@@ -164,12 +164,15 @@ public class Search extends JFrame{
 		search_btn.setEnabled(false);
 		search_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				searching.setVisible(true);
+				clearTable();
 				search();
 			}
 		});
 		
 		searching = new JLabel("Searching, Please Wait...");
 		searching.setVisible(false);
+		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
@@ -247,7 +250,7 @@ public class Search extends JFrame{
 
 
 	protected void search() {
-		searching.setVisible(true);
+		
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
 		DefaultTableModel dm = (DefaultTableModel) table.getModel();
@@ -259,6 +262,7 @@ public class Search extends JFrame{
 		if(results!=null && results.size()>0){
 			isVisible(true);
 		}
+		
 		File dir=new File("Results Files");
 		dir.mkdir();
 		for(Result res:results){
@@ -295,5 +299,11 @@ public class Search extends JFrame{
 	public void isVisible(boolean bool){
 		scrollPane.setVisible(bool);
 		view_btn.setVisible(bool);
+	}
+	
+	private void clearTable(){
+		MyTableModel model = (MyTableModel) table.getModel();
+		while(model.getRowCount()>0)
+			model.removeRow(0);
 	}
 }

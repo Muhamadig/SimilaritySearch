@@ -6,7 +6,7 @@ import model.FVKeySortedMap;
 
 public class Pareto {
 
-	private static int NO_Results =5;
+	private  int NO_Results =5;
 	private ArrayList<FVKeySortedMap> candidates;
 	private FVKeySortedMap inputText;
 	private ArrayList<ArrayList<Integer>> ObjectiveVectors;
@@ -58,6 +58,24 @@ public class Pareto {
 				}
 			}
 	}
+	}
+	
+	private int IsExist(){
+		int index = -1;
+		int sum=0;
+		//FVKeySortedMap candidate : candidates
+		for(int i=0;i<candidates.size();i++){
+			for(String key : inputText.keySet()){
+				FVKeySortedMap candidate = candidates.get(i);
+				if(candidate.containsKey(key))
+				 sum+=(Math.abs(inputText.get(key) - candidate.get(key)));
+			}
+			if(sum==0)
+				index=i;
+			sum=0;	
+		}
+		
+		return index;
 	}
 	
 	private ArrayList<Integer> RemoveDominates(){
@@ -118,7 +136,14 @@ public class Pareto {
 		
 		CalculateObjectiveVectors();
 		
-		//InitArrayLists();
+		int res = IsExist();
+		
+		if(res!=-1){
+			results.add(candidates.get(res));
+			ObjectiveVectors.remove(res);
+			NO_Results-=1;
+			
+		}
 		
 		CalculateDominates();
 
@@ -128,7 +153,7 @@ public class Pareto {
 		
 		for(Integer index : ClosestResults)
 			results.add(candidates.get(index));
-
+		NO_Results =5;
 		return results;
 	}
 }
