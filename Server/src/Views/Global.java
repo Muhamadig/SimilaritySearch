@@ -41,8 +41,7 @@ public class Global extends View  {
 	}
 
 	
-	public FVValueSorted getCommonVector() throws IOException  {
-		
+	public FVValueSorted getCommonVector()   {
 		
 
 		FVValueSorted commonVector=(FVValueSorted) valueSortedXML.Import("DB Data Files"+ File.separator+ "commonFV.xml");
@@ -50,7 +49,7 @@ public class Global extends View  {
 
 	}
 
-	public FVValueSorted getGlobalVector() throws SQLException, IOException {
+	public FVValueSorted getGlobalVector()  {
 		
 		FVValueSorted globalVector=(FVValueSorted) valueSortedXML.Import("DB Data Files"+ File.separator+ "globalFV.xml");
 		return globalVector;

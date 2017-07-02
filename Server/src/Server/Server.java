@@ -19,11 +19,13 @@ import Database.DbHandler;
 import Utils.Logger;
 import Utils.Request;
 import Views.Clusters;
+import Views.Search;
+import Views.Texts;
 //import Utils.TimeTask;
 //import Views.Appointments;
 //import Views.Reports;
 import Views.Users;
-
+import javafx.scene.text.Text;
 import ocsf.server.*;
 /**
  * Server class extends AbstractServer
@@ -131,6 +133,6 @@ public class Server extends AbstractServer {
 
 		server.listen();
 		
-//		SearchController.test(new Clusters().getAll());
+		(new Texts()).getFVsBYCluster(3);
 	}
 }
