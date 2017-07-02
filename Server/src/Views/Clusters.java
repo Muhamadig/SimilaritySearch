@@ -17,24 +17,12 @@ public class Clusters extends View {
 
 	
 	DbHandler db = Config.getConfig().getHandler();
-
-	/*
-	 * CRUD:
-	 * Create
-	 * Read
-	 * Update
-	 * Delete
-	 */
-
 	/**
 	 * Add new Cluster to database or update if exist
 	 * @param request 
 	 * @return if success return 1 ,else 0;
 	 * @author Muhamad Igbaria
 	 */
-//	r.addParam("cluster", cluster);
-//	r.addParam("c_CW", cluster_CW);
-//	r.addParam("c_global", cluster_global);
 	
 	public Object create(Request request){
 	

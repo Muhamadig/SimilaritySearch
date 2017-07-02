@@ -6,6 +6,10 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class FVKeySortedMap extends TreeMap<String, Integer> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int Sum;
 
 	public FVKeySortedMap(){

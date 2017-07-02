@@ -3,27 +3,12 @@ package Server;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
-import java.util.Timer;
-
 import com.j256.ormlite.logger.LocalLog;
-import com.mysql.jdbc.Driver;
-
-import Controller.SearchController;
 import Database.DbHandler;
 import Utils.Logger;
 import Utils.Request;
-import Views.Clusters;
-//import Utils.TimeTask;
-//import Views.Appointments;
-//import Views.Reports;
+import Views.Texts;
 import Views.Users;
-
 import ocsf.server.*;
 /**
  * Server class extends AbstractServer
@@ -131,6 +116,6 @@ public class Server extends AbstractServer {
 
 		server.listen();
 		
-//		SearchController.test(new Clusters().getAll());
+		(new Texts()).getFVsBYCluster(3);
 	}
 }

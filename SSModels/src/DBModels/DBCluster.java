@@ -2,14 +2,17 @@ package DBModels;
 
 
 import java.io.Serializable;
-
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName="clusters")
 public class DBCluster implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@DatabaseField(id=true)
 	private int id;
 	

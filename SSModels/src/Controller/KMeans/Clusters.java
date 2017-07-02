@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
-
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
@@ -17,6 +16,7 @@ public class Clusters {
 	private XML valueSortedXML;
 	private TreeMap<Integer, ArrayList<String>> clusters;
 
+	@SuppressWarnings("unchecked")
 	public Clusters(String clusters_path) {
 		hashList=XMLFactory.getXML(XMLFactory.HashList);
 		fvXML=XMLFactory.getXML(XMLFactory.FV);

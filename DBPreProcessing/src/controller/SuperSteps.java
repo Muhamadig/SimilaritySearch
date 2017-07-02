@@ -4,8 +4,6 @@ import Client.Application;
 import Controller.ReadFile;
 import Controller.StopWordsFiltering;
 import Utils.Request;
-import XML.XML;
-import XML.XMLFactory;
 import model.FVHashMap;
 import model.Language;
 

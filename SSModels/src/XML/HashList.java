@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -86,6 +85,7 @@ public class HashList implements XML {
 
 	@Override
 	public void export(Object object, String fileName) {
+		@SuppressWarnings("unchecked")
 		TreeMap<Integer, ArrayList<String>> clusters= (TreeMap<Integer, ArrayList<String>>) object;
 		export(clusters,fileName);
 		

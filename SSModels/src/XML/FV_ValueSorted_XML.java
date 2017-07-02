@@ -3,21 +3,16 @@ package XML;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-
-import model.FVHashMap;
 import model.FVValueSorted;
 import model.MyEntry;
-import model.SynSetMap;
 
 public class FV_ValueSorted_XML implements XML {
 
