@@ -13,6 +13,7 @@ public class DBController {
 
 	public static DBController instance=new DBController();
 	XML hashListXML=XMLFactory.getXML(XMLFactory.HashList);
+	@SuppressWarnings("unchecked")
 	TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashListXML.Import("Clusters.xml");
 
 	XML globalXML=XMLFactory.getXML(XMLFactory.FV_ValueSorted);

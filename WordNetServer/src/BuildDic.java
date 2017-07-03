@@ -6,7 +6,6 @@ import java.util.HashSet;
 import XML.XML;
 import XML.XMLFactory;
 import dictionary.DictGenerator;
-import dictionary.WordNet;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.IRAMDictionary;
 import edu.mit.jwi.RAMDictionary;
@@ -30,6 +29,7 @@ public class BuildDic {
 		System.err.println("number of words from WordNet= "+allWords.size());
 		XML wordsXML=XMLFactory.getXML(XMLFactory.WordSetMap);
 		wordsXML.export(allWords, "SynonymsDictionary/AllWords.xml");
+		@SuppressWarnings("unchecked")
 		HashSet<String> importAllWords=(HashSet<String>) wordsXML.Import("SynonymsDictionary/AllWords.xml");
 		System.err.println("number of words from XML File= " +importAllWords.size());
 		System.err.println("is equal: "+allWords.equals(importAllWords));

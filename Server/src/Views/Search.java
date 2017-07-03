@@ -3,7 +3,6 @@ package Views;
 
 import java.util.List;
 import Controller.SearchController;
-import Controller.SearchController.Method;
 import DBModels.DBText;
 import Utils.Request;
 import XML.XML;
@@ -42,7 +41,7 @@ public class Search extends View{
 
 
 		//Step 6: Find the cluster that the Final FV belongs to.
-		int cluster=SearchController.classify(finalFV, Method.EUCLIDEAN);
+		int cluster=SearchController.classify(finalFV);
 
 
 		//Step 7: Run Pareto Algorithm To Find best 5 Texts.

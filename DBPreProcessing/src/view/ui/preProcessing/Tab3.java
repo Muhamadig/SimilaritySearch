@@ -7,8 +7,6 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,7 +60,7 @@ public class Tab3 extends JPanel{
 		clustering.setBounds(10, 103, 657, 336);
 		add(clustering);
 		clustering.setLayout(null);
-		
+
 
 		btnClustering = new JButton("Clustering");
 		btnClustering.setEnabled(false);
@@ -72,7 +70,7 @@ public class Tab3 extends JPanel{
 				setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
 				String clusters_path=MainApp.getWS()+File.separator+"clustering";
-				
+
 				//(exported files directory,expanded files directory)
 				km = new KMeans(MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs",
 						MainApp.getWS()+File.separator+"DB FV Files",clusters_path);
@@ -81,9 +79,9 @@ public class Tab3 extends JPanel{
 				List<Cluster> clusters=km.getclusters();
 				int count=1;
 				DefaultTableModel dm = (DefaultTableModel) table.getModel();
-			
 
-				
+
+
 				for(int i=0;i<clusters.size();i++){
 					List<Point> cpoints = clusters.get(i).getPoints();
 					for(Point p: cpoints){
@@ -91,11 +89,8 @@ public class Tab3 extends JPanel{
 						count++;
 					}
 				}
-	
-				
-				System.out.println(count);
 				create_Clusters_CW_global();
-			
+
 				DBController dbc=DBController.getInstance();
 				if(!dbc.createClusters(MainApp.getWS()+File.separator+"clustering"))
 					try {
@@ -106,7 +101,7 @@ public class Tab3 extends JPanel{
 					}
 				setCursor(null);
 
-				
+
 			}
 		});
 		btnClustering.setBounds(291, 11, 117, 29);
@@ -126,7 +121,7 @@ public class Tab3 extends JPanel{
 		table.setShowVerticalLines(false);
 		table.setRowHeight(30);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 16));		
-		
+
 		scrollPane.setViewportView(table);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBackground(Color.WHITE);
@@ -154,10 +149,10 @@ public class Tab3 extends JPanel{
 		thresholds.put(3, "protective");
 		thresholds.put(4, "barricade");
 		thresholds.put(5, "dec");
-		
+
 		c.findC_global_fv(path+File.separator+"Clusters Global FVs", MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
 		c.find_CW_Sig(path+File.separator+"Clusters CW_Sig FVs", path+File.separator+"Clusters Global FVs", thresholds);
-		
+
 		done=true;
 		MainApp.changeNext("tab3", "Update DataBase");
 	}
@@ -183,7 +178,7 @@ public class Tab3 extends JPanel{
 		setCursor(null);
 		JOptionPane.showMessageDialog(null,"DONE.\nThe texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys .\n"
 				+ " you can find your xml files at:\n "+ MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
-		
+
 		btnClustering.setEnabled(true);
 	}
 

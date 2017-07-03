@@ -24,8 +24,6 @@ import model.FVHashMap;
 
 public class HTMLsDownload {
 	private static int count=0;
-	private HashMap<String,FVHashMap> texts;
-	private HashMap<ArrayList<String>,String> htmls; // this hashmap contains the texts and there's html code
 	private HashMap <String,String > tables; // this hashmap contains the title of the document and it's link
 	private String [] pages ={
 			"http://www.courts.ie/Judgments.nsf/frmJudgmentsByYearAll?OpenForm&ExpandView&Seq=1",
@@ -47,8 +45,8 @@ public class HTMLsDownload {
 
 	public HTMLsDownload(){
 		tables = new HashMap<String,String>();
-		htmls = new HashMap<ArrayList<String>,String>();
-		texts = new HashMap<String,FVHashMap>();
+		new HashMap<ArrayList<String>,String>();
+		new HashMap<String,FVHashMap>();
 	}
 	
 	public void DownloadAllPages() throws IOException{
@@ -147,7 +145,7 @@ public class HTMLsDownload {
 				}
 			}
 			else{
-				for(String link : pages){
+				for(@SuppressWarnings("unused") String link : pages){
 					DownloadAllPages();
 				}
 			}
@@ -200,11 +198,7 @@ public class HTMLsDownload {
 	
 	
 	public static void main(String[] args) throws IOException, DocumentException{
-		HTMLsDownload temp = new HTMLsDownload();
-		//temp.DownloadAllPages();
-		//temp.load();
-		ReadFile read = new ReadFile();
-		String text = read.ReadFile("Vodafone GMBH -v- IV International Leasing & Anor.html", "html");
+		String text = ReadFile.ReadFile("Vodafone GMBH -v- IV International Leasing & Anor.html", "html");
 		System.out.println(text.split(" ").length);
 		
 //		File folder = new File("HTMLs");

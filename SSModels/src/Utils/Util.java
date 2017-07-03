@@ -23,9 +23,8 @@ public class Util {
 		return fullName.substring(0, fullName.indexOf(".xml"));
 
 	}
-	public static  Map<String, Integer> sortByKeys(Map fv){
+	public static  Map<String, Integer> sortByKeys(Map<String, Integer> fv){
 		FVHashMap res= new FVHashMap();
-		@SuppressWarnings("unchecked")
 		Map<String, Integer> map= new TreeMap<String,Integer>(fv);
 		for(String key:map.keySet()){
 			res.put(key, map.get(key));
