@@ -137,7 +137,15 @@ public class SearchController {
 			candidates.add((FVKeySortedMap) keySxml.Import("Texts Final Fvs"+File.separator+curr.getFinalFV_name()));
 		}
 		ArrayList<FVKeySortedMap> results = new Pareto(candidates,finalfv).ParetoCalculate();
-		
+		double dist =0;
+		for(FVKeySortedMap res : results){
+			for(String key : res.keySet())
+				if(finalfv.containsKey(key))
+					dist+=Math.pow(finalfv.get(key) - res.get(key), 2);
+			dist = Math.sqrt(dist);
+			System.out.println("Distance: " + dist);
+			dist =0;
+		}
 		ArrayList<DBText> res=new ArrayList<>();
 		for(FVKeySortedMap map:results){
 			res.add(texts.get(candidates.indexOf(map)));

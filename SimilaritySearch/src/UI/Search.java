@@ -156,6 +156,7 @@ public class Search extends JFrame{
 		JButton browse_btn = new JButton("Browse File");
 		browse_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				isVisible(false);
 				Browsetext();
 			}
 		});
