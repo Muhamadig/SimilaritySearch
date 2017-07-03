@@ -1,11 +1,10 @@
 package controller;
 import java.io.File;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
+import java.util.TreeMap;
 import XML.XML;
 import XML.XMLFactory;
 import model.FVHashMap;
@@ -18,11 +17,15 @@ public class Proccessing {
 	private XML fvXml;
 	private XML treeMapXML;
 	private XML fv_ValueSortedXml;
+	private XML hashlist;
+
 
 	public Proccessing(){
 		fvXml=XMLFactory.getXML(XMLFactory.FV);
 		treeMapXML=XMLFactory.getXML(XMLFactory.FVSortedMap);
 		fv_ValueSortedXml=XMLFactory.getXML(XMLFactory.FV_ValueSorted);
+		hashlist=XMLFactory.getXML(XMLFactory.HashList);
+
 	}
 
 	public Text process(File file,String exportDirectory,Language lang){
@@ -173,5 +176,13 @@ public class Proccessing {
 		if(centroids.exists())
 			hashlist.export(hashlist.Import("Centroids.xml"),path+File.separator+"Centroids.xml");
 
+	}
+	
+	public TreeMap<Integer,ArrayList<String>> getClustersFile(String path){
+		
+		@SuppressWarnings("unchecked")
+		TreeMap<Integer, ArrayList<String>> clusters=(TreeMap<Integer, ArrayList<String>>) hashlist.Import(path);
+		return clusters;
+		
 	}
 }

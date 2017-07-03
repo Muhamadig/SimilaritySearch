@@ -122,11 +122,6 @@ public class MainApp extends JFrame {
 
 
 		tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
-		tabbedPane.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-			}
-		});
 		tabbedPane.setBounds(0, 46, 1000, 480);
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 		tabbedPane.setFont(new Font("Microsoft New Tai Lue", Font.PLAIN, 18));
@@ -134,7 +129,6 @@ public class MainApp extends JFrame {
 		tabbedPane.setBackground(SystemColor.textInactiveText);
 		tabbedPane.setForeground(SystemColor.windowBorder);
 
-//		tabbedPane.setEnabled(false);
 		ImageIcon tab=new ImageIcon("img/tabs.png");
 
 

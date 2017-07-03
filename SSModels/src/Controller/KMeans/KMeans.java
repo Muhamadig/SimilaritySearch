@@ -312,7 +312,6 @@ public class KMeans {
 
 	private void getClustersFromFile(TreeMap<Integer, ArrayList<String>> res){
 		System.out.println("Clustering from file ...");
-		long t = System.currentTimeMillis();
 		XML fvxml = XMLFactory.getXML(XMLFactory.HashList);
 
 		ArrayList<Double> toadd;
