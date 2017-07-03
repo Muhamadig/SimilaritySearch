@@ -39,7 +39,7 @@ public class DbHandler {
 	public DbHandler(String url, String username, String password) {
 		try {
 			connection = new JdbcConnectionSource(url, username, password);
-//			createAllTables();
+			createAllTables();
 			initializeDao();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,11 +67,7 @@ public class DbHandler {
 	 */
 	public void createAllTables() throws Exception {
 		
-		TableUtils.dropTable(connection, DBCluster.class,true);
-		TableUtils.dropTable(connection, DBText.class,true);
-		
 		TableUtils.createTableIfNotExists(connection, DBCluster.class);
 		TableUtils.createTableIfNotExists(connection, DBText.class);
-
 	}
 }

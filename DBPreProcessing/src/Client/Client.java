@@ -29,12 +29,8 @@ public class Client extends AbstractClient {
 		close();
 	}
 
-	public void open() {
-		try {
+	public void open() throws IOException {
 			openConnection();
-		} catch (IOException e) {
-			WNSConfig.getConfig().getLogger().exception(e);
-		}
 	}
 
 	public void close() {

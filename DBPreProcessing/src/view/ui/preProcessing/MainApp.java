@@ -25,6 +25,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -120,7 +122,12 @@ public class MainApp extends JFrame {
 
 
 		tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
-		tabbedPane.setBounds(0, 46, 1000, 450);
+		tabbedPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
+		tabbedPane.setBounds(0, 46, 1000, 480);
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 		tabbedPane.setFont(new Font("Microsoft New Tai Lue", Font.PLAIN, 18));
 		tabbedPane.setBorder(null);
@@ -167,11 +174,11 @@ public class MainApp extends JFrame {
 				prev();
 			}
 		});
-		prev_btn.setBounds(694, 516, 140, 23);
+		prev_btn.setBounds(694, 537, 140, 23);
 		getContentPane().add(prev_btn);
 		prev_btn.setVisible(false);
 		next_btn = new JButton("Start Pre-Processing");
-		next_btn.setBounds(844, 516, 140, 23);
+		next_btn.setBounds(844, 537, 140, 23);
 		getContentPane().add(next_btn);
 		next_btn.setEnabled(false);
 		next_btn.addActionListener(new ActionListener() {
@@ -180,8 +187,12 @@ public class MainApp extends JFrame {
 			}
 		});
 
-		setBounds(0, 0, 1000, 600);
+		setBounds(0, 0, 1000, 615);
 		this.setLocationRelativeTo(null);
+		tabbedPane.setEnabledAt(1, false);
+		tabbedPane.setEnabledAt(2, false);
+		tabbedPane.setEnabledAt(3, false);
+
 
 	}
 
@@ -190,6 +201,12 @@ public class MainApp extends JFrame {
 		switch(tabbedPane.getSelectedIndex()){
 		case 0:
 
+			if(!wN_Client.isConnected() || !client.isConnected()){
+				JOptionPane.showMessageDialog(null, "One or more servers is offline.\n "
+						+ "Please check connection of WordNet server or application server and then start the application \n The application will be closed after press ok.", "Server offline", JOptionPane.ERROR_MESSAGE);
+				this.dispose();
+				return;
+			}
 			tabbedPane.setSelectedIndex(1);
 			next_btn.setEnabled(tab1.isStatus());
 			next_btn.setText("Next");
@@ -197,15 +214,28 @@ public class MainApp extends JFrame {
 			prev_btn.setEnabled(true);
 			prev_btn.setVisible(true);
 			prev_btn.setText("Previous");
+			
+			tabbedPane.setEnabledAt(0, false);
+			tabbedPane.setEnabledAt(1, true);
+			tabbedPane.setEnabledAt(2, false);
+			tabbedPane.setEnabledAt(3, false);
 			break;
 		case 1:
 			tabbedPane.setSelectedIndex(2);
 			next_btn.setEnabled(tab2.isDone());
+			tabbedPane.setEnabledAt(0, false);
+			tabbedPane.setEnabledAt(1, false);
+			tabbedPane.setEnabledAt(2, true);
+			tabbedPane.setEnabledAt(3, false);
 			break;
 		case 2:
 			tabbedPane.setSelectedIndex(3);
 			next_btn.setEnabled(Tab3.isDone());
 			next_btn.setText("Update Database");
+			tabbedPane.setEnabledAt(0, false);
+			tabbedPane.setEnabledAt(1, false);
+			tabbedPane.setEnabledAt(2, false);
+			tabbedPane.setEnabledAt(3, true);
 
 			break;
 		case 3:
@@ -241,17 +271,28 @@ public class MainApp extends JFrame {
 				next_btn.setEnabled(false);
 			}
 			next_btn.setText("Start Pre-Processing");
+			tabbedPane.setEnabledAt(0, true);
+			tabbedPane.setEnabledAt(1, false);
+			tabbedPane.setEnabledAt(2, false);
+			tabbedPane.setEnabledAt(3, false);
 			break;
 
 		case 2:
 			tabbedPane.setSelectedIndex(1);
 			next_btn.setEnabled(tab1.isStatus());
-
+			tabbedPane.setEnabledAt(0, false);
+			tabbedPane.setEnabledAt(1, true);
+			tabbedPane.setEnabledAt(2, false);
+			tabbedPane.setEnabledAt(3, false);
 			break;
 		case 3:
 			tabbedPane.setSelectedIndex(2);
 			next_btn.setEnabled(tab2.isDone());
 			next_btn.setText("Next");
+			tabbedPane.setEnabledAt(0, false);
+			tabbedPane.setEnabledAt(1, false);
+			tabbedPane.setEnabledAt(2, true);
+			tabbedPane.setEnabledAt(3, false);
 
 			break;
 		}

@@ -288,7 +288,6 @@ public class KMeans {
 
 	private KMeans CalculateClusters(){
 		KMeans km;
-		System.out.println("Start Clustering...");
 		long t = System.currentTimeMillis(); 
 
 		ArrayList<ArrayList<Double>> frequencies = KMeans.getAllFrequencies(KMeans.Final_FVS_dir);
@@ -357,7 +356,6 @@ public class KMeans {
 
 			clusters.add(c);
 		}
-		System.out.println("Done Clustering ... " + ((System.currentTimeMillis()-t)/1000) + " Seconds");
 	}
 
 	public KMeans Clustering(){

@@ -119,11 +119,5 @@ public class ReadFile {
 		return str.replaceAll("[^0-9a-zA-Z\\s]", "");
 	}
 
-	private static String filter(String name){
-		
-		return name.replaceAll("\\?", " ");
-
-	}
-
 	
 }

@@ -38,6 +38,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Search extends JFrame{
 	/**
@@ -51,8 +53,26 @@ public class Search extends JFrame{
 	private JButton search_btn;
 	private JButton view_btn;
 	private JLabel searching;
+	private Client wN_Client;
+	private Client client;
 
-	public Search() {
+	public Search(Client wN_Client, Client client) {
+		
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+
+				File dir=new File("Results Files");
+				File[] files=dir.listFiles();
+				if(files!=null){
+					for(File file:files){
+						file.deleteOnExit();
+					}
+				}
+			}
+			
+		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setTitle("Similarity Search");
@@ -104,33 +124,33 @@ public class Search extends JFrame{
 		panel_1.setLayout(gl_panel_1);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+				groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(292, Short.MAX_VALUE)
-					.addComponent(view_btn)
-					.addGap(273))
+						.addContainerGap(292, Short.MAX_VALUE)
+						.addComponent(view_btn)
+						.addGap(273))
 				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-					.addContainerGap())
+						.addContainerGap()
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+						.addContainerGap())
 				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-					.addContainerGap())
-		);
+						.addContainerGap()
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+						.addContainerGap())
+				);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+				groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-					.addGap(18)
-					.addComponent(view_btn)
-					.addGap(20))
-		);
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+						.addGap(18)
+						.addComponent(view_btn)
+						.addGap(20))
+				);
 
 		table = new JTable();
 		String[] columnNames = {"Results"};
@@ -170,54 +190,62 @@ public class Search extends JFrame{
 				search();
 			}
 		});
-		
+
 		searching = new JLabel("Searching, Please Wait...");
 		searching.setVisible(false);
-		
+
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
+				gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, 397, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(browse_btn))
-						.addComponent(lblNewLabel))
-					.addContainerGap(112, Short.MAX_VALUE))
+						.addContainerGap()
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel.createSequentialGroup()
+										.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, 397, GroupLayout.PREFERRED_SIZE)
+										.addGap(18)
+										.addComponent(browse_btn))
+								.addComponent(lblNewLabel))
+						.addContainerGap(112, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(254, Short.MAX_VALUE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(searching, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
-						.addComponent(search_btn))
-					.addGap(217))
-		);
+						.addContainerGap(254, Short.MAX_VALUE)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(searching, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
+								.addComponent(search_btn))
+						.addGap(217))
+				);
 		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
+				gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(browse_btn))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(search_btn)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(searching)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+						.addContainerGap()
+						.addComponent(lblNewLabel)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(browse_btn))
+						.addPreferredGap(ComponentPlacement.UNRELATED)
+						.addComponent(search_btn)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(searching)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
 		isVisible(false);
 		setBounds(0, 0, 650, 476);
 		this.setLocationRelativeTo(null);
+		
+		this.wN_Client=wN_Client;
+		this.client=client;
 	}
 
 
 	protected void Browsetext() {
-
+		if(!wN_Client.isConnected() || !client.isConnected()){
+			JOptionPane.showMessageDialog(null, "One or more servers is offline.\n "
+					+ "Please check connection of WordNet server or application server and then start the application \n The application will be closed after press ok.", "Server offline", JOptionPane.ERROR_MESSAGE);
+			this.dispose();
+			return;
+		}
 		search_btn.setEnabled(false);
 		ArrayList<String> types=new ArrayList<>();
 		types.add("html");
@@ -251,7 +279,7 @@ public class Search extends JFrame{
 
 
 	protected void search() {
-		
+
 		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
 		DefaultTableModel dm = (DefaultTableModel) table.getModel();
@@ -259,11 +287,17 @@ public class Search extends JFrame{
 		String type=Utils.Util.getFileExtension(text.getName());
 
 		ArrayList<Result> results=SearchController.search(text.getAbsolutePath().toString(),type, new Language(Langs.ENGLISH));
-		
+
 		if(results!=null && results.size()>0){
 			isVisible(true);
 		}
-		
+		else{
+			JOptionPane.showMessageDialog(null, "No Results Was Found!");
+			setCursor(null);
+			searching.setVisible(false);
+			return;
+		}
+
 		File dir=new File("Results Files");
 		dir.mkdir();
 		for(Result res:results){
@@ -294,14 +328,14 @@ public class Search extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		new Search().setVisible(true);
+		new Search(wN_Client,client).setVisible(true);
 
 	}
 	public void isVisible(boolean bool){
 		scrollPane.setVisible(bool);
 		view_btn.setVisible(bool);
 	}
-	
+
 	private void clearTable(){
 		MyTableModel model = (MyTableModel) table.getModel();
 		while(model.getRowCount()>0)
