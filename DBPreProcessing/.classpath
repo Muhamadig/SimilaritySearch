@@ -3,13 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
-	<classpathentry kind="lib" path="libraries/itextpdf-5.4.1.jar"/>
-	<classpathentry kind="lib" path="libraries/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="libraries/jfreechart-1.0.19.jar"/>
-	<classpathentry kind="lib" path="libraries/javax.jar"/>
-	<classpathentry kind="lib" path="libraries/org-jdesktop-layout.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SSFrameWork"/>
+	<classpathentry kind="lib" path="libraries/itextpdf-5.4.1.jar"/>
 	<classpathentry kind="lib" path="libraries/jsoup-1.10.2.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Server"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
