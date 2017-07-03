@@ -53,8 +53,12 @@ public class Search extends JFrame{
 	private JButton search_btn;
 	private JButton view_btn;
 	private JLabel searching;
+	private Client wN_Client;
+	private Client client;
 
-	public Search() {
+	public Search(Client wN_Client, Client client) {
+		
+		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
@@ -228,11 +232,19 @@ public class Search extends JFrame{
 		isVisible(false);
 		setBounds(0, 0, 650, 476);
 		this.setLocationRelativeTo(null);
+		
+		this.wN_Client=wN_Client;
+		this.client=client;
 	}
 
 
 	protected void Browsetext() {
-
+		if(!wN_Client.isConnected() || !client.isConnected()){
+			JOptionPane.showMessageDialog(null, "One or more servers is offline.\n "
+					+ "Please check connection of WordNet server or application server and then start the application \n The application will be closed after press ok.", "Server offline", JOptionPane.ERROR_MESSAGE);
+			this.dispose();
+			return;
+		}
 		search_btn.setEnabled(false);
 		ArrayList<String> types=new ArrayList<>();
 		types.add("html");
@@ -315,7 +327,7 @@ public class Search extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		new Search().setVisible(true);
+		new Search(wN_Client,client).setVisible(true);
 
 	}
 	public void isVisible(boolean bool){

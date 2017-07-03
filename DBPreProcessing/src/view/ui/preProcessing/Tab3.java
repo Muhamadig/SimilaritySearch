@@ -28,6 +28,7 @@ import controller.Proccessing;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JLabel;
 
 
 public class Tab3 extends JPanel{
@@ -43,10 +44,12 @@ public class Tab3 extends JPanel{
 	private KMeans km;
 	private JTable table;
 	private JButton btnClustering;
+	private JLabel lblNewLabel;
+	private JLabel label;
 	public Tab3() {
 		setBackground(Color.WHITE);
 		setLayout(null);
-		setPreferredSize(new Dimension(700, 450));
+		setPreferredSize(new Dimension(700, 480));
 
 		prepareClustering_btn3 = new JButton("Prepare Clustering");
 		prepareClustering_btn3.setBackground(SystemColor.inactiveCaption);
@@ -100,6 +103,8 @@ public class Tab3 extends JPanel{
 						JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 					}
 				setCursor(null);
+				
+				JOptionPane.showMessageDialog(null, "Pre-Processing finish, Please Update the database by click the button bellow", "Update Database!", JOptionPane.INFORMATION_MESSAGE);
 
 
 			}
@@ -125,6 +130,14 @@ public class Tab3 extends JPanel{
 		scrollPane.setViewportView(table);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBackground(Color.WHITE);
+		
+		label = new JLabel("Estimated Time:Up to 1 minutes");
+		label.setBounds(418, 18, 183, 14);
+		clustering.add(label);
+		
+		lblNewLabel = new JLabel("Estimated Time:Up to 1 minutes");
+		lblNewLabel.setBounds(484, 38, 183, 14);
+		add(lblNewLabel);
 		table.getColumnModel().getColumn(0).setPreferredWidth(50);
 		table.getColumnModel().getColumn(1).setPreferredWidth(100);
 		table.getColumnModel().getColumn(2).setPreferredWidth(500);
@@ -176,9 +189,6 @@ public class Tab3 extends JPanel{
 
 		proc.sortFV_BY_Key_Export(fv_paths,fv_names,MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
 		setCursor(null);
-		JOptionPane.showMessageDialog(null,"DONE.\nThe texts are ready for clustering , all the frequency vectors are saved as xml files and sorted by keys .\n"
-				+ " you can find your xml files at:\n "+ MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs");
-
 		btnClustering.setEnabled(true);
 	}
 

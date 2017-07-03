@@ -55,7 +55,7 @@ public class Tab1 extends JPanel{
 	public Tab1(Client wN_Client) {
 		this.wN_Client=wN_Client;
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(700, 450));
+		setPreferredSize(new Dimension(700, 480));
 		textsDir_txt1 = new JTextField();
 		textsDir_txt1.setEditable(false);
 		textsDir_txt1.setBackground(Color.WHITE);
@@ -93,6 +93,8 @@ public class Tab1 extends JPanel{
 		fvs_scrl1.setViewportView(FVs_table1);
 		FVs_table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		FVs_table1.setBackground(Color.WHITE);
+
+		JLabel lblNewLabel = new JLabel("Estimated time: Up to 1 minutes");
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(Alignment.LEADING)
@@ -100,19 +102,21 @@ public class Tab1 extends JPanel{
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
 										.addGap(10)
-										.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-												.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addGroup(groupLayout.createSequentialGroup()
 														.addPreferredGap(ComponentPlacement.RELATED)
 														.addComponent(lblTextsLanguage, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
 														.addPreferredGap(ComponentPlacement.RELATED)
 														.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
-												.addComponent(textsDir_info1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 282, GroupLayout.PREFERRED_SIZE)
-												.addComponent(textsDir_txt1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 346, GroupLayout.PREFERRED_SIZE))
+												.addComponent(textsDir_info1, GroupLayout.PREFERRED_SIZE, 282, GroupLayout.PREFERRED_SIZE)
+												.addComponent(textsDir_txt1, GroupLayout.PREFERRED_SIZE, 346, GroupLayout.PREFERRED_SIZE))
 										.addGap(18)
 										.addComponent(browseTextsFiles_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup()
 										.addGap(247)
-										.addComponent(tab1_proc_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
+										.addComponent(tab1_proc_btn1, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)
+										.addGap(18)
+										.addComponent(lblNewLabel))
 								.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 680, GroupLayout.PREFERRED_SIZE))
 						.addContainerGap(20, Short.MAX_VALUE))
 				);
@@ -129,7 +133,9 @@ public class Tab1 extends JPanel{
 								.addComponent(lblTextsLanguage)
 								.addComponent(langbox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGap(17)
-						.addComponent(tab1_proc_btn1)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(tab1_proc_btn1)
+								.addComponent(lblNewLabel))
 						.addGap(18)
 						.addComponent(fvs_scrl1, GroupLayout.PREFERRED_SIZE, 278, GroupLayout.PREFERRED_SIZE)
 						.addGap(58))
@@ -194,14 +200,17 @@ public class Tab1 extends JPanel{
 		types.add("pdf");
 		types.add("html");
 		files=Browse.BrowseFiles(types);
-//		String currName;
-//		File currFile;
-//		for(File file:files){
-//			currName=filter(file.getName());
-//			currFile=new File(file.getParent()+File.separator+currName);
-//			file.renameTo(currFile);
-//		}
-		if(files.length>0)textsDir_txt1.setText(files[0].getParentFile().toString());
+
+		if(files.length>0){
+			textsDir_txt1.setText(files[0].getParentFile().toString());
+
+			File tmp=new File(files[0].getParentFile().toString());
+			File[] check_files=tmp.listFiles();
+			if(files.length!=check_files.length) {
+				JOptionPane.showMessageDialog(null, "Please Enter All The Texts in the folder.\nThis preprocessing work with all the 387 files", "Select all files", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+		}
 
 		int files_size=files.length;
 		if(files_size==0){
@@ -213,7 +222,7 @@ public class Tab1 extends JPanel{
 			tab1_proc_btn1.setEnabled(true);
 		}		
 	}
-	
+
 
 	public JTextField getTextsDir_txt1() {
 		return textsDir_txt1;

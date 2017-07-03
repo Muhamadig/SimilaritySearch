@@ -127,7 +127,7 @@ public class MainApp extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 			}
 		});
-		tabbedPane.setBounds(0, 46, 1000, 450);
+		tabbedPane.setBounds(0, 46, 1000, 480);
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 		tabbedPane.setFont(new Font("Microsoft New Tai Lue", Font.PLAIN, 18));
 		tabbedPane.setBorder(null);
@@ -174,11 +174,11 @@ public class MainApp extends JFrame {
 				prev();
 			}
 		});
-		prev_btn.setBounds(694, 516, 140, 23);
+		prev_btn.setBounds(694, 537, 140, 23);
 		getContentPane().add(prev_btn);
 		prev_btn.setVisible(false);
 		next_btn = new JButton("Start Pre-Processing");
-		next_btn.setBounds(844, 516, 140, 23);
+		next_btn.setBounds(844, 537, 140, 23);
 		getContentPane().add(next_btn);
 		next_btn.setEnabled(false);
 		next_btn.addActionListener(new ActionListener() {
@@ -187,7 +187,7 @@ public class MainApp extends JFrame {
 			}
 		});
 
-		setBounds(0, 0, 1000, 600);
+		setBounds(0, 0, 1000, 615);
 		this.setLocationRelativeTo(null);
 		tabbedPane.setEnabledAt(1, false);
 		tabbedPane.setEnabledAt(2, false);
@@ -201,6 +201,12 @@ public class MainApp extends JFrame {
 		switch(tabbedPane.getSelectedIndex()){
 		case 0:
 
+			if(!wN_Client.isConnected() || !client.isConnected()){
+				JOptionPane.showMessageDialog(null, "One or more servers is offline.\n "
+						+ "Please check connection of WordNet server or application server and then start the application \n The application will be closed after press ok.", "Server offline", JOptionPane.ERROR_MESSAGE);
+				this.dispose();
+				return;
+			}
 			tabbedPane.setSelectedIndex(1);
 			next_btn.setEnabled(tab1.isStatus());
 			next_btn.setText("Next");

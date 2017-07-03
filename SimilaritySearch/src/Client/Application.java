@@ -2,7 +2,7 @@ package Client;
 
 import java.io.IOException;
 
-import UI.Search;
+import UI.*;
 
 public class Application {
 
@@ -10,7 +10,7 @@ public class Application {
 	public static Client client = null;
 
 	
-	public static void connect() {
+	public static void connect() throws IOException {
 		WNSConfig cfg = WNSConfig.getConfig();
 		if (WN_Client != null) {
 			WN_Client.close();
@@ -29,7 +29,8 @@ public class Application {
 	}
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		connect();
-		Search.run(WN_Client,client);
+		WNSConfig wnConfig = WNSConfig.getConfig();
+		ServerConfig serverConfig = ServerConfig.getConfig();
+		new Configure(wnConfig,serverConfig).setVisible(true);
 	}
 }

@@ -1,6 +1,7 @@
 package view.ui.preProcessing;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -38,7 +39,7 @@ public class Tab0 extends JPanel{
 	public Tab0() {
 
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(700, 500));
+		setPreferredSize(new Dimension(700, 480));
 		
 		JLabel lblNewLabel = new JLabel("Welcome To Similarity Search Pre-Processing System");
 		lblNewLabel.setFont(new Font("Microsoft New Tai Lue", Font.BOLD, 18));
@@ -116,8 +117,10 @@ public class Tab0 extends JPanel{
 	
 	Proccessing proc=new Proccessing();
 	protected void selectDirectory() {
+
 		String dir= Browse.selectDirectory(Tab0.this);
-		
+		setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
 		if(dir==null || dir.equals("")){
 			main_dir_text.setText("");
 			workSpace="";
@@ -132,6 +135,8 @@ public class Tab0 extends JPanel{
 			workspace_f.mkdirs();
 			proc.uploadClusters(workSpace+File.separator+"clustering");
 		}
+		setCursor(null);
+
 	}
 }
 
