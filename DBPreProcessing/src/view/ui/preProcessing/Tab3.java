@@ -46,7 +46,7 @@ public class Tab3 extends JPanel{
 	private JTable table;
 	private JButton btnClustering;
 	private JLabel lblNewLabel;
-	private JLabel label;
+	private JLabel lblEstimatedTimeupTo;
 	private Proccessing proc;
 	public Tab3() {
 		setBackground(Color.WHITE);
@@ -131,7 +131,7 @@ public class Tab3 extends JPanel{
 				setCursor(null);
 
 				JOptionPane.showMessageDialog(null, "Pre-Processing finish, Please Update the database by click the button bellow", "Update Database!", JOptionPane.INFORMATION_MESSAGE);
-
+				MainApp.estimated.setVisible(true);
 
 			}
 		});
@@ -157,12 +157,12 @@ public class Tab3 extends JPanel{
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBackground(Color.WHITE);
 
-		label = new JLabel("Estimated Time:Up to 1 minutes");
-		label.setBounds(418, 18, 183, 14);
-		clustering.add(label);
+		lblEstimatedTimeupTo = new JLabel("Estimated Time:Up to 1:30 minutes");
+		lblEstimatedTimeupTo.setBounds(418, 18, 232, 14);
+		clustering.add(lblEstimatedTimeupTo);
 
-		lblNewLabel = new JLabel("Estimated Time:Up to 1 minutes");
-		lblNewLabel.setBounds(484, 38, 183, 14);
+		lblNewLabel = new JLabel("Estimated Time:Up to 2 minutes");
+		lblNewLabel.setBounds(240, 59, 223, 14);
 		add(lblNewLabel);
 		table.getColumnModel().getColumn(0).setPreferredWidth(50);
 		table.getColumnModel().getColumn(1).setPreferredWidth(100);

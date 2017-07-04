@@ -40,6 +40,7 @@ public class MainApp extends JFrame {
 	private static Tab0 tab0;
 	private JTabbedPane tabbedPane;
 	private Tab1 tab1;
+	public static JLabel estimated;
 	private static Tab3 tab3;
 	private static Tab2 tab2;
 	private static JButton prev_btn;
@@ -186,6 +187,11 @@ public class MainApp extends JFrame {
 		tabbedPane.setEnabledAt(1, false);
 		tabbedPane.setEnabledAt(2, false);
 		tabbedPane.setEnabledAt(3, false);
+		
+		 estimated = new JLabel("Updating Databse Estimated Time: Up to 3 minutes");
+		estimated.setBounds(348, 541, 336, 14);
+		getContentPane().add(estimated);
+		estimated.setVisible(false);
 
 
 	}
@@ -226,6 +232,7 @@ public class MainApp extends JFrame {
 			tabbedPane.setSelectedIndex(3);
 			next_btn.setEnabled(Tab3.isDone());
 			next_btn.setText("Update Database");
+			estimated.setVisible(Tab3.isDone());
 			tabbedPane.setEnabledAt(0, false);
 			tabbedPane.setEnabledAt(1, false);
 			tabbedPane.setEnabledAt(2, false);
@@ -287,7 +294,7 @@ public class MainApp extends JFrame {
 			tabbedPane.setEnabledAt(1, false);
 			tabbedPane.setEnabledAt(2, true);
 			tabbedPane.setEnabledAt(3, false);
-
+			estimated.setVisible(false);
 			break;
 		}
 

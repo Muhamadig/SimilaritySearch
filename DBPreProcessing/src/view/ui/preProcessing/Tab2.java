@@ -60,7 +60,6 @@ public class Tab2 extends JPanel {
 	private JTextField res6;
 	private JTextField res7;
 	private boolean done=false;
-	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 
 	public boolean isDone() {
@@ -231,12 +230,8 @@ public class Tab2 extends JPanel {
 		);
 		panel.setLayout(gl_panel);
 		
-		lblNewLabel_1 = new JLabel("Estimated Time: Up to 1 minutes");
-		lblNewLabel_1.setBounds(304, 153, 222, 14);
-		add(lblNewLabel_1);
-		
-		lblNewLabel_2 = new JLabel("Estimated Time:Up to 1 minutes");
-		lblNewLabel_2.setBounds(497, 227, 198, 14);
+		lblNewLabel_2 = new JLabel("Estimated Time:Up to 1:30 minutes");
+		lblNewLabel_2.setBounds(411, 176, 284, 14);
 		add(lblNewLabel_2);
 
 		panel.setVisible(false);
