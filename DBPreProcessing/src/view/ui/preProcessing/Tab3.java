@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -46,11 +47,14 @@ public class Tab3 extends JPanel{
 	private JButton btnClustering;
 	private JLabel lblNewLabel;
 	private JLabel label;
+	private Proccessing proc;
 	public Tab3() {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		setPreferredSize(new Dimension(700, 480));
 
+
+		proc=new Proccessing();
 		prepareClustering_btn3 = new JButton("Prepare Clustering");
 		prepareClustering_btn3.setBackground(SystemColor.inactiveCaption);
 		//prepareClustering_btn3.setBorder(null);
@@ -74,22 +78,44 @@ public class Tab3 extends JPanel{
 
 				String clusters_path=MainApp.getWS()+File.separator+"clustering";
 
-				//(exported files directory,expanded files directory)
-				km = new KMeans(MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs",
-						MainApp.getWS()+File.separator+"DB FV Files",clusters_path);
-				km.init();
-				km.Clustering();
-				List<Cluster> clusters=km.getclusters();
-				int count=1;
+				File clusters_file=new File(clusters_path+File.separator+"Clusters.xml");
 				DefaultTableModel dm = (DefaultTableModel) table.getModel();
 
+				if(!clusters_file.exists()){
+					//(exported files directory,expanded files directory)
+					km = new KMeans(MainApp.getWS()+File.separator+"Frequency Vectors"+File.separator+"final FVs",
+							MainApp.getWS()+File.separator+"DB FV Files",clusters_path);
 
 
-				for(int i=0;i<clusters.size();i++){
-					List<Point> cpoints = clusters.get(i).getPoints();
-					for(Point p: cpoints){
-						dm.addRow(new Object[]{count,clusters.get(i).getId(),p.getName().replace(".html.xml", "")});
-						count++;
+
+					km.init();
+					km.Clustering();
+
+					List<Cluster> clusters=km.getclusters();
+					int count=1;
+
+
+
+					for(int i=0;i<clusters.size();i++){
+						List<Point> cpoints = clusters.get(i).getPoints();
+						for(Point p: cpoints){
+							dm.addRow(new Object[]{count,clusters.get(i).getId(),p.getName().replace(".html.xml", "")});
+							count++;
+						}
+					}
+				}
+
+				else{
+					TreeMap<Integer, ArrayList<String>> clusters = proc.getClustersFile(clusters_path+File.separator+"Clusters.xml");
+					int count=0;
+					ArrayList<String> c_texts;
+					for(Integer key:clusters.keySet()){
+
+						c_texts=clusters.get(key);
+						for(String text:c_texts){
+							count++;
+							dm.addRow(new Object[]{count,key,text.replace(".html.xml", "")});
+						}
 					}
 				}
 				create_Clusters_CW_global();
@@ -103,7 +129,7 @@ public class Tab3 extends JPanel{
 						JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 					}
 				setCursor(null);
-				
+
 				JOptionPane.showMessageDialog(null, "Pre-Processing finish, Please Update the database by click the button bellow", "Update Database!", JOptionPane.INFORMATION_MESSAGE);
 
 
@@ -130,11 +156,11 @@ public class Tab3 extends JPanel{
 		scrollPane.setViewportView(table);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBackground(Color.WHITE);
-		
+
 		label = new JLabel("Estimated Time:Up to 1 minutes");
 		label.setBounds(418, 18, 183, 14);
 		clustering.add(label);
-		
+
 		lblNewLabel = new JLabel("Estimated Time:Up to 1 minutes");
 		lblNewLabel.setBounds(484, 38, 183, 14);
 		add(lblNewLabel);

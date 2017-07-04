@@ -111,7 +111,7 @@ public class Tab2 extends JPanel {
 		threshold_word_txt.setText(default_threshold);
 
 		panel = new JPanel();
-		panel.setBounds(10, 235, 477, 192);
+		panel.setBounds(10, 235, 477, 217);
 		add(panel);
 
 		lblNewLabel = new JLabel("Threshold Word:");
