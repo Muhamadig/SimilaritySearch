@@ -52,7 +52,6 @@ public class Search extends JFrame{
 	private JScrollPane scrollPane;
 	private JButton search_btn;
 	private JButton view_btn;
-	private JLabel searching;
 	private Client wN_Client;
 	private Client client;
 
@@ -185,49 +184,47 @@ public class Search extends JFrame{
 		search_btn.setEnabled(false);
 		search_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				searching.setVisible(true);
 				clearTable();
 				search();
 			}
 		});
-
-		searching = new JLabel("Searching, Please Wait...");
-		searching.setVisible(false);
+		
+		JLabel lblNewLabel_1 = new JLabel("Estimated Time: Up to 1:30 minutes");
 
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-				gl_panel.createParallelGroup(Alignment.TRAILING)
+			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup()
-										.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, 397, GroupLayout.PREFERRED_SIZE)
-										.addGap(18)
-										.addComponent(browse_btn))
-								.addComponent(lblNewLabel))
-						.addContainerGap(112, Short.MAX_VALUE))
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, 397, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(browse_btn))
+						.addComponent(lblNewLabel))
+					.addContainerGap(112, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
-						.addContainerGap(254, Short.MAX_VALUE)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(searching, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
-								.addComponent(search_btn))
-						.addGap(217))
-				);
+					.addContainerGap(254, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_1)
+						.addComponent(search_btn))
+					.addGap(241))
+		);
 		gl_panel.setVerticalGroup(
-				gl_panel.createParallelGroup(Alignment.LEADING)
+			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(lblNewLabel)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(browse_btn))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(search_btn)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(searching)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				);
+					.addContainerGap()
+					.addComponent(lblNewLabel)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textName_text, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(browse_btn))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(search_btn)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 		panel.setLayout(gl_panel);
 		getContentPane().setLayout(groupLayout);
 		isVisible(false);
@@ -294,7 +291,6 @@ public class Search extends JFrame{
 		else{
 			JOptionPane.showMessageDialog(null, "No Results Was Found!");
 			setCursor(null);
-			searching.setVisible(false);
 			return;
 		}
 
@@ -314,7 +310,6 @@ public class Search extends JFrame{
 			}
 			dm.addRow(new Object[] {(res.getText_name().substring(0, res.getText_name().indexOf(".html")))});
 		}
-		searching.setVisible(false);
 		setCursor(null);
 
 	}
