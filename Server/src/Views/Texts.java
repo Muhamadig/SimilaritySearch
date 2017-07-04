@@ -34,6 +34,7 @@ public class Texts extends View {
 				r.addParam("clusterID", key);
 				r.addParam("fv", finalFV);
 	 */
+	@SuppressWarnings("null")
 	public Object create(Request request){
 		DBText text=(DBText) request.getParam("text");
 		int clusterID=(int) request.getParam("clusterID");
