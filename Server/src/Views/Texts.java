@@ -34,6 +34,7 @@ public class Texts extends View {
 				r.addParam("clusterID", key);
 				r.addParam("fv", finalFV);
 	 */
+	@SuppressWarnings("null")
 	public Object create(Request request){
 		DBText text=(DBText) request.getParam("text");
 		int clusterID=(int) request.getParam("clusterID");
@@ -56,14 +57,12 @@ public class Texts extends View {
 			f.write(finalFV);
 			f.close();
 			
-			 writer=new PrintWriter("update.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			if(q.where().idEq(text.getName()).countOf()>0) {
-				writer.append(text.getName());
 				return db.texts.update(text);
 			}
 			return db.texts.create(text);
@@ -72,7 +71,6 @@ public class Texts extends View {
 			writer.append(e.getMessage());
 			e.printStackTrace();
 		}
-		writer.close();
 		return 0;
 		
 	}

@@ -25,9 +25,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 
 
 public class MainApp extends JFrame {
@@ -188,7 +185,7 @@ public class MainApp extends JFrame {
 		tabbedPane.setEnabledAt(2, false);
 		tabbedPane.setEnabledAt(3, false);
 		
-		 estimated = new JLabel("Updating Databse Estimated Time: Up to 3 minutes");
+		 estimated = new JLabel("Updating Databse Estimated Time: Up to 2 minutes");
 		estimated.setBounds(348, 541, 336, 14);
 		getContentPane().add(estimated);
 		estimated.setVisible(false);
